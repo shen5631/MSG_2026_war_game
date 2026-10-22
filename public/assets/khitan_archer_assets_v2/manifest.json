@@ -1,0 +1,431 @@
+{
+  "name": "khitan_archer_round1",
+  "version": "2.0-cleaned",
+  "character_frame_size": {
+    "w": 128,
+    "h": 128
+  },
+  "projectile_frame_size": {
+    "w": 64,
+    "h": 32
+  },
+  "baseline_y": 122,
+  "origin": {
+    "x": 0.5,
+    "y": 0.953125
+  },
+  "animations": {
+    "idle": {
+      "frames": [
+        "khitan_archer_idle_01.png",
+        "khitan_archer_idle_02.png",
+        "khitan_archer_idle_03.png",
+        "khitan_archer_idle_04.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "strip_image": "atlas/khitan_archer_idle_strip.png",
+      "strip_json": "atlas/khitan_archer_idle_strip.json"
+    },
+    "walk": {
+      "frames": [
+        "khitan_archer_walk_01.png",
+        "khitan_archer_walk_02.png",
+        "khitan_archer_walk_03.png",
+        "khitan_archer_walk_04.png",
+        "khitan_archer_walk_05.png",
+        "khitan_archer_walk_06.png"
+      ],
+      "fps": 8,
+      "loop": true,
+      "strip_image": "atlas/khitan_archer_walk_strip.png",
+      "strip_json": "atlas/khitan_archer_walk_strip.json"
+    },
+    "attack": {
+      "frames": [
+        "khitan_archer_attack_01.png",
+        "khitan_archer_attack_02.png",
+        "khitan_archer_attack_03.png",
+        "khitan_archer_attack_04.png",
+        "khitan_archer_attack_05.png",
+        "khitan_archer_attack_06.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "atlas/khitan_archer_attack_strip.png",
+      "strip_json": "atlas/khitan_archer_attack_strip.json"
+    },
+    "hurt": {
+      "frames": [
+        "khitan_archer_hurt_01.png",
+        "khitan_archer_hurt_02.png",
+        "khitan_archer_hurt_03.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "atlas/khitan_archer_hurt_strip.png",
+      "strip_json": "atlas/khitan_archer_hurt_strip.json"
+    },
+    "death": {
+      "frames": [
+        "khitan_archer_death_01.png",
+        "khitan_archer_death_02.png",
+        "khitan_archer_death_03.png",
+        "khitan_archer_death_04.png",
+        "khitan_archer_death_05.png",
+        "khitan_archer_death_06.png"
+      ],
+      "fps": 8,
+      "loop": false,
+      "strip_image": "atlas/khitan_archer_death_strip.png",
+      "strip_json": "atlas/khitan_archer_death_strip.json"
+    }
+  },
+  "projectiles": {
+    "arrow": {
+      "frames": [
+        "khitan_archer_arrow_01.png",
+        "khitan_archer_arrow_02.png"
+      ],
+      "default_frame": "khitan_archer_arrow_01.png",
+      "animate": false,
+      "variants": true,
+      "strip_image": "atlas/khitan_archer_arrow_strip.png",
+      "strip_json": "atlas/khitan_archer_arrow_strip.json"
+    }
+  },
+  "frames": {
+    "khitan_archer_idle_01.png": {
+      "kind": "character",
+      "action": "idle",
+      "index": 1,
+      "path": "frames/idle/khitan_archer_idle_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_idle_02.png": {
+      "kind": "character",
+      "action": "idle",
+      "index": 2,
+      "path": "frames/idle/khitan_archer_idle_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_idle_03.png": {
+      "kind": "character",
+      "action": "idle",
+      "index": 3,
+      "path": "frames/idle/khitan_archer_idle_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_idle_04.png": {
+      "kind": "character",
+      "action": "idle",
+      "index": 4,
+      "path": "frames/idle/khitan_archer_idle_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_01.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 1,
+      "path": "frames/walk/khitan_archer_walk_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_02.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 2,
+      "path": "frames/walk/khitan_archer_walk_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_03.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 3,
+      "path": "frames/walk/khitan_archer_walk_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_04.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 4,
+      "path": "frames/walk/khitan_archer_walk_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_05.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 5,
+      "path": "frames/walk/khitan_archer_walk_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_walk_06.png": {
+      "kind": "character",
+      "action": "walk",
+      "index": 6,
+      "path": "frames/walk/khitan_archer_walk_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_01.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 1,
+      "path": "frames/attack/khitan_archer_attack_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_02.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 2,
+      "path": "frames/attack/khitan_archer_attack_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_03.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 3,
+      "path": "frames/attack/khitan_archer_attack_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_04.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 4,
+      "path": "frames/attack/khitan_archer_attack_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_05.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 5,
+      "path": "frames/attack/khitan_archer_attack_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_attack_06.png": {
+      "kind": "character",
+      "action": "attack",
+      "index": 6,
+      "path": "frames/attack/khitan_archer_attack_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_hurt_01.png": {
+      "kind": "character",
+      "action": "hurt",
+      "index": 1,
+      "path": "frames/hurt/khitan_archer_hurt_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_hurt_02.png": {
+      "kind": "character",
+      "action": "hurt",
+      "index": 2,
+      "path": "frames/hurt/khitan_archer_hurt_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_hurt_03.png": {
+      "kind": "character",
+      "action": "hurt",
+      "index": 3,
+      "path": "frames/hurt/khitan_archer_hurt_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_01.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 1,
+      "path": "frames/death/khitan_archer_death_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_02.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 2,
+      "path": "frames/death/khitan_archer_death_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_03.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 3,
+      "path": "frames/death/khitan_archer_death_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_04.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 4,
+      "path": "frames/death/khitan_archer_death_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_05.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 5,
+      "path": "frames/death/khitan_archer_death_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_death_06.png": {
+      "kind": "character",
+      "action": "death",
+      "index": 6,
+      "path": "frames/death/khitan_archer_death_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_archer_arrow_01.png": {
+      "kind": "projectile",
+      "action": "arrow",
+      "index": 1,
+      "path": "projectiles/arrow/khitan_archer_arrow_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 32
+      }
+    },
+    "khitan_archer_arrow_02.png": {
+      "kind": "projectile",
+      "action": "arrow",
+      "index": 2,
+      "path": "projectiles/arrow/khitan_archer_arrow_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 64,
+        "h": 32
+      }
+    }
+  },
+  "character_count": 25,
+  "projectile_count": 2,
+  "notes": [
+    "Re-extracted death frames from source; no uniform row split.",
+    "Animation frame rates are preview defaults; preserve existing gameplay timing.",
+    "Flying arrow excluded from attack_06: spawn separate projectile once per attack.",
+    "No game-engine integration test has been performed."
+  ]
+}

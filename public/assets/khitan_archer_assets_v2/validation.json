@@ -1,0 +1,390 @@
+{
+  "passed": true,
+  "file_count": 27,
+  "checks": [
+    "expected dimensions",
+    "transparent margin >=2px",
+    "25 full-atlas frames match individual PNGs"
+  ],
+  "runtime_tested": false,
+  "files": [
+    {
+      "file": "khitan_archer_idle_01.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        40,
+        32,
+        95,
+        122
+      ],
+      "sha256": "53c874f1ffc3812a26088db89d748fbd6547726c6d9ff65ba703bced24696111"
+    },
+    {
+      "file": "khitan_archer_idle_02.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        40,
+        32,
+        95,
+        122
+      ],
+      "sha256": "400132379d0da6ad2ce99620b03bd4bb0a361453190dbfc3aa4ed9bb4e67e9eb"
+    },
+    {
+      "file": "khitan_archer_idle_03.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        40,
+        34,
+        95,
+        122
+      ],
+      "sha256": "e4a00511ce5a5319490e511d3a36d1bc90a49f8b67fa586aa0a24a2b889f7a61"
+    },
+    {
+      "file": "khitan_archer_idle_04.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        40,
+        32,
+        96,
+        122
+      ],
+      "sha256": "d9cc812866f5712d544a0e4434e5d49e2ef4c2bb7559955d896f468c3a8041c2"
+    },
+    {
+      "file": "khitan_archer_walk_01.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        37,
+        34,
+        96,
+        122
+      ],
+      "sha256": "61843dc5a9ef4862fd39cf3ba30e60e3460758db34425525f0d6b6c4ec78b9e1"
+    },
+    {
+      "file": "khitan_archer_walk_02.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        34,
+        94,
+        122
+      ],
+      "sha256": "8bf081d8d983fc161f7a872a8a2a1a95ac389f78653b55218984d801f7f8344f"
+    },
+    {
+      "file": "khitan_archer_walk_03.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        34,
+        97,
+        122
+      ],
+      "sha256": "6b945e53521d88cf895e1809d8426100b0d52f51942c5e7d30de190ab559820d"
+    },
+    {
+      "file": "khitan_archer_walk_04.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        32,
+        97,
+        122
+      ],
+      "sha256": "3c7d22a597c8fd6326fc4c754bbed07fc0c1fb812d00973a0ead50b2626a168f"
+    },
+    {
+      "file": "khitan_archer_walk_05.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        32,
+        96,
+        122
+      ],
+      "sha256": "74f2638528e29e620ba66c0ed370488817a921669e26d8be04dc80aa380c1475"
+    },
+    {
+      "file": "khitan_archer_walk_06.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        38,
+        32,
+        100,
+        122
+      ],
+      "sha256": "f034b4fcd1ac5530a652239c1479a16943cd4839ebbfd4639cf2c27b31e59b16"
+    },
+    {
+      "file": "khitan_archer_attack_01.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        37,
+        34,
+        95,
+        122
+      ],
+      "sha256": "923544e6a0d0fa8e9c75b6c1d87a65d626cee48bb836d5a918fa18d1a1acfb21"
+    },
+    {
+      "file": "khitan_archer_attack_02.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        32,
+        34,
+        92,
+        122
+      ],
+      "sha256": "70ccf5fdfdaed2cee2d5bcf675e88f0cdc6faec3edd3c9fde0c0d9ed68bb128d"
+    },
+    {
+      "file": "khitan_archer_attack_03.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        33,
+        99,
+        122
+      ],
+      "sha256": "7491a53c627c1d2633b4cb4c5800f5754febfda18e89ee98fa0dc918a1d54ea0"
+    },
+    {
+      "file": "khitan_archer_attack_04.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        34,
+        33,
+        102,
+        122
+      ],
+      "sha256": "96ef14bc2395c1e3e1a34ad4384a38c5a67eb896da8f905b83e6d7470dc5d206"
+    },
+    {
+      "file": "khitan_archer_attack_05.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        31,
+        33,
+        102,
+        122
+      ],
+      "sha256": "6af6e94b1a52f4a202fffa8244f5c447f912000bb7155a669ad82354fdd6c148"
+    },
+    {
+      "file": "khitan_archer_attack_06.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        31,
+        34,
+        97,
+        122
+      ],
+      "sha256": "81d08ab13b5d9b21ff0b10c69a51ca6961ce171d792fdbe1b19bf0bf3fd39ce3"
+    },
+    {
+      "file": "khitan_archer_hurt_01.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        18,
+        33,
+        97,
+        122
+      ],
+      "sha256": "f5f2e855f40944aae20e9649ac1293c8be1c857ef3c370daf0e8f80074db337e"
+    },
+    {
+      "file": "khitan_archer_hurt_02.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        26,
+        32,
+        99,
+        122
+      ],
+      "sha256": "d13d9f6ce6d29f1e4ff4d0121f67dc261543a2a02b78df722e735b8307bd6cdf"
+    },
+    {
+      "file": "khitan_archer_hurt_03.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        31,
+        44,
+        103,
+        122
+      ],
+      "sha256": "8ec48b9b9d534d597479a6e774df661cb27c7e1b3c8a528e6f317c94b3874bb1"
+    },
+    {
+      "file": "khitan_archer_death_01.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        27,
+        34,
+        99,
+        122
+      ],
+      "sha256": "08d7eb9f16da2ffcd1ec9e22d2444e03f6ba284a31a359044a130de91c26d80f"
+    },
+    {
+      "file": "khitan_archer_death_02.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        35,
+        34,
+        104,
+        122
+      ],
+      "sha256": "74e4f95471b2e412a64f486d0bb2a23d97b72fdf3f78071488ab9cfca8eaacaf"
+    },
+    {
+      "file": "khitan_archer_death_03.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        36,
+        54,
+        110,
+        122
+      ],
+      "sha256": "ed19cd0945dd9d71f8d4db1b7cf8b04adbda25605b581703c573ce039270a479"
+    },
+    {
+      "file": "khitan_archer_death_04.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        26,
+        75,
+        103,
+        122
+      ],
+      "sha256": "81e9c4b57572cb3a000388eb7cee9dae626529697a6f0766560de27b5c3c28b7"
+    },
+    {
+      "file": "khitan_archer_death_05.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        18,
+        88,
+        111,
+        122
+      ],
+      "sha256": "25a0c29af26310a5fe82f7991b705c3f33c2cebbbedd4444dff1e4a73f126566"
+    },
+    {
+      "file": "khitan_archer_death_06.png",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_bbox": [
+        18,
+        92,
+        119,
+        122
+      ],
+      "sha256": "cd6a6608f27fd01843d00932978fa9f56ff8f7b1949871cd5da565c4c039b293"
+    },
+    {
+      "file": "khitan_archer_arrow_01.png",
+      "size": [
+        64,
+        32
+      ],
+      "alpha_bbox": [
+        4,
+        10,
+        60,
+        21
+      ],
+      "sha256": "1de960fb0dac621c8405bc3c251d6430a87cb9fdf004e82911c41f3d1a1952ec"
+    },
+    {
+      "file": "khitan_archer_arrow_02.png",
+      "size": [
+        64,
+        32
+      ],
+      "alpha_bbox": [
+        4,
+        11,
+        60,
+        20
+      ],
+      "sha256": "dfe8a734d5b47f2f7302a7fd99a011c92b9485ee278e59dfddde39f4217100a2"
+    }
+  ]
+}
