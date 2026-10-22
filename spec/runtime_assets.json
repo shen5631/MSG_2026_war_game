@@ -43,6 +43,13 @@
     },
     {
       "type": "atlas",
+      "key": "goryeo-shield-skill-v1",
+      "texture": "assets/goryeo_shield_skill_v1/atlas/goryeo_shield_atlas.png",
+      "atlas": "assets/goryeo_shield_skill_v1/atlas/goryeo_shield_atlas.json",
+      "note": "방패병 막기 지휘 스킬의 고려군 지원병 연출(아군, 적 아님): summon/guard/despawn 각 4프레임, 128x128, 원점 (0.5,114/128)"
+    },
+    {
+      "type": "atlas",
       "key": "round1_env",
       "texture": "assets/round1_environment/round1_environment.png",
       "atlas": "assets/round1_environment/round1_environment.json",
@@ -99,7 +106,7 @@
   "missingProductionAssets": [
     "enemy-types: spearman, shieldman, cavalry",
     "bosses: spear_captain, so_bae_ap (선봉대장은 V2 사용)",
-    "two-ally-types",
+    "ally: spear support (방패병은 goryeo_shield_skill_v1 사용)",
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
     "story-art",

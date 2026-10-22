@@ -7,6 +7,7 @@ import { generateBackgrounds, generateCharacterTextures, generatePropTextures } 
 import { ENV_KEY, INFANTRY_KEY, REQUIRED_ENV_FRAMES, REQUIRED_INFANTRY_FRAMES, buildGroundStrip } from '../visual/environment';
 import { ARCHER_KEY, REQUIRED_ARCHER_FRAMES } from '../visual/archer';
 import { REQUIRED_VANGUARD_FRAMES, VANGUARD_KEY } from '../visual/vanguard';
+import { REQUIRED_FRAME_KEYS as REQUIRED_SHIELD_FRAMES, SHIELD_TEXTURE_KEY } from '../skills/shield/presentation';
 
 export const assetUrl = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
 
@@ -73,7 +74,7 @@ export class BootScene extends Phaser.Scene {
     for (const a of RUNTIME_ASSETS.assets) {
       if (!this.textures.exists(a.key)) missing.push(a.texture);
     }
-    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
     for (const [key, frames] of need) {
       if (!this.textures.exists(key)) continue;
       const tex = this.textures.get(key);

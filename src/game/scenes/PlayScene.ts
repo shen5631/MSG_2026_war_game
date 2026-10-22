@@ -13,6 +13,8 @@ import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infant
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { drawChargeGauge } from '../visual/chargeGauge';
+import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
+import { shieldSnapshotOf } from '../visual/shieldAllies';
 
 /** Round-1 illustration: crop above its own road (y<700) and scale so that line meets the game ground. */
 const BG_CROP_H = 700;
@@ -49,8 +51,8 @@ export class PlayScene extends Phaser.Scene {
   private chargeAura!: Phaser.GameObjects.Sprite;
   private chargeGauge!: Phaser.GameObjects.Graphics;
   private healTexts: { text: Phaser.GameObjects.Text; start: number; active: boolean }[] = [];
-  private shieldRing!: Phaser.GameObjects.Ellipse;
-  private shieldAllies: Phaser.GameObjects.Sprite[] = [];
+  /** 방패병 막기 soldiers (goryeo_shield_skill_v1): a view of the player's shield, never an actor. */
+  private shieldView!: PhaserShieldView;
   private walls!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
   private exitArrow!: Phaser.GameObjects.Image;
@@ -86,14 +88,11 @@ export class PlayScene extends Phaser.Scene {
     this.exitArrow = this.add.image(0, 0, 'generated_ui_markers', 'exit').setDepth(45).setVisible(false);
     this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
     this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(5);
-    this.shieldRing = this.add.ellipse(0, 0, 70, 96, 0x6fa8ff, 0.18).setStrokeStyle(2, 0x9cc4ff, 0.8).setDepth(19).setVisible(false);
     this.buffAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_skill_02').setOrigin(0.5, 0.89).setDepth(9).setAlpha(0.6).setVisible(false);
     this.chargeAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_charge_fx_01').setOrigin(0.5, 0.89).setDepth(21).setVisible(false);
     this.chargeGauge = this.add.graphics().setDepth(26).setVisible(false);
     this.player = this.add.sprite(200, 304, ATLAS_KEY, 'ganggamchan_idle_01').setOrigin(PLAYER_ORIGIN[0], PLAYER_ORIGIN[1]).setDepth(20);
-    for (let i = 0; i < 2; i++) {
-      this.shieldAllies.push(this.add.sprite(0, 0, 'generated_ally_shield', 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(18 + i * 4).setVisible(false));
-    }
+    this.shieldView = new PhaserShieldView(this);
     if (import.meta.env.DEV) {
       window.__GGC_SCENE__ = this;
       if (new URLSearchParams(window.location.search).has('debug')) this.debugGfx = this.add.graphics().setDepth(100);
@@ -111,6 +110,7 @@ export class PlayScene extends Phaser.Scene {
     if (import.meta.env.DEV && window.__GGC_SCENE__ === this) window.__GGC_SCENE__ = undefined;
     for (const u of this.unsubs) u();
     this.unsubs = [];
+    this.shieldView?.dispose();
   }
 
   update(): void {
@@ -247,6 +247,7 @@ export class PlayScene extends Phaser.Scene {
     this.decor = [];
     for (const f of this.fx) { f.active = false; f.sprite.setVisible(false); }
     for (const h of this.healTexts) { h.active = false; h.text.setVisible(false); }
+    this.shieldView.clear();
   }
 
   private rebuildWorld(r: RoundSim): void {
@@ -286,7 +287,8 @@ export class PlayScene extends Phaser.Scene {
     p.setPosition(Math.round(this.camX + 110), 304).setFlipX(false).setAlpha(1).clearTint();
     p.setFrame(`ganggamchan_idle_0${1 + (Math.floor(t / 166) % 4)}`);
     this.shadow.setPosition(p.x, 305);
-    for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.shieldRing, this.exitArrow, this.bossGlow, ...this.shieldAllies]) o.setVisible(false);
+    for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.exitArrow, this.bossGlow]) o.setVisible(false);
+    this.shieldView.clear();
     this.walls.clear();
     this.debugGfx?.clear();
     for (const a of this.pools.arrows) a.setVisible(false);
@@ -318,12 +320,8 @@ export class PlayScene extends Phaser.Scene {
     if (charging && pl.chargeStage > 0) this.chargeAura.setFrame(FX_FRAMES.charge[Math.min(3, pl.chargeStage)]).setPosition(pl.body.x, pl.body.y);
     this.chargeGauge.setVisible(charging);
     if (charging) drawChargeGauge(this.chargeGauge, Math.round(pl.body.x), Math.round(pl.body.y), t - pl.chargeStart, r.presentationT);
-    const shieldOn = pl.shield.value > 0;
-    this.shieldRing.setVisible(shieldOn).setPosition(pl.body.x, pl.body.y - 38).setAlpha(0.3 + 0.7 * (pl.shield.value / 40));
-    this.shieldAllies.forEach((s, i) => {
-      s.setVisible(shieldOn);
-      if (shieldOn) s.setPosition(pl.body.x + (i === 0 ? 26 : -26), pl.body.y).setFlipX(i === 1).setAlpha(0.85);
-    });
+    // Feet = physics body bottom (body.y); hidden at once on break / death / round end.
+    this.shieldView.render(shieldSnapshotOf(pl, !r.outcome), { x: pl.body.x, footY: pl.body.y, depth: this.player.depth });
 
     // solids
     for (const s of r.solids) {

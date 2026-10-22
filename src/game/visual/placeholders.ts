@@ -18,7 +18,7 @@ const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 export const TEMPORARY_ASSETS = [
   'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
   'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
-  'generated_ally_spear', 'generated_ally_shield',
+  'generated_ally_spear',
   'generated_pickups', 'generated_ui_markers',
   'generated_bg_r2_*', 'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
@@ -179,7 +179,7 @@ export function generateCharacterTextures(scene: Phaser.Scene): void {
     );
   });
   makeSheet(scene, 'generated_ally_spear', FRAME.w, FRAME.h, (ctx, pose, ox) => drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ALLY_PAL, pose, 'spear'));
-  makeSheet(scene, 'generated_ally_shield', FRAME.w, FRAME.h, (ctx, pose, ox) => drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ALLY_PAL, pose, 'shield'));
+  // 방패병 막기 soldiers use the supplied goryeo_shield_skill_v1 atlas (game/skills/shield).
 }
 
 export function generatePropTextures(scene: Phaser.Scene): void {
