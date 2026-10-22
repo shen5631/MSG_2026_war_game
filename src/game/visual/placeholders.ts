@@ -16,11 +16,11 @@ const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_enemy_infantry', 'generated_enemy_archer', 'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
+  'generated_enemy_archer', 'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
   'generated_boss_vanguard', 'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
   'generated_ally_spear', 'generated_ally_shield',
-  'generated_props', 'generated_pickups', 'generated_ui_markers',
-  'generated_bg_r1_*', 'generated_bg_r2_*', 'generated_bg_r3_*', 'generated_ground_r1..r3',
+  'generated_pickups', 'generated_ui_markers',
+  'generated_bg_r2_*', 'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
 ] as const;
 
@@ -172,7 +172,8 @@ export const ENEMY_FRAME = FRAME;
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  (Object.keys(ENEMY_WEAPON) as EnemyKind[]).forEach((kind) => {
+  // Infantry uses the supplied khitan_infantry atlas; the other four kinds are still generated.
+  (Object.keys(ENEMY_WEAPON) as EnemyKind[]).filter((k) => k !== 'infantry').forEach((kind) => {
     makeSheet(scene, `generated_enemy_${kind}`, FRAME.w, FRAME.h, (ctx, pose, ox) => {
       if (kind === 'cavalry') drawCavalry(ctx, ox + FRAME.w / 2 - 8, FRAME.footY, ENEMY_PAL, pose);
       else drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ENEMY_PAL, pose, ENEMY_WEAPON[kind]);
@@ -189,33 +190,6 @@ export function generateCharacterTextures(scene: Phaser.Scene): void {
 }
 
 export function generatePropTextures(scene: Phaser.Scene): void {
-  if (!scene.textures.exists('generated_props')) {
-    const tex = scene.textures.createCanvas('generated_props', 256, 64)!;
-    const c = tex.getContext();
-    // crate 32x32 @0
-    c.fillStyle = '#3a2412'; c.fillRect(0, 0, 32, 32);
-    c.fillStyle = '#8a5a2b'; c.fillRect(2, 2, 28, 28);
-    c.fillStyle = '#5e3b1b'; c.fillRect(2, 14, 28, 4); c.fillRect(14, 2, 4, 28);
-    // step 96x40 @32
-    c.fillStyle = '#2f2b28'; c.fillRect(32, 0, 96, 40);
-    c.fillStyle = '#6e6a62'; c.fillRect(34, 2, 92, 36);
-    c.fillStyle = '#857f74'; for (let i = 0; i < 4; i++) c.fillRect(36 + i * 23, 4, 20, 14);
-    c.fillStyle = '#5a5650'; for (let i = 0; i < 4; i++) c.fillRect(46 + i * 23 - 12, 22, 20, 14);
-    c.fillStyle = '#4f8a3a'; c.fillRect(34, 2, 92, 3);
-    // rock 48x24 @128
-    c.fillStyle = '#1e2224'; c.fillRect(128, 4, 48, 20); c.fillRect(134, 0, 36, 6);
-    c.fillStyle = '#5c666b'; c.fillRect(130, 6, 44, 16); c.fillRect(136, 2, 32, 6);
-    c.fillStyle = '#7d888d'; c.fillRect(138, 4, 14, 6);
-    // barricade 28x48 @176
-    c.fillStyle = '#2a1a0c'; c.fillRect(176, 0, 28, 48);
-    c.fillStyle = '#7a5530'; for (let i = 0; i < 4; i++) c.fillRect(178 + i * 6, 2 + (i % 2) * 4, 5, 46 - (i % 2) * 4);
-    c.fillStyle = '#4e351c'; c.fillRect(178, 18, 24, 4); c.fillRect(178, 34, 24, 4);
-    tex.refresh();
-    tex.add('crate', 0, 0, 0, 32, 32);
-    tex.add('step', 0, 32, 0, 96, 40);
-    tex.add('rock', 0, 128, 0, 48, 24);
-    tex.add('barricade', 0, 176, 0, 28, 48);
-  }
   if (!scene.textures.exists('generated_pickups')) {
     const tex = scene.textures.createCanvas('generated_pickups', 64, 16)!;
     const c = tex.getContext();
@@ -257,15 +231,14 @@ export function generatePropTextures(scene: Phaser.Scene): void {
   }
 }
 
-const BG: Record<number, { skyTop: string; skyBottom: string; far: string; mid: string; near: string; ground: string; grass: string }> = {
-  1: { skyTop: '#6fa8d6', skyBottom: '#e9d8a6', far: '#5b7290', mid: '#2e2a33', near: '#4a3a28', ground: '#6b4f33', grass: '#5d8a3c' },
-  2: { skyTop: '#5f9fb0', skyBottom: '#cfe3d2', far: '#4f6e78', mid: '#2b4d63', near: '#3d5a2c', ground: '#5a5040', grass: '#4f7f3a' },
-  3: { skyTop: '#3b2a4a', skyBottom: '#e08a4a', far: '#4a3a52', mid: '#2a2230', near: '#3a2c20', ground: '#5a4430', grass: '#6a7a34' },
+const BG: Record<number, { skyTop: string; skyBottom: string; far: string; mid: string; near: string }> = {
+  2: { skyTop: '#5f9fb0', skyBottom: '#cfe3d2', far: '#4f6e78', mid: '#2b4d63', near: '#3d5a2c' },
+  3: { skyTop: '#3b2a4a', skyBottom: '#e08a4a', far: '#4a3a52', mid: '#2a2230', near: '#3a2c20' },
 };
 
-/** Parallax layers per round: sky (static), far, mid, near (tileable 640 wide). */
+/** Parallax layers for rounds 2/3 (round 1 uses the supplied fortress-village illustration). */
 export function generateBackgrounds(scene: Phaser.Scene): void {
-  for (const r of [1, 2, 3]) {
+  for (const r of [2, 3]) {
     const pal = BG[r];
     const sky = `generated_bg_r${r}_sky`;
     if (!scene.textures.exists(sky)) {
@@ -300,17 +273,7 @@ export function generateBackgrounds(scene: Phaser.Scene): void {
       const t = scene.textures.createCanvas(mid, 640, 360)!;
       const c = t.getContext();
       c.fillStyle = pal.mid;
-      if (r === 1) {
-        // hanok roofs + gate
-        for (let i = 0; i < 4; i++) {
-          const x = i * 160 + 10;
-          c.fillRect(x + 14, 236, 100, 60);
-          c.fillRect(x, 226, 128, 12);
-          c.fillRect(x - 6, 222, 12, 6);
-          c.fillRect(x + 122, 222, 12, 6);
-          c.fillStyle = '#c9b48a'; c.fillRect(x + 40, 250, 18, 22); c.fillRect(x + 70, 250, 18, 22); c.fillStyle = pal.mid;
-        }
-      } else if (r === 2) {
+      if (r === 2) {
         // river band + bridge piers
         c.fillStyle = '#3c7aa0'; c.fillRect(0, 262, 640, 30);
         c.fillStyle = '#7fb6d4'; for (let i = 0; i < 16; i++) c.fillRect(i * 40 + (i % 2) * 12, 270 + (i % 3) * 6, 18, 2);
@@ -336,20 +299,9 @@ export function generateBackgrounds(scene: Phaser.Scene): void {
       c.fillStyle = pal.near;
       for (let i = 0; i < 20; i++) {
         const x = i * 32;
-        if (r === 1) { c.fillRect(x + 4, 272, 4, 32); c.fillRect(x, 280, 32, 3); }
-        else if (r === 2) { c.fillRect(x + 6, 284 - (i % 3) * 4, 2, 20 + (i % 3) * 4); c.fillRect(x + 12, 288, 2, 16); }
+        if (r === 2) { c.fillRect(x + 6, 284 - (i % 3) * 4, 2, 20 + (i % 3) * 4); c.fillRect(x + 12, 288, 2, 16); }
         else { c.fillRect(x + 8, 292, 3, 12); c.fillRect(x + 14, 296, 2, 8); }
       }
-      t.refresh();
-    }
-    const ground = `generated_ground_r${r}`;
-    if (!scene.textures.exists(ground)) {
-      const t = scene.textures.createCanvas(ground, 64, 56)!;
-      const c = t.getContext();
-      c.fillStyle = pal.ground; c.fillRect(0, 0, 64, 56);
-      c.fillStyle = pal.grass; c.fillRect(0, 0, 64, 5);
-      c.fillStyle = 'rgba(0,0,0,0.18)';
-      for (let i = 0; i < 10; i++) c.fillRect((i * 23) % 60, 10 + ((i * 17) % 40), 4, 3);
       t.refresh();
     }
   }

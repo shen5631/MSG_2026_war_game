@@ -1,6 +1,6 @@
 // Owns the single render loop: polls input, advances the controller's fixed-step simulation, renders the state.
 import Phaser from 'phaser';
-import { VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
+import { ENEMY_PATTERNS, VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import type { Boss } from '../../domain/boss';
 import type { Enemy } from '../../domain/enemies';
@@ -9,6 +9,12 @@ import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
 import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
+import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
+
+/** Round-1 illustration: crop above its own road (y<700) and scale so that line meets the game ground. */
+const BG_CROP_H = 700;
+const BG_SCALE = 304 / BG_CROP_H;
+const BG_DISPLAY_W = Math.round(1672 * BG_SCALE);
 
 interface FxItem { sprite: Phaser.GameObjects.Sprite; frames: string[]; start: number; dur: number; active: boolean }
 
@@ -30,6 +36,8 @@ export class PlayScene extends Phaser.Scene {
   private mid!: Phaser.GameObjects.TileSprite;
   private near!: Phaser.GameObjects.TileSprite;
   private ground!: Phaser.GameObjects.TileSprite;
+  private bgRound1!: Phaser.GameObjects.Image;
+  private decor: Phaser.GameObjects.Image[] = [];
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Ellipse;
   private buffAura!: Phaser.GameObjects.Sprite;
@@ -59,11 +67,14 @@ export class PlayScene extends Phaser.Scene {
   private get services(): Services { return this.game.registry.get('services') as Services; }
 
   create(): void {
-    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
-    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
-    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
-    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
-    this.ground = this.add.tileSprite(0, 304, VIEW_W, 56, 'generated_ground_r1').setOrigin(0).setScrollFactor(0).setDepth(-10);
+    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
+    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
+    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
+    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
+    this.bgRound1 = this.add.image(0, 0, BG_ROUND1_KEY).setOrigin(0).setScrollFactor(0).setDepth(-45).setScale(BG_SCALE).setCrop(0, 0, 1672, BG_CROP_H);
+    const strip = this.textures.get(GROUND_STRIP_KEY).getSourceImage();
+    this.ground = this.add.tileSprite(0, GROUND_STRIP_TOP, VIEW_W, strip.height, GROUND_STRIP_KEY).setOrigin(0).setScrollFactor(0).setDepth(-10);
+    this.roundTheme = 0;
     this.walls = this.add.graphics().setDepth(40);
     this.exitArrow = this.add.image(0, 0, 'generated_ui_markers', 'exit').setDepth(45).setVisible(false);
     this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
@@ -179,14 +190,19 @@ export class PlayScene extends Phaser.Scene {
     }
   }
 
+  /** Round 1 uses the supplied illustration; rounds 2/3 still use generated parallax layers. */
   private setTheme(round: number): void {
-    if (this.roundTheme === round && this.sky.texture.key.includes(`r${round}`)) return;
+    if (this.roundTheme === round) return;
     this.roundTheme = round;
-    this.sky.setTexture(`generated_bg_r${round}_sky`);
-    this.far.setTexture(`generated_bg_r${round}_far`);
-    this.mid.setTexture(`generated_bg_r${round}_mid`);
-    this.near.setTexture(`generated_bg_r${round}_near`);
-    this.ground.setTexture(`generated_ground_r${round}`);
+    const real = round === 1;
+    this.bgRound1.setVisible(real);
+    for (const l of [this.sky, this.far, this.mid, this.near]) l.setVisible(!real);
+    if (!real) {
+      this.sky.setTexture(`generated_bg_r${round}_sky`);
+      this.far.setTexture(`generated_bg_r${round}_far`);
+      this.mid.setTexture(`generated_bg_r${round}_mid`);
+      this.near.setTexture(`generated_bg_r${round}_near`);
+    }
   }
 
   private clearEntities(): void {
@@ -198,6 +214,8 @@ export class PlayScene extends Phaser.Scene {
     this.solidSprites.clear();
     for (const s of this.pickupSprites.values()) s.destroy();
     this.pickupSprites.clear();
+    for (const d of this.decor) d.destroy();
+    this.decor = [];
     for (const f of this.fx) { f.active = false; f.sprite.setVisible(false); }
   }
 
@@ -205,15 +223,18 @@ export class PlayScene extends Phaser.Scene {
     this.clearEntities();
     this.renderedRound = r;
     this.setTheme(r.roundIndex);
-    for (const s of r.solids) {
-      const img = this.add.image(s.x + s.w / 2, s.y + s.h, 'generated_props', s.kind).setOrigin(0.5, 1).setDepth(6);
-      this.solidSprites.set(s.id, img);
-    }
+    for (const s of r.solids) this.solidSprites.set(s.id, makeSolidImage(this, s));
+    this.decor = makeDecor(this, r.roundIndex, r.groundY);
+    this.worldW = r.spec.worldWidth;
     this.camX = r.cameraX;
   }
 
+  private worldW = VIEW_W * 5;
+
   private parallax(camX: number): void {
     this.cameras.main.setScroll(Math.round(camX), 0);
+    const k = Math.max(0, Math.min(1, camX / Math.max(1, this.worldW - VIEW_W)));
+    this.bgRound1.x = -Math.round(k * (BG_DISPLAY_W - VIEW_W));
     this.far.tilePositionX = Math.round(camX * 0.2);
     this.mid.tilePositionX = Math.round(camX * 0.45);
     this.near.tilePositionX = Math.round(camX * 0.8);
@@ -226,7 +247,8 @@ export class PlayScene extends Phaser.Scene {
       this.renderedRound = null;
     }
     this.setTheme(theme);
-    this.camX += dt * 0.02;
+    this.worldW = VIEW_W * 5;
+    this.camX = (this.camX + dt * 0.02) % (VIEW_W * 4);
     this.parallax(this.camX);
     const t = performance.now();
     const p = this.player.setVisible(true);
@@ -360,7 +382,9 @@ export class PlayScene extends Phaser.Scene {
   private renderEnemy(e: Enemy, t: number): void {
     let v = this.enemySprites.get(e.id);
     if (!v) {
-      const s = this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
+      const s = e.kind === 'infantry'
+        ? this.add.sprite(e.body.x, e.body.y, INFANTRY_KEY, 'khitan_infantry_idle_01.png').setDepth(12)
+        : this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
       const bar = this.add.rectangle(0, 0, 24, 2, 0xd04030).setOrigin(0, 0.5).setDepth(13);
       v = { s, bar, lastHp: e.hp, flashUntil: 0 };
       this.enemySprites.set(e.id, v);
@@ -368,7 +392,14 @@ export class PlayScene extends Phaser.Scene {
     if (e.hp < v.lastHp) v.flashUntil = t + 80;
     v.lastHp = e.hp;
     const hidden = e.state === 'relocating';
-    v.s.setVisible(!hidden).setFrame(this.enemyPose(e, t)).setPosition(Math.round(e.body.x), Math.round(e.body.y)).setFlipX(e.facing < 0);
+    if (e.kind === 'infantry') {
+      const pat = ENEMY_PATTERNS.infantry;
+      const pose = infantryPose(e, t, pat.startupMs, pat.activeMs ?? 100);
+      v.s.setFrame(pose.frame).setScale(pose.scale).setOrigin(0.5, pose.originY);
+    } else {
+      v.s.setFrame(this.enemyPose(e, t));
+    }
+    v.s.setVisible(!hidden).setPosition(Math.round(e.body.x), Math.round(e.body.y)).setFlipX(e.facing < 0);
     if (t < v.flashUntil) v.s.setTintFill(0xffffff);
     else v.s.clearTint();
     let alpha = 1;

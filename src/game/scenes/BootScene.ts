@@ -4,6 +4,7 @@ import { RUNTIME_ASSETS } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import { requiredFrames } from '../visual/AnimationBindings';
 import { generateBackgrounds, generateCharacterTextures, generatePropTextures } from '../visual/placeholders';
+import { ENV_KEY, INFANTRY_KEY, REQUIRED_ENV_FRAMES, REQUIRED_INFANTRY_FRAMES, buildGroundStrip } from '../visual/environment';
 
 export const assetUrl = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
 
@@ -32,9 +33,10 @@ export class BootScene extends Phaser.Scene {
     const ctl = this.services.controller;
     ctl.setLoading(0);
     const failed: string[] = [];
-    for (const a of RUNTIME_ASSETS.assets) {
-      if (a.type !== 'atlas' || this.textures.exists(a.key)) continue;
-      this.load.atlas(a.key, assetUrl(a.texture), assetUrl(a.atlas));
+    for (const a of RUNTIME_ASSETS.assets as { type: string; key: string; texture: string; atlas?: string }[]) {
+      if (this.textures.exists(a.key)) continue;
+      if (a.type === 'atlas' && a.atlas) this.load.atlas(a.key, assetUrl(a.texture), assetUrl(a.atlas));
+      else if (a.type === 'image') this.load.image(a.key, assetUrl(a.texture));
     }
     const onProgress = (p: number) => ctl.setLoading(p);
     const onError = (file: Phaser.Loader.File) => failed.push(String(file.url ?? file.key));
@@ -53,6 +55,7 @@ export class BootScene extends Phaser.Scene {
         ctl.setLoadError(missing);
         return;
       }
+      buildGroundStrip(this);
       generateCharacterTextures(this);
       generatePropTextures(this);
       generateBackgrounds(this);
@@ -68,8 +71,12 @@ export class BootScene extends Phaser.Scene {
     for (const a of RUNTIME_ASSETS.assets) {
       if (!this.textures.exists(a.key)) missing.push(a.texture);
     }
-    const tex = this.textures.exists('ganggamchan') ? this.textures.get('ganggamchan') : null;
-    if (tex) for (const f of requiredFrames()) if (!tex.has(f)) missing.push(`frame:${f}`);
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
+    for (const [key, frames] of need) {
+      if (!this.textures.exists(key)) continue;
+      const tex = this.textures.get(key);
+      for (const f of frames) if (!tex.has(f)) missing.push(`frame:${key}/${f}`);
+    }
     return missing;
   }
 }
