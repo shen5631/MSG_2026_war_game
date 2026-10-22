@@ -27,6 +27,8 @@ const EXPECT = {
   khitan_archer: { cell: 128, count: 25 },
   khitan_spearman: { cell: 192, count: 25 },
   goryeo_spearman_skill: { cell: 192, count: 18 },
+  // 1/3 display copy of the 567×737 round-2 boss cells (scripts/downscale-atlas.mjs), 2px gutter.
+  elite_spearman_commander: { cellW: 189, cellH: 246, count: 44 },
   'khitan-vanguard-v2': { cell: 192, count: 51 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
@@ -65,7 +67,9 @@ for (const a of runtime.assets) {
   if (exp && names.length !== exp.count) errors.push(`${a.key}: expected ${exp.count} frames, got ${names.length}`);
   for (const [name, f] of Object.entries(atlas.frames)) {
     const r = f.frame;
-    if (exp?.cell && (r.w !== exp.cell || r.h !== exp.cell)) errors.push(`${a.key}/${name} is ${r.w}x${r.h}, expected ${exp.cell}x${exp.cell}`);
+    const ew = exp?.cellW ?? exp?.cell;
+    const eh = exp?.cellH ?? exp?.cell;
+    if (ew && (r.w !== ew || r.h !== eh)) errors.push(`${a.key}/${name} is ${r.w}x${r.h}, expected ${ew}x${eh}`);
     if (r.x < 0 || r.y < 0 || r.x + r.w > size.w || r.y + r.h > size.h) errors.push(`${a.key}/${name} outside atlas bounds`);
   }
   if (a.key !== 'ganggamchan') continue;
@@ -180,4 +184,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: shieldman/cavalry, bosses 2-3, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
+console.log('verify:assets OK — still missing final art: shieldman/cavalry, boss 3 (so_bae_ap), round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
