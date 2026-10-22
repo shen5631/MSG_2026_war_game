@@ -19,6 +19,8 @@ const BG_CROP_H = 700;
 const BG_SCALE = 304 / BG_CROP_H;
 const BG_DISPLAY_W = Math.round(1672 * BG_SCALE);
 
+const HEAL_TEXT_MS = 1000;
+
 interface FxItem { sprite: Phaser.GameObjects.Sprite; frames: string[]; start: number; dur: number; active: boolean; follow?: boolean }
 
 const FX_FRAMES: Record<string, string[]> = {
@@ -46,6 +48,7 @@ export class PlayScene extends Phaser.Scene {
   private buffAura!: Phaser.GameObjects.Sprite;
   private chargeAura!: Phaser.GameObjects.Sprite;
   private chargeGauge!: Phaser.GameObjects.Graphics;
+  private healTexts: { text: Phaser.GameObjects.Text; start: number; active: boolean }[] = [];
   private shieldRing!: Phaser.GameObjects.Ellipse;
   private shieldAllies: Phaser.GameObjects.Sprite[] = [];
   private walls!: Phaser.GameObjects.Graphics;
@@ -144,10 +147,28 @@ export class PlayScene extends Phaser.Scene {
   private onGameEvent(e: GameEvent): void {
     const audio = this.services.audio;
     if (e.type === 'sfx') audio.playSfx(e.id);
-    else if (e.type === 'fx') this.spawnFx(e.fx, e.x, e.y, e.facing ?? 1, e.level ?? 0);
+    else if (e.type === 'fx') {
+      this.spawnFx(e.fx, e.x, e.y, e.facing ?? 1, e.level ?? 0);
+      if (e.fx === 'heal' && e.amount) this.spawnHealText(e.amount);
+    }
     else if (e.type === 'bossPhase2') this.cameras.main.flash(250, 255, 80, 60);
     else if (e.type === 'hitstop') this.cameras.main.shake(60, 0.004);
     else if (e.type === 'playerDied') this.cameras.main.shake(200, 0.006);
+  }
+
+  /** '체력 +N' rising over the hero's head; follows the hero, fades out. */
+  private spawnHealText(amount: number): void {
+    const r = this.services.controller.round;
+    let item = this.healTexts.find((h) => !h.active);
+    if (!item) {
+      const text = this.add.text(0, 0, '', { fontFamily: '"Noto Sans KR", "Malgun Gothic", sans-serif', fontSize: '10px', fontStyle: 'bold', color: '#8dff8d', stroke: '#06210a', strokeThickness: 3 })
+        .setOrigin(0.5, 1).setDepth(27).setResolution(4);
+      item = { text, start: 0, active: false };
+      this.healTexts.push(item);
+    }
+    item.active = true;
+    item.start = r ? r.presentationT : 0;
+    item.text.setText(`체력 +${amount}`).setVisible(true).setAlpha(1);
   }
 
   private spawnFx(kind: string, x: number, y: number, facing: 1 | -1, level: number): void {
@@ -225,6 +246,7 @@ export class PlayScene extends Phaser.Scene {
     for (const d of this.decor) d.destroy();
     this.decor = [];
     for (const f of this.fx) { f.active = false; f.sprite.setVisible(false); }
+    for (const h of this.healTexts) { h.active = false; h.text.setVisible(false); }
   }
 
   private rebuildWorld(r: RoundSim): void {
@@ -374,6 +396,13 @@ export class PlayScene extends Phaser.Scene {
       f.sprite.setFrame(f.frames[Math.min(f.frames.length - 1, Math.floor((age / f.dur) * f.frames.length))]);
       f.sprite.setAlpha(1 - age / f.dur * 0.5);
       if (f.follow) f.sprite.setPosition(this.player.x, this.player.y);
+    }
+    for (const h of this.healTexts) {
+      if (!h.active) continue;
+      const age = r.presentationT - h.start;
+      if (age >= HEAL_TEXT_MS || age < 0) { h.active = false; h.text.setVisible(false); continue; }
+      const k = age / HEAL_TEXT_MS;
+      h.text.setPosition(Math.round(this.player.x), Math.round(this.player.y - 100 - 16 * k)).setAlpha(k < 0.6 ? 1 : 1 - (k - 0.6) / 0.4);
     }
 
     if (this.debugGfx) this.drawDebug(r);

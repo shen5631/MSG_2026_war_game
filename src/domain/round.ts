@@ -556,11 +556,12 @@ export class RoundSim {
       const box: Rect = { x: it.x - PICKUP_SIZE / 2, y: it.y - PICKUP_SIZE, w: PICKUP_SIZE, h: PICKUP_SIZE };
       if (!rectsOverlap(box, pbox)) continue;
       if (p.hp <= 0 || p.hp >= LOCKED.player.maxHp) continue;
+      const before = p.hp;
       p.hp = Math.min(LOCKED.player.maxHp, p.hp + HEAL[it.kind]);
       it.alive = false;
       this.events.push({ type: 'sfx', id: 'heal' });
       // Healing shows on the hero (feet), not where the item lay.
-      this.events.push({ type: 'fx', fx: 'heal', x: p.body.x, y: p.body.y });
+      this.events.push({ type: 'fx', fx: 'heal', x: p.body.x, y: p.body.y, amount: p.hp - before });
       this.events.push({ type: 'hud' });
     }
     this.pickups = this.pickups.filter((i) => i.alive);

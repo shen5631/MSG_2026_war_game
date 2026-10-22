@@ -8,7 +8,7 @@ export type FxId = 'hit' | 'parry' | 'dash' | 'charge' | 'skill' | 'spear' | 'sh
 
 export type GameEvent =
   | { type: 'sfx'; id: SfxId }
-  | { type: 'fx'; fx: FxId; x: number; y: number; facing?: 1 | -1; level?: number }
+  | { type: 'fx'; fx: FxId; x: number; y: number; facing?: 1 | -1; level?: number; /** HP actually restored (heal only). */ amount?: number }
   | { type: 'toast'; text: string }
   | { type: 'hitstop'; ms: number }
   | { type: 'bossPhase2' }
