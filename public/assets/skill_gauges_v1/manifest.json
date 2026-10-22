@@ -1,0 +1,151 @@
+{
+  "version": "1.0.0",
+  "direction": "bottom-to-top",
+  "progressMeaning": "readiness: 0=just cast, 100=ready",
+  "skills": [
+    {
+      "id": "command",
+      "label": "지휘 강화",
+      "sourceBox": [
+        254,
+        107,
+        747,
+        593
+      ],
+      "sourceSquareSize": 501,
+      "files": {
+        "64": {
+          "pattern": "frames/64/command/command_%03d.png",
+          "fillRect": {
+            "x": 4,
+            "y": 4,
+            "w": 56,
+            "h": 56
+          },
+          "ready": "base/64/command_ready.png",
+          "empty": "base/64/command_empty.png"
+        },
+        "128": {
+          "pattern": "frames/128/command/command_%03d.png",
+          "fillRect": {
+            "x": 7,
+            "y": 7,
+            "w": 114,
+            "h": 114
+          },
+          "ready": "base/128/command_ready.png",
+          "empty": "base/128/command_empty.png"
+        }
+      }
+    },
+    {
+      "id": "spear",
+      "label": "창병 공격",
+      "sourceBox": [
+        840,
+        107,
+        1333,
+        593
+      ],
+      "sourceSquareSize": 501,
+      "files": {
+        "64": {
+          "pattern": "frames/64/spear/spear_%03d.png",
+          "fillRect": {
+            "x": 4,
+            "y": 4,
+            "w": 56,
+            "h": 56
+          },
+          "ready": "base/64/spear_ready.png",
+          "empty": "base/64/spear_empty.png"
+        },
+        "128": {
+          "pattern": "frames/128/spear/spear_%03d.png",
+          "fillRect": {
+            "x": 7,
+            "y": 7,
+            "w": 114,
+            "h": 114
+          },
+          "ready": "base/128/spear_ready.png",
+          "empty": "base/128/spear_empty.png"
+        }
+      }
+    },
+    {
+      "id": "shield",
+      "label": "방패병 막기",
+      "sourceBox": [
+        1425,
+        107,
+        1918,
+        593
+      ],
+      "sourceSquareSize": 501,
+      "files": {
+        "64": {
+          "pattern": "frames/64/shield/shield_%03d.png",
+          "fillRect": {
+            "x": 4,
+            "y": 4,
+            "w": 56,
+            "h": 56
+          },
+          "ready": "base/64/shield_ready.png",
+          "empty": "base/64/shield_empty.png"
+        },
+        "128": {
+          "pattern": "frames/128/shield/shield_%03d.png",
+          "fillRect": {
+            "x": 7,
+            "y": 7,
+            "w": 114,
+            "h": 114
+          },
+          "ready": "base/128/shield_ready.png",
+          "empty": "base/128/shield_empty.png"
+        }
+      }
+    }
+  ],
+  "sharedCooldown": true,
+  "baseCooldownMs": 20000,
+  "upgradedCooldownMs": [
+    17000,
+    14000
+  ],
+  "frameCountPerSkill": 101,
+  "resolutions": [
+    64,
+    128
+  ],
+  "sourceSha256": "37a0084439a91eb44e9d2c657ee862a947ff240634ba61ee1980555a9459aada",
+  "alphaCleanup": {
+    "discardBelow": 16,
+    "keepOnlyThreeMainComponents": true
+  },
+  "atlas": {
+    "64": {
+      "image": "atlas/skill_gauges_64.png",
+      "json": "atlas/skill_gauges_64.json",
+      "columns": 16,
+      "rows": 19,
+      "padding": 2,
+      "stride": 68,
+      "width": 1088,
+      "height": 1292
+    },
+    "128": {
+      "image": "atlas/skill_gauges_128.png",
+      "json": "atlas/skill_gauges_128.json",
+      "columns": 16,
+      "rows": 19,
+      "padding": 2,
+      "stride": 132,
+      "width": 2112,
+      "height": 2508
+    }
+  },
+  "selection": "UI outline, independent of readiness; never reset cooldown on selection"
+}
