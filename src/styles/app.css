@@ -77,10 +77,11 @@ button { font: inherit; }
 .title-block { position: absolute; left: 0; right: 0; top: 18px; text-align: center; }
 .title-block h1 { margin: 0; line-height: 0; }
 .title-logo { width: 320px; height: auto; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7)); }
-.panel.title-menu { position: absolute; left: 50%; transform: translateX(-50%); top: 150px; width: 226px; min-width: 0; padding: 14px 16px 10px; }
-.title-menu .menu { margin: 0; }
-.title-menu .menu-item { height: 36px; font-size: 15px; font-weight: 700; }
-.title-footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 9px; color: var(--m-muted); font-size: 8px; }
+.panel.title-menu { position: absolute; left: 50%; transform: translateX(-50%); top: 156px; width: 192px; min-width: 0; padding: 11px 13px 8px; }
+.title-menu .menu { margin: 0; gap: 5px; }
+.title-menu .menu-item { height: 30px; font-size: 13px; font-weight: 700; gap: 8px; }
+.title-menu .glyph { width: 15px; height: 15px; }
+.title-footer { display: flex; align-items: center; justify-content: center; gap: 5px; margin-top: 7px; color: var(--m-muted); font-size: 8px; }
 .device-dot { width: 4px; height: 4px; background: #74839a; }
 .device-dot.connected { background: #a2c4aa; }
 .pad-notice { position: absolute; bottom: 36px; right: 16px; margin: 0; font-size: 9px; color: var(--gold-2); text-shadow: 1px 1px 0 #000; }
