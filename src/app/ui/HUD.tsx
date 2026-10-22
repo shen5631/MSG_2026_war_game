@@ -65,8 +65,12 @@ export function HUD() {
         ))}
         {/* Status badge (not a skill name): framed chip with a state dot, separate from the icon labels. */}
         <div className={`skill-status ${cdRemaining > 0 ? 'cooling' : h.spearReserved ? 'waiting' : 'ready'}`} data-testid="hud-cooldown">
-          <span className="dot" aria-hidden="true" />
-          {cdRemaining > 0 ? <>공유 쿨타임 <b>{(cdRemaining / 1000).toFixed(1)}초</b></> : h.spearReserved ? '창병 명령 대기' : '지휘 준비'}
+          <span className="eyebrow">공유 쿨타임</span>
+          <span className="value">
+            {cdRemaining > 0 ? <b>{(cdRemaining / 1000).toFixed(1)}<small>초</small></b> : <><i aria-hidden="true">◆</i>{h.spearReserved ? '창병 명령 대기' : '지휘 준비'}</>}
+          </span>
+          {/* Same shared cooldown as the icons; display only. */}
+          <span className="meter" aria-hidden="true"><span style={{ width: `${cdRemaining > 0 ? (1 - Math.min(cdRemaining, cdTotal) / cdTotal) * 100 : 100}%` }} /></span>
         </div>
       </div>
       {h.exitOpen && <div className="exit-hint">출구가 열렸습니다 →</div>}
