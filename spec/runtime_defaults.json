@@ -1,0 +1,290 @@
+{
+  "status": "IMPLEMENTATION_DEFAULT_NOT_PRIOR_USER_APPROVAL",
+  "units": {
+    "distance": "internal-pixels",
+    "duration": "milliseconds",
+    "velocity": "internal-pixels-per-second"
+  },
+  "environment": {
+    "phaserVersion": "3.90.0",
+    "phaserVersionReason": "Short-project API baseline, not latest; official current docs also expose Phaser 4.1.0. Never mix majors.",
+    "nodeMinimum": "22.12.0",
+    "nodePreferredMajor": 22,
+    "targetOsForFirstTest": "Windows 10/11",
+    "npmExactVersionsAndLockfile": true
+  },
+  "movement": {
+    "walkSpeed": 110,
+    "runSpeed": 180,
+    "attackMoveFactor": 0.5,
+    "chargeMoveSpeed": 30,
+    "jumpVelocityY": -430,
+    "gravityY": 1200,
+    "jumpCount": 1,
+    "jumpCoyoteMs": 80,
+    "jumpBufferMs": 100,
+    "playerBodyWidth": 32,
+    "playerBodyHeight": 72,
+    "dashSpeed": 480,
+    "dashActiveMs": 180,
+    "dashRecoveryMs": 120,
+    "dashCooldownMs": 600,
+    "allowAirDash": false,
+    "allowAirParry": false,
+    "normalAttackJumpCancel": false,
+    "airControlFactor": 0.8
+  },
+  "attackTimings": {
+    "weak1": {
+      "startupMs": 100,
+      "activeMs": 80,
+      "recoveryMs": 140,
+      "reachPx": 60,
+      "heightPx": 54
+    },
+    "weak2": {
+      "startupMs": 110,
+      "activeMs": 80,
+      "recoveryMs": 150,
+      "reachPx": 64,
+      "heightPx": 58
+    },
+    "weak3": {
+      "startupMs": 140,
+      "activeMs": 100,
+      "recoveryMs": 220,
+      "reachPx": 72,
+      "heightPx": 62
+    },
+    "heavy": {
+      "startupMs": 260,
+      "activeMs": 120,
+      "recoveryMs": 340,
+      "reachPx": 78,
+      "heightPx": 70
+    },
+    "finisher": {
+      "startupMs": 280,
+      "activeMs": 140,
+      "recoveryMs": 360,
+      "reachPx": 88,
+      "heightPx": 76
+    },
+    "charge1": {
+      "startupMs": 160,
+      "activeMs": 100,
+      "recoveryMs": 240,
+      "reachPx": 72,
+      "heightPx": 68
+    },
+    "charge2": {
+      "startupMs": 200,
+      "activeMs": 120,
+      "recoveryMs": 280,
+      "reachPx": 88,
+      "heightPx": 76
+    },
+    "charge3": {
+      "startupMs": 240,
+      "activeMs": 140,
+      "recoveryMs": 300,
+      "reachPx": 104,
+      "heightPx": 88
+    },
+    "air_attack": {
+      "damage": 15,
+      "startupMs": 100,
+      "activeMs": 120,
+      "recoveryMs": 180,
+      "reachPx": 64,
+      "heightPx": 60
+    }
+  },
+  "combat": {
+    "comboInputBufferMs": 150,
+    "comboContinuationMs": 350,
+    "hpHitStunMs": 180,
+    "parryFailureRecoveryMs": 180,
+    "parrySuccessRecoveryMs": 0,
+    "parryStunNormalMs": 1000,
+    "parryStunBossMs": 650,
+    "parryHitstopMs": 60,
+    "ordinaryEnemyStunMs": 120,
+    "chargeRelease": "release-either-button",
+    "belowCharge1": "ordinary-heavy",
+    "neutralDirectionalInput": "keep-facing",
+    "parryDirection": "front-only",
+    "parryProjectile": "destroy-projectile-no-remote-stun",
+    "ordinaryEnemyContactDamage": false,
+    "hitboxStyle": "AABB-independent-from-sprite-alpha",
+    "sameTickDeathStatOnVictory": false
+  },
+  "skills": {
+    "spearRangeX": 180,
+    "spearRangeY": 96,
+    "spearCommandMs": 300,
+    "spearVisualMs": 300,
+    "spearSameDistanceTie": "spawn-serial",
+    "spearPiercesShieldmanGuard": true,
+    "spearCanTargetBoss": true,
+    "spearNoTarget": "no-cast-no-cooldown",
+    "cooldownStarts": "successful-effect-activation",
+    "instantBuffAppliesTo": [
+      "weak1",
+      "weak2",
+      "weak3",
+      "heavy",
+      "finisher",
+      "charge1",
+      "charge2",
+      "charge3",
+      "air_attack",
+      "dash"
+    ],
+    "buffDoesNotApplyTo": [
+      "spear_support",
+      "enemy-attacks",
+      "environment"
+    ],
+    "shieldFractionalInternal": true,
+    "skillSelectionReset": "command_buff"
+  },
+  "enemy": {
+    "damage": {
+      "infantry": 8,
+      "archer": 10,
+      "spearman": 12,
+      "shieldman": 10,
+      "cavalry": 18
+    },
+    "speed": {
+      "infantry": 70,
+      "archer": 62,
+      "spearman": 62,
+      "shieldman": 42,
+      "cavalry": 260
+    },
+    "guardBreakMs": 800,
+    "guardBlockedDamage": 0,
+    "guardBreakTags": [
+      "heavy",
+      "finisher",
+      "charge1",
+      "charge2",
+      "charge3"
+    ],
+    "maxSimultaneousAttackers": {
+      "round1": 1,
+      "round2": 2,
+      "round3": 2,
+      "bossPlusSummons": 2
+    },
+    "spawnAttackGraceMs": 650,
+    "minSpawnPlayerDistance": 96,
+    "projectileSpeed": 260,
+    "projectileMaxAgeMs": 3500,
+    "summonsComposition": [
+      "infantry",
+      "infantry",
+      "archer"
+    ],
+    "summonRefillIntervalMs": 12000,
+    "summonsDropRice": true
+  },
+  "boss": {
+    "introMs": 800,
+    "phaseTransitionMs": 900,
+    "phase2NormalRecoveryMultiplier": 0.85,
+    "samePatternConsecutiveMax": 2,
+    "phaseTransitionClearsHazards": true,
+    "phaseTransitionActorsFrozen": true,
+    "phaseTransitionCooldownsTick": false,
+    "normalHitStunsBoss": false,
+    "parryStunCancelsCombo": true
+  },
+  "world": {
+    "tilePx": 32,
+    "arenaWidth": 640,
+    "crateHp": 25,
+    "barricadeHp": 50,
+    "crateDrops": false,
+    "hazardousGaps": false,
+    "oneWayPlatforms": false,
+    "roundBoundaryBacktrack": false,
+    "arenaExitCleanupAt": "next-area-entry-trigger"
+  },
+  "faultTolerance": {
+    "stuckDetectMs": 2000,
+    "minMovementPx": 4,
+    "relocationSpawnWarningMs": 650,
+    "relocationMinPlayerDistance": 120,
+    "relocationRetries": 3,
+    "retryIntervalMs": 500,
+    "afterNoSafePoint": "technical-remove-without-kill-or-drop-mark-integrity-warning",
+    "playerOutOfBounds": "restore-last-safe-ground-no-damage-mark-warning"
+  },
+  "input": {
+    "axisDeadzone": 0.2,
+    "triggerPress": 0.55,
+    "triggerRelease": 0.35,
+    "menuRepeatInitialMs": 300,
+    "menuRepeatMs": 150,
+    "ignoreKeyboardGameplayWhilePadAvailable": true,
+    "allowKeyboardForBrowserPermissionUI": true,
+    "resumeRequiresFreshPress": true,
+    "resumeNeutralFirst": true,
+    "keyboardMenuConfirm": [
+      "Enter",
+      "Space"
+    ],
+    "keyboardMenuCancel": [
+      "Escape"
+    ],
+    "keyboardMenuMove": [
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "KeyW",
+      "KeyS",
+      "KeyA",
+      "KeyD"
+    ]
+  },
+  "time": {
+    "simulationHz": 60,
+    "maxCatchupSteps": 6,
+    "performancePauseDeltaMs": 250,
+    "pauseUiUsesRealTime": true,
+    "hitstopFreezesSimulation": true,
+    "playClock": "active-render-elapsed-excluding-pauses-load-menus-ending",
+    "playClockIncludesHitstopAndPhaseTransition": true
+  },
+  "ui": {
+    "hudUpdateHz": 10,
+    "fullHpPickupThreshold": 100,
+    "hpDisplay": "ceil-positive-internal-hp",
+    "belowMinViewport": "pause-and-request-resize",
+    "escFullscreenCoalesceMs": 120,
+    "bgmDefault": 0.5,
+    "sfxDefault": 0.7,
+    "settingsPersist": "session-only",
+    "endingAdvanceMinMs": 200
+  },
+  "loading": {
+    "fileTimeoutMs": 15000,
+    "retryMode": "missing-or-failed-keys-only-no-duplicate-loader",
+    "placeholderMode": "explicit-debug-flag-only",
+    "assetRuntimeBudgetMiB": 25
+  },
+  "performance": {
+    "referenceHz": 60,
+    "sampleSeconds": 60,
+    "warmupSeconds": 10,
+    "averageFpsMin": 58,
+    "p95FrameMsMax": 20,
+    "consecutiveFrameOver50MsMax": 3,
+    "noUnexpectedRuntimeErrors": true,
+    "physicalGamepadRequiredForClaim": true
+  }
+}

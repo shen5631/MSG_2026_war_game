@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "source": "actual-existing-files",
+  "assets": [
+    {
+      "type": "atlas",
+      "key": "ganggamchan",
+      "texture": "assets/ganggamchan_v2/ganggamchan_atlas.png",
+      "atlas": "assets/ganggamchan_v2/ganggamchan_atlas.json"
+    }
+  ],
+  "preloadPolicy": "load-all-registered-runtime-assets-at-boot",
+  "exclude": [
+    "previews/**",
+    "review/**",
+    "original-composite-sheets"
+  ],
+  "missingProductionAssets": [
+    "five-enemy-types",
+    "three-bosses",
+    "two-ally-types",
+    "three-round-tilesets",
+    "story-art",
+    "bgm",
+    "sfx"
+  ],
+  "missingAssetPolicy": "explicit-generated-development-placeholder-and-status-report-not-silent-final-substitution"
+}

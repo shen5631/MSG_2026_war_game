@@ -1,0 +1,28 @@
+{
+  "type": "handoff-not-playable-game",
+  "specVersion": "1.0",
+  "date": "2026-10-22",
+  "mainSpec": {
+    "path": "docs/GAME_SPEC_KO.md",
+    "lines": 781,
+    "utf8Bytes": 64458
+  },
+  "game": {
+    "rounds": 3,
+    "arenas": 5,
+    "waves": 13,
+    "fixedNormalEnemies": 50,
+    "bosses": 3
+  },
+  "providedArt": {
+    "characterFrames": 49,
+    "effectFrames": 23,
+    "finalEnemyBackgroundAudioAssetsIncluded": false
+  },
+  "validation": {
+    "fileAndRuleChecksPassed": 459,
+    "pureMathTestsPassed": 15,
+    "plannedGameAcceptanceCases": 111,
+    "gameRuntimeTested": false
+  }
+}

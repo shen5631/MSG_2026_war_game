@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "rounds": [
+    {
+      "id": 1,
+      "name": "거란군의 침입",
+      "bossId": "vanguard",
+      "compositionStatus": "USER_CONFIRMED",
+      "layoutStatus": "IMPLEMENTATION_DEFAULT",
+      "worldWidth": 3200,
+      "worldHeight": 360,
+      "groundY": 304,
+      "playerStart": {
+        "x": 96,
+        "y": 304
+      },
+      "bossArena": {
+        "left": 2496,
+        "width": 640,
+        "playerEntryX": 2696,
+        "bossSpawnX": 2976
+      },
+      "traversalProps": [
+        {
+          "x": 320,
+          "kind": "crate"
+        },
+        {
+          "x": 560,
+          "kind": "step"
+        },
+        {
+          "x": 1920,
+          "kind": "crate"
+        }
+      ],
+      "arenas": [
+        {
+          "id": "r1a1",
+          "left": 960,
+          "right": 1600,
+          "lockAtPlayerX": 1200,
+          "floorY": 304,
+          "nominalSpawnSlotsX": [
+            72,
+            568,
+            128,
+            512,
+            200,
+            440,
+            32,
+            608
+          ],
+          "waves": [
+            {
+              "id": "r1a1w1",
+              "composition": {
+                "infantry": 2
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry"
+              ],
+              "count": 2
+            },
+            {
+              "id": "r1a1w2",
+              "composition": {
+                "infantry": 2,
+                "archer": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "archer"
+              ],
+              "count": 3
+            },
+            {
+              "id": "r1a1w3",
+              "composition": {
+                "infantry": 2,
+                "archer": 2
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "archer",
+                "archer"
+              ],
+              "count": 4
+            }
+          ]
+        }
+      ],
+      "normalEnemyCount": 9
+    },
+    {
+      "id": 2,
+      "name": "흥화진 전투",
+      "bossId": "spear_captain",
+      "compositionStatus": "USER_CONFIRMED",
+      "layoutStatus": "IMPLEMENTATION_DEFAULT",
+      "worldWidth": 4096,
+      "worldHeight": 360,
+      "groundY": 304,
+      "playerStart": {
+        "x": 96,
+        "y": 304
+      },
+      "bossArena": {
+        "left": 3392,
+        "width": 640,
+        "playerEntryX": 3592,
+        "bossSpawnX": 3872
+      },
+      "traversalProps": [
+        {
+          "x": 320,
+          "kind": "crate"
+        },
+        {
+          "x": 1568,
+          "kind": "step"
+        },
+        {
+          "x": 1760,
+          "kind": "crate"
+        },
+        {
+          "x": 2864,
+          "kind": "step"
+        }
+      ],
+      "arenas": [
+        {
+          "id": "r2a1",
+          "left": 768,
+          "right": 1408,
+          "lockAtPlayerX": 1008,
+          "floorY": 304,
+          "nominalSpawnSlotsX": [
+            72,
+            568,
+            128,
+            512,
+            200,
+            440,
+            32,
+            608
+          ],
+          "waves": [
+            {
+              "id": "r2a1w1",
+              "composition": {
+                "infantry": 2,
+                "spearman": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "spearman"
+              ],
+              "count": 3
+            },
+            {
+              "id": "r2a1w2",
+              "composition": {
+                "infantry": 2,
+                "shieldman": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "shieldman"
+              ],
+              "count": 3
+            }
+          ]
+        },
+        {
+          "id": "r2a2",
+          "left": 2112,
+          "right": 2752,
+          "lockAtPlayerX": 2352,
+          "floorY": 304,
+          "nominalSpawnSlotsX": [
+            72,
+            568,
+            128,
+            512,
+            200,
+            440,
+            32,
+            608
+          ],
+          "waves": [
+            {
+              "id": "r2a2w1",
+              "composition": {
+                "archer": 2,
+                "spearman": 2
+              },
+              "spawnOrder": [
+                "archer",
+                "archer",
+                "spearman",
+                "spearman"
+              ],
+              "count": 4
+            },
+            {
+              "id": "r2a2w2",
+              "composition": {
+                "infantry": 2,
+                "spearman": 1,
+                "shieldman": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "spearman",
+                "shieldman"
+              ],
+              "count": 4
+            }
+          ]
+        }
+      ],
+      "normalEnemyCount": 14
+    },
+    {
+      "id": 3,
+      "name": "귀주대첩",
+      "bossId": "so_bae_ap",
+      "compositionStatus": "USER_CONFIRMED",
+      "layoutStatus": "IMPLEMENTATION_DEFAULT",
+      "worldWidth": 4608,
+      "worldHeight": 360,
+      "groundY": 304,
+      "playerStart": {
+        "x": 96,
+        "y": 304
+      },
+      "bossArena": {
+        "left": 3904,
+        "width": 640,
+        "playerEntryX": 4104,
+        "bossSpawnX": 4384
+      },
+      "traversalProps": [
+        {
+          "x": 480,
+          "kind": "crate"
+        },
+        {
+          "x": 1760,
+          "kind": "step"
+        },
+        {
+          "x": 1904,
+          "kind": "crate"
+        },
+        {
+          "x": 3312,
+          "kind": "step"
+        }
+      ],
+      "arenas": [
+        {
+          "id": "r3a1",
+          "left": 960,
+          "right": 1600,
+          "lockAtPlayerX": 1200,
+          "floorY": 304,
+          "nominalSpawnSlotsX": [
+            72,
+            568,
+            128,
+            512,
+            200,
+            440,
+            32,
+            608
+          ],
+          "waves": [
+            {
+              "id": "r3a1w1",
+              "composition": {
+                "infantry": 2,
+                "archer": 2
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "archer",
+                "archer"
+              ],
+              "count": 4
+            },
+            {
+              "id": "r3a1w2",
+              "composition": {
+                "spearman": 2,
+                "shieldman": 1,
+                "cavalry": 1
+              },
+              "spawnOrder": [
+                "spearman",
+                "spearman",
+                "shieldman",
+                "cavalry"
+              ],
+              "count": 4
+            },
+            {
+              "id": "r3a1w3",
+              "composition": {
+                "infantry": 2,
+                "cavalry": 2
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "cavalry",
+                "cavalry"
+              ],
+              "count": 4
+            }
+          ]
+        },
+        {
+          "id": "r3a2",
+          "left": 2432,
+          "right": 3072,
+          "lockAtPlayerX": 2672,
+          "floorY": 304,
+          "nominalSpawnSlotsX": [
+            72,
+            568,
+            128,
+            512,
+            200,
+            440,
+            32,
+            608
+          ],
+          "waves": [
+            {
+              "id": "r3a2w1",
+              "composition": {
+                "archer": 2,
+                "spearman": 2
+              },
+              "spawnOrder": [
+                "archer",
+                "archer",
+                "spearman",
+                "spearman"
+              ],
+              "count": 4
+            },
+            {
+              "id": "r3a2w2",
+              "composition": {
+                "infantry": 2,
+                "shieldman": 2,
+                "cavalry": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "shieldman",
+                "shieldman",
+                "cavalry"
+              ],
+              "count": 5
+            },
+            {
+              "id": "r3a2w3",
+              "composition": {
+                "infantry": 2,
+                "archer": 1,
+                "spearman": 1,
+                "shieldman": 1,
+                "cavalry": 1
+              },
+              "spawnOrder": [
+                "infantry",
+                "infantry",
+                "archer",
+                "spearman",
+                "shieldman",
+                "cavalry"
+              ],
+              "count": 6
+            }
+          ]
+        }
+      ],
+      "normalEnemyCount": 27
+    }
+  ],
+  "totals": {
+    "rounds": 3,
+    "arenas": 5,
+    "waves": 13,
+    "fixedNormalEnemies": 50,
+    "bosses": 3
+  },
+  "note": "Enemy composition is confirmed. Coordinates, props and spawn slot positions are implementation defaults, not prior user decisions. Boss summons are not fixed-wave members."
+}

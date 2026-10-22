@@ -1,0 +1,260 @@
+{
+  "status": "IMPLEMENTATION_DEFAULT_NUMERIC_DETAILS",
+  "lockedBasis": "All bosses 2 phases, normal damage15/heavy25, conditional distance-phase selection. HP in locked_rules.json.",
+  "bosses": {
+    "vanguard": [
+      {
+        "id": "sword_cut",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 90,
+        "startupMs": 450,
+        "activeMsPerHit": 100,
+        "recoveryMs": 650,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "rush",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 140,
+        "distanceMaxPx": 320,
+        "startupMs": 650,
+        "activeMsPerHit": 300,
+        "recoveryMs": 800,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "triple_cut",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 110,
+        "startupMs": 450,
+        "activeMsPerHit": 80,
+        "recoveryMs": 900,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 5000,
+        "hitCount": 3,
+        "hitSpacingMs": 250,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "red_slam",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 130,
+        "startupMs": 850,
+        "activeMsPerHit": 140,
+        "recoveryMs": 1100,
+        "damagePerHit": 25,
+        "parryable": false,
+        "cooldownMs": 7000,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "red-body-glow"
+      }
+    ],
+    "spear_captain": [
+      {
+        "id": "long_thrust",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 100,
+        "distanceMaxPx": 180,
+        "startupMs": 600,
+        "activeMsPerHit": 140,
+        "recoveryMs": 750,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "sweep",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 110,
+        "startupMs": 550,
+        "activeMsPerHit": 180,
+        "recoveryMs": 850,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "double_thrust",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 180,
+        "startupMs": 550,
+        "activeMsPerHit": 120,
+        "recoveryMs": 900,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 6000,
+        "hitCount": 2,
+        "hitSpacingMs": 300,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "red_jump_slam",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 320,
+        "startupMs": 900,
+        "activeMsPerHit": 180,
+        "recoveryMs": 1200,
+        "damagePerHit": 25,
+        "parryable": false,
+        "cooldownMs": 8000,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "red-body-glow"
+      }
+    ],
+    "so_bae_ap": [
+      {
+        "id": "double_sword",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 110,
+        "startupMs": 450,
+        "activeMsPerHit": 100,
+        "recoveryMs": 800,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 2,
+        "hitSpacingMs": 280,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "rush",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 160,
+        "distanceMaxPx": 340,
+        "startupMs": 700,
+        "activeMsPerHit": 350,
+        "recoveryMs": 850,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "heavy_cut",
+        "phases": [
+          1,
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 130,
+        "startupMs": 800,
+        "activeMsPerHit": 160,
+        "recoveryMs": 1000,
+        "damagePerHit": 25,
+        "parryable": true,
+        "cooldownMs": 0,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "fast_triple",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 120,
+        "startupMs": 400,
+        "activeMsPerHit": 80,
+        "recoveryMs": 850,
+        "damagePerHit": 15,
+        "parryable": true,
+        "cooldownMs": 5000,
+        "hitCount": 3,
+        "hitSpacingMs": 220,
+        "telegraph": "motion-only"
+      },
+      {
+        "id": "summon",
+        "phases": [
+          2
+        ],
+        "startupMs": 1000,
+        "recoveryMs": 800,
+        "cooldownMs": 12000,
+        "maxLivingAndPending": 3,
+        "slots": [
+          "infantry",
+          "infantry",
+          "archer"
+        ],
+        "damagePerHit": 0,
+        "telegraph": "command-motion"
+      },
+      {
+        "id": "red_ground_wave",
+        "phases": [
+          2
+        ],
+        "distanceMinPx": 0,
+        "distanceMaxPx": 280,
+        "startupMs": 1000,
+        "activeMsPerHit": 220,
+        "recoveryMs": 1300,
+        "damagePerHit": 25,
+        "parryable": false,
+        "cooldownMs": 9000,
+        "hitCount": 1,
+        "hitSpacingMs": 0,
+        "telegraph": "red-body-glow"
+      }
+    ]
+  },
+  "hitSpacingDefinition": "Time from preceding hit activation to next hit activation; first hit begins after startup. Each has a separate attackInstanceId.",
+  "phase2Rule": "Recovery multiplier0.85 applies only to normal patterns present in phase1; do not apply twice to phase2-specific patterns.",
+  "safety": "Red ground wave has finite horizontal220 and vertical48 range. No full-screen unavoidable damage. Fixed damage never scaled by phase."
+}

@@ -1,0 +1,7 @@
+{
+  "packageChecks": 459,
+  "passed": 459,
+  "errors": [],
+  "scope": "Handoff file/config validation only; no Phaser gameplay or physical gamepad test.",
+  "gameRuntimeTested": false
+}

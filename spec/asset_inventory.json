@@ -1,0 +1,799 @@
+{
+  "inspectionDate": "2026-10-22",
+  "sourceArchive": "ganggamchan_split_v2_all.zip",
+  "sourceArchiveSha256": "e5f2f20a5b4262d717d9628bfec612342ece124f499582c8d14d12558b946976",
+  "characterFrames": 49,
+  "effectFrames": 23,
+  "totalFrames": 72,
+  "files": [
+    {
+      "path": "public/assets/ganggamchan_v2/README_KO.md",
+      "bytes": 4384,
+      "sha256": "43f40a80f7ffdef9cb68796712a0a39d7892f1115108afbbae6ddd6c05965e03"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_1/ganggamchan_attack_1_01.png",
+      "bytes": 10438,
+      "sha256": "0e7bc0ab458141ffc3e322549829f15dfa868633cc72f6b1e092357437a60a0d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_1/ganggamchan_attack_1_02.png",
+      "bytes": 11713,
+      "sha256": "317b9e49ba56d87357f9c2b67d327573b866f3d3d1f13dd8093fc838628603fa",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_1/ganggamchan_attack_1_03.png",
+      "bytes": 10585,
+      "sha256": "6a25b417a6af6cfa8a9c4508b3e31654842d0204306175189090f67cf0f51158",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_1/ganggamchan_attack_1_04.png",
+      "bytes": 11687,
+      "sha256": "4d9888c9f7a9a81b7864cb2682b4fbf63dfb53c2a5920b8108fba6b5da47a951",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_1/ganggamchan_attack_1_05.png",
+      "bytes": 12819,
+      "sha256": "1021e8fc4870d00a7eb8560c18a56d5f36c0e1935d508c800ee94e602c880c0b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_2/ganggamchan_attack_2_01.png",
+      "bytes": 10817,
+      "sha256": "f02c95158e28936420525d0c9c26eda994d14406236466a1ccc8e2bbab934403",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_2/ganggamchan_attack_2_02.png",
+      "bytes": 11183,
+      "sha256": "5795dfef1af7161a8e34821a118471c5fb74921bac1aa312790007dfffbac5fd",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_2/ganggamchan_attack_2_03.png",
+      "bytes": 11554,
+      "sha256": "f72e06d2914fe66808912fa53ea2e1c7339da66113dc76c2eafbac721c1a9c18",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_2/ganggamchan_attack_2_04.png",
+      "bytes": 14821,
+      "sha256": "93f567ca0e53563e40040427bc2b4484036ae01d2fcb240c76130faa6d1848a8",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_3/ganggamchan_attack_3_01.png",
+      "bytes": 10095,
+      "sha256": "b0fbd6ccaf4f63d3d14cc78e529b962cc34791373fcc1c4d305ed33ee1ceabd9",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_3/ganggamchan_attack_3_02.png",
+      "bytes": 11400,
+      "sha256": "9d19dae18be2a282c116212cadcaa868c563eeccb1c0d4803b7db10929144e8d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_3/ganggamchan_attack_3_03.png",
+      "bytes": 10325,
+      "sha256": "693cf5c16282110c88a6d69ab9fdddda825efba6a1873e878f611af56723f7cb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/attack_3/ganggamchan_attack_3_04.png",
+      "bytes": 17601,
+      "sha256": "4a794f2068d49d0edd3da64896117c70cc0b9bb9df2f929d075bed55e6945501",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/dash/ganggamchan_dash_01.png",
+      "bytes": 7537,
+      "sha256": "b50a63cc714b63a9dacd7488d1766165b616904fd3fd8e5a72c2b3e266edc3f8",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/dash/ganggamchan_dash_02.png",
+      "bytes": 6966,
+      "sha256": "a2990fc39dd6efe2ef09f96f1f10e8bd81f6f3aa712dc72950a74941eff75a6b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/dash/ganggamchan_dash_03.png",
+      "bytes": 7742,
+      "sha256": "56d0cfbe0acddb37f6693e60cecd76f8fa9f22090b4de5641e3d3f8c72eb715e",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/dash/ganggamchan_dash_04.png",
+      "bytes": 6982,
+      "sha256": "9532bfbf14c414175f9f1bcb3a4e5b649119516f0df7bd43334e347c955011bb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_01.png",
+      "bytes": 6206,
+      "sha256": "e60aaf68b3003f01ffc6fe7c16e0e3fecde5ae807c4e45a96a57d28206a438d8",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_02.png",
+      "bytes": 6688,
+      "sha256": "3c78501e3f8772ffd8b030ed612bd088ff807a2713123a8f4b93b3842309facb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_03.png",
+      "bytes": 5096,
+      "sha256": "be7034a006760bc1b5abe976cce988d5d74e38684cfbc769785539bc3f47c655",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_04.png",
+      "bytes": 4784,
+      "sha256": "6355ba4765682bba064ab18fcff99e7be5296e26aa69bca5f5049b42fce0638b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_05.png",
+      "bytes": 4704,
+      "sha256": "6691e88dd002795055baa85ccbbdebe7ef0e211d8341960b6dd5f51120958d92",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/death/ganggamchan_death_06.png",
+      "bytes": 2697,
+      "sha256": "9fc98a4b5a7eb91534a4cc1b8b94d6025f8f1eff307026cbc24cae720523a818",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/heavy/ganggamchan_heavy_01.png",
+      "bytes": 9780,
+      "sha256": "e956f8913b694865c05b213c0fbadf873248cc8b0ab56bdea91082292255362a",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/heavy/ganggamchan_heavy_02.png",
+      "bytes": 10352,
+      "sha256": "c1701730241f5754538a8fd3427539cdd55c6d1cff5a58164500beddfa03bffb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/hurt/ganggamchan_hurt_01.png",
+      "bytes": 9252,
+      "sha256": "390ef93226d42f2839ead3b295f35e4aa202dd4e9d0185f5e0d726c121652d9f",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/hurt/ganggamchan_hurt_02.png",
+      "bytes": 8236,
+      "sha256": "8ed90305be017e7613f5fd16b08fdd9e95360dac069ac1b82e3fad144acb4cdb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/hurt/ganggamchan_hurt_03.png",
+      "bytes": 8472,
+      "sha256": "6c77856a8f5757c1e2e6213737ff8c8786b1d736a7ad564c9eb300fa9cdb1636",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/idle/ganggamchan_idle_01.png",
+      "bytes": 10788,
+      "sha256": "da4bfd01f1cc6d5b81f257b83792855c80e23ac9527dcac7a698a934b687e7e7",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/idle/ganggamchan_idle_02.png",
+      "bytes": 10636,
+      "sha256": "95b7a7acff50a5ad8bf0f3f0c06049f4a6768665c5eb0428d8d48e3329fe2ca6",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/idle/ganggamchan_idle_03.png",
+      "bytes": 10874,
+      "sha256": "6162c892858a6b4f4e4f63893c63f7d337323abf98e65dd67dec0145a77eedb4",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/idle/ganggamchan_idle_04.png",
+      "bytes": 10669,
+      "sha256": "623c59751d52d4eaf4396c6e3028e90347b4a60ad61349eb6147d775b08336c3",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/jump/ganggamchan_jump_01.png",
+      "bytes": 10001,
+      "sha256": "81349ba99dade360371248c32ccae48c0d073351027a5660b9993d4c74d31b2a",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/jump/ganggamchan_jump_02.png",
+      "bytes": 9247,
+      "sha256": "5031f72c66b47becd9ad82cda439311c72e37fd2e1480eb51e470bf78a416006",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/jump/ganggamchan_jump_03.png",
+      "bytes": 9009,
+      "sha256": "51616834b12603c622db80ccd14ca6b21010587217933b1ca28ddd7e73e45eeb",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/jump/ganggamchan_jump_04.png",
+      "bytes": 10561,
+      "sha256": "36d1af639263dcf6748cf20dfc71ee349052a53e55bcbb83838eb906a525624e",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/parry/ganggamchan_parry_01.png",
+      "bytes": 9720,
+      "sha256": "c7cc83804d48bbeeea076f4a23d65a051999e0f07a33c0bed2de424fa81ce272",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/parry/ganggamchan_parry_02.png",
+      "bytes": 13804,
+      "sha256": "89254c2134da84559d4ebcb9e1e307dc216db39fa331ac16454f1fdf98f1c50d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/parry/ganggamchan_parry_03.png",
+      "bytes": 9129,
+      "sha256": "af747935d4cf47975c313ec53c9556990222eebb8e194825a42346fc11c55c65",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/run/ganggamchan_run_01.png",
+      "bytes": 10398,
+      "sha256": "d2c40426ff63500ba12b7c566f5f77cacde7dd08cfeb7627690891007ce22235",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/run/ganggamchan_run_02.png",
+      "bytes": 10164,
+      "sha256": "68ae3bf4d27da5a399e1405ef3d29961560961140df9a4764ea90ee138e7e5a4",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/run/ganggamchan_run_03.png",
+      "bytes": 10496,
+      "sha256": "cf5b3595a6673f16f9a1d6624f0d5ec461f760d49f788e0d6ffce878f357748b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/run/ganggamchan_run_04.png",
+      "bytes": 10097,
+      "sha256": "61719a8b224394460732d30418b93d6b9db10382a44d321e042727f96ef8abbf",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_01.png",
+      "bytes": 10532,
+      "sha256": "00eda4d2637ed0fb9560dba2f73035bce1516fe55a33d89a7ae700ca4f5ebe96",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_02.png",
+      "bytes": 10597,
+      "sha256": "780c5fbbae1da7e94b399cbde4f4ca6d5fa85fd7f51ca004ee31b7a0fb360bd4",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_03.png",
+      "bytes": 10287,
+      "sha256": "888656a9a17d1ed8e8c8748723abe0574187796078604d811258d2ca59835f5c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_04.png",
+      "bytes": 10401,
+      "sha256": "51049e64fca004d9d78967d95d08e620f33d672f6159dba63a82b64e521b1c95",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_05.png",
+      "bytes": 10330,
+      "sha256": "010a8b1025a321c7cd61d822cad2ca6b0b21da7eb87592b9a94ae509c5667634",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/character/walk/ganggamchan_walk_06.png",
+      "bytes": 10588,
+      "sha256": "3a030ba89ffd305e1a7328f1fc762d372a8aeb15c14583d9e6b0988dc5e51b84",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/charge_fx/ganggamchan_charge_fx_01.png",
+      "bytes": 13581,
+      "sha256": "55b5a119e76b55d702f8ba7ac3ccc91a55c8ca2553ec4a79b678e323bcb7945d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/charge_fx/ganggamchan_charge_fx_02.png",
+      "bytes": 15229,
+      "sha256": "ba3921383d04d64459df0921ca96bb66a39b8218244f008a526cbafbf94026b3",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/charge_fx/ganggamchan_charge_fx_03.png",
+      "bytes": 15685,
+      "sha256": "0862fe184fb2ba785536e73926e20b08ca61056192bdfce23b0fbf115f7fb8cc",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/charge_fx/ganggamchan_charge_fx_04.png",
+      "bytes": 17147,
+      "sha256": "e2e5c0df38452e60a3fbec0edca7db5ea44c871744db799cedb71ff78ded6551",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/dash_fx/ganggamchan_dash_fx_01.png",
+      "bytes": 9037,
+      "sha256": "c5192e6149d635194a3750ab027cfd6f53b50b0a1c53ee56155ca734ef5fa95b",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/dash_fx/ganggamchan_dash_fx_02.png",
+      "bytes": 12357,
+      "sha256": "fcc5c562f6ed3fe0fb153c7fd7a54227351fd52c0cab8ee77f497716a3988737",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/dash_fx/ganggamchan_dash_fx_03.png",
+      "bytes": 12619,
+      "sha256": "277c7d556cc8baaa87c9ecc6502f500aff14c315fb2d3a0dcbb30d4f3ca63642",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/dash_fx/ganggamchan_dash_fx_04.png",
+      "bytes": 5552,
+      "sha256": "04f81ad45ab881c53bb3cb451747f5a7f3cdc6627406d4dd313058a1a23eabec",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/hit_fx/ganggamchan_hit_fx_01.png",
+      "bytes": 11835,
+      "sha256": "139f5452fcfe4d5b441379792296b7f60cc271cc3f3cf6bad04414a9d893f04d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/hit_fx/ganggamchan_hit_fx_02.png",
+      "bytes": 14058,
+      "sha256": "09209c8dfc2462b527f6415e04008ec4e4285d4c6f84efe052e451d0d8d8c40c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/hit_fx/ganggamchan_hit_fx_03.png",
+      "bytes": 14076,
+      "sha256": "dcd352a76e8282e4669231992d4da200d5c62e8a64091e95eb7db144c637e132",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/hit_fx/ganggamchan_hit_fx_04.png",
+      "bytes": 12757,
+      "sha256": "066f68d610b6f3c30f4cd681e449ed3d3beac10f064a56569bd2085cdf3cfe3c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/parry_fx/ganggamchan_parry_fx_01.png",
+      "bytes": 10402,
+      "sha256": "6afaf5749d5b62ba5f13453a35a39384339d3c710aceeebad77bb0e29eca25db",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/parry_fx/ganggamchan_parry_fx_02.png",
+      "bytes": 14993,
+      "sha256": "5f7252e4053c9eacf516faf0d8ab611c9534232288e96dea00a6c40bbe809998",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/parry_fx/ganggamchan_parry_fx_03.png",
+      "bytes": 14305,
+      "sha256": "47998189dc7633e60fc1c6df1656ab7f3331111fb0253f1a81df6667108afc78",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/parry_fx/ganggamchan_parry_fx_04.png",
+      "bytes": 13940,
+      "sha256": "536730300b9b512aa231ccd2a30cc3c6e69c6a2b2cc383ba6575697f1c966b2c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_01.png",
+      "bytes": 8387,
+      "sha256": "28c3805abca24672c460b72afdfbfb2463dd4183747a99c9d4d01b1c03b9d43d",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_02.png",
+      "bytes": 11815,
+      "sha256": "ac449382e6265bf8a88b7785d20083eab141aa34b40d3c1cae36eacae932f5ac",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_03.png",
+      "bytes": 14140,
+      "sha256": "83f60ef187fc601cc9d4114fb3ac1beb7b069c7b18417843af566e07f7a376d7",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_04.png",
+      "bytes": 14110,
+      "sha256": "e73d075c80ef39a59c2a8e9b1e6425145421561ff82ef295a53a1de1cffe9f3c",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_05.png",
+      "bytes": 11693,
+      "sha256": "ba807f3c2d71c60acc924c55ae2ca5271c504cf6e00b42be8f6e7f0c4b98d2e0",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_06.png",
+      "bytes": 15373,
+      "sha256": "cd7b866a08e288583435fa57a4342d7759705836907d04c919bc11b91ac27cdd",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/frames/effects/skill/ganggamchan_skill_07.png",
+      "bytes": 14380,
+      "sha256": "96e428bbd628f68d5b86f82e72a70f9122bf55ce6aa60f7cd58fe3be35839805",
+      "width": 128,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/ganggamchan_atlas.json",
+      "bytes": 25468,
+      "sha256": "2aa09a56a3cf40fa264c6e8f29e0272004888e13e90b1392804c783148e5aa35"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/ganggamchan_atlas.png",
+      "bytes": 769118,
+      "sha256": "6ca4e848e118e43c07b03554a6b2e723d4143155fb336f2e78fd617f5721517e",
+      "width": 1024,
+      "height": 1152,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/metadata/frame_index.csv",
+      "bytes": 6996,
+      "sha256": "c5bf69c842aa0a7f67ee9f644a89e9bbcfd93caf0a7810027b5914da38e388d1"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/metadata/frames.json",
+      "bytes": 48804,
+      "sha256": "30a9fc2c0b594c97c65965cfcb5a33785b3998add04128786cf7e10e9894c532"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/metadata/validation.json",
+      "bytes": 597,
+      "sha256": "4f803f10baa19e365b5aad1db34c5c9fa6cb3a36afe1557b1b5b7b47b6766aa5"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/previews/character_contact.png",
+      "bytes": 408402,
+      "sha256": "60b8c54031205d68d1f986d7647e7fa6d8a191ed7658f12881e799fc02f62a59",
+      "width": 1052,
+      "height": 2010,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/previews/effects_contact.png",
+      "bytes": 202716,
+      "sha256": "cba7feeefb19c52091c19a1318a8f702239228c37220a6e2daec9272204287c1",
+      "width": 1070,
+      "height": 862,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/previews/preview.html",
+      "bytes": 1031044,
+      "sha256": "6795d51cfe5ebf467b41ebd78d2a71526ad1ce520373ec1745779f49ce9ec257"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/review/heavy_03_04_overlap_cleaned.png",
+      "bytes": 49220,
+      "sha256": "2e3e6bd3db0ee7210b950595269f447dc5cc5ebb38c1937969d353a088ed05ec",
+      "width": 212,
+      "height": 159,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/review/heavy_03_04_source_overlap.png",
+      "bytes": 69757,
+      "sha256": "f4bc5c1d56b25b63d06e025b0cad9b50035ba4182ded0cc8d67cffedca91aa5b",
+      "width": 212,
+      "height": 159,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_attack_1.png",
+      "bytes": 56759,
+      "sha256": "f506396e78fa80802f4e354303f90cb4f6eb14e21dc6b3af078f440463719b2f",
+      "width": 640,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_attack_2.png",
+      "bytes": 48277,
+      "sha256": "f1adfb5439570356d836251cef1492b83e35ed383ab68cff232abdbdf032b3c5",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_attack_3.png",
+      "bytes": 49315,
+      "sha256": "aa9af47c9ab4f06f060c1791637420c34706ee27a15589f5371f0571d7d45935",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_dash.png",
+      "bytes": 28820,
+      "sha256": "e3216110626cd4cc0a8bf79bc57e9aa394bad112abddd17591ba234f1e52f0ec",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_death.png",
+      "bytes": 29618,
+      "sha256": "b42f1bc75aacd46e9a05c0078130ff1cfea900411c3205b8d78ce1a5563a993d",
+      "width": 768,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_heavy.png",
+      "bytes": 19959,
+      "sha256": "330229816f3adbe7b3688d9c3dc05b2e869fc0ec5f11dda79ce9a32f87f8888b",
+      "width": 256,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_hurt.png",
+      "bytes": 25751,
+      "sha256": "93795af94c471cc9d5e899934688ff2429ffef9f3630c07aa72b3b0abe1f961a",
+      "width": 384,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_idle.png",
+      "bytes": 42464,
+      "sha256": "6056e9423d08c86d494f37a2418644aa8cda45f3104542e5ee2b30f97a56c42d",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_jump.png",
+      "bytes": 38593,
+      "sha256": "19ee2dad16b08811c739353bbfac96e1842b11985dd71f57335badd57b93548c",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_parry.png",
+      "bytes": 32534,
+      "sha256": "f7195718f3e0df1232f4ccc0753b976ba7dc7c93bc733cb0de0543f8f4dfdd87",
+      "width": 384,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_run.png",
+      "bytes": 40650,
+      "sha256": "a2b211a4be3347d8bb6014036e05855aac8dddd164b8741c160f9b40061c3c13",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/character/ganggamchan_walk.png",
+      "bytes": 61853,
+      "sha256": "65d141b7ef52549c3396ecc693edcdf9b3c8a676354e8170d3c09e10eaf8a369",
+      "width": 768,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/effects/ganggamchan_charge_fx.png",
+      "bytes": 60653,
+      "sha256": "a47ea865adaaffabc9b3cae9bceec6cb28801263221722e1a02354b2e71aeabb",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/effects/ganggamchan_dash_fx.png",
+      "bytes": 39625,
+      "sha256": "5d4d86d077f1903563eed1f0a9e874e2362f039533c3c5be25d93184c2e3edb6",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/effects/ganggamchan_hit_fx.png",
+      "bytes": 51889,
+      "sha256": "d37f9141964d911325994243e95298cacb2c5f06ed111a95382300e3163abb8c",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/effects/ganggamchan_parry_fx.png",
+      "bytes": 53313,
+      "sha256": "737e164558af9b5004b1fe65ed2abf2f74d21b86f49020291a7fcbdecc74ed6a",
+      "width": 512,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/ganggamchan_v2/sheets/effects/ganggamchan_skill.png",
+      "bytes": 89430,
+      "sha256": "660fc7a22b8d8b0c27af3e27e9a576a3ba954f0d80d6b4ff88af9308575cd71e",
+      "width": 896,
+      "height": 128,
+      "mode": "RGBA"
+    }
+  ],
+  "runtimeVerified": false,
+  "knownIssues": [
+    "heavy-has-only-two-preparation-poses",
+    "some-effects-baked-into-body",
+    "some-source-edge-warnings",
+    "enemies-allies-backgrounds-audio-not-supplied"
+  ]
+}

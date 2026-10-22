@@ -1,0 +1,77 @@
+{
+  "status": "USER_CONFIRMED_EXCEPT_MENU_AND_THRESHOLDS",
+  "standardGamepad": {
+    "axes": {
+      "moveX": 0
+    },
+    "buttons": {
+      "jump": 0,
+      "weak": 1,
+      "parry": 2,
+      "heavy": 3,
+      "cycleSkill": 4,
+      "castSkill": 5,
+      "runHold": 6,
+      "dash": 7,
+      "pause": 9
+    }
+  },
+  "keyboard": {
+    "left": [
+      "KeyA"
+    ],
+    "right": [
+      "KeyD"
+    ],
+    "jump": [
+      "Space"
+    ],
+    "weak": [
+      "KeyJ"
+    ],
+    "heavy": [
+      "KeyK"
+    ],
+    "parry": [
+      "KeyL"
+    ],
+    "dash": [
+      "ShiftLeft",
+      "ShiftRight"
+    ],
+    "runHold": [
+      "ControlLeft",
+      "ControlRight"
+    ],
+    "cycleSkill": [
+      "KeyQ"
+    ],
+    "castSkill": [
+      "KeyE"
+    ],
+    "pause": [
+      "Escape"
+    ]
+  },
+  "chord": {
+    "gamepad": [
+      "weak",
+      "heavy"
+    ],
+    "keyboard": [
+      "weak",
+      "heavy"
+    ],
+    "windowMs": 100,
+    "mustOverlapHeld": true
+  },
+  "menuGamepad": {
+    "confirm": 0,
+    "cancel": 1,
+    "pause": 9,
+    "up": 12,
+    "down": 13,
+    "left": 14,
+    "right": 15
+  }
+}

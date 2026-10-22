@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "status": "USER_CONFIRMED",
+  "title": "강감찬: 고려의 수호자",
+  "titleIsWorkingTitle": true,
+  "game": {
+    "genre": "2d-side-scrolling-action",
+    "player": "young-fictional-gang-gam-chan",
+    "roundCount": 3,
+    "targetCleanRunSeconds": [
+      600,
+      900
+    ],
+    "difficulty": "normal",
+    "persistence": "none",
+    "retryLimit": null,
+    "retryLocation": "current-round-start"
+  },
+  "tech": {
+    "authoring": "Claude Code",
+    "ui": "React",
+    "engine": "Phaser",
+    "language": "TypeScript",
+    "buildTool": "Vite",
+    "primaryBrowser": "Chrome",
+    "primaryController": "Xbox-style standard gamepad",
+    "keyboardSupported": true,
+    "resolution": [
+      640,
+      360
+    ],
+    "scaling": "integer-with-letterbox",
+    "fullscreen": true,
+    "targetFps": 60,
+    "timing": "time-based",
+    "loading": "all-runtime-assets-at-start",
+    "loadError": "error-and-retry"
+  },
+  "art": {
+    "style": "retro-pixel-art",
+    "proportions": "warrior-not-SD",
+    "allyColor": "navy",
+    "enemyColor": "reddish-brown",
+    "effects": "moderately-vivid",
+    "parryHitstop": true
+  },
+  "audio": {
+    "style": "Korean-traditional-and-action-game-music",
+    "separateBgmAndSfxVolume": true,
+    "startAfterUserInput": true
+  },
+  "player": {
+    "maxHp": 100,
+    "weakDamage": [
+      10,
+      12,
+      15
+    ],
+    "heavyDamage": 25,
+    "finisherDamage": 35,
+    "chargeDamage": [
+      20,
+      35,
+      50
+    ],
+    "chargeThresholdMs": [
+      500,
+      1000,
+      1500
+    ],
+    "chargeChordWindowMs": 100,
+    "dashDamage": 15,
+    "dashInvulnerable": false,
+    "baseParryWindowMs": 200,
+    "hpHitInvulnerabilityMs": 500,
+    "hpHitStuns": true,
+    "stunResetsCombo": true,
+    "chargeCancelOnHpHitJumpDash": true,
+    "attackMovement": "reduced",
+    "facingChange": "between-hits",
+    "parryResponse": "stun-target-then-manual-counter",
+    "parryFailure": "short-recovery",
+    "normalAttackDashCancel": true,
+    "normalAttackParry": "after-current-hit-action"
+  },
+  "skills": {
+    "cycle": [
+      "command_buff",
+      "spear_support",
+      "shield_guard"
+    ],
+    "baseSharedCooldownMs": 20000,
+    "linkage": "buff-shield-immediate-spear-after-current-hit-command-pose",
+    "command_buff": {
+      "damageIncrease": 0.3,
+      "durationMs": 8000
+    },
+    "spear_support": {
+      "damagePerTarget": 50,
+      "maxTargets": 5,
+      "selection": "nearest-first",
+      "sides": "both",
+      "attack": "single-burst-then-disappear"
+    },
+    "shield_guard": {
+      "initialShield": 40,
+      "decayPerSecond": 8,
+      "maxDurationMs": 5000,
+      "absorbBeforeHp": true,
+      "fullyAbsorbedStun": false,
+      "fullyAbsorbedInvulnerability": false,
+      "overflowCausesHpDamageAndStun": true
+    }
+  },
+  "upgrades": {
+    "awardAfterRounds": [
+      1,
+      2
+    ],
+    "choices": [
+      "sword",
+      "parry",
+      "command_cooldown"
+    ],
+    "choicesPerAward": 1,
+    "repeatAllowed": true,
+    "maxTotalSelections": 2,
+    "swordIncreasePerStack": 0.15,
+    "parryWindowIncreaseMsPerStack": 50,
+    "sharedCooldownReductionMsPerStack": 3000,
+    "retainOnRetry": true,
+    "resetOnNewGame": true,
+    "damageStacking": "additive",
+    "damageRounding": "half-up-once-after-all-modifiers"
+  },
+  "enemies": {
+    "infantry": {
+      "hp": 40
+    },
+    "archer": {
+      "hp": 30
+    },
+    "spearman": {
+      "hp": 55
+    },
+    "shieldman": {
+      "hp": 80
+    },
+    "cavalry": {
+      "hp": 70
+    },
+    "normalDamageRange": [
+      8,
+      18
+    ]
+  },
+  "bosses": {
+    "vanguard": {
+      "hp": 350
+    },
+    "spear_captain": {
+      "hp": 500
+    },
+    "so_bae_ap": {
+      "hp": 700,
+      "maxLivingSummons": 3
+    },
+    "phaseCount": 2,
+    "phase2HpRatio": 0.5,
+    "phaseTransition": "short-motion-and-phase-2-label",
+    "transitionInvulnerable": true,
+    "decision": "distance-and-phase",
+    "normalTelegraph": "motion-only",
+    "unparryableTelegraph": "red-glow",
+    "normalAttackDamage": 15,
+    "heavyAttackDamage": 25
+  },
+  "healing": {
+    "riceball": {
+      "heal": 15,
+      "normalEnemyDropChance": 0.1
+    },
+    "herb_pouch": {
+      "heal": 30,
+      "quantityPerArenaClear": 1
+    },
+    "use": "instant-on-contact",
+    "fullHpPickup": false,
+    "lifetime": "until-leaving-current-arena",
+    "capHp": 100,
+    "roundExitCleanup": true
+  },
+  "levels": {
+    "mode": "traversal-and-locked-combat-arenas",
+    "terrain": "flat-and-simple-jump-platforms",
+    "obstacles": "movement-and-combat-mixed",
+    "bossArenas": "different-per-round",
+    "waves": "fixed",
+    "nextWaveCondition": "all-current-wave-enemies-defeated",
+    "waveGapMs": 2000,
+    "cleanupEnemyProjectilesAtWaveEnd": true
+  },
+  "transitions": {
+    "roundStartHp": 100,
+    "roundStartClearShieldAndBuff": true,
+    "roundStartCooldownReady": true,
+    "retrySameReset": true,
+    "bossAndPlayerSimultaneousDeath": "boss-victory-first",
+    "finalBossDefeat": "immediate-victory-cleanup-summons-and-attacks",
+    "mainMenuExitConfirmation": true
+  },
+  "pause": {
+    "tabHidden": true,
+    "controllerDisconnect": true,
+    "controllerReconnectResume": "fresh-A-press",
+    "freeze": [
+      "movement",
+      "combat",
+      "cooldowns",
+      "skill-durations",
+      "shield-decay",
+      "wave-gap",
+      "phase-animation",
+      "play-time"
+    ],
+    "fullscreenExit": "preserve-state-resize-only",
+    "fullscreenEsc": "consume-without-pause-toggle",
+    "screenTransitionInput": "consume-and-no-pass-through",
+    "inputDevicePriority": "gamepad-when-compatible-gamepad-connected"
+  },
+  "stats": {
+    "fields": [
+      "playTimeMs",
+      "normalEnemyKills",
+      "bossKills",
+      "parrySuccesses",
+      "deaths"
+    ],
+    "accumulateAcrossRetries": true,
+    "killSources": [
+      "sword",
+      "command-skills"
+    ],
+    "countKilledSummons": true,
+    "countEntityDeathOnce": true,
+    "newGameResets": true
+  },
+  "ending": {
+    "type": "story",
+    "content": [
+      "Goryeo-victory-scene",
+      "Battle-of-Gwiju-history"
+    ],
+    "advance": "A-press",
+    "after": "results-screen"
+  },
+  "faultTolerance": {
+    "enemyStuck": "relocate-to-safe-point",
+    "safePointNotFound": "search-again-then-explicit-exception-cleanup",
+    "roundGameStatePersistence": false
+  }
+}

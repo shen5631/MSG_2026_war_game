@@ -1,0 +1,282 @@
+{
+  "status": "IMPLEMENTATION_BINDING_NOT_ORIGINAL_GAMEPLAY_TIMING",
+  "character": {
+    "idle": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_idle_01",
+        "ganggamchan_idle_02",
+        "ganggamchan_idle_03",
+        "ganggamchan_idle_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": true,
+      "previewFpsOnly": 6,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "walk": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_walk_01",
+        "ganggamchan_walk_02",
+        "ganggamchan_walk_03",
+        "ganggamchan_walk_04",
+        "ganggamchan_walk_05",
+        "ganggamchan_walk_06"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": true,
+      "previewFpsOnly": 10,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "run": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_run_01",
+        "ganggamchan_run_02",
+        "ganggamchan_run_03",
+        "ganggamchan_run_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": true,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "jump": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_jump_01",
+        "ganggamchan_jump_02",
+        "ganggamchan_jump_03",
+        "ganggamchan_jump_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 8,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "attack_1": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_attack_1_01",
+        "ganggamchan_attack_1_02",
+        "ganggamchan_attack_1_03",
+        "ganggamchan_attack_1_04",
+        "ganggamchan_attack_1_05"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "attack_2": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_attack_2_01",
+        "ganggamchan_attack_2_02",
+        "ganggamchan_attack_2_03",
+        "ganggamchan_attack_2_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "attack_3": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_attack_3_01",
+        "ganggamchan_attack_3_02",
+        "ganggamchan_attack_3_03",
+        "ganggamchan_attack_3_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "heavy": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_heavy_01",
+        "ganggamchan_heavy_02"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 10,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-preparation-only"
+    },
+    "parry": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_parry_01",
+        "ganggamchan_parry_02",
+        "ganggamchan_parry_03"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "dash": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_dash_01",
+        "ganggamchan_dash_02",
+        "ganggamchan_dash_03",
+        "ganggamchan_dash_04"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 12,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "hurt": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_hurt_01",
+        "ganggamchan_hurt_02",
+        "ganggamchan_hurt_03"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 10,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    },
+    "death": {
+      "atlas": "ganggamchan",
+      "frames": [
+        "ganggamchan_death_01",
+        "ganggamchan_death_02",
+        "ganggamchan_death_03",
+        "ganggamchan_death_04",
+        "ganggamchan_death_05",
+        "ganggamchan_death_06"
+      ],
+      "origin": [
+        0.5,
+        0.890625
+      ],
+      "loop": false,
+      "previewFpsOnly": 8,
+      "gameplayTimingSource": "spec/runtime_defaults.json and locked_rules.json",
+      "status": "supplied-needs-runtime-review"
+    }
+  },
+  "effects": {
+    "skill": [
+      "ganggamchan_skill_01",
+      "ganggamchan_skill_02",
+      "ganggamchan_skill_03",
+      "ganggamchan_skill_04",
+      "ganggamchan_skill_05",
+      "ganggamchan_skill_06",
+      "ganggamchan_skill_07"
+    ],
+    "dash_fx": [
+      "ganggamchan_dash_fx_01",
+      "ganggamchan_dash_fx_02",
+      "ganggamchan_dash_fx_03",
+      "ganggamchan_dash_fx_04"
+    ],
+    "hit_fx": [
+      "ganggamchan_hit_fx_01",
+      "ganggamchan_hit_fx_02",
+      "ganggamchan_hit_fx_03",
+      "ganggamchan_hit_fx_04"
+    ],
+    "parry_fx": [
+      "ganggamchan_parry_fx_01",
+      "ganggamchan_parry_fx_02",
+      "ganggamchan_parry_fx_03",
+      "ganggamchan_parry_fx_04"
+    ],
+    "charge_fx": [
+      "ganggamchan_charge_fx_01",
+      "ganggamchan_charge_fx_02",
+      "ganggamchan_charge_fx_03",
+      "ganggamchan_charge_fx_04"
+    ]
+  },
+  "semanticFallbacks": {
+    "strong_attack": {
+      "windup": [
+        "ganggamchan_heavy_01",
+        "ganggamchan_heavy_02"
+      ],
+      "strike": [
+        "ganggamchan_attack_3_04"
+      ],
+      "recovery": [
+        "ganggamchan_attack_3_03"
+      ],
+      "status": "TEMPORARY_REUSE"
+    },
+    "finisher": {
+      "visual": "strong_attack-plus-existing-effect",
+      "status": "TEMPORARY_REUSE"
+    },
+    "charge": {
+      "visual": "heavy-preparation-and-stage-dependent-tint-existing-charge-fx",
+      "status": "TEMPORARY_REUSE"
+    },
+    "air_attack": {
+      "visual": "attack_1-selected-poses-while-airborne",
+      "status": "TEMPORARY_REUSE"
+    },
+    "command": {
+      "visual": "idle_02-plus-command-flag-effect",
+      "status": "TEMPORARY_REUSE"
+    }
+  },
+  "rules": [
+    "No animation FPS may define damage timing.",
+    "Do not register all skill effect frames as one looping animation.",
+    "Review source edge warnings for attack_3_03 and attack_3_04.",
+    "Never load previews as game textures."
+  ]
+}

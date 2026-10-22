@@ -1,0 +1,46 @@
+{
+  "status": "IMPLEMENTATION_DEFAULT",
+  "enemies": {
+    "infantry": {
+      "attackRange": 68,
+      "startupMs": 450,
+      "activeMs": 100,
+      "recoveryMs": 650
+    },
+    "archer": {
+      "preferredDistance": [
+        160,
+        260
+      ],
+      "startupMs": 650,
+      "projectiles": 1,
+      "recoveryMs": 1200
+    },
+    "spearman": {
+      "attackRange": 110,
+      "startupMs": 600,
+      "activeMs": 140,
+      "recoveryMs": 800
+    },
+    "shieldman": {
+      "attackRange": 62,
+      "startupMs": 650,
+      "activeMs": 120,
+      "recoveryMs": 900
+    },
+    "cavalry": {
+      "chargeTriggerDistance": [
+        160,
+        320
+      ],
+      "startupMs": 850,
+      "activeMsMax": 600,
+      "recoveryMs": 1000
+    }
+  },
+  "notes": [
+    "HP is locked_rules.json. Species damage/speed are runtime_defaults.json.",
+    "All regular attack telegraphs must be readable.",
+    "No idle contact damage."
+  ]
+}
