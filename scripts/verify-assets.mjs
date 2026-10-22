@@ -33,6 +33,7 @@ const IMAGE_SIZE = {
   khitan_archer_arrow_01: { w: 64, h: 32 },
   khitan_archer_arrow_02: { w: 64, h: 32 },
   ui_title_logo: { w: 1028, h: 383 },
+  ui_skill_gauges_64: { w: 1088, h: 1292 },
 };
 
 for (const a of runtime.assets) {
@@ -98,6 +99,25 @@ const envSrc = readFileSync(join(root, 'src/game/visual/environment.ts'), 'utf8'
 const envAtlas = JSON.parse(readFileSync(join(pub, 'assets/round1_environment/round1_environment.json'), 'utf8'));
 const contentBlock = envSrc.slice(envSrc.indexOf('const CONTENT'), envSrc.indexOf('export const REQUIRED_ENV_FRAMES'));
 for (const m of contentBlock.matchAll(/^\s+(\w+): \{ x:/gm)) if (!envAtlas.frames[m[1]]) errors.push(`environment.ts uses missing env frame ${m[1]}`);
+// Skill gauge atlas: the HUD computes CSS positions from a fixed 16-column grid (64px + 2px padding);
+// every named frame in the JSON must sit exactly there, 3 skills × 101 readiness steps (000 = just used, 100 = ready).
+const gaugeAtlas = JSON.parse(readFileSync(join(pub, 'assets/skill_gauges_v1/atlas/skill_gauges_64.json'), 'utf8'));
+let gaugeFrames = 0;
+['command', 'spear', 'shield'].forEach((skill, si) => {
+  for (let p = 0; p <= 100; p++) {
+    const name = `${skill}_${String(p).padStart(3, '0')}`;
+    const f = gaugeAtlas.frames[name]?.frame;
+    if (!f) { errors.push(`skill gauge atlas missing ${name}`); continue; }
+    const i = si * 101 + p;
+    const x = (i % 16) * 68 + 2;
+    const y = Math.floor(i / 16) * 68 + 2;
+    if (f.x !== x || f.y !== y || f.w !== 64 || f.h !== 64) errors.push(`skill gauge ${name} at ${f.x},${f.y} ${f.w}x${f.h}, expected ${x},${y} 64x64`);
+    gaugeFrames++;
+  }
+});
+info.push(`skill gauges: ${gaugeFrames} frames on the 16-column grid`);
+if (existsSync(join(pub, 'assets/skill_gauges_v1/frames'))) errors.push('skill gauge editing PNGs (frames/) must not ship in public/');
+
 // Round-1 boss V2: every manifest animation frame must be in the atlas (51 = 9 actions); V1 must not be referenced.
 const vgManifest = JSON.parse(readFileSync(join(pub, 'assets/khitan_vanguard_v2/manifest.json'), 'utf8'));
 const vgAtlas = JSON.parse(readFileSync(join(pub, 'assets/khitan_vanguard_v2/atlas/vanguard.json'), 'utf8'));
