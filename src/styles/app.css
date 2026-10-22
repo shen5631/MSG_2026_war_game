@@ -77,7 +77,7 @@ button { font: inherit; }
 .title-block { position: absolute; left: 0; right: 0; top: 18px; text-align: center; }
 .title-block h1 { margin: 0; line-height: 0; }
 .title-logo { width: 320px; height: auto; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7)); }
-.panel.title-menu { position: absolute; right: 52px; top: 152px; width: 226px; min-width: 0; padding: 14px 16px 10px; }
+.panel.title-menu { position: absolute; left: 50%; transform: translateX(-50%); top: 150px; width: 226px; min-width: 0; padding: 14px 16px 10px; }
 .title-menu .menu { margin: 0; }
 .title-menu .menu-item { height: 36px; font-size: 15px; font-weight: 700; }
 .title-footer { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 9px; color: var(--m-muted); font-size: 8px; }

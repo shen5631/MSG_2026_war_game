@@ -254,7 +254,8 @@ export class PlayScene extends Phaser.Scene {
     this.parallax(this.camX);
     const t = performance.now();
     const p = this.player.setVisible(true);
-    p.setPosition(Math.round(this.camX + 200), 304).setFlipX(false).setAlpha(1).clearTint();
+    // Left of the centred lobby menu (panel spans x≈207–433).
+    p.setPosition(Math.round(this.camX + 110), 304).setFlipX(false).setAlpha(1).clearTint();
     p.setFrame(`ganggamchan_idle_0${1 + (Math.floor(t / 166) % 4)}`);
     this.shadow.setPosition(p.x, 305);
     for (const o of [this.buffAura, this.chargeAura, this.shieldRing, this.exitArrow, this.bossGlow, ...this.shieldAllies]) o.setVisible(false);
