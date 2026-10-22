@@ -79,6 +79,19 @@ for (const a of runtime.assets) {
   info.push(`heavy frames: ${heavy.join(', ')} (preparation poses only — strong attack visuals are TEMPORARY reuse)`);
 }
 
+// Registered BGM tracks must exist, be real MP3 data and cover only known music themes.
+const THEMES = new Set(['title', 'round1', 'round2', 'round3', 'boss', 'ending']);
+for (const t of runtime.audio ?? []) {
+  const p = join(pub, t.file);
+  if (/previews\/|review\//.test(t.file)) errors.push(`audio points into previews/review: ${t.file}`);
+  if (!existsSync(p)) { errors.push(`missing audio file: public/${t.file}`); continue; }
+  const b = readFileSync(p);
+  const isMp3 = b.toString('latin1', 0, 3) === 'ID3' || (b[0] === 0xff && (b[1] & 0xe0) === 0xe0);
+  if (!isMp3) errors.push(`${t.key}: not an MP3 file`);
+  for (const th of t.themes) if (!THEMES.has(th)) errors.push(`${t.key}: unknown music theme ${th}`);
+  info.push(`${t.key}: ${(b.length / 1048576).toFixed(1)}MB mp3 for ${t.themes.join('/')}`);
+}
+
 // Frame names used by the renderer must exist in their atlases.
 const envSrc = readFileSync(join(root, 'src/game/visual/environment.ts'), 'utf8');
 const envAtlas = JSON.parse(readFileSync(join(pub, 'assets/round1_environment/round1_environment.json'), 'utf8'));
@@ -130,4 +143,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, audio (generated placeholders are used).');
+console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, title/ending BGM and all SFX (generated placeholders are used).');
