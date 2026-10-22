@@ -532,13 +532,16 @@ export class Player {
     }
     this.hp = res.hp;
     this.invulnUntil = t + res.invulnerabilityMs;
+    // User rule change (2026-10-23): an HP hit no longer breaks a charge — damage and the 0.5 s invulnerability
+    // apply, but no hit-stun / knockback, and the charge keeps building (jump/dash still cancel it).
+    const keepCharge = this.mode === 'charge' && !LOCKED.player.chargeCancelOnHpHit;
     this.attack = null;
     this.dash = null;
     this.buffer = null;
     this.parryReservedFor = null;
     this.spearReserved = false;
     this.jumpBufferedAt = -Infinity;
-    if (this.mode === 'charge') this.chargeLock = true;
+    if (this.mode === 'charge' && !keepCharge) this.chargeLock = true;
     this.resetCombo();
     ctx.events.push({ type: 'hud' });
     ctx.events.push({ type: 'playerDamaged' });
@@ -548,6 +551,10 @@ export class Player {
       this.deathT = t;
       ctx.events.push({ type: 'sfx', id: 'death' });
       return 'killed';
+    }
+    if (keepCharge) {
+      ctx.events.push({ type: 'sfx', id: 'playerHurt' });
+      return 'hurt';
     }
     this.knockVx = (this.body.x >= hit.fromX ? 1 : -1) * 120;
     this.setMode('hurt', t);
