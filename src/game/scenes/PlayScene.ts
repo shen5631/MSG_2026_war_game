@@ -14,6 +14,7 @@ import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrow
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { drawChargeGauge } from '../visual/chargeGauge';
+import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
 import { shieldSnapshotOf } from '../visual/shieldAllies';
 
@@ -88,7 +89,8 @@ export class PlayScene extends Phaser.Scene {
     this.walls = this.add.graphics().setDepth(40);
     this.exitArrow = this.add.image(0, 0, 'generated_ui_markers', 'exit').setDepth(45).setVisible(false);
     this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
-    this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(5);
+    // Above terrain art (depth 6) so it shows on platforms and crates, below the hero (20).
+    this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(7);
     this.buffAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_skill_02').setOrigin(0.5, 0.89).setDepth(9).setAlpha(0.6).setVisible(false);
     this.chargeAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_charge_fx_01').setOrigin(0.5, 0.89).setDepth(21).setVisible(false);
     this.chargeGauge = this.add.graphics().setDepth(26).setVisible(false);
@@ -288,7 +290,7 @@ export class PlayScene extends Phaser.Scene {
     // Left of the centred lobby menu (panel spans x≈207–433).
     p.setPosition(Math.round(this.camX + 110), 304).setFlipX(false).setAlpha(1).clearTint();
     p.setFrame(`ganggamchan_idle_0${1 + (Math.floor(t / 166) % 4)}`);
-    this.shadow.setPosition(p.x, 305);
+    this.shadow.setPosition(p.x, 305).setScale(1).setAlpha(1);
     for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.exitArrow, this.bossGlow]) o.setVisible(false);
     this.shieldView.clear();
     this.walls.clear();
@@ -314,7 +316,9 @@ export class PlayScene extends Phaser.Scene {
     if (pf.tint !== undefined) ps.setTint(pf.tint); else ps.clearTint();
     const blinking = pl.alive && t < pl.invulnUntil && Math.floor(t / 60) % 2 === 0;
     ps.setAlpha(blinking ? 0.35 : 1);
-    this.shadow.setPosition(Math.round(pl.body.x), r.groundY + 1).setScale(pl.body.onGround ? 1 : 0.7);
+    const surfaceY = shadowSurfaceY(r.solids, pl.body.x, pl.body.y, r.groundY);
+    const k = shadowScale(surfaceY - pl.body.y);
+    this.shadow.setPosition(Math.round(pl.body.x), surfaceY + 1).setScale(k).setAlpha(0.35 + 0.65 * k);
 
     this.buffAura.setVisible(pl.commandBuffActive).setPosition(pl.body.x, pl.body.y).setAlpha(0.35 + 0.2 * Math.sin(t / 120));
     const charging = pl.mode === 'charge';
