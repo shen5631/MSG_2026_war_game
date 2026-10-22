@@ -50,9 +50,9 @@ button { font: inherit; }
 .slider button { background: none; border: 1px solid var(--gold); color: var(--gold-2); padding: 0 4px; cursor: pointer; font-size: 9px; }
 .btn { margin-top: 8px; background: var(--navy-2); color: var(--ink); border: 1px solid var(--gold); padding: 4px 8px; cursor: pointer; }
 
-.title-block { position: absolute; left: 0; right: 0; top: 40px; text-align: center; text-shadow: 2px 2px 0 #000, 0 0 8px rgba(0, 0, 0, 0.8); }
-.title-block h1 { margin: 0; font-size: 44px; letter-spacing: 8px; color: var(--gold-2); }
-.title-block h3 { margin: 0; font-size: 16px; letter-spacing: 6px; color: var(--ink); }
+.title-block { position: absolute; left: 0; right: 0; top: 18px; text-align: center; }
+.title-block h1 { margin: 0; line-height: 0; }
+.title-logo { width: 320px; height: auto; filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7)); }
 .title-menu { position: absolute; right: 70px; top: 170px; width: 180px; padding: 8px 12px; background: var(--panel); border: 2px solid var(--gold); }
 .title-hint { position: absolute; bottom: 22px; right: 16px; margin: 0; font-size: 9px; color: var(--muted); text-shadow: 1px 1px 0 #000; }
 .pad-notice { position: absolute; bottom: 36px; right: 16px; margin: 0; font-size: 9px; color: var(--gold-2); text-shadow: 1px 1px 0 #000; }

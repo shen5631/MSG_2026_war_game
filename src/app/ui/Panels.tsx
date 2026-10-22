@@ -5,6 +5,9 @@ import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
 import { MenuList } from './MenuList';
 
+/** Registered in spec/runtime_assets.json (ui_title_logo), so it is already cached by the boot loader. */
+const TITLE_LOGO = `${import.meta.env.BASE_URL}assets/ui/title_logo.png`;
+
 export function Loading({ progress }: { progress: number }) {
   return (
     <div className="screen center" data-testid="loading">
@@ -117,8 +120,7 @@ export function Title({ padNotice }: { padNotice: string | null }) {
   return (
     <div className="screen" data-testid="title">
       <div className="title-block">
-        <h1>강감찬</h1>
-        <h3>고려의 수호자</h3>
+        <h1><img className="title-logo" src={TITLE_LOGO} alt="강감찬: 고려의 수호자" draggable={false} /></h1>
       </div>
       <div className="title-menu">
         <MenuList enabled={!sub} items={[
@@ -129,7 +131,7 @@ export function Title({ padNotice }: { padNotice: string | null }) {
       </div>
       <p className="title-hint">게임패드 A / Enter: 선택 · 방향키: 이동</p>
       {padNotice && <p className="pad-notice">{padNotice}</p>}
-      <p className="temp-tag">개발 빌드 · 보병 외 적/보스/2·3라운드 배경/음악은 임시 자료</p>
+      <p className="temp-tag">개발 빌드 · 보병·궁병 외 적/보스/2·3라운드 배경/음악은 임시 자료</p>
       {sub === 'settings' && <Settings onClose={() => setSub(null)} />}
       {sub === 'controls' && <Controls onClose={() => setSub(null)} />}
     </div>
