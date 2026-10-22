@@ -92,7 +92,8 @@ export class PlayScene extends Phaser.Scene {
     this.chargeAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_charge_fx_01').setOrigin(0.5, 0.89).setDepth(21).setVisible(false);
     this.chargeGauge = this.add.graphics().setDepth(26).setVisible(false);
     this.player = this.add.sprite(200, 304, ATLAS_KEY, 'ganggamchan_idle_01').setOrigin(PLAYER_ORIGIN[0], PLAYER_ORIGIN[1]).setDepth(20);
-    this.shieldView = new PhaserShieldView(this);
+    // No barrier ellipse around the soldiers (user preference): the soldiers alone show the shield.
+    this.shieldView = new PhaserShieldView(this, { showBarrier: false });
     if (import.meta.env.DEV) {
       window.__GGC_SCENE__ = this;
       if (new URLSearchParams(window.location.search).has('debug')) this.debugGfx = this.add.graphics().setDepth(100);
