@@ -559,7 +559,8 @@ export class RoundSim {
       p.hp = Math.min(LOCKED.player.maxHp, p.hp + HEAL[it.kind]);
       it.alive = false;
       this.events.push({ type: 'sfx', id: 'heal' });
-      this.events.push({ type: 'fx', fx: 'heal', x: it.x, y: it.y - 20 });
+      // Healing shows on the hero (feet), not where the item lay.
+      this.events.push({ type: 'fx', fx: 'heal', x: p.body.x, y: p.body.y });
       this.events.push({ type: 'hud' });
     }
     this.pickups = this.pickups.filter((i) => i.alive);

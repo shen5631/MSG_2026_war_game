@@ -18,7 +18,7 @@ const BG_CROP_H = 700;
 const BG_SCALE = 304 / BG_CROP_H;
 const BG_DISPLAY_W = Math.round(1672 * BG_SCALE);
 
-interface FxItem { sprite: Phaser.GameObjects.Sprite; frames: string[]; start: number; dur: number; active: boolean }
+interface FxItem { sprite: Phaser.GameObjects.Sprite; frames: string[]; start: number; dur: number; active: boolean; follow?: boolean }
 
 const FX_FRAMES: Record<string, string[]> = {
   hit: ['ganggamchan_hit_fx_01', 'ganggamchan_hit_fx_02', 'ganggamchan_hit_fx_03', 'ganggamchan_hit_fx_04'],
@@ -160,7 +160,8 @@ export class PlayScene extends Phaser.Scene {
       case 'skill': frames = level ? FX_FRAMES.skillShield : FX_FRAMES.skillBuff; dur = 420; break;
       case 'spear': frames = FX_FRAMES.spear; dur = 300; break;
       case 'shieldBreak': frames = FX_FRAMES.parry; tint = 0x7fb0ff; dur = 300; break;
-      case 'heal': frames = FX_FRAMES.heal; tint = 0x9fff9f; dur = 400; break;
+      // skill_07 is a blue-white rising glow: no multiply tint (it turned it a muddy yellow-green).
+      case 'heal': frames = FX_FRAMES.heal; dur = 450; break;
       default: return;
     }
     let item = this.fx.find((f) => !f.active);
@@ -174,7 +175,9 @@ export class PlayScene extends Phaser.Scene {
     item.dur = dur;
     item.start = r ? r.presentationT : 0;
     item.sprite.setVisible(true).setFrame(frames[0]).setFlipX(facing < 0).setOrigin(0.5, 0.5).setAlpha(1);
-    if (kind === 'dash' || kind === 'charge' || kind === 'skill') item.sprite.setOrigin(0.5, 0.89);
+    if (kind === 'dash' || kind === 'charge' || kind === 'skill' || kind === 'heal') item.sprite.setOrigin(0.5, 0.89);
+    item.follow = kind === 'heal';
+    item.sprite.setBlendMode(kind === 'heal' ? Phaser.BlendModes.ADD : Phaser.BlendModes.NORMAL);
     item.sprite.setPosition(x, y);
     if (tint !== undefined) item.sprite.setTint(tint); else item.sprite.clearTint();
   }
@@ -365,6 +368,7 @@ export class PlayScene extends Phaser.Scene {
       if (age >= f.dur || age < 0) { f.active = false; f.sprite.setVisible(false); continue; }
       f.sprite.setFrame(f.frames[Math.min(f.frames.length - 1, Math.floor((age / f.dur) * f.frames.length))]);
       f.sprite.setAlpha(1 - age / f.dur * 0.5);
+      if (f.follow) f.sprite.setPosition(this.player.x, this.player.y);
     }
 
     if (this.debugGfx) this.drawDebug(r);
