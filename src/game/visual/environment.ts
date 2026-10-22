@@ -57,8 +57,9 @@ export function makeSolidImage(scene: Phaser.Scene, s: Solid): Phaser.GameObject
   const img = scene.add.image(0, 0, ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
   img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(s.y - art.topInset - c.y * scale));
   img.setDepth(art.behindGround ? -12 : 6);
-  // Colliding terrain must read apart from the painted background: warm rim light (WebGL FX; absent on canvas).
-  img.preFX?.addGlow(SOLID_RIM_COLOR, 3, 0, false, 0.1, 6);
+  // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
+  // (WebGL FX; absent on the canvas renderer).
+  if (s.destructible) img.preFX?.addGlow(SOLID_RIM_COLOR, 3, 0, false, 0.1, 6);
   return img;
 }
 
