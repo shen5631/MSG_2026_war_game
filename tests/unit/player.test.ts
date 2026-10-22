@@ -103,12 +103,27 @@ describe('charge (T029–T034)', () => {
     d.run(600);
     expect(e.hp).toBe(40);
   });
-  it('T033 HP hit during charge cancels it', () => {
+  // User rule change 2026-10-23 (was: HP hit cancels the charge with hit-stun).
+  it('T033 HP hit during charge keeps charging: damage + 0.5 s invulnerability, no stun, release still fires', () => {
     const { driver: d, sim } = makeSim();
     d.press('weak', 'heavy').run(300);
     const out = d.player.receiveHit({ damage: 10, parryable: true, fromX: 200, attackerId: 'x' }, { t: sim.t, events: new EventQueue() });
     expect(out).toBe('hurt');
-    expect(d.player.mode).toBe('hurt');
+    expect(d.player.hp).toBe(90);
+    expect(d.player.mode).toBe('charge');
+    expect(d.player.invulnUntil).toBe(sim.t + 500);
+    d.run(1250); // keeps building to stage 3 (300 + 1250 > 1500 ms held)
+    expect(d.player.chargeStage).toBe(3);
+    d.release('weak').run(1);
+    expect(d.player.attack?.kind).toBe('charge3');
+  });
+  it('T033b a lethal hit during charge still kills', () => {
+    const { driver: d, sim } = makeSim();
+    d.press('weak', 'heavy').run(300);
+    d.player.hp = 5;
+    const out = d.player.receiveHit({ damage: 10, parryable: true, fromX: 200, attackerId: 'x' }, { t: sim.t, events: new EventQueue() });
+    expect(out).toBe('killed');
+    expect(d.player.mode).toBe('dead');
   });
   it('T034 fully absorbed hit keeps the charge', () => {
     const { driver: d, sim } = makeSim();
