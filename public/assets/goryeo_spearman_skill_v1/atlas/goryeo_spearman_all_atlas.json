@@ -1,0 +1,174 @@
+{
+  "frames": {
+    "goryeo_spearman_ready_01.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "action": "ready"
+    },
+    "goryeo_spearman_ready_02.png": {
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "action": "ready"
+    },
+    "goryeo_spearman_ready_03.png": {
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "action": "ready"
+    },
+    "goryeo_spearman_ready_04.png": {
+      "frame": {
+        "x": 576,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      },
+      "action": "ready"
+    },
+    "goryeo_spearman_strike_01.png": {
+      "frame": {
+        "x": 0,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_strike_02.png": {
+      "frame": {
+        "x": 192,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_strike_03.png": {
+      "frame": {
+        "x": 384,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_strike_04.png": {
+      "frame": {
+        "x": 576,
+        "y": 192,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_strike_05.png": {
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_strike_06.png": {
+      "frame": {
+        "x": 192,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      },
+      "action": "strike"
+    },
+    "goryeo_spearman_summon_01.png": {
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      },
+      "action": "summon"
+    },
+    "goryeo_spearman_summon_02.png": {
+      "frame": {
+        "x": 576,
+        "y": 384,
+        "w": 192,
+        "h": 192
+      },
+      "action": "summon"
+    },
+    "goryeo_spearman_summon_03.png": {
+      "frame": {
+        "x": 0,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      },
+      "action": "summon"
+    },
+    "goryeo_spearman_summon_04.png": {
+      "frame": {
+        "x": 192,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      },
+      "action": "summon"
+    },
+    "goryeo_spearman_despawn_01.png": {
+      "frame": {
+        "x": 384,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      },
+      "action": "despawn"
+    },
+    "goryeo_spearman_despawn_02.png": {
+      "frame": {
+        "x": 576,
+        "y": 576,
+        "w": 192,
+        "h": 192
+      },
+      "action": "despawn"
+    },
+    "goryeo_spearman_despawn_03.png": {
+      "frame": {
+        "x": 0,
+        "y": 768,
+        "w": 192,
+        "h": 192
+      },
+      "action": "despawn"
+    },
+    "goryeo_spearman_despawn_04.png": {
+      "frame": {
+        "x": 192,
+        "y": 768,
+        "w": 192,
+        "h": 192
+      },
+      "action": "despawn"
+    }
+  },
+  "meta": {
+    "image": "goryeo_spearman_all_atlas.png",
+    "frame_size": {
+      "w": 192,
+      "h": 192
+    },
+    "columns": 4
+  }
+}
