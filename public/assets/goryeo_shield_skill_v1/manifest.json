@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "id": "goryeo_shield_skill_v1",
+  "displayName": "고려군 방패병 막기 — 아군 지휘 스킬",
+  "role": "allied_support_visual",
+  "notEnemy": true,
+  "frameSize": {
+    "width": 128,
+    "height": 128
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.890625
+  },
+  "anchorPx": {
+    "x": 64,
+    "y": 114
+  },
+  "nativeFacing": "right",
+  "leftFacing": "flipX",
+  "paletteColors": 56,
+  "textureKey": "goryeo-shield-skill-v1",
+  "atlas": {
+    "image": "atlas/goryeo_shield_atlas.png",
+    "data": "atlas/goryeo_shield_atlas.json"
+  },
+  "animations": {
+    "summon": {
+      "frames": [
+        "summon_01",
+        "summon_02",
+        "summon_03",
+        "summon_04"
+      ],
+      "durationsMs": [
+        70,
+        70,
+        70,
+        70
+      ],
+      "loop": false,
+      "strip": "strips/summon.png"
+    },
+    "guard": {
+      "frames": [
+        "guard_01",
+        "guard_02",
+        "guard_03",
+        "guard_04"
+      ],
+      "durationsMs": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "loop": true,
+      "strip": "strips/guard.png"
+    },
+    "despawn": {
+      "frames": [
+        "despawn_01",
+        "despawn_02",
+        "despawn_03",
+        "despawn_04"
+      ],
+      "durationsMs": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "loop": false,
+      "strip": "strips/despawn.png"
+    }
+  },
+  "frames": {
+    "summon_01": {
+      "file": "frames/summon/goryeo_shield_summon_01.png",
+      "durationMs": 70,
+      "bounds": [
+        13,
+        21,
+        115,
+        114
+      ],
+      "source": {
+        "file": "sources/summon_original.png",
+        "xRange": [
+          0,
+          610
+        ],
+        "bodyAnchor": [
+          310,
+          659
+        ],
+        "scale": 0.17,
+        "alphaThreshold": 32
+      }
+    },
+    "summon_02": {
+      "file": "frames/summon/goryeo_shield_summon_02.png",
+      "durationMs": 70,
+      "bounds": [
+        17,
+        24,
+        106,
+        114
+      ],
+      "source": {
+        "file": "sources/summon_original.png",
+        "xRange": [
+          610,
+          1136
+        ],
+        "bodyAnchor": [
+          885,
+          659
+        ],
+        "scale": 0.17,
+        "alphaThreshold": 32
+      }
+    },
+    "summon_03": {
+      "file": "frames/summon/goryeo_shield_summon_03.png",
+      "durationMs": 70,
+      "bounds": [
+        18,
+        24,
+        104,
+        115
+      ],
+      "source": {
+        "file": "sources/summon_original.png",
+        "xRange": [
+          1136,
+          1655
+        ],
+        "bodyAnchor": [
+          1410,
+          659
+        ],
+        "scale": 0.17,
+        "alphaThreshold": 32
+      }
+    },
+    "summon_04": {
+      "file": "frames/summon/goryeo_shield_summon_04.png",
+      "durationMs": 70,
+      "bounds": [
+        18,
+        23,
+        102,
+        114
+      ],
+      "source": {
+        "file": "sources/summon_original.png",
+        "xRange": [
+          1655,
+          2172
+        ],
+        "bodyAnchor": [
+          1940,
+          659
+        ],
+        "scale": 0.17,
+        "alphaThreshold": 32
+      }
+    },
+    "guard_01": {
+      "file": "frames/guard/goryeo_shield_guard_01.png",
+      "durationMs": 160,
+      "bounds": [
+        29,
+        24,
+        103,
+        114
+      ],
+      "source": {
+        "file": "sources/guard_original.png",
+        "xRange": [
+          0,
+          540
+        ],
+        "bodyAnchor": [
+          250,
+          674
+        ],
+        "scale": 0.16,
+        "alphaThreshold": 32
+      }
+    },
+    "guard_02": {
+      "file": "frames/guard/goryeo_shield_guard_02.png",
+      "durationMs": 160,
+      "bounds": [
+        27,
+        24,
+        103,
+        114
+      ],
+      "source": {
+        "file": "sources/guard_original.png",
+        "xRange": [
+          540,
+          1090
+        ],
+        "bodyAnchor": [
+          805,
+          675
+        ],
+        "scale": 0.16,
+        "alphaThreshold": 32
+      }
+    },
+    "guard_03": {
+      "file": "frames/guard/goryeo_shield_guard_03.png",
+      "durationMs": 160,
+      "bounds": [
+        26,
+        26,
+        104,
+        114
+      ],
+      "source": {
+        "file": "sources/guard_original.png",
+        "xRange": [
+          1090,
+          1630
+        ],
+        "bodyAnchor": [
+          1350,
+          674
+        ],
+        "scale": 0.16,
+        "alphaThreshold": 32
+      }
+    },
+    "guard_04": {
+      "file": "frames/guard/goryeo_shield_guard_04.png",
+      "durationMs": 160,
+      "bounds": [
+        25,
+        23,
+        102,
+        114
+      ],
+      "source": {
+        "file": "sources/guard_original.png",
+        "xRange": [
+          1630,
+          2172
+        ],
+        "bodyAnchor": [
+          1895,
+          675
+        ],
+        "scale": 0.16,
+        "alphaThreshold": 32
+      }
+    },
+    "despawn_01": {
+      "file": "frames/despawn/goryeo_shield_despawn_01.png",
+      "durationMs": 80,
+      "bounds": [
+        30,
+        23,
+        101,
+        114
+      ],
+      "source": {
+        "file": "sources/despawn_original.png",
+        "xRange": [
+          0,
+          550
+        ],
+        "bodyAnchor": [
+          245,
+          655
+        ],
+        "scale": 0.155,
+        "alphaThreshold": 20
+      }
+    },
+    "despawn_02": {
+      "file": "frames/despawn/goryeo_shield_despawn_02.png",
+      "durationMs": 80,
+      "bounds": [
+        27,
+        25,
+        99,
+        114
+      ],
+      "source": {
+        "file": "sources/despawn_original.png",
+        "xRange": [
+          550,
+          1100
+        ],
+        "bodyAnchor": [
+          850,
+          655
+        ],
+        "scale": 0.155,
+        "alphaThreshold": 20
+      }
+    },
+    "despawn_03": {
+      "file": "frames/despawn/goryeo_shield_despawn_03.png",
+      "durationMs": 80,
+      "bounds": [
+        22,
+        27,
+        99,
+        115
+      ],
+      "source": {
+        "file": "sources/despawn_original.png",
+        "xRange": [
+          1100,
+          1660
+        ],
+        "bodyAnchor": [
+          1390,
+          655
+        ],
+        "scale": 0.155,
+        "alphaThreshold": 20
+      }
+    },
+    "despawn_04": {
+      "file": "frames/despawn/goryeo_shield_despawn_04.png",
+      "durationMs": 80,
+      "bounds": [
+        31,
+        28,
+        99,
+        114
+      ],
+      "source": {
+        "file": "sources/despawn_original.png",
+        "xRange": [
+          1660,
+          2172
+        ],
+        "bodyAnchor": [
+          1920,
+          655
+        ],
+        "scale": 0.155,
+        "alphaThreshold": 20
+      }
+    }
+  },
+  "gameplay": {
+    "shieldInitial": 40,
+    "decayPerSecond": 8,
+    "maxDurationMs": 5000,
+    "sharedCooldownMs": [
+      20000,
+      17000,
+      14000
+    ],
+    "soldierCountIsVisualOnly": true,
+    "separateSoldierHealth": false,
+    "attacks": false,
+    "collisionBody": false
+  },
+  "sources": [
+    {
+      "action": "guard",
+      "file": "sources/guard_original.png",
+      "sha256": "1ffb4879246a308fc7bccefc0c1d89d6c2d7c3ca804ccd73dee8a21943a51ac8",
+      "size": [
+        2172,
+        724
+      ]
+    },
+    {
+      "action": "summon",
+      "file": "sources/summon_original.png",
+      "sha256": "739d1a52578665e549b3b484641856103ff93df0be0c474ecb7deb2d410ae109",
+      "size": [
+        2172,
+        724
+      ]
+    },
+    {
+      "action": "despawn",
+      "file": "sources/despawn_original.png",
+      "sha256": "c5935e020a88c734eba51fc8e578407cd05fc1f2a9fc1e74ad58b9f39e9fbd2e",
+      "size": [
+        2172,
+        724
+      ]
+    }
+  ],
+  "notes": [
+    "두 병사 그림을 표시해도 공유 보호막 총량은 40이다.",
+    "방어 성공을 패링으로 집계하지 않는다.",
+    "원본의 겹친 소환 외곽 입자는 정리했다. 병사 본체를 다시 그리지 않았다.",
+    "퇴장 4장은 최대 지속시간의 마지막 320ms에만 사용. 조기 파괴 시 즉시 제거한다."
+  ]
+}
