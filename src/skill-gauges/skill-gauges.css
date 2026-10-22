@@ -1,0 +1,21 @@
+/* Scoped names: does not overwrite the host game's global button / body styles. */
+.ggc-skill-gauge {
+  display: inline-block; flex: 0 0 auto; position: relative;
+  background-repeat: no-repeat; image-rendering: pixelated;
+  vertical-align: middle; box-sizing: content-box;
+}
+.ggc-skill-gauge.is-selected::after {
+  content: ''; position: absolute; inset: -2px; pointer-events: none;
+  border: 1px solid #ffe09a; box-shadow: 0 0 0 1px #6e4c14;
+}
+.ggc-skillbar { display: flex; align-items: center; gap: 6px; }
+.ggc-skill-button {
+  display: flex; align-items: center; gap: 5px; padding: 5px;
+  min-height: 42px; border: 1px solid #6a6255; color: #f0e6ce;
+  background: #121c2ae8; font: inherit; font-size: 11px; line-height: 1.2;
+  border-radius: 0; cursor: pointer;
+}
+.ggc-skill-button.is-selected { border-color: #f0c75b; box-shadow: inset 0 0 0 1px #f0c75b; }
+.ggc-skill-button:focus-visible { outline: 2px solid #fff2b3; outline-offset: 2px; }
+.ggc-skill-button:disabled { cursor: default; }
+.ggc-skill-status { color: #f0e6ce; font-size: 11px; white-space: nowrap; }
