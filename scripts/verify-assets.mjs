@@ -143,4 +143,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, title/ending BGM and all SFX (generated placeholders are used).');
+console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used).');

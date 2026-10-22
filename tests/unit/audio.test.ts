@@ -8,8 +8,13 @@ describe('BGM track mapping', () => {
     expect(trackFor('round1')?.file).toBe('assets/audio/battle_standard_bearer.mp3');
   });
 
-  it('title and ending keep the temporary synthesized themes', () => {
-    expect(trackFor('title')).toBeNull();
+  it('the lobby (title) plays 「준비 yourselves」, a different track so entering a round switches songs', () => {
+    expect(trackFor('title')?.key).toBe('bgm_prepare_yourselves');
+    expect(trackFor('title')?.file).toBe('assets/audio/prepare_yourselves.mp3');
+    expect(trackFor('title')?.key).not.toBe(trackFor('round1')?.key);
+  });
+
+  it('ending keeps the temporary synthesized theme', () => {
     expect(trackFor('ending')).toBeNull();
     expect(trackFor(null)).toBeNull();
   });
