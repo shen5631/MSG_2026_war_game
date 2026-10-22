@@ -162,12 +162,20 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .bossbar .fill { height: 100%; background: linear-gradient(#d0402a, #8a1c10); }
 .bossbar .half { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255, 255, 255, 0.6); }
 .phase-banner { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-size: 28px; font-weight: bold; color: #ff5a3a; letter-spacing: 6px; text-shadow: 2px 2px 0 #000; }
-.hud-skills { position: absolute; left: 50%; bottom: 5px; transform: translateX(-50%); display: flex; gap: 8px; align-items: flex-end; }
+/* Bottom-left command skills (spec 17.1: bottom area). */
+.hud-skills { position: absolute; left: 12px; bottom: 5px; display: flex; gap: 8px; align-items: flex-end; }
 /* Icons shown directly (no dark box); the selected skill gets the gauge icon's own gold outline. */
 .skill { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .skill .nm { font-size: 7px; white-space: nowrap; text-shadow: 1px 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000; }
 .skill.selected .nm { color: var(--gold-2); }
-.cd-text { font-size: 8px; margin-left: 4px; min-width: 86px; }
+.skill-status { align-self: center; display: flex; align-items: center; gap: 4px; margin-left: 2px; margin-bottom: 8px; padding: 2px 7px 2px 5px; font-size: 8px; letter-spacing: 0.5px; white-space: nowrap; background: rgba(11, 21, 36, 0.88); border: 1px solid; }
+.skill-status .dot { width: 5px; height: 5px; flex-shrink: 0; background: currentColor; }
+.skill-status b { font-weight: 700; font-variant-numeric: tabular-nums; }
+.skill-status.ready { color: #a8f0b0; border-color: #4f9a5c; }
+.skill-status.ready .dot { box-shadow: 0 0 4px #7ee08a; }
+.skill-status.cooling { color: #c3cddb; border-color: #4a5a72; }
+.skill-status.cooling .dot { background: #7d8aa0; }
+.skill-status.waiting { color: var(--gold-2); border-color: var(--gold); }
 .exit-hint { position: absolute; right: 12px; top: 44px; color: var(--gold-2); font-size: 10px; }
 .toasts { position: absolute; left: 0; right: 0; top: 70px; display: flex; flex-direction: column; align-items: center; gap: 2px; pointer-events: none; }
 .toast { background: rgba(0, 0, 0, 0.7); border: 1px solid var(--gold); padding: 2px 8px; font-size: 10px; }
