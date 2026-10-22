@@ -1,0 +1,2299 @@
+{
+  "version": 2,
+  "source": "a_clean_high_resolution_pixel_art_sprite_sheet_im.png",
+  "frameCount": 72,
+  "characterFrames": 49,
+  "effectFrames": 23,
+  "frameSize": 128,
+  "characterScaleFromSource": 0.75,
+  "referenceFloorY": 114,
+  "facing": "right",
+  "warning": "Images extracted and aligned, not runtime-verified complete combat animations. Heavy action has only two clean poses; the overlapping strike is in review/.",
+  "frames": [
+    {
+      "key": "ganggamchan_idle_01",
+      "file": "frames/character/idle/ganggamchan_idle_01.png",
+      "group": "idle",
+      "kind": "character",
+      "sourceRect": {
+        "x": 6,
+        "y": 63,
+        "w": 100,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 31,
+        "y": 26,
+        "w": 59,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 0
+    },
+    {
+      "key": "ganggamchan_idle_02",
+      "file": "frames/character/idle/ganggamchan_idle_02.png",
+      "group": "idle",
+      "kind": "character",
+      "sourceRect": {
+        "x": 107,
+        "y": 63,
+        "w": 100,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 31,
+        "y": 26,
+        "w": 59,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 1
+    },
+    {
+      "key": "ganggamchan_idle_03",
+      "file": "frames/character/idle/ganggamchan_idle_03.png",
+      "group": "idle",
+      "kind": "character",
+      "sourceRect": {
+        "x": 208,
+        "y": 63,
+        "w": 103,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 32,
+        "y": 26,
+        "w": 59,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 2
+    },
+    {
+      "key": "ganggamchan_idle_04",
+      "file": "frames/character/idle/ganggamchan_idle_04.png",
+      "group": "idle",
+      "kind": "character",
+      "sourceRect": {
+        "x": 313,
+        "y": 63,
+        "w": 101,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 33,
+        "y": 26,
+        "w": 57,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 3
+    },
+    {
+      "key": "ganggamchan_walk_01",
+      "file": "frames/character/walk/ganggamchan_walk_01.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 422,
+        "y": 63,
+        "w": 107,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 29,
+        "y": 29,
+        "w": 63,
+        "h": 87
+      },
+      "warnings": [],
+      "index": 4
+    },
+    {
+      "key": "ganggamchan_walk_02",
+      "file": "frames/character/walk/ganggamchan_walk_02.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 530,
+        "y": 63,
+        "w": 104,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 29,
+        "w": 66,
+        "h": 87
+      },
+      "warnings": [],
+      "index": 5
+    },
+    {
+      "key": "ganggamchan_walk_03",
+      "file": "frames/character/walk/ganggamchan_walk_03.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 635,
+        "y": 63,
+        "w": 105,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 30,
+        "w": 63,
+        "h": 85
+      },
+      "warnings": [],
+      "index": 6
+    },
+    {
+      "key": "ganggamchan_walk_04",
+      "file": "frames/character/walk/ganggamchan_walk_04.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 742,
+        "y": 63,
+        "w": 105,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 29,
+        "w": 61,
+        "h": 86
+      },
+      "warnings": [],
+      "index": 7
+    },
+    {
+      "key": "ganggamchan_walk_05",
+      "file": "frames/character/walk/ganggamchan_walk_05.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 848,
+        "y": 63,
+        "w": 107,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 29,
+        "w": 61,
+        "h": 86
+      },
+      "warnings": [],
+      "index": 8
+    },
+    {
+      "key": "ganggamchan_walk_06",
+      "file": "frames/character/walk/ganggamchan_walk_06.png",
+      "group": "walk",
+      "kind": "character",
+      "sourceRect": {
+        "x": 957,
+        "y": 63,
+        "w": 108,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 29,
+        "w": 62,
+        "h": 86
+      },
+      "warnings": [],
+      "index": 9
+    },
+    {
+      "key": "ganggamchan_run_01",
+      "file": "frames/character/run/ganggamchan_run_01.png",
+      "group": "run",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1073,
+        "y": 63,
+        "w": 116,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 33,
+        "w": 72,
+        "h": 77
+      },
+      "warnings": [],
+      "index": 10
+    },
+    {
+      "key": "ganggamchan_run_02",
+      "file": "frames/character/run/ganggamchan_run_02.png",
+      "group": "run",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1190,
+        "y": 63,
+        "w": 114,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 32,
+        "w": 73,
+        "h": 82
+      },
+      "warnings": [],
+      "index": 11
+    },
+    {
+      "key": "ganggamchan_run_03",
+      "file": "frames/character/run/ganggamchan_run_03.png",
+      "group": "run",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1305,
+        "y": 63,
+        "w": 114,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 32,
+        "w": 74,
+        "h": 80
+      },
+      "warnings": [],
+      "index": 12
+    },
+    {
+      "key": "ganggamchan_run_04",
+      "file": "frames/character/run/ganggamchan_run_04.png",
+      "group": "run",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1421,
+        "y": 63,
+        "w": 109,
+        "h": 129
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 32,
+        "w": 73,
+        "h": 76
+      },
+      "warnings": [],
+      "index": 13
+    },
+    {
+      "key": "ganggamchan_jump_01",
+      "file": "frames/character/jump/ganggamchan_jump_01.png",
+      "group": "jump",
+      "kind": "character",
+      "sourceRect": {
+        "x": 6,
+        "y": 262,
+        "w": 103,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 29,
+        "y": 30,
+        "w": 59,
+        "h": 83
+      },
+      "warnings": [],
+      "index": 14
+    },
+    {
+      "key": "ganggamchan_jump_02",
+      "file": "frames/character/jump/ganggamchan_jump_02.png",
+      "group": "jump",
+      "kind": "character",
+      "sourceRect": {
+        "x": 110,
+        "y": 262,
+        "w": 107,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 16,
+        "w": 57,
+        "h": 85
+      },
+      "warnings": [],
+      "index": 15
+    },
+    {
+      "key": "ganggamchan_jump_03",
+      "file": "frames/character/jump/ganggamchan_jump_03.png",
+      "group": "jump",
+      "kind": "character",
+      "sourceRect": {
+        "x": 219,
+        "y": 262,
+        "w": 108,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 2,
+        "w": 58,
+        "h": 76
+      },
+      "warnings": [],
+      "index": 16
+    },
+    {
+      "key": "ganggamchan_jump_04",
+      "file": "frames/character/jump/ganggamchan_jump_04.png",
+      "group": "jump",
+      "kind": "character",
+      "sourceRect": {
+        "x": 329,
+        "y": 262,
+        "w": 110,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 33,
+        "w": 77,
+        "h": 80
+      },
+      "warnings": [],
+      "index": 17
+    },
+    {
+      "key": "ganggamchan_attack_1_01",
+      "file": "frames/character/attack_1/ganggamchan_attack_1_01.png",
+      "group": "attack_1",
+      "kind": "character",
+      "sourceRect": {
+        "x": 447,
+        "y": 262,
+        "w": 116,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 34,
+        "w": 78,
+        "h": 79
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 18
+    },
+    {
+      "key": "ganggamchan_attack_1_02",
+      "file": "frames/character/attack_1/ganggamchan_attack_1_02.png",
+      "group": "attack_1",
+      "kind": "character",
+      "sourceRect": {
+        "x": 558,
+        "y": 262,
+        "w": 132,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 23,
+        "y": 33,
+        "w": 93,
+        "h": 81
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 19
+    },
+    {
+      "key": "ganggamchan_attack_1_03",
+      "file": "frames/character/attack_1/ganggamchan_attack_1_03.png",
+      "group": "attack_1",
+      "kind": "character",
+      "sourceRect": {
+        "x": 678,
+        "y": 262,
+        "w": 129,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 33,
+        "w": 86,
+        "h": 80
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 20
+    },
+    {
+      "key": "ganggamchan_attack_1_04",
+      "file": "frames/character/attack_1/ganggamchan_attack_1_04.png",
+      "group": "attack_1",
+      "kind": "character",
+      "sourceRect": {
+        "x": 801,
+        "y": 262,
+        "w": 132,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 25,
+        "w": 88,
+        "h": 87
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 21
+    },
+    {
+      "key": "ganggamchan_attack_1_05",
+      "file": "frames/character/attack_1/ganggamchan_attack_1_05.png",
+      "group": "attack_1",
+      "kind": "character",
+      "sourceRect": {
+        "x": 922,
+        "y": 262,
+        "w": 117,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 22,
+        "y": 15,
+        "w": 81,
+        "h": 98
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 22
+    },
+    {
+      "key": "ganggamchan_attack_2_01",
+      "file": "frames/character/attack_2/ganggamchan_attack_2_01.png",
+      "group": "attack_2",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1046,
+        "y": 262,
+        "w": 113,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 34,
+        "w": 79,
+        "h": 79
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 23
+    },
+    {
+      "key": "ganggamchan_attack_2_02",
+      "file": "frames/character/attack_2/ganggamchan_attack_2_02.png",
+      "group": "attack_2",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1160,
+        "y": 262,
+        "w": 119,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 23,
+        "y": 32,
+        "w": 84,
+        "h": 81
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 24
+    },
+    {
+      "key": "ganggamchan_attack_2_03",
+      "file": "frames/character/attack_2/ganggamchan_attack_2_03.png",
+      "group": "attack_2",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1281,
+        "y": 262,
+        "w": 122,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 21,
+        "y": 30,
+        "w": 86,
+        "h": 82
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 25
+    },
+    {
+      "key": "ganggamchan_attack_2_04",
+      "file": "frames/character/attack_2/ganggamchan_attack_2_04.png",
+      "group": "attack_2",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1404,
+        "y": 262,
+        "w": 126,
+        "h": 162
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 17,
+        "y": 16,
+        "w": 92,
+        "h": 95
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 26
+    },
+    {
+      "key": "ganggamchan_attack_3_01",
+      "file": "frames/character/attack_3/ganggamchan_attack_3_01.png",
+      "group": "attack_3",
+      "kind": "character",
+      "sourceRect": {
+        "x": 6,
+        "y": 496,
+        "w": 116,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 40,
+        "w": 80,
+        "h": 73
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 27
+    },
+    {
+      "key": "ganggamchan_attack_3_02",
+      "file": "frames/character/attack_3/ganggamchan_attack_3_02.png",
+      "group": "attack_3",
+      "kind": "character",
+      "sourceRect": {
+        "x": 114,
+        "y": 496,
+        "w": 131,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 23,
+        "w": 91,
+        "h": 90
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 28
+    },
+    {
+      "key": "ganggamchan_attack_3_03",
+      "file": "frames/character/attack_3/ganggamchan_attack_3_03.png",
+      "group": "attack_3",
+      "kind": "character",
+      "sourceRect": {
+        "x": 222,
+        "y": 496,
+        "w": 116,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 34,
+        "w": 83,
+        "h": 79
+      },
+      "warnings": [
+        "원본 칸 경계에 그림이 닿음: 원본 자체의 검 끝/효과 경계를 확인할 것",
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 29
+    },
+    {
+      "key": "ganggamchan_attack_3_04",
+      "file": "frames/character/attack_3/ganggamchan_attack_3_04.png",
+      "group": "attack_3",
+      "kind": "character",
+      "sourceRect": {
+        "x": 329,
+        "y": 496,
+        "w": 115,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 22,
+        "y": 11,
+        "w": 83,
+        "h": 106
+      },
+      "warnings": [
+        "원본 칸 경계에 그림이 닿음: 원본 자체의 검 끝/효과 경계를 확인할 것",
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 30
+    },
+    {
+      "key": "ganggamchan_heavy_01",
+      "file": "frames/character/heavy/ganggamchan_heavy_01.png",
+      "group": "heavy",
+      "kind": "character",
+      "sourceRect": {
+        "x": 451,
+        "y": 496,
+        "w": 113,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 40,
+        "w": 78,
+        "h": 73
+      },
+      "warnings": [],
+      "index": 31
+    },
+    {
+      "key": "ganggamchan_heavy_02",
+      "file": "frames/character/heavy/ganggamchan_heavy_02.png",
+      "group": "heavy",
+      "kind": "character",
+      "sourceRect": {
+        "x": 558,
+        "y": 496,
+        "w": 112,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 36,
+        "w": 78,
+        "h": 77
+      },
+      "warnings": [],
+      "index": 32
+    },
+    {
+      "key": "ganggamchan_parry_01",
+      "file": "frames/character/parry/ganggamchan_parry_01.png",
+      "group": "parry",
+      "kind": "character",
+      "sourceRect": {
+        "x": 885,
+        "y": 496,
+        "w": 92,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 33,
+        "y": 35,
+        "w": 57,
+        "h": 79
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 33
+    },
+    {
+      "key": "ganggamchan_parry_02",
+      "file": "frames/character/parry/ganggamchan_parry_02.png",
+      "group": "parry",
+      "kind": "character",
+      "sourceRect": {
+        "x": 978,
+        "y": 496,
+        "w": 103,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 20,
+        "w": 72,
+        "h": 94
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 34
+    },
+    {
+      "key": "ganggamchan_parry_03",
+      "file": "frames/character/parry/ganggamchan_parry_03.png",
+      "group": "parry",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1082,
+        "y": 496,
+        "w": 90,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 33,
+        "y": 35,
+        "w": 53,
+        "h": 78
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 35
+    },
+    {
+      "key": "ganggamchan_dash_01",
+      "file": "frames/character/dash/ganggamchan_dash_01.png",
+      "group": "dash",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1179,
+        "y": 496,
+        "w": 88,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 33,
+        "y": 42,
+        "w": 63,
+        "h": 59
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 36
+    },
+    {
+      "key": "ganggamchan_dash_02",
+      "file": "frames/character/dash/ganggamchan_dash_02.png",
+      "group": "dash",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1269,
+        "y": 496,
+        "w": 84,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 32,
+        "y": 42,
+        "w": 62,
+        "h": 57
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 37
+    },
+    {
+      "key": "ganggamchan_dash_03",
+      "file": "frames/character/dash/ganggamchan_dash_03.png",
+      "group": "dash",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1355,
+        "y": 496,
+        "w": 85,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 31,
+        "y": 43,
+        "w": 63,
+        "h": 56
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 38
+    },
+    {
+      "key": "ganggamchan_dash_04",
+      "file": "frames/character/dash/ganggamchan_dash_04.png",
+      "group": "dash",
+      "kind": "character",
+      "sourceRect": {
+        "x": 1442,
+        "y": 496,
+        "w": 88,
+        "h": 159
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 30,
+        "y": 41,
+        "w": 64,
+        "h": 58
+      },
+      "warnings": [
+        "원본에 캐릭터와 함께 그려진 검기/잔상은 일부 남아 있음"
+      ],
+      "index": 39
+    },
+    {
+      "key": "ganggamchan_hurt_01",
+      "file": "frames/character/hurt/ganggamchan_hurt_01.png",
+      "group": "hurt",
+      "kind": "character",
+      "sourceRect": {
+        "x": 6,
+        "y": 727,
+        "w": 102,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 37,
+        "w": 62,
+        "h": 77
+      },
+      "warnings": [],
+      "index": 40
+    },
+    {
+      "key": "ganggamchan_hurt_02",
+      "file": "frames/character/hurt/ganggamchan_hurt_02.png",
+      "group": "hurt",
+      "kind": "character",
+      "sourceRect": {
+        "x": 109,
+        "y": 727,
+        "w": 102,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 44,
+        "w": 68,
+        "h": 71
+      },
+      "warnings": [],
+      "index": 41
+    },
+    {
+      "key": "ganggamchan_hurt_03",
+      "file": "frames/character/hurt/ganggamchan_hurt_03.png",
+      "group": "hurt",
+      "kind": "character",
+      "sourceRect": {
+        "x": 212,
+        "y": 727,
+        "w": 105,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 29,
+        "y": 50,
+        "w": 71,
+        "h": 64
+      },
+      "warnings": [],
+      "index": 42
+    },
+    {
+      "key": "ganggamchan_death_01",
+      "file": "frames/character/death/ganggamchan_death_01.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 324,
+        "y": 727,
+        "w": 98,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 31,
+        "y": 58,
+        "w": 52,
+        "h": 56
+      },
+      "warnings": [],
+      "index": 43
+    },
+    {
+      "key": "ganggamchan_death_02",
+      "file": "frames/character/death/ganggamchan_death_02.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 423,
+        "y": 727,
+        "w": 100,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 29,
+        "y": 66,
+        "w": 61,
+        "h": 47
+      },
+      "warnings": [],
+      "index": 44
+    },
+    {
+      "key": "ganggamchan_death_03",
+      "file": "frames/character/death/ganggamchan_death_03.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 524,
+        "y": 727,
+        "w": 101,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 28,
+        "y": 80,
+        "w": 68,
+        "h": 35
+      },
+      "warnings": [],
+      "index": 45
+    },
+    {
+      "key": "ganggamchan_death_04",
+      "file": "frames/character/death/ganggamchan_death_04.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 627,
+        "y": 727,
+        "w": 100,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 85,
+        "w": 70,
+        "h": 29
+      },
+      "warnings": [],
+      "index": 46
+    },
+    {
+      "key": "ganggamchan_death_05",
+      "file": "frames/character/death/ganggamchan_death_05.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 729,
+        "y": 727,
+        "w": 97,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 86,
+        "w": 69,
+        "h": 29
+      },
+      "warnings": [],
+      "index": 47
+    },
+    {
+      "key": "ganggamchan_death_06",
+      "file": "frames/character/death/ganggamchan_death_06.png",
+      "group": "death",
+      "kind": "character",
+      "sourceRect": {
+        "x": 827,
+        "y": 727,
+        "w": 97,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 29,
+        "y": 99,
+        "w": 68,
+        "h": 16
+      },
+      "warnings": [],
+      "index": 48
+    },
+    {
+      "key": "ganggamchan_skill_01",
+      "file": "frames/effects/skill/ganggamchan_skill_01.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 932,
+        "y": 727,
+        "w": 88,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 23,
+        "y": 6,
+        "w": 81,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 49
+    },
+    {
+      "key": "ganggamchan_skill_02",
+      "file": "frames/effects/skill/ganggamchan_skill_02.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1021,
+        "y": 727,
+        "w": 86,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 6,
+        "w": 78,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 50
+    },
+    {
+      "key": "ganggamchan_skill_03",
+      "file": "frames/effects/skill/ganggamchan_skill_03.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1108,
+        "y": 727,
+        "w": 85,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 6,
+        "w": 76,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 51
+    },
+    {
+      "key": "ganggamchan_skill_04",
+      "file": "frames/effects/skill/ganggamchan_skill_04.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1194,
+        "y": 727,
+        "w": 80,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 6,
+        "w": 74,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 52
+    },
+    {
+      "key": "ganggamchan_skill_05",
+      "file": "frames/effects/skill/ganggamchan_skill_05.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1275,
+        "y": 727,
+        "w": 83,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 27,
+        "y": 6,
+        "w": 75,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 53
+    },
+    {
+      "key": "ganggamchan_skill_06",
+      "file": "frames/effects/skill/ganggamchan_skill_06.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1359,
+        "y": 727,
+        "w": 85,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 26,
+        "y": 11,
+        "w": 76,
+        "h": 111
+      },
+      "warnings": [],
+      "index": 54
+    },
+    {
+      "key": "ganggamchan_skill_07",
+      "file": "frames/effects/skill/ganggamchan_skill_07.png",
+      "group": "skill",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1445,
+        "y": 727,
+        "w": 85,
+        "h": 126
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 6,
+        "w": 78,
+        "h": 116
+      },
+      "warnings": [],
+      "index": 55
+    },
+    {
+      "key": "ganggamchan_dash_fx_01",
+      "file": "frames/effects/dash_fx/ganggamchan_dash_fx_01.png",
+      "group": "dash_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 6,
+        "y": 927,
+        "w": 89,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 21,
+        "y": 18,
+        "w": 87,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 56
+    },
+    {
+      "key": "ganggamchan_dash_fx_02",
+      "file": "frames/effects/dash_fx/ganggamchan_dash_fx_02.png",
+      "group": "dash_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 96,
+        "y": 927,
+        "w": 91,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 19,
+        "y": 18,
+        "w": 90,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 57
+    },
+    {
+      "key": "ganggamchan_dash_fx_03",
+      "file": "frames/effects/dash_fx/ganggamchan_dash_fx_03.png",
+      "group": "dash_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 188,
+        "y": 927,
+        "w": 91,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 19,
+        "y": 18,
+        "w": 90,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 58
+    },
+    {
+      "key": "ganggamchan_dash_fx_04",
+      "file": "frames/effects/dash_fx/ganggamchan_dash_fx_04.png",
+      "group": "dash_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 280,
+        "y": 927,
+        "w": 91,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 19,
+        "y": 38,
+        "w": 77,
+        "h": 51
+      },
+      "warnings": [],
+      "index": 59
+    },
+    {
+      "key": "ganggamchan_hit_fx_01",
+      "file": "frames/effects/hit_fx/ganggamchan_hit_fx_01.png",
+      "group": "hit_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 378,
+        "y": 927,
+        "w": 95,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 25,
+        "y": 18,
+        "w": 86,
+        "h": 91
+      },
+      "warnings": [],
+      "index": 60
+    },
+    {
+      "key": "ganggamchan_hit_fx_02",
+      "file": "frames/effects/hit_fx/ganggamchan_hit_fx_02.png",
+      "group": "hit_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 474,
+        "y": 927,
+        "w": 94,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 18,
+        "y": 18,
+        "w": 93,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 61
+    },
+    {
+      "key": "ganggamchan_hit_fx_03",
+      "file": "frames/effects/hit_fx/ganggamchan_hit_fx_03.png",
+      "group": "hit_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 570,
+        "y": 927,
+        "w": 94,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 17,
+        "y": 20,
+        "w": 93,
+        "h": 90
+      },
+      "warnings": [],
+      "index": 62
+    },
+    {
+      "key": "ganggamchan_hit_fx_04",
+      "file": "frames/effects/hit_fx/ganggamchan_hit_fx_04.png",
+      "group": "hit_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 665,
+        "y": 927,
+        "w": 93,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 17,
+        "y": 18,
+        "w": 92,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 63
+    },
+    {
+      "key": "ganggamchan_parry_fx_01",
+      "file": "frames/effects/parry_fx/ganggamchan_parry_fx_01.png",
+      "group": "parry_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 765,
+        "y": 927,
+        "w": 94,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 18,
+        "y": 18,
+        "w": 93,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 64
+    },
+    {
+      "key": "ganggamchan_parry_fx_02",
+      "file": "frames/effects/parry_fx/ganggamchan_parry_fx_02.png",
+      "group": "parry_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 861,
+        "y": 927,
+        "w": 96,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 16,
+        "y": 18,
+        "w": 96,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 65
+    },
+    {
+      "key": "ganggamchan_parry_fx_03",
+      "file": "frames/effects/parry_fx/ganggamchan_parry_fx_03.png",
+      "group": "parry_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 958,
+        "y": 927,
+        "w": 96,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 16,
+        "y": 18,
+        "w": 96,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 66
+    },
+    {
+      "key": "ganggamchan_parry_fx_04",
+      "file": "frames/effects/parry_fx/ganggamchan_parry_fx_04.png",
+      "group": "parry_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1055,
+        "y": 927,
+        "w": 98,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "canvasPaste": {
+        "x": 16,
+        "y": 18,
+        "w": 96,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 67
+    },
+    {
+      "key": "ganggamchan_charge_fx_01",
+      "file": "frames/effects/charge_fx/ganggamchan_charge_fx_01.png",
+      "group": "charge_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1160,
+        "y": 927,
+        "w": 89,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 20,
+        "y": 31,
+        "w": 87,
+        "h": 83
+      },
+      "warnings": [],
+      "index": 68
+    },
+    {
+      "key": "ganggamchan_charge_fx_02",
+      "file": "frames/effects/charge_fx/ganggamchan_charge_fx_02.png",
+      "group": "charge_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1250,
+        "y": 927,
+        "w": 92,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 18,
+        "y": 22,
+        "w": 91,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 69
+    },
+    {
+      "key": "ganggamchan_charge_fx_03",
+      "file": "frames/effects/charge_fx/ganggamchan_charge_fx_03.png",
+      "group": "charge_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1343,
+        "y": 927,
+        "w": 92,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 18,
+        "y": 22,
+        "w": 92,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 70
+    },
+    {
+      "key": "ganggamchan_charge_fx_04",
+      "file": "frames/effects/charge_fx/ganggamchan_charge_fx_04.png",
+      "group": "charge_fx",
+      "kind": "effects",
+      "sourceRect": {
+        "x": 1437,
+        "y": 927,
+        "w": 93,
+        "h": 92
+      },
+      "frameSize": {
+        "w": 128,
+        "h": 128
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.890625
+      },
+      "canvasPaste": {
+        "x": 17,
+        "y": 22,
+        "w": 93,
+        "h": 92
+      },
+      "warnings": [],
+      "index": 71
+    }
+  ],
+  "groups": {
+    "idle": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_idle_01",
+        "ganggamchan_idle_02",
+        "ganggamchan_idle_03",
+        "ganggamchan_idle_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_idle.png",
+      "previewFps": 6,
+      "loopRecommended": true,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "walk": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_walk_01",
+        "ganggamchan_walk_02",
+        "ganggamchan_walk_03",
+        "ganggamchan_walk_04",
+        "ganggamchan_walk_05",
+        "ganggamchan_walk_06"
+      ],
+      "sheet": "sheets/character/ganggamchan_walk.png",
+      "previewFps": 10,
+      "loopRecommended": true,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "run": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_run_01",
+        "ganggamchan_run_02",
+        "ganggamchan_run_03",
+        "ganggamchan_run_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_run.png",
+      "previewFps": 12,
+      "loopRecommended": true,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "jump": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_jump_01",
+        "ganggamchan_jump_02",
+        "ganggamchan_jump_03",
+        "ganggamchan_jump_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_jump.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "attack_1": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_attack_1_01",
+        "ganggamchan_attack_1_02",
+        "ganggamchan_attack_1_03",
+        "ganggamchan_attack_1_04",
+        "ganggamchan_attack_1_05"
+      ],
+      "sheet": "sheets/character/ganggamchan_attack_1.png",
+      "previewFps": 12,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "attack_2": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_attack_2_01",
+        "ganggamchan_attack_2_02",
+        "ganggamchan_attack_2_03",
+        "ganggamchan_attack_2_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_attack_2.png",
+      "previewFps": 12,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "attack_3": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_attack_3_01",
+        "ganggamchan_attack_3_02",
+        "ganggamchan_attack_3_03",
+        "ganggamchan_attack_3_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_attack_3.png",
+      "previewFps": 12,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "heavy": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_heavy_01",
+        "ganggamchan_heavy_02"
+      ],
+      "sheet": "sheets/character/ganggamchan_heavy.png",
+      "previewFps": 10,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "parry": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_parry_01",
+        "ganggamchan_parry_02",
+        "ganggamchan_parry_03"
+      ],
+      "sheet": "sheets/character/ganggamchan_parry.png",
+      "previewFps": 12,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "dash": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_dash_01",
+        "ganggamchan_dash_02",
+        "ganggamchan_dash_03",
+        "ganggamchan_dash_04"
+      ],
+      "sheet": "sheets/character/ganggamchan_dash.png",
+      "previewFps": 12,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "hurt": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_hurt_01",
+        "ganggamchan_hurt_02",
+        "ganggamchan_hurt_03"
+      ],
+      "sheet": "sheets/character/ganggamchan_hurt.png",
+      "previewFps": 10,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "death": {
+      "kind": "character",
+      "frames": [
+        "ganggamchan_death_01",
+        "ganggamchan_death_02",
+        "ganggamchan_death_03",
+        "ganggamchan_death_04",
+        "ganggamchan_death_05",
+        "ganggamchan_death_06"
+      ],
+      "sheet": "sheets/character/ganggamchan_death.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "skill": {
+      "kind": "effects",
+      "frames": [
+        "ganggamchan_skill_01",
+        "ganggamchan_skill_02",
+        "ganggamchan_skill_03",
+        "ganggamchan_skill_04",
+        "ganggamchan_skill_05",
+        "ganggamchan_skill_06",
+        "ganggamchan_skill_07"
+      ],
+      "sheet": "sheets/effects/ganggamchan_skill.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "dash_fx": {
+      "kind": "effects",
+      "frames": [
+        "ganggamchan_dash_fx_01",
+        "ganggamchan_dash_fx_02",
+        "ganggamchan_dash_fx_03",
+        "ganggamchan_dash_fx_04"
+      ],
+      "sheet": "sheets/effects/ganggamchan_dash_fx.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "hit_fx": {
+      "kind": "effects",
+      "frames": [
+        "ganggamchan_hit_fx_01",
+        "ganggamchan_hit_fx_02",
+        "ganggamchan_hit_fx_03",
+        "ganggamchan_hit_fx_04"
+      ],
+      "sheet": "sheets/effects/ganggamchan_hit_fx.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "parry_fx": {
+      "kind": "effects",
+      "frames": [
+        "ganggamchan_parry_fx_01",
+        "ganggamchan_parry_fx_02",
+        "ganggamchan_parry_fx_03",
+        "ganggamchan_parry_fx_04"
+      ],
+      "sheet": "sheets/effects/ganggamchan_parry_fx.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    },
+    "charge_fx": {
+      "kind": "effects",
+      "frames": [
+        "ganggamchan_charge_fx_01",
+        "ganggamchan_charge_fx_02",
+        "ganggamchan_charge_fx_03",
+        "ganggamchan_charge_fx_04"
+      ],
+      "sheet": "sheets/effects/ganggamchan_charge_fx.png",
+      "previewFps": 8,
+      "loopRecommended": false,
+      "timingNote": "Visual preview suggestion only. Do not change existing game timings based on these values."
+    }
+  }
+}

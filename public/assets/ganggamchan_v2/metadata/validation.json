@@ -1,0 +1,26 @@
+{
+  "frames": 72,
+  "char_frames": 49,
+  "effect_frames": 23,
+  "bad_dimensions": [],
+  "canvas_edge_contacts": [],
+  "empty_frames": [],
+  "source_edge_warnings": [
+    [
+      "ganggamchan_attack_3_03",
+      "source_edge_contact"
+    ],
+    [
+      "ganggamchan_attack_3_04",
+      "source_edge_contact"
+    ]
+  ],
+  "excluded_overlap": "review/heavy_03_04_source_overlap.png",
+  "engine_tested": false,
+  "preview_browser_test": {
+    "browser": "headless Chromium (in-memory page)",
+    "passed": true,
+    "page_errors": [],
+    "note": "Image preview only; Phaser runtime not tested."
+  }
+}
