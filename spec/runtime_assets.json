@@ -54,6 +54,20 @@
       "note": "타이틀 로고(사용자 제공 2056x765를 1028x383으로 축소, 투명 배경). React 타이틀 화면에서 표시"
     }
   ],
+  "audio": [
+    {
+      "key": "bgm_battle_standard_bearer",
+      "file": "assets/audio/battle_standard_bearer.mp3",
+      "themes": [
+        "round1",
+        "round2",
+        "round3",
+        "boss"
+      ],
+      "loop": true,
+      "note": "사용자 제공 「전투의 기수.mp3」(개발착수패키지). 1~3라운드·보스전 배경음악. 같은 곡이 이어지는 장면 전환에서는 처음부터 다시 틀지 않음"
+    }
+  ],
   "preloadPolicy": "load-all-registered-runtime-assets-at-boot",
   "exclude": [
     "previews/**",
@@ -67,7 +81,7 @@
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
     "story-art",
-    "bgm",
+    "bgm: title, ending (전투 구간은 「전투의 기수」 사용)",
     "sfx"
   ],
   "missingAssetPolicy": "explicit-generated-development-placeholder-and-status-report-not-silent-final-substitution"

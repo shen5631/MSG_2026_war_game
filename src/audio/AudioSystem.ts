@@ -1,9 +1,16 @@
-// TEMPORARY audio: synthesized Web Audio SFX and procedural pentatonic loops.
-// Not the final 국악+action soundtrack — see IMPLEMENTATION_NOTES.md replacement list.
-import { DEFAULTS } from '../config/spec';
+// Audio: supplied BGM tracks (spec/runtime_assets.json "audio") for the themes they cover; every other theme
+// and all SFX are TEMPORARY synthesized Web Audio — see IMPLEMENTATION_NOTES.md replacement list.
+import { DEFAULTS, RUNTIME_ASSETS } from '../config/spec';
 import type { SfxId } from '../domain/events';
 
 export type MusicTheme = 'title' | 'round1' | 'round2' | 'round3' | 'boss' | 'ending' | null;
+
+interface TrackDef { key: string; file: string; themes: string[]; loop: boolean }
+const TRACKS = (RUNTIME_ASSETS as { audio?: TrackDef[] }).audio ?? [];
+export const trackFor = (theme: MusicTheme): TrackDef | null => (theme ? TRACKS.find((t) => t.themes.includes(theme)) ?? null : null);
+/** Recorded tracks are mastered far louder than the synth voices, which sit under bgmGain (×0.18). */
+const TRACK_GAIN = 0.55;
+const TRACK_FADE_S = 0.4;
 
 interface ThemeDef { bpm: number; root: number; scale: number[]; melody: number[]; drum: string; wave: OscillatorType }
 
@@ -28,6 +35,9 @@ export class AudioSystem {
   private step = 0;
   private suspendedByGame = false;
   private listeners = new Set<() => void>();
+  private trackGain: GainNode | null = null;
+  private buffers = new Map<string, AudioBuffer | 'loading' | 'failed'>();
+  private playing: { key: string; src: AudioBufferSourceNode; gain: GainNode } | null = null;
 
   get unlocked(): boolean { return !!this.ctx && this.ctx.state === 'running'; }
   /** Needs a trusted gesture: not created yet, or suspended by the browser (not by our own pause). */
@@ -45,10 +55,13 @@ export class AudioSystem {
         this.ctx = new Ctor();
         this.bgmGain = this.ctx.createGain();
         this.sfxGain = this.ctx.createGain();
+        this.trackGain = this.ctx.createGain();
         this.bgmGain.connect(this.ctx.destination);
         this.sfxGain.connect(this.ctx.destination);
+        this.trackGain.connect(this.ctx.destination);
         this.applyVolumes();
         this.ctx.onstatechange = () => this.emit();
+        for (const t of TRACKS) this.loadTrack(t);
       }
       if (this.ctx.state === 'suspended' && !this.suspendedByGame) void this.ctx.resume().then(() => this.emit(), () => this.emit());
     } catch (err) {
@@ -66,6 +79,7 @@ export class AudioSystem {
 
   private applyVolumes(): void {
     if (this.bgmGain) this.bgmGain.gain.value = this.bgmVolume * 0.18;
+    if (this.trackGain) this.trackGain.gain.value = this.bgmVolume * TRACK_GAIN;
     if (this.sfxGain) this.sfxGain.gain.value = this.sfxVolume * 0.5;
   }
 
@@ -84,12 +98,55 @@ export class AudioSystem {
     this.theme = theme;
     this.step = 0;
     if (this.ctx) this.nextNoteTime = this.ctx.currentTime + 0.05;
+    // Themes sharing one track (e.g. round → boss) keep playing it instead of restarting from the top.
+    if (this.playing && this.playing.key !== trackFor(theme)?.key) this.stopTrack();
+  }
+
+  /** Fetch + decode once; decoding works on a suspended context, so it can finish while paused. */
+  private loadTrack(t: TrackDef): void {
+    if (!this.ctx || this.buffers.has(t.key)) return;
+    const ctx = this.ctx;
+    this.buffers.set(t.key, 'loading');
+    fetch(`${import.meta.env.BASE_URL}${t.file}`)
+      .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(`${r.status} ${t.file}`))))
+      .then((data) => ctx.decodeAudioData(data))
+      .then((buf) => this.buffers.set(t.key, buf))
+      .catch((err) => {
+        // Falls back to the synthesized theme rather than leaving the scene silent.
+        console.warn('bgm load failed', err);
+        this.buffers.set(t.key, 'failed');
+      });
+  }
+
+  private stopTrack(): void {
+    const p = this.playing;
+    if (!p || !this.ctx) return;
+    this.playing = null;
+    const now = this.ctx.currentTime;
+    p.gain.gain.setValueAtTime(p.gain.gain.value, now);
+    p.gain.gain.linearRampToValueAtTime(0, now + TRACK_FADE_S);
+    p.src.stop(now + TRACK_FADE_S + 0.05);
   }
 
   /** Lookahead scheduler, driven by the render loop (no independent timers). */
   update(): void {
     const ctx = this.ctx;
     if (!ctx || ctx.state !== 'running' || !this.theme || !this.bgmGain) return;
+    const track = trackFor(this.theme);
+    const buf = track ? this.buffers.get(track.key) : undefined;
+    if (track && buf !== 'failed') {
+      // Only one source per track; a suspended context (pause) keeps it, so resume never starts a second one.
+      if (buf instanceof AudioBuffer && this.playing?.key !== track.key) {
+        const src = ctx.createBufferSource();
+        const gain = ctx.createGain();
+        src.buffer = buf;
+        src.loop = track.loop;
+        src.connect(gain).connect(this.trackGain!);
+        src.start();
+        this.playing = { key: track.key, src, gain };
+      }
+      return;
+    }
     const def = THEMES[this.theme];
     const stepDur = 60 / def.bpm / 2;
     if (this.nextNoteTime < ctx.currentTime - 0.5) this.nextNoteTime = ctx.currentTime + 0.05;
@@ -191,5 +248,6 @@ export class AudioSystem {
 
   dispose(): void {
     this.theme = null;
+    this.stopTrack();
   }
 }
