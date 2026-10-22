@@ -210,3 +210,22 @@ describe('round simulation', () => {
     expect(recorder.stats.normalEnemyKills).toBe(0);
   });
 });
+
+describe('terrain layout', () => {
+  it('extra terrain and props stay out of combat and boss arenas', async () => {
+    const { buildSolids } = await import('../../src/domain/world');
+    for (const r of LEVELS.rounds) {
+      const solids = buildSolids(r);
+      for (const s of solids.filter((x) => !x.id.includes('b'))) {
+        for (const a of r.arenas) expect(s.x + s.w <= a.left || s.x >= a.right).toBe(true);
+        expect(s.x + s.w).toBeLessThanOrEqual(r.bossArena.left);
+        expect(s.h).toBeLessThanOrEqual(48); // jumpable (spec §5.1: 32~48px obstacles)
+      }
+      const ba = r.bossArena;
+      for (const s of solids.filter((x) => x.id.includes('b'))) {
+        expect(Math.abs(s.x + s.w / 2 - ba.playerEntryX)).toBeGreaterThan(40);
+        expect(Math.abs(s.x + s.w / 2 - ba.bossSpawnX)).toBeGreaterThan(40);
+      }
+    }
+  });
+});
