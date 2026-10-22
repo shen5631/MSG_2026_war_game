@@ -11,6 +11,7 @@ import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindin
 import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
+import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -430,6 +431,8 @@ export class PlayScene extends Phaser.Scene {
     if (!v) {
       const s = e.kind === 'infantry'
         ? this.add.sprite(e.body.x, e.body.y, INFANTRY_KEY, 'khitan_infantry_idle_01.png').setDepth(12)
+        : e.kind === 'spearman'
+        ? this.add.sprite(e.body.x, e.body.y, SPEARMAN_KEY, 'khitan_spearman_idle_01.png').setDepth(12)
         : e.kind === 'archer'
         ? this.add.sprite(e.body.x, e.body.y, ARCHER_KEY, 'khitan_archer_idle_01.png').setOrigin(ARCHER_ORIGIN.x, ARCHER_ORIGIN.y).setScale(ARCHER_SCALE).setDepth(12)
         : this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
@@ -444,6 +447,10 @@ export class PlayScene extends Phaser.Scene {
       const pat = ENEMY_PATTERNS.infantry;
       const pose = infantryPose(e, t, pat.startupMs, pat.activeMs ?? 100);
       v.s.setFrame(pose.frame).setScale(pose.scale).setOrigin(0.5, pose.originY);
+    } else if (e.kind === 'spearman') {
+      const pat = ENEMY_PATTERNS.spearman;
+      const pose = spearmanPose(e, t, pat.startupMs, pat.activeMs ?? 140);
+      v.s.setFrame(pose.frame).setScale(pose.scale).setOrigin(pose.originX, pose.originY);
     } else if (e.kind === 'archer') {
       v.s.setFrame(archerFrame(e, t, ENEMY_PATTERNS.archer.startupMs));
     } else {

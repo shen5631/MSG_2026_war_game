@@ -23,6 +23,13 @@
       "note": "거란군 궁병 v2 수정본 25프레임(idle4/walk6/attack6/hurt3/death6), 128x128, baseline y=122, origin (0.5,0.953125)"
     },
     {
+      "type": "atlas",
+      "key": "khitan_spearman",
+      "texture": "assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_all_atlas.png",
+      "atlas": "assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_all_atlas.json",
+      "note": "거란군 창병 25프레임(idle4/walk6/attack6/hurt3/death6), 192x192, 오른쪽 방향. 문서상 기준선 y=184와 실제 발 위치(137~162)가 달라 코드에서 프레임별 보정"
+    },
+    {
       "type": "image",
       "key": "khitan_archer_arrow_01",
       "texture": "assets/khitan_archer_assets_v2/projectiles/arrow/khitan_archer_arrow_01.png",
@@ -104,7 +111,7 @@
     "original-composite-sheets"
   ],
   "missingProductionAssets": [
-    "enemy-types: spearman, shieldman, cavalry",
+    "enemy-types: shieldman, cavalry",
     "bosses: spear_captain, so_bae_ap (선봉대장은 V2 사용)",
     "ally: spear support (방패병은 goryeo_shield_skill_v1 사용)",
     "round2-round3-backgrounds",

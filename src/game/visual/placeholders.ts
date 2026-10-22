@@ -16,7 +16,7 @@ const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
+  'generated_enemy_shieldman', 'generated_enemy_cavalry',
   'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
   'generated_ally_spear',
   'generated_pickups', 'generated_ui_markers',
@@ -153,7 +153,7 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
   POSES.forEach((pose, i) => tex.add(pose, 0, i * fw, 0, fw, fh));
 }
 
-const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer'>, Weapon> = { spearman: 'spear', shieldman: 'shield', cavalry: 'lance' };
+const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer' | 'spearman'>, Weapon> = { shieldman: 'shield', cavalry: 'lance' };
 
 // The round-1 vanguard uses the supplied V2 atlas (visual/vanguard.ts); the other two bosses are still generated.
 const BOSS_STYLE: Record<Exclude<BossId, 'vanguard'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
@@ -165,7 +165,7 @@ export const ENEMY_FRAME = FRAME;
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // Infantry and archer use their supplied atlases; the other three kinds are still generated.
+  // Infantry, archer and spearman use their supplied atlases; shieldman and cavalry are still generated.
   (Object.keys(ENEMY_WEAPON) as (keyof typeof ENEMY_WEAPON)[]).forEach((kind) => {
     makeSheet(scene, `generated_enemy_${kind}`, FRAME.w, FRAME.h, (ctx, pose, ox) => {
       if (kind === 'cavalry') drawCavalry(ctx, ox + FRAME.w / 2 - 8, FRAME.footY, ENEMY_PAL, pose);
