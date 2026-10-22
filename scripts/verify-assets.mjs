@@ -24,7 +24,14 @@ const inventory = readJson('public/assets/ganggamchan_v2/metadata/frames.json');
 const EXPECT = {
   ganggamchan: { cell: 128, count: 72 },
   khitan_infantry: { cell: 128, count: 25 },
+  khitan_archer: { cell: 128, count: 25 },
   round1_env: { cell: null, count: 67 },
+};
+// Fixed-size single images (projectiles, UI).
+const IMAGE_SIZE = {
+  khitan_archer_arrow_01: { w: 64, h: 32 },
+  khitan_archer_arrow_02: { w: 64, h: 32 },
+  ui_title_logo: { w: 1028, h: 383 },
 };
 
 for (const a of runtime.assets) {
@@ -33,7 +40,12 @@ for (const a of runtime.assets) {
     if (!existsSync(join(pub, rel))) errors.push(`missing runtime file: public/${rel}`);
   }
   if (a.type === 'image') {
-    if (existsSync(join(pub, a.texture))) { const s = pngSize(join(pub, a.texture)); info.push(`${a.key}: image ${s.w}x${s.h}`); }
+    if (existsSync(join(pub, a.texture))) {
+      const s = pngSize(join(pub, a.texture));
+      info.push(`${a.key}: image ${s.w}x${s.h}`);
+      const want = IMAGE_SIZE[a.key];
+      if (want && (s.w !== want.w || s.h !== want.h)) errors.push(`${a.key}: image is ${s.w}x${s.h}, expected ${want.w}x${want.h}`);
+    }
     continue;
   }
   if (a.type !== 'atlas' || !existsSync(join(pub, a.atlas)) || !existsSync(join(pub, a.texture))) continue;
@@ -72,6 +84,17 @@ const envSrc = readFileSync(join(root, 'src/game/visual/environment.ts'), 'utf8'
 const envAtlas = JSON.parse(readFileSync(join(pub, 'assets/round1_environment/round1_environment.json'), 'utf8'));
 const contentBlock = envSrc.slice(envSrc.indexOf('const CONTENT'), envSrc.indexOf('export const REQUIRED_ENV_FRAMES'));
 for (const m of contentBlock.matchAll(/^\s+(\w+): \{ x:/gm)) if (!envAtlas.frames[m[1]]) errors.push(`environment.ts uses missing env frame ${m[1]}`);
+// archer.ts builds names as khitan_archer_<action>_0<i>.png from [1..n]; counts must match the pack manifest.
+const archerSrc = readFileSync(join(root, 'src/game/visual/archer.ts'), 'utf8');
+const archerAtlas = JSON.parse(readFileSync(join(pub, 'assets/khitan_archer_assets_v2/atlas/khitan_archer_all_atlas.json'), 'utf8'));
+const archerManifest = JSON.parse(readFileSync(join(pub, 'assets/khitan_archer_assets_v2/manifest.json'), 'utf8'));
+for (const [action, anim] of Object.entries(archerManifest.animations)) {
+  const m = archerSrc.match(new RegExp(`^\\s+${action}: \\[([\\d, ]+)\\]`, 'm'));
+  if (!m) { errors.push(`archer.ts has no frame list for ${action}`); continue; }
+  const used = m[1].split(',').map((n) => `khitan_archer_${action}_0${n.trim()}.png`);
+  if (used.join() !== anim.frames.join()) errors.push(`archer.ts ${action} frames ≠ manifest order`);
+  for (const n of used) if (!archerAtlas.frames[n]) errors.push(`archer.ts uses missing archer frame ${n}`);
+}
 
 // Individual frame PNGs (editing/verification copies) keep the 128x128 contract.
 let checked = 0;
@@ -107,4 +130,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: archer/spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, audio (generated placeholders are used).');
+console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, audio (generated placeholders are used).');
