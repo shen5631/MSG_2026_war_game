@@ -6,11 +6,10 @@ import type { BossId, EnemyKind } from '../../config/spec';
 export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
 export type Pose = (typeof POSES)[number];
 
-type Weapon = 'sword' | 'spear' | 'shield' | 'lance' | 'bigsword' | 'glaive';
+type Weapon = 'sword' | 'shield' | 'lance' | 'bigsword' | 'glaive';
 interface Palette { armor: string; armorDark: string; trim: string; skin: string; helmet: string; plume: string; cloth: string; metal: string; wood: string; outline: string }
 
 const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
-const ALLY_PAL: Palette = { armor: '#2a3f7a', armorDark: '#18264d', trim: '#c9a227', skin: '#e0ac74', helmet: '#1b2a52', plume: '#3e64b8', cloth: '#22345f', metal: '#d0d4dc', wood: '#7a5a34', outline: '#070b17' };
 
 const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
@@ -18,7 +17,8 @@ const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 export const TEMPORARY_ASSETS = [
   'generated_enemy_shieldman', 'generated_enemy_cavalry',
   'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
-  'generated_ally_spear',
+  // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
+  'goryeo_spearman_skill (v1, replacement needed)',
   'generated_pickups', 'generated_ui_markers',
   'generated_bg_r2_*', 'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
@@ -92,9 +92,8 @@ function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, sca
       else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 8, -92, 3, 90, pal.wood); p.r(ax + 6, -102, 9, 14, pal.metal); }
       break;
     }
-    case 'spear':
     case 'lance': {
-      const len = weapon === 'lance' ? 64 : 58;
+      const len = 64;
       if (pose === 'windup') { p.r(ax - 10, -50, 8, 6, pal.armor); p.r(ax - 40, -48, len, 2, pal.wood); p.r(ax - 40 + len, -50, 8, 6, pal.metal); }
       else if (pose === 'attack') { p.r(ax, -48, 18, 6, pal.armor); p.r(ax, -47, len + 10, 2, pal.wood); p.r(ax + len + 10, -49, 10, 6, pal.metal); }
       else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 7, -86, 2, 84, pal.wood); p.r(ax + 5, -94, 6, 9, pal.metal); }
@@ -178,7 +177,7 @@ export function generateCharacterTextures(scene: Phaser.Scene): void {
       drawHumanoid(ctx, ox + BOSS_FRAME.w / 2, BOSS_FRAME.footY, st.scale, st.pal, pose, st.weapon, { cape: st.cape, crest: true }),
     );
   });
-  makeSheet(scene, 'generated_ally_spear', FRAME.w, FRAME.h, (ctx, pose, ox) => drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ALLY_PAL, pose, 'spear'));
+  // 창병 공격 soldiers use the supplied goryeo_spearman_skill_v1 atlas (visual/allySpearman.ts).
   // 방패병 막기 soldiers use the supplied goryeo_shield_skill_v1 atlas (game/skills/shield).
 }
 

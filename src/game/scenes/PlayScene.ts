@@ -12,6 +12,7 @@ import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders'
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
+import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
@@ -378,8 +379,12 @@ export class PlayScene extends Phaser.Scene {
     r.spawnWarnings.forEach((w, i) => this.pools.warn[i].setPosition(w.x, r.groundY).setAlpha(Math.floor(r.presentationT / 100) % 2 ? 1 : 0.4));
 
     // ally spear soldiers (visual only)
-    this.syncPool(this.pools.allies, r.allyVisuals.length, () => this.add.sprite(0, 0, 'generated_ally_spear', 'attack').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(22));
-    r.allyVisuals.forEach((a, i) => this.pools.allies[i].setPosition(a.x, a.y).setFlipX(a.facing < 0).setFrame(a.until - t > 150 ? 'windup' : 'attack'));
+    // 창병 공격: damage was already applied by the domain at the command instant; this only plays the art.
+    this.syncPool(this.pools.allies, r.allyVisuals.length, () => this.add.sprite(0, 0, ALLY_SPEAR_KEY, 'goryeo_spearman_strike_03.png').setDepth(22));
+    r.allyVisuals.forEach((a, i) => {
+      const pose = allySpearPose(a, t, DEFAULTS.skills.spearVisualMs);
+      this.pools.allies[i].setFrame(pose.frame).setScale(pose.scale).setOrigin(pose.originX, pose.originY).setFlipX(pose.flipX).setPosition(Math.round(a.x), Math.round(a.y));
+    });
 
     // arena walls / exit marker
     this.walls.clear();

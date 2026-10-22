@@ -57,6 +57,13 @@
     },
     {
       "type": "atlas",
+      "key": "goryeo_spearman_skill",
+      "texture": "assets/goryeo_spearman_skill_v1/atlas/goryeo_spearman_all_atlas.png",
+      "atlas": "assets/goryeo_spearman_skill_v1/atlas/goryeo_spearman_all_atlas.json",
+      "note": "창병 공격 지휘 스킬의 고려군 창병 연출(아군) v1: ready4/strike6/summon4/despawn4, 192x192. 프레임 결함 있음 — 교체 필요(IMPLEMENTATION_NOTES·missingProductionAssets)"
+    },
+    {
+      "type": "atlas",
       "key": "round1_env",
       "texture": "assets/round1_environment/round1_environment.png",
       "atlas": "assets/round1_environment/round1_environment.json",
@@ -113,12 +120,12 @@
   "missingProductionAssets": [
     "enemy-types: shieldman, cavalry",
     "bosses: spear_captain, so_bae_ap (선봉대장은 V2 사용)",
-    "ally: spear support (방패병은 goryeo_shield_skill_v1 사용)",
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
     "story-art",
     "bgm: ending (로비는 「준비 yourselves」, 전투 구간은 「전투의 기수」 사용)",
-    "sfx"
+    "sfx",
+    "ally-spearman-skill v1 replacement: strike_01~06 (60% size, spear/body cut at cell x51/x140, neighbour fragments), summon_02~04/despawn_02~04/ready_02~04 (stray spear tip at left x≈28), summon_01/despawn_01/ready_01 (spear tip cut at right edge)"
   ],
   "missingAssetPolicy": "explicit-generated-development-placeholder-and-status-report-not-silent-final-substitution"
 }
