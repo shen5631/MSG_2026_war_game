@@ -25,6 +25,7 @@ const EXPECT = {
   ganggamchan: { cell: 128, count: 72 },
   khitan_infantry: { cell: 128, count: 25 },
   khitan_archer: { cell: 128, count: 25 },
+  'khitan-vanguard-v2': { cell: 192, count: 51 },
   round1_env: { cell: null, count: 67 },
 };
 // Fixed-size single images (projectiles, UI).
@@ -97,6 +98,19 @@ const envSrc = readFileSync(join(root, 'src/game/visual/environment.ts'), 'utf8'
 const envAtlas = JSON.parse(readFileSync(join(pub, 'assets/round1_environment/round1_environment.json'), 'utf8'));
 const contentBlock = envSrc.slice(envSrc.indexOf('const CONTENT'), envSrc.indexOf('export const REQUIRED_ENV_FRAMES'));
 for (const m of contentBlock.matchAll(/^\s+(\w+): \{ x:/gm)) if (!envAtlas.frames[m[1]]) errors.push(`environment.ts uses missing env frame ${m[1]}`);
+// Round-1 boss V2: every manifest animation frame must be in the atlas (51 = 9 actions); V1 must not be referenced.
+const vgManifest = JSON.parse(readFileSync(join(pub, 'assets/khitan_vanguard_v2/manifest.json'), 'utf8'));
+const vgAtlas = JSON.parse(readFileSync(join(pub, 'assets/khitan_vanguard_v2/atlas/vanguard.json'), 'utf8'));
+let vgFrames = 0;
+for (const [action, list] of Object.entries(vgManifest.animations)) {
+  if (list.length !== vgManifest.counts[action]) errors.push(`vanguard ${action}: ${list.length} frames ≠ manifest count ${vgManifest.counts[action]}`);
+  for (const n of list) { vgFrames++; if (!vgAtlas.frames[n]) errors.push(`vanguard atlas missing ${n}`); }
+}
+if (vgFrames !== vgManifest.totalFrames) errors.push(`vanguard manifest lists ${vgFrames} frames, totalFrames ${vgManifest.totalFrames}`);
+if (vgManifest.rootPx?.x !== 96 || vgManifest.rootPx?.y !== 176) errors.push('vanguard root point is not (96,176)');
+if (existsSync(join(pub, 'assets/khitan_vanguard_boss_assets_v1'))) errors.push('V1 vanguard assets must not be in public/');
+info.push(`khitan-vanguard-v2: ${vgFrames} manifest frames across ${Object.keys(vgManifest.animations).length} actions`);
+
 // archer.ts builds names as khitan_archer_<action>_0<i>.png from [1..n]; counts must match the pack manifest.
 const archerSrc = readFileSync(join(root, 'src/game/visual/archer.ts'), 'utf8');
 const archerAtlas = JSON.parse(readFileSync(join(pub, 'assets/khitan_archer_assets_v2/atlas/khitan_archer_all_atlas.json'), 'utf8'));
@@ -143,4 +157,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, 3 bosses, allies, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used).');
+console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, bosses 2-3, allies, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used).');
