@@ -1,0 +1,109 @@
+{
+  "id": "khitan_vanguard_v2",
+  "version": "2.0.0",
+  "frameSize": {
+    "w": 192,
+    "h": 192
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.9166666666666666
+  },
+  "rootPx": {
+    "x": 96,
+    "y": 176
+  },
+  "facing": "right",
+  "counts": {
+    "idle": 4,
+    "walk": 6,
+    "slash": 6,
+    "dash_slash": 6,
+    "combo_3hit": 9,
+    "heavy_smash": 6,
+    "phase2_transition": 4,
+    "parry_stagger": 4,
+    "death": 6
+  },
+  "totalFrames": 51,
+  "atlas": "atlas/vanguard.png",
+  "atlasData": "atlas/vanguard.json",
+  "animations": {
+    "idle": [
+      "idle_01",
+      "idle_02",
+      "idle_03",
+      "idle_04"
+    ],
+    "walk": [
+      "walk_01",
+      "walk_02",
+      "walk_03",
+      "walk_04",
+      "walk_05",
+      "walk_06"
+    ],
+    "slash": [
+      "slash_01",
+      "slash_02",
+      "slash_03",
+      "slash_04",
+      "slash_05",
+      "slash_06"
+    ],
+    "dash_slash": [
+      "dash_slash_01",
+      "dash_slash_02",
+      "dash_slash_03",
+      "dash_slash_04",
+      "dash_slash_05",
+      "dash_slash_06"
+    ],
+    "combo_3hit": [
+      "combo_3hit_01",
+      "combo_3hit_02",
+      "combo_3hit_03",
+      "combo_3hit_04",
+      "combo_3hit_05",
+      "combo_3hit_06",
+      "combo_3hit_07",
+      "combo_3hit_08",
+      "combo_3hit_09"
+    ],
+    "heavy_smash": [
+      "heavy_smash_01",
+      "heavy_smash_02",
+      "heavy_smash_03",
+      "heavy_smash_04",
+      "heavy_smash_05",
+      "heavy_smash_06"
+    ],
+    "phase2_transition": [
+      "phase2_transition_01",
+      "phase2_transition_02",
+      "phase2_transition_03",
+      "phase2_transition_04"
+    ],
+    "parry_stagger": [
+      "parry_stagger_01",
+      "parry_stagger_02",
+      "parry_stagger_03",
+      "parry_stagger_04"
+    ],
+    "death": [
+      "death_01",
+      "death_02",
+      "death_03",
+      "death_04",
+      "death_05",
+      "death_06"
+    ]
+  },
+  "sourcePoseReuse": {
+    "combo_3hit_09": "slash_06 complete recovery"
+  },
+  "notes": [
+    "Sword and some slash effects remain in the character texture. Do not duplicate them with a second large slash effect.",
+    "Frame count does not dictate hit timing. Use game-time combat windows."
+  ]
+}

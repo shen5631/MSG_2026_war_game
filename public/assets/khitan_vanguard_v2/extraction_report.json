@@ -1,0 +1,1022 @@
+{
+  "idle/idle_01.png": {
+    "source": "픽셀_아트_초원_전사_스프라이트_시트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      83,
+      164,
+      517,
+      622
+    ],
+    "rootX": 285,
+    "sourceGroundY": 622,
+    "scale": 0.2183406113537118,
+    "destination": [
+      52,
+      76,
+      95,
+      100
+    ],
+    "replacement": null
+  },
+  "idle/idle_02.png": {
+    "source": "픽셀_아트_초원_전사_스프라이트_시트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      648,
+      161,
+      1048,
+      622
+    ],
+    "rootX": 835,
+    "sourceGroundY": 622,
+    "scale": 0.2183406113537118,
+    "destination": [
+      55,
+      75,
+      87,
+      101
+    ],
+    "replacement": null
+  },
+  "idle/idle_03.png": {
+    "source": "픽셀_아트_초원_전사_스프라이트_시트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      1163,
+      164,
+      1590,
+      622
+    ],
+    "rootX": 1375,
+    "sourceGroundY": 622,
+    "scale": 0.2183406113537118,
+    "destination": [
+      50,
+      76,
+      93,
+      100
+    ],
+    "replacement": null
+  },
+  "idle/idle_04.png": {
+    "source": "픽셀_아트_초원_전사_스프라이트_시트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1714,
+      161,
+      2122,
+      622
+    ],
+    "rootX": 1915,
+    "sourceGroundY": 622,
+    "scale": 0.2183406113537118,
+    "destination": [
+      52,
+      75,
+      89,
+      101
+    ],
+    "replacement": null
+  },
+  "walk/walk_01.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      23,
+      206,
+      381,
+      585
+    ],
+    "rootX": 211,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      46,
+      76,
+      95,
+      100
+    ],
+    "replacement": null
+  },
+  "walk/walk_02.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      411,
+      205,
+      738,
+      585
+    ],
+    "rootX": 577,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      52,
+      75,
+      87,
+      101
+    ],
+    "replacement": null
+  },
+  "walk/walk_03.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      766,
+      206,
+      1100,
+      585
+    ],
+    "rootX": 946,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      48,
+      76,
+      88,
+      100
+    ],
+    "replacement": null
+  },
+  "walk/walk_04.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1125,
+      207,
+      1462,
+      585
+    ],
+    "rootX": 1312,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      47,
+      76,
+      89,
+      100
+    ],
+    "replacement": null
+  },
+  "walk/walk_05.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      1476,
+      208,
+      1811,
+      585
+    ],
+    "rootX": 1661,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      47,
+      76,
+      89,
+      100
+    ],
+    "replacement": null
+  },
+  "walk/walk_06.png": {
+    "source": "투명_배경의_기마_전사_보스_걷기_스프라이트.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1832,
+      207,
+      2162,
+      585
+    ],
+    "rootX": 2020,
+    "sourceGroundY": 585,
+    "scale": 0.26455026455026454,
+    "destination": [
+      46,
+      76,
+      87,
+      100
+    ],
+    "replacement": null
+  },
+  "slash/slash_01.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      20,
+      286,
+      360,
+      589
+    ],
+    "rootX": 186,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      41,
+      76,
+      112,
+      100
+    ],
+    "replacement": null
+  },
+  "slash/slash_02.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      394,
+      198,
+      644,
+      588
+    ],
+    "rootX": 533,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      50,
+      47,
+      83,
+      129
+    ],
+    "replacement": null
+  },
+  "slash/slash_03.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      696,
+      286,
+      1098,
+      588
+    ],
+    "rootX": 874,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      37,
+      76,
+      133,
+      100
+    ],
+    "replacement": null
+  },
+  "slash/slash_04.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1049,
+      269,
+      1513,
+      588
+    ],
+    "rootX": 1240,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      33,
+      70,
+      153,
+      105
+    ],
+    "replacement": null
+  },
+  "slash/slash_05.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      1497,
+      286,
+      1868,
+      589
+    ],
+    "rootX": 1655,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      44,
+      76,
+      122,
+      100
+    ],
+    "replacement": null
+  },
+  "slash/slash_06.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1847,
+      284,
+      2155,
+      589
+    ],
+    "rootX": 2002,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      45,
+      75,
+      102,
+      101
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_01.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      17,
+      345,
+      359,
+      596
+    ],
+    "rootX": 216,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      30,
+      93,
+      114,
+      84
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_02.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      374,
+      347,
+      753,
+      595
+    ],
+    "rootX": 591,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      24,
+      93,
+      126,
+      83
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_03.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      767,
+      252,
+      1070,
+      596
+    ],
+    "rootX": 919,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      45,
+      62,
+      101,
+      115
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_04.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1092,
+      309,
+      1560,
+      596
+    ],
+    "rootX": 1314,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      22,
+      81,
+      156,
+      96
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_05.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      1534,
+      339,
+      1927,
+      596
+    ],
+    "rootX": 1692,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      43,
+      91,
+      131,
+      86
+    ],
+    "replacement": null
+  },
+  "dash_slash/dash_slash_06.png": {
+    "source": "쿠탄_전사의_돌진_베기_스프라이트_시트.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1929,
+      330,
+      2159,
+      596
+    ],
+    "rootX": 2069,
+    "sourceGroundY": 595,
+    "scale": 0.3333333333333333,
+    "destination": [
+      49,
+      88,
+      77,
+      89
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_01.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      13,
+      364,
+      230,
+      584
+    ],
+    "rootX": 112,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      51,
+      76,
+      99,
+      100
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_02.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      244,
+      300,
+      438,
+      584
+    ],
+    "rootX": 351,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      47,
+      46,
+      89,
+      130
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_03.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      458,
+      379,
+      754,
+      584
+    ],
+    "rootX": 599,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      32,
+      82,
+      135,
+      94
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_04.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      750,
+      366,
+      961,
+      584
+    ],
+    "rootX": 849,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      51,
+      76,
+      96,
+      100
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_05.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      954,
+      322,
+      1142,
+      584
+    ],
+    "rootX": 1053,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      51,
+      56,
+      86,
+      120
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_06.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1143,
+      344,
+      1435,
+      584
+    ],
+    "rootX": 1292,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      28,
+      66,
+      133,
+      110
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_07.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 7,
+    "sourceBox": [
+      1415,
+      306,
+      1620,
+      584
+    ],
+    "rootX": 1516,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      50,
+      49,
+      94,
+      127
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_08.png": {
+    "source": "거란_전위대장_3연속_검격_스프라이트.png",
+    "sourcePose": 8,
+    "sourceBox": [
+      1623,
+      323,
+      1952,
+      585
+    ],
+    "rootX": 1778,
+    "sourceGroundY": 584,
+    "scale": 0.45662100456621,
+    "destination": [
+      25,
+      57,
+      150,
+      120
+    ],
+    "replacement": null
+  },
+  "combo_3hit/combo_3hit_09.png": {
+    "source": "거란_전사의_검격_연속_동작.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1847,
+      284,
+      2155,
+      589
+    ],
+    "rootX": 2002,
+    "sourceGroundY": 589,
+    "scale": 0.33003300330033003,
+    "destination": [
+      45,
+      75,
+      102,
+      101
+    ],
+    "replacement": "Full recovery pose reused from slash_06; cropped source combo pose omitted."
+  },
+  "heavy_smash/heavy_smash_01.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      28,
+      168,
+      351,
+      627
+    ],
+    "rootX": 194,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      43,
+      31,
+      102,
+      145
+    ],
+    "replacement": null
+  },
+  "heavy_smash/heavy_smash_02.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      348,
+      221,
+      715,
+      627
+    ],
+    "rootX": 566,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      27,
+      48,
+      116,
+      128
+    ],
+    "replacement": null
+  },
+  "heavy_smash/heavy_smash_03.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      750,
+      239,
+      1129,
+      627
+    ],
+    "rootX": 903,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      48,
+      53,
+      120,
+      123
+    ],
+    "replacement": null
+  },
+  "heavy_smash/heavy_smash_04.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1136,
+      390,
+      1463,
+      627
+    ],
+    "rootX": 1293,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      46,
+      101,
+      103,
+      75
+    ],
+    "replacement": null
+  },
+  "heavy_smash/heavy_smash_05.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      1476,
+      401,
+      1815,
+      627
+    ],
+    "rootX": 1637,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      45,
+      104,
+      107,
+      72
+    ],
+    "replacement": null
+  },
+  "heavy_smash/heavy_smash_06.png": {
+    "source": "여섯_프레임_검격_전사_스프라이트.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1848,
+      311,
+      2154,
+      627
+    ],
+    "rootX": 1994,
+    "sourceGroundY": 627,
+    "scale": 0.31645569620253167,
+    "destination": [
+      50,
+      76,
+      97,
+      100
+    ],
+    "replacement": null
+  },
+  "phase2_transition/phase2_transition_01.png": {
+    "source": "분노의_칸타이_전사_변신_시퀀스.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      40,
+      183,
+      493,
+      628
+    ],
+    "rootX": 258,
+    "sourceGroundY": 631,
+    "scale": 0.22522522522522523,
+    "destination": [
+      47,
+      75,
+      102,
+      100
+    ],
+    "replacement": null
+  },
+  "phase2_transition/phase2_transition_02.png": {
+    "source": "분노의_칸타이_전사_변신_시퀀스.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      584,
+      183,
+      1036,
+      632
+    ],
+    "rootX": 820,
+    "sourceGroundY": 631,
+    "scale": 0.22522522522522523,
+    "destination": [
+      43,
+      75,
+      102,
+      101
+    ],
+    "replacement": null
+  },
+  "phase2_transition/phase2_transition_03.png": {
+    "source": "분노의_칸타이_전사_변신_시퀀스.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      1119,
+      161,
+      1569,
+      632
+    ],
+    "rootX": 1364,
+    "sourceGroundY": 631,
+    "scale": 0.22522522522522523,
+    "destination": [
+      41,
+      70,
+      101,
+      106
+    ],
+    "replacement": null
+  },
+  "phase2_transition/phase2_transition_04.png": {
+    "source": "분노의_칸타이_전사_변신_시퀀스.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1661,
+      159,
+      2141,
+      632
+    ],
+    "rootX": 1925,
+    "sourceGroundY": 631,
+    "scale": 0.22522522522522523,
+    "destination": [
+      37,
+      70,
+      108,
+      107
+    ],
+    "replacement": null
+  },
+  "parry_stagger/parry_stagger_01.png": {
+    "source": "쿠탄_전사의_패링_경직_애니메이션_스프라이트_시트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      75,
+      205,
+      519,
+      649
+    ],
+    "rootX": 291,
+    "sourceGroundY": 649,
+    "scale": 0.23148148148148148,
+    "destination": [
+      46,
+      73,
+      103,
+      103
+    ],
+    "replacement": null
+  },
+  "parry_stagger/parry_stagger_02.png": {
+    "source": "쿠탄_전사의_패링_경직_애니메이션_스프라이트_시트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      623,
+      216,
+      1107,
+      649
+    ],
+    "rootX": 861,
+    "sourceGroundY": 649,
+    "scale": 0.23148148148148148,
+    "destination": [
+      41,
+      76,
+      112,
+      100
+    ],
+    "replacement": null
+  },
+  "parry_stagger/parry_stagger_03.png": {
+    "source": "쿠탄_전사의_패링_경직_애니메이션_스프라이트_시트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      1157,
+      250,
+      1619,
+      649
+    ],
+    "rootX": 1387,
+    "sourceGroundY": 649,
+    "scale": 0.23148148148148148,
+    "destination": [
+      43,
+      84,
+      107,
+      92
+    ],
+    "replacement": null
+  },
+  "parry_stagger/parry_stagger_04.png": {
+    "source": "쿠탄_전사의_패링_경직_애니메이션_스프라이트_시트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1709,
+      235,
+      2126,
+      649
+    ],
+    "rootX": 1939,
+    "sourceGroundY": 649,
+    "scale": 0.23148148148148148,
+    "destination": [
+      43,
+      80,
+      97,
+      96
+    ],
+    "replacement": null
+  },
+  "death/death_01.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 1,
+    "sourceBox": [
+      48,
+      245,
+      347,
+      582
+    ],
+    "rootX": 192,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      53,
+      76,
+      89,
+      100
+    ],
+    "replacement": null
+  },
+  "death/death_02.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 2,
+    "sourceBox": [
+      390,
+      270,
+      689,
+      582
+    ],
+    "rootX": 537,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      52,
+      83,
+      89,
+      93
+    ],
+    "replacement": null
+  },
+  "death/death_03.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 3,
+    "sourceBox": [
+      723,
+      335,
+      1013,
+      582
+    ],
+    "rootX": 867,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      53,
+      103,
+      86,
+      73
+    ],
+    "replacement": null
+  },
+  "death/death_04.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 4,
+    "sourceBox": [
+      1029,
+      399,
+      1359,
+      597
+    ],
+    "rootX": 1184,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      50,
+      122,
+      98,
+      59
+    ],
+    "replacement": null
+  },
+  "death/death_05.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 5,
+    "sourceBox": [
+      1345,
+      460,
+      1760,
+      596
+    ],
+    "rootX": 1508,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      48,
+      140,
+      123,
+      40
+    ],
+    "replacement": null
+  },
+  "death/death_06.png": {
+    "source": "전사의_쓰러지는_순간들_픽셀_스프라이트_시트.png",
+    "sourcePose": 6,
+    "sourceBox": [
+      1745,
+      472,
+      2150,
+      594
+    ],
+    "rootX": 1919,
+    "sourceGroundY": 582,
+    "scale": 0.29673590504451036,
+    "destination": [
+      44,
+      143,
+      120,
+      36
+    ],
+    "replacement": null
+  }
+}
