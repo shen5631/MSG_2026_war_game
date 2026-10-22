@@ -36,6 +36,13 @@
     },
     {
       "type": "atlas",
+      "key": "khitan-vanguard-v2",
+      "texture": "assets/khitan_vanguard_v2/atlas/vanguard.png",
+      "atlas": "assets/khitan_vanguard_v2/atlas/vanguard.json",
+      "note": "1라운드 보스 거란군 선봉대장 V2: 9개 동작 51프레임, 192x192, 발 기준점 (96,176), 오른쪽 방향(왼쪽은 flipX). V1 미사용"
+    },
+    {
+      "type": "atlas",
       "key": "round1_env",
       "texture": "assets/round1_environment/round1_environment.png",
       "atlas": "assets/round1_environment/round1_environment.json",
@@ -85,7 +92,7 @@
   ],
   "missingProductionAssets": [
     "enemy-types: spearman, shieldman, cavalry",
-    "three-bosses",
+    "bosses: spear_captain, so_bae_ap (선봉대장은 V2 사용)",
     "two-ally-types",
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",

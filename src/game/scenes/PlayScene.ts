@@ -1,6 +1,6 @@
 // Owns the single render loop: polls input, advances the controller's fixed-step simulation, renders the state.
 import Phaser from 'phaser';
-import { ENEMY_PATTERNS, VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
+import { DEFAULTS, ENEMY_PATTERNS, VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import type { Boss } from '../../domain/boss';
 import type { Enemy } from '../../domain/enemies';
@@ -11,6 +11,7 @@ import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindin
 import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
+import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 
 /** Round-1 illustration: crop above its own road (y<700) and scale so that line meets the game ground. */
 const BG_CROP_H = 700;
@@ -428,30 +429,42 @@ export class PlayScene extends Phaser.Scene {
       this.bossGlow.setVisible(false);
       return;
     }
-    if (!this.bossSprite || this.bossSprite.texture.key !== `generated_boss_${b.bossId}`) {
+    const real = b.bossId === 'vanguard';
+    const texKey = real ? VANGUARD_KEY : `generated_boss_${b.bossId}`;
+    if (!this.bossSprite || this.bossSprite.texture.key !== texKey) {
       this.bossSprite?.destroy();
-      this.bossSprite = this.add.sprite(b.body.x, b.body.y, `generated_boss_${b.bossId}`, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
+      this.bossSprite = real
+        ? this.add.sprite(b.body.x, b.body.y, VANGUARD_KEY, 'idle_01').setOrigin(VANGUARD_ORIGIN.x, VANGUARD_ORIGIN.y).setDepth(14)
+        : this.add.sprite(b.body.x, b.body.y, texKey, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
       this.bossLastHp = b.hp;
     }
     if (b.hp < this.bossLastHp) this.bossFlashUntil = r.presentationT + 70;
     this.bossLastHp = b.hp;
-    let pose: Pose = 'idle';
-    switch (b.state) {
-      case 'move': pose = Math.floor(t / 180) % 2 ? 'walkA' : 'walkB'; break;
-      case 'windup': pose = 'windup'; break;
-      case 'hits': pose = 'attack'; break;
-      case 'recover': pose = t - b.stateT < 220 ? 'attack' : 'idle'; break;
-      case 'stunned': pose = 'hurt'; break;
-      case 'transition': pose = 'hurt'; break;
-      case 'dead': pose = 'dead'; break;
-      default: pose = 'idle';
+    let frame: string;
+    if (real) {
+      const transitionProgress = r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0;
+      frame = vanguardFrame(b, { t, transitionProgress, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 });
+    } else {
+      let pose: Pose = 'idle';
+      switch (b.state) {
+        case 'move': pose = Math.floor(t / 180) % 2 ? 'walkA' : 'walkB'; break;
+        case 'windup': pose = 'windup'; break;
+        case 'hits': pose = 'attack'; break;
+        case 'recover': pose = t - b.stateT < 220 ? 'attack' : 'idle'; break;
+        case 'stunned': pose = 'hurt'; break;
+        case 'transition': pose = 'hurt'; break;
+        case 'dead': pose = 'dead'; break;
+        default: pose = 'idle';
+      }
+      frame = pose;
     }
-    const s = this.bossSprite.setVisible(true).setFrame(pose).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
+    const s = this.bossSprite.setVisible(true).setFrame(frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
     s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
     const red = b.redTelegraph;
     if (r.presentationT < this.bossFlashUntil) s.setTintFill(0xffffff);
     else if (red) s.setTint(Math.floor(r.presentationT / 90) % 2 ? 0xff3030 : 0xff8080);
-    else if (b.state === 'transition') s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
+    // The V2 transition frames already carry their red aura: no extra flashing tint on top.
+    else if (b.state === 'transition' && !real) s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
     else s.clearTint();
     this.bossGlow.setVisible(red).setPosition(b.body.x, b.body.y - 2).setAlpha(0.3 + 0.3 * Math.abs(Math.sin(r.presentationT / 80)));
   }

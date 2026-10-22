@@ -17,7 +17,7 @@ const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
   'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
-  'generated_boss_vanguard', 'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
+  'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
   'generated_ally_spear', 'generated_ally_shield',
   'generated_pickups', 'generated_ui_markers',
   'generated_bg_r2_*', 'generated_bg_r3_*',
@@ -155,8 +155,8 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
 
 const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer'>, Weapon> = { spearman: 'spear', shieldman: 'shield', cavalry: 'lance' };
 
-const BOSS_STYLE: Record<BossId, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
-  vanguard: { pal: { ...ENEMY_PAL, armor: '#7a2e22', trim: '#d08a3a', plume: '#d0402a' }, weapon: 'bigsword', scale: 1.25, cape: false },
+// The round-1 vanguard uses the supplied V2 atlas (visual/vanguard.ts); the other two bosses are still generated.
+const BOSS_STYLE: Record<Exclude<BossId, 'vanguard'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
   spear_captain: { pal: { ...ENEMY_PAL, armor: '#6a3a26', trim: '#b9b9b9', helmet: '#3a1f16', plume: '#e0e0e0' }, weapon: 'glaive', scale: 1.3, cape: false },
   so_bae_ap: { pal: { ...ENEMY_PAL, armor: '#5a1e1a', armorDark: '#33100d', trim: '#d4a72c', helmet: '#2a1410', plume: '#9c1c1c' }, weapon: 'bigsword', scale: 1.38, cape: true },
 };
@@ -172,7 +172,7 @@ export function generateCharacterTextures(scene: Phaser.Scene): void {
       else drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ENEMY_PAL, pose, ENEMY_WEAPON[kind]);
     });
   });
-  (Object.keys(BOSS_STYLE) as BossId[]).forEach((id) => {
+  (Object.keys(BOSS_STYLE) as (keyof typeof BOSS_STYLE)[]).forEach((id) => {
     const st = BOSS_STYLE[id];
     makeSheet(scene, `generated_boss_${id}`, BOSS_FRAME.w, BOSS_FRAME.h, (ctx, pose, ox) =>
       drawHumanoid(ctx, ox + BOSS_FRAME.w / 2, BOSS_FRAME.footY, st.scale, st.pal, pose, st.weapon, { cape: st.cape, crest: true }),
