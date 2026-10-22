@@ -1,0 +1,440 @@
+// Owns the single render loop: polls input, advances the controller's fixed-step simulation, renders the state.
+import Phaser from 'phaser';
+import { VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
+import type { Services } from '../../app/bridge';
+import type { Boss } from '../../domain/boss';
+import type { Enemy } from '../../domain/enemies';
+import type { GameEvent } from '../../domain/events';
+import type { RoundSim } from '../../domain/round';
+import type { MusicTheme } from '../../audio/AudioSystem';
+import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
+import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
+
+interface FxItem { sprite: Phaser.GameObjects.Sprite; frames: string[]; start: number; dur: number; active: boolean }
+
+const FX_FRAMES: Record<string, string[]> = {
+  hit: ['ganggamchan_hit_fx_01', 'ganggamchan_hit_fx_02', 'ganggamchan_hit_fx_03', 'ganggamchan_hit_fx_04'],
+  parry: ['ganggamchan_parry_fx_01', 'ganggamchan_parry_fx_02', 'ganggamchan_parry_fx_03', 'ganggamchan_parry_fx_04'],
+  dash: ['ganggamchan_dash_fx_01', 'ganggamchan_dash_fx_02', 'ganggamchan_dash_fx_03', 'ganggamchan_dash_fx_04'],
+  charge: ['ganggamchan_charge_fx_01', 'ganggamchan_charge_fx_02', 'ganggamchan_charge_fx_03', 'ganggamchan_charge_fx_04'],
+  // skill effect sheet is a collection of distinct shapes: each use picks single frames, never one long loop.
+  skillBuff: ['ganggamchan_skill_01', 'ganggamchan_skill_02'],
+  skillShield: ['ganggamchan_skill_03', 'ganggamchan_skill_04'],
+  spear: ['ganggamchan_skill_05', 'ganggamchan_skill_06'],
+  heal: ['ganggamchan_skill_07'],
+};
+
+export class PlayScene extends Phaser.Scene {
+  private sky!: Phaser.GameObjects.TileSprite;
+  private far!: Phaser.GameObjects.TileSprite;
+  private mid!: Phaser.GameObjects.TileSprite;
+  private near!: Phaser.GameObjects.TileSprite;
+  private ground!: Phaser.GameObjects.TileSprite;
+  private player!: Phaser.GameObjects.Sprite;
+  private shadow!: Phaser.GameObjects.Ellipse;
+  private buffAura!: Phaser.GameObjects.Sprite;
+  private chargeAura!: Phaser.GameObjects.Sprite;
+  private shieldRing!: Phaser.GameObjects.Ellipse;
+  private shieldAllies: Phaser.GameObjects.Sprite[] = [];
+  private walls!: Phaser.GameObjects.Graphics;
+  private debugGfx: Phaser.GameObjects.Graphics | null = null;
+  private exitArrow!: Phaser.GameObjects.Image;
+  private bossGlow!: Phaser.GameObjects.Ellipse;
+  private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Rectangle; lastHp: number; flashUntil: number }>();
+  private bossSprite: Phaser.GameObjects.Sprite | null = null;
+  private bossFlashUntil = 0;
+  private bossLastHp = 0;
+  private solidSprites = new Map<string, Phaser.GameObjects.Image>();
+  private pickupSprites = new Map<string, Phaser.GameObjects.Image>();
+  private pools = { arrows: [] as Phaser.GameObjects.Image[], warn: [] as Phaser.GameObjects.Image[], allies: [] as Phaser.GameObjects.Sprite[] };
+  private fx: FxItem[] = [];
+  private renderedRound: RoundSim | null = null;
+  private roundTheme = 1;
+  private camX = 0;
+  private lastNow = 0;
+  private unsubs: (() => void)[] = [];
+
+  constructor() { super('play'); }
+
+  private get services(): Services { return this.game.registry.get('services') as Services; }
+
+  create(): void {
+    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
+    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
+    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
+    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r1_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
+    this.ground = this.add.tileSprite(0, 304, VIEW_W, 56, 'generated_ground_r1').setOrigin(0).setScrollFactor(0).setDepth(-10);
+    this.walls = this.add.graphics().setDepth(40);
+    this.exitArrow = this.add.image(0, 0, 'generated_ui_markers', 'exit').setDepth(45).setVisible(false);
+    this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
+    this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(5);
+    this.shieldRing = this.add.ellipse(0, 0, 70, 96, 0x6fa8ff, 0.18).setStrokeStyle(2, 0x9cc4ff, 0.8).setDepth(19).setVisible(false);
+    this.buffAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_skill_02').setOrigin(0.5, 0.89).setDepth(9).setAlpha(0.6).setVisible(false);
+    this.chargeAura = this.add.sprite(0, 0, ATLAS_KEY, 'ganggamchan_charge_fx_01').setOrigin(0.5, 0.89).setDepth(21).setVisible(false);
+    this.player = this.add.sprite(200, 304, ATLAS_KEY, 'ganggamchan_idle_01').setOrigin(PLAYER_ORIGIN[0], PLAYER_ORIGIN[1]).setDepth(20);
+    for (let i = 0; i < 2; i++) {
+      this.shieldAllies.push(this.add.sprite(0, 0, 'generated_ally_shield', 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(18 + i * 4).setVisible(false));
+    }
+    if (import.meta.env.DEV) {
+      window.__GGC_SCENE__ = this;
+      if (new URLSearchParams(window.location.search).has('debug')) this.debugGfx = this.add.graphics().setDepth(100);
+    }
+
+    const { controller, audio } = this.services;
+    this.unsubs.push(controller.onEvent((e) => this.onGameEvent(e)));
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.cleanup());
+    this.events.once(Phaser.Scenes.Events.DESTROY, () => this.cleanup());
+    this.lastNow = performance.now();
+    audio.setMusic('title');
+  }
+
+  private cleanup(): void {
+    if (import.meta.env.DEV && window.__GGC_SCENE__ === this) window.__GGC_SCENE__ = undefined;
+    for (const u of this.unsubs) u();
+    this.unsubs = [];
+  }
+
+  update(): void {
+    const now = performance.now();
+    const dt = now - this.lastNow;
+    this.lastNow = now;
+    const { controller, router, audio } = this.services;
+    router.setMode(controller.phase === 'playing' && !controller.pause.paused ? 'combat' : 'menu');
+    router.update(now);
+    controller.frame(dt, router);
+    audio.setGamePaused(controller.phase === 'playing' && controller.pause.paused);
+    audio.setMusic(this.musicTheme());
+    audio.update();
+    this.renderFrame(dt);
+  }
+
+  private musicTheme(): MusicTheme {
+    const c = this.services.controller;
+    switch (c.phase) {
+      case 'title': return 'title';
+      case 'playing':
+      case 'game-over':
+      case 'reward': {
+        const r = c.round;
+        if (r && r.bossStage !== 'pending') return 'boss';
+        return `round${c.roundIndex}` as MusicTheme;
+      }
+      case 'ending':
+      case 'results': return 'ending';
+      default: return null;
+    }
+  }
+
+  private onGameEvent(e: GameEvent): void {
+    const audio = this.services.audio;
+    if (e.type === 'sfx') audio.playSfx(e.id);
+    else if (e.type === 'fx') this.spawnFx(e.fx, e.x, e.y, e.facing ?? 1, e.level ?? 0);
+    else if (e.type === 'bossPhase2') this.cameras.main.flash(250, 255, 80, 60);
+    else if (e.type === 'hitstop') this.cameras.main.shake(60, 0.004);
+    else if (e.type === 'playerDied') this.cameras.main.shake(200, 0.006);
+  }
+
+  private spawnFx(kind: string, x: number, y: number, facing: 1 | -1, level: number): void {
+    let frames: string[];
+    let dur = 220;
+    let tint: number | undefined;
+    switch (kind) {
+      case 'hit': frames = FX_FRAMES.hit; tint = level ? 0xffd080 : undefined; break;
+      case 'guard': frames = FX_FRAMES.hit; tint = 0x9a9a9a; dur = 160; break;
+      case 'parry': frames = FX_FRAMES.parry; dur = 260; break;
+      case 'dash': frames = FX_FRAMES.dash; dur = 300; break;
+      case 'charge': frames = [FX_FRAMES.charge[Math.min(3, level)]]; dur = 260; break;
+      case 'skill': frames = level ? FX_FRAMES.skillShield : FX_FRAMES.skillBuff; dur = 420; break;
+      case 'spear': frames = FX_FRAMES.spear; dur = 300; break;
+      case 'shieldBreak': frames = FX_FRAMES.parry; tint = 0x7fb0ff; dur = 300; break;
+      case 'heal': frames = FX_FRAMES.heal; tint = 0x9fff9f; dur = 400; break;
+      default: return;
+    }
+    let item = this.fx.find((f) => !f.active);
+    if (!item) {
+      item = { sprite: this.add.sprite(0, 0, ATLAS_KEY, frames[0]).setDepth(30), frames, start: 0, dur, active: false };
+      this.fx.push(item);
+    }
+    const r = this.services.controller.round;
+    item.active = true;
+    item.frames = frames;
+    item.dur = dur;
+    item.start = r ? r.presentationT : 0;
+    item.sprite.setVisible(true).setFrame(frames[0]).setFlipX(facing < 0).setOrigin(0.5, 0.5).setAlpha(1);
+    if (kind === 'dash' || kind === 'charge' || kind === 'skill') item.sprite.setOrigin(0.5, 0.89);
+    item.sprite.setPosition(x, y);
+    if (tint !== undefined) item.sprite.setTint(tint); else item.sprite.clearTint();
+  }
+
+  // ---------------- rendering ----------------
+  private renderFrame(dt: number): void {
+    const c = this.services.controller;
+    const r = c.round;
+    const showWorld = r && (c.phase === 'playing' || c.phase === 'game-over' || c.phase === 'reward');
+    if (showWorld && r) {
+      if (this.renderedRound !== r) this.rebuildWorld(r);
+      this.renderWorld(r, dt);
+    } else {
+      this.renderBackdrop(c.phase === 'ending' || c.phase === 'results' ? 3 : 1, dt);
+    }
+  }
+
+  private setTheme(round: number): void {
+    if (this.roundTheme === round && this.sky.texture.key.includes(`r${round}`)) return;
+    this.roundTheme = round;
+    this.sky.setTexture(`generated_bg_r${round}_sky`);
+    this.far.setTexture(`generated_bg_r${round}_far`);
+    this.mid.setTexture(`generated_bg_r${round}_mid`);
+    this.near.setTexture(`generated_bg_r${round}_near`);
+    this.ground.setTexture(`generated_ground_r${round}`);
+  }
+
+  private clearEntities(): void {
+    for (const v of this.enemySprites.values()) { v.s.destroy(); v.bar.destroy(); }
+    this.enemySprites.clear();
+    this.bossSprite?.destroy();
+    this.bossSprite = null;
+    for (const s of this.solidSprites.values()) s.destroy();
+    this.solidSprites.clear();
+    for (const s of this.pickupSprites.values()) s.destroy();
+    this.pickupSprites.clear();
+    for (const f of this.fx) { f.active = false; f.sprite.setVisible(false); }
+  }
+
+  private rebuildWorld(r: RoundSim): void {
+    this.clearEntities();
+    this.renderedRound = r;
+    this.setTheme(r.roundIndex);
+    for (const s of r.solids) {
+      const img = this.add.image(s.x + s.w / 2, s.y + s.h, 'generated_props', s.kind).setOrigin(0.5, 1).setDepth(6);
+      this.solidSprites.set(s.id, img);
+    }
+    this.camX = r.cameraX;
+  }
+
+  private parallax(camX: number): void {
+    this.cameras.main.setScroll(Math.round(camX), 0);
+    this.far.tilePositionX = Math.round(camX * 0.2);
+    this.mid.tilePositionX = Math.round(camX * 0.45);
+    this.near.tilePositionX = Math.round(camX * 0.8);
+    this.ground.tilePositionX = Math.round(camX);
+  }
+
+  private renderBackdrop(theme: number, dt: number): void {
+    if (this.renderedRound) {
+      this.clearEntities();
+      this.renderedRound = null;
+    }
+    this.setTheme(theme);
+    this.camX += dt * 0.02;
+    this.parallax(this.camX);
+    const t = performance.now();
+    const p = this.player.setVisible(true);
+    p.setPosition(Math.round(this.camX + 200), 304).setFlipX(false).setAlpha(1).clearTint();
+    p.setFrame(`ganggamchan_idle_0${1 + (Math.floor(t / 166) % 4)}`);
+    this.shadow.setPosition(p.x, 305);
+    for (const o of [this.buffAura, this.chargeAura, this.shieldRing, this.exitArrow, this.bossGlow, ...this.shieldAllies]) o.setVisible(false);
+    this.walls.clear();
+    this.debugGfx?.clear();
+    for (const a of this.pools.arrows) a.setVisible(false);
+    for (const a of this.pools.warn) a.setVisible(false);
+    for (const a of this.pools.allies) a.setVisible(false);
+  }
+
+  private renderWorld(r: RoundSim, dt: number): void {
+    const t = r.t;
+    // camera: smooth toward the simulation camera (visual only)
+    const target = r.cameraX;
+    if (Math.abs(target - this.camX) > 400) this.camX = target;
+    else this.camX += (target - this.camX) * Math.min(1, dt * 0.012);
+    this.parallax(this.camX);
+
+    // player
+    const pl = r.player;
+    const pf = playerFrame(pl, t);
+    const ps = this.player.setVisible(true);
+    ps.setFrame(pf.frame).setPosition(Math.round(pl.body.x), Math.round(pl.body.y)).setFlipX(pl.facing < 0);
+    if (pf.tint !== undefined) ps.setTint(pf.tint); else ps.clearTint();
+    const blinking = pl.alive && t < pl.invulnUntil && Math.floor(t / 60) % 2 === 0;
+    ps.setAlpha(blinking ? 0.35 : 1);
+    this.shadow.setPosition(Math.round(pl.body.x), r.groundY + 1).setScale(pl.body.onGround ? 1 : 0.7);
+
+    this.buffAura.setVisible(pl.commandBuffActive).setPosition(pl.body.x, pl.body.y).setAlpha(0.35 + 0.2 * Math.sin(t / 120));
+    const charging = pl.mode === 'charge';
+    this.chargeAura.setVisible(charging && pl.chargeStage > 0);
+    if (charging && pl.chargeStage > 0) this.chargeAura.setFrame(FX_FRAMES.charge[Math.min(3, pl.chargeStage)]).setPosition(pl.body.x, pl.body.y);
+    const shieldOn = pl.shield.value > 0;
+    this.shieldRing.setVisible(shieldOn).setPosition(pl.body.x, pl.body.y - 38).setAlpha(0.3 + 0.7 * (pl.shield.value / 40));
+    this.shieldAllies.forEach((s, i) => {
+      s.setVisible(shieldOn);
+      if (shieldOn) s.setPosition(pl.body.x + (i === 0 ? 26 : -26), pl.body.y).setFlipX(i === 1).setAlpha(0.85);
+    });
+
+    // solids
+    for (const s of r.solids) {
+      const img = this.solidSprites.get(s.id);
+      if (!img) continue;
+      img.setVisible(s.alive);
+      if (s.destructible && s.alive) img.setAlpha(0.6 + 0.4 * (s.hp / s.maxHp));
+    }
+
+    // enemies
+    const seen = new Set<string>();
+    for (const e of r.enemies) {
+      seen.add(e.id);
+      this.renderEnemy(e, t);
+    }
+    for (const [id, v] of this.enemySprites) {
+      if (!seen.has(id)) { v.s.destroy(); v.bar.destroy(); this.enemySprites.delete(id); }
+    }
+
+    // boss
+    this.renderBoss(r.boss, r, t);
+
+    // projectiles
+    this.syncPool(this.pools.arrows, r.projectiles.length, () => this.add.image(0, 0, 'generated_pickups', 'arrow').setDepth(25));
+    r.projectiles.forEach((p, i) => this.pools.arrows[i].setPosition(Math.round(p.x), Math.round(p.y)).setFlipX(p.vx < 0));
+
+    // pickups
+    const pseen = new Set<string>();
+    for (const it of r.pickups) {
+      pseen.add(it.id);
+      let img = this.pickupSprites.get(it.id);
+      if (!img) {
+        img = this.add.image(it.x, it.y, 'generated_pickups', it.kind).setOrigin(0.5, 1).setDepth(8);
+        this.pickupSprites.set(it.id, img);
+      }
+      img.setPosition(it.x, it.y - 2 + Math.round(Math.sin(r.presentationT / 200) * 2));
+    }
+    for (const [id, img] of this.pickupSprites) if (!pseen.has(id)) { img.destroy(); this.pickupSprites.delete(id); }
+
+    // spawn warnings
+    this.syncPool(this.pools.warn, r.spawnWarnings.length, () => this.add.image(0, 0, 'generated_ui_markers', 'spawn').setOrigin(0.5, 1).setDepth(7));
+    r.spawnWarnings.forEach((w, i) => this.pools.warn[i].setPosition(w.x, r.groundY).setAlpha(Math.floor(r.presentationT / 100) % 2 ? 1 : 0.4));
+
+    // ally spear soldiers (visual only)
+    this.syncPool(this.pools.allies, r.allyVisuals.length, () => this.add.sprite(0, 0, 'generated_ally_spear', 'attack').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(22));
+    r.allyVisuals.forEach((a, i) => this.pools.allies[i].setPosition(a.x, a.y).setFlipX(a.facing < 0).setFrame(a.until - t > 150 ? 'windup' : 'attack'));
+
+    // arena walls / exit marker
+    this.walls.clear();
+    if (r.lockedBounds) {
+      this.walls.fillStyle(0xc8402a, 0.35);
+      this.walls.fillRect(r.lockedBounds.minX, 0, 4, 304);
+      this.walls.fillRect(r.lockedBounds.maxX - 4, 0, 4, 304);
+    }
+    const ex = r.activeArena >= 0 && r.arenas[r.activeArena].state === 'cleared';
+    this.exitArrow.setVisible(ex);
+    if (ex) this.exitArrow.setPosition(r.arenas[r.activeArena].spec.right - 20, 230 + Math.sin(r.presentationT / 150) * 4);
+
+    // effects
+    for (const f of this.fx) {
+      if (!f.active) continue;
+      const age = r.presentationT - f.start;
+      if (age >= f.dur || age < 0) { f.active = false; f.sprite.setVisible(false); continue; }
+      f.sprite.setFrame(f.frames[Math.min(f.frames.length - 1, Math.floor((age / f.dur) * f.frames.length))]);
+      f.sprite.setAlpha(1 - age / f.dur * 0.5);
+    }
+
+    if (this.debugGfx) this.drawDebug(r);
+  }
+
+  private syncPool<T extends Phaser.GameObjects.Image | Phaser.GameObjects.Sprite>(pool: T[], n: number, make: () => T): void {
+    while (pool.length < n) pool.push(make());
+    pool.forEach((o, i) => o.setVisible(i < n));
+  }
+
+  private enemyPose(e: Enemy, t: number): Pose {
+    switch (e.state) {
+      case 'move': return Math.floor(t / 160) % 2 ? 'walkA' : 'walkB';
+      case 'windup': return 'windup';
+      case 'active': return 'attack';
+      case 'recover': return t - e.stateT < 200 ? 'attack' : 'idle';
+      case 'stunned':
+      case 'guardBroken': return 'hurt';
+      case 'dead': return 'dead';
+      default: return 'idle';
+    }
+  }
+
+  private renderEnemy(e: Enemy, t: number): void {
+    let v = this.enemySprites.get(e.id);
+    if (!v) {
+      const s = this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
+      const bar = this.add.rectangle(0, 0, 24, 2, 0xd04030).setOrigin(0, 0.5).setDepth(13);
+      v = { s, bar, lastHp: e.hp, flashUntil: 0 };
+      this.enemySprites.set(e.id, v);
+    }
+    if (e.hp < v.lastHp) v.flashUntil = t + 80;
+    v.lastHp = e.hp;
+    const hidden = e.state === 'relocating';
+    v.s.setVisible(!hidden).setFrame(this.enemyPose(e, t)).setPosition(Math.round(e.body.x), Math.round(e.body.y)).setFlipX(e.facing < 0);
+    if (t < v.flashUntil) v.s.setTintFill(0xffffff);
+    else v.s.clearTint();
+    let alpha = 1;
+    if (e.state === 'dead') alpha = Math.max(0, 1 - (t - e.deadAt) / 900);
+    else if (t < e.graceUntil) alpha = 0.55 + 0.45 * Math.min(1, 1 - (e.graceUntil - t) / 650);
+    v.s.setAlpha(alpha);
+    const showBar = e.alive && !hidden && e.hp < e.maxHp;
+    v.bar.setVisible(showBar);
+    if (showBar) v.bar.setPosition(e.body.x - 12, e.body.y - e.body.h - 12).setSize(Math.max(1, 24 * (e.hp / e.maxHp)), 2);
+  }
+
+  private renderBoss(b: Boss | null, r: RoundSim, t: number): void {
+    if (!b || r.bossStage === 'pending') {
+      this.bossSprite?.setVisible(false);
+      this.bossGlow.setVisible(false);
+      return;
+    }
+    if (!this.bossSprite || this.bossSprite.texture.key !== `generated_boss_${b.bossId}`) {
+      this.bossSprite?.destroy();
+      this.bossSprite = this.add.sprite(b.body.x, b.body.y, `generated_boss_${b.bossId}`, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
+      this.bossLastHp = b.hp;
+    }
+    if (b.hp < this.bossLastHp) this.bossFlashUntil = r.presentationT + 70;
+    this.bossLastHp = b.hp;
+    let pose: Pose = 'idle';
+    switch (b.state) {
+      case 'move': pose = Math.floor(t / 180) % 2 ? 'walkA' : 'walkB'; break;
+      case 'windup': pose = 'windup'; break;
+      case 'hits': pose = 'attack'; break;
+      case 'recover': pose = t - b.stateT < 220 ? 'attack' : 'idle'; break;
+      case 'stunned': pose = 'hurt'; break;
+      case 'transition': pose = 'hurt'; break;
+      case 'dead': pose = 'dead'; break;
+      default: pose = 'idle';
+    }
+    const s = this.bossSprite.setVisible(true).setFrame(pose).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
+    s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
+    const red = b.redTelegraph;
+    if (r.presentationT < this.bossFlashUntil) s.setTintFill(0xffffff);
+    else if (red) s.setTint(Math.floor(r.presentationT / 90) % 2 ? 0xff3030 : 0xff8080);
+    else if (b.state === 'transition') s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
+    else s.clearTint();
+    this.bossGlow.setVisible(red).setPosition(b.body.x, b.body.y - 2).setAlpha(0.3 + 0.3 * Math.abs(Math.sin(r.presentationT / 80)));
+  }
+
+  private drawDebug(r: RoundSim): void {
+    const g = this.debugGfx!;
+    g.clear();
+    g.lineStyle(1, 0x00ff00, 1);
+    const pb = r.player.box;
+    g.strokeRect(pb.x, pb.y, pb.w, pb.h);
+    const pa = r.player.activeAttackBox(r.t);
+    if (pa) { g.lineStyle(1, 0xffff00, 1); g.strokeRect(pa.box.x, pa.box.y, pa.box.w, pa.box.h); }
+    for (const e of r.enemies) {
+      g.lineStyle(1, 0xff8800, 1);
+      const b = e.box;
+      g.strokeRect(b.x, b.y, b.w, b.h);
+      const a = e.activeAttack();
+      if (a) { g.lineStyle(1, 0xff0000, 1); g.strokeRect(a.box.x, a.box.y, a.box.w, a.box.h); }
+    }
+    if (r.boss) {
+      const b = r.boss.box;
+      g.lineStyle(1, 0xff00ff, 1);
+      g.strokeRect(b.x, b.y, b.w, b.h);
+      const a = r.boss.activeAttack(r.t);
+      if (a) { g.lineStyle(2, 0xff0000, 1); g.strokeRect(a.box.x, a.box.y, a.box.w, a.box.h); }
+    }
+  }
+}
