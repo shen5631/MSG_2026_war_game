@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "source": "actual-existing-files",
   "assets": [
     {
@@ -7,6 +7,26 @@
       "key": "ganggamchan",
       "texture": "assets/ganggamchan_v2/ganggamchan_atlas.png",
       "atlas": "assets/ganggamchan_v2/ganggamchan_atlas.json"
+    },
+    {
+      "type": "atlas",
+      "key": "khitan_infantry",
+      "texture": "assets/khitan_infantry/khitan_infantry_all_atlas.png",
+      "atlas": "assets/khitan_infantry/khitan_infantry_all_atlas.json",
+      "note": "거란군 보병 25프레임(idle4/walk6/attack6/hurt3/death6), 128x128, baseline y=122"
+    },
+    {
+      "type": "atlas",
+      "key": "round1_env",
+      "texture": "assets/round1_environment/round1_environment.png",
+      "atlas": "assets/round1_environment/round1_environment.json",
+      "note": "1라운드 지형·발판·소품 67개, 크기 제각각(등분 금지)"
+    },
+    {
+      "type": "image",
+      "key": "bg_round1_fortress",
+      "texture": "assets/backgrounds/round1_fortress_village.png",
+      "note": "1라운드 성곽 마을 배경 1672x941"
     }
   ],
   "preloadPolicy": "load-all-registered-runtime-assets-at-boot",
@@ -16,10 +36,11 @@
     "original-composite-sheets"
   ],
   "missingProductionAssets": [
-    "five-enemy-types",
+    "enemy-types: archer, spearman, shieldman, cavalry",
     "three-bosses",
     "two-ally-types",
-    "three-round-tilesets",
+    "round2-round3-backgrounds",
+    "round2-round3-dedicated-terrain",
     "story-art",
     "bgm",
     "sfx"

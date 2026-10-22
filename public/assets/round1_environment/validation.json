@@ -1,0 +1,489 @@
+{
+  "asset_count": 67,
+  "checks": [
+    {
+      "key": "ground_surface_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_07",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_08",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_09",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_10",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "ground_surface_11",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_face_07",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_07",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_08",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "cliff_edge_09",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "raised_block_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "terrain_step_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "terrain_step_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "terrain_step_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_platform_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_01",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_02",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_03",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_04",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_05",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_06",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_07",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_08",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wood_part_09",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "spike_barricade",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "palisade_wall",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "sandbag_cover",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wooden_crate",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wooden_barrel",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "supply_chest",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "broken_cart",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "brazier_lit",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "blue_banner_stone_ruin",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "low_wood_fence",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "rock_pile",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "stone_ruin_low",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "spike_log_wreck",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "red_palisade_wreck",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "red_flag_wreck",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    },
+    {
+      "key": "wheel_wreck",
+      "file_exists": true,
+      "rgba": true,
+      "transparent_border": true,
+      "atlas_pixel_match": true
+    }
+  ],
+  "source_coverage": [
+    {
+      "source": "동양_성채풍_픽셀_타일_아틀라스.png",
+      "subjects": 51,
+      "major_alpha_pixels_preserved": 842096,
+      "all_major_subject_pixels_preserved": true
+    },
+    {
+      "source": "동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "subjects": 16,
+      "major_alpha_pixels_preserved": 721961,
+      "all_major_subject_pixels_preserved": true
+    }
+  ],
+  "scope": "PNG structure, per-subject extraction coverage and packed-atlas pixel equality. No in-game Phaser or collision test has been run."
+}

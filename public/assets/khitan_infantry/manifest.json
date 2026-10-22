@@ -1,0 +1,359 @@
+{
+  "name": "khitan_infantry_round1",
+  "frame_size": {
+    "w": 128,
+    "h": 128
+  },
+  "baseline_y": 122,
+  "source_sheets": {
+    "idle": "/mnt/data/ghostwriter_images/generated/a_clean_transparent_background_pixel_art_sprite_sh_1_batch_1.png",
+    "walk": "/mnt/data/ghostwriter_images/generated/a_clean_transparent_background_spritesheet_style_2_batch_2.png",
+    "attack": "/mnt/data/ghostwriter_images/generated/a_pixel_art_sprite_sheet_style_image_on_a_transpar_3_batch_3.png",
+    "hurt": "/mnt/data/ghostwriter_images/generated/wide_transparent_background_pixel_art_sprite_sheet_4_batch_4.png",
+    "death": "/mnt/data/ghostwriter_images/generated/a_clean_sprite_sheet_style_image_on_a_transparent_5_batch_5.png"
+  },
+  "animations": {
+    "idle": {
+      "frames": [
+        "khitan_infantry_idle_01.png",
+        "khitan_infantry_idle_02.png",
+        "khitan_infantry_idle_03.png",
+        "khitan_infantry_idle_04.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "strip_image": "atlas/khitan_infantry_idle_strip.png",
+      "strip_json": "atlas/khitan_infantry_idle_strip.json"
+    },
+    "walk": {
+      "frames": [
+        "khitan_infantry_walk_01.png",
+        "khitan_infantry_walk_02.png",
+        "khitan_infantry_walk_03.png",
+        "khitan_infantry_walk_04.png",
+        "khitan_infantry_walk_05.png",
+        "khitan_infantry_walk_06.png"
+      ],
+      "fps": 8,
+      "loop": true,
+      "strip_image": "atlas/khitan_infantry_walk_strip.png",
+      "strip_json": "atlas/khitan_infantry_walk_strip.json"
+    },
+    "attack": {
+      "frames": [
+        "khitan_infantry_attack_01.png",
+        "khitan_infantry_attack_02.png",
+        "khitan_infantry_attack_03.png",
+        "khitan_infantry_attack_04.png",
+        "khitan_infantry_attack_05.png",
+        "khitan_infantry_attack_06.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "atlas/khitan_infantry_attack_strip.png",
+      "strip_json": "atlas/khitan_infantry_attack_strip.json"
+    },
+    "hurt": {
+      "frames": [
+        "khitan_infantry_hurt_01.png",
+        "khitan_infantry_hurt_02.png",
+        "khitan_infantry_hurt_03.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "atlas/khitan_infantry_hurt_strip.png",
+      "strip_json": "atlas/khitan_infantry_hurt_strip.json"
+    },
+    "death": {
+      "frames": [
+        "khitan_infantry_death_01.png",
+        "khitan_infantry_death_02.png",
+        "khitan_infantry_death_03.png",
+        "khitan_infantry_death_04.png",
+        "khitan_infantry_death_05.png",
+        "khitan_infantry_death_06.png"
+      ],
+      "fps": 8,
+      "loop": false,
+      "strip_image": "atlas/khitan_infantry_death_strip.png",
+      "strip_json": "atlas/khitan_infantry_death_strip.json"
+    }
+  },
+  "frames": {
+    "khitan_infantry_idle_01.png": {
+      "action": "idle",
+      "index": 1,
+      "path": "frames/idle/khitan_infantry_idle_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_idle_02.png": {
+      "action": "idle",
+      "index": 2,
+      "path": "frames/idle/khitan_infantry_idle_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_idle_03.png": {
+      "action": "idle",
+      "index": 3,
+      "path": "frames/idle/khitan_infantry_idle_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_idle_04.png": {
+      "action": "idle",
+      "index": 4,
+      "path": "frames/idle/khitan_infantry_idle_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_01.png": {
+      "action": "walk",
+      "index": 1,
+      "path": "frames/walk/khitan_infantry_walk_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_02.png": {
+      "action": "walk",
+      "index": 2,
+      "path": "frames/walk/khitan_infantry_walk_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_03.png": {
+      "action": "walk",
+      "index": 3,
+      "path": "frames/walk/khitan_infantry_walk_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_04.png": {
+      "action": "walk",
+      "index": 4,
+      "path": "frames/walk/khitan_infantry_walk_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_05.png": {
+      "action": "walk",
+      "index": 5,
+      "path": "frames/walk/khitan_infantry_walk_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_walk_06.png": {
+      "action": "walk",
+      "index": 6,
+      "path": "frames/walk/khitan_infantry_walk_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_01.png": {
+      "action": "attack",
+      "index": 1,
+      "path": "frames/attack/khitan_infantry_attack_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_02.png": {
+      "action": "attack",
+      "index": 2,
+      "path": "frames/attack/khitan_infantry_attack_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_03.png": {
+      "action": "attack",
+      "index": 3,
+      "path": "frames/attack/khitan_infantry_attack_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_04.png": {
+      "action": "attack",
+      "index": 4,
+      "path": "frames/attack/khitan_infantry_attack_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_05.png": {
+      "action": "attack",
+      "index": 5,
+      "path": "frames/attack/khitan_infantry_attack_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_attack_06.png": {
+      "action": "attack",
+      "index": 6,
+      "path": "frames/attack/khitan_infantry_attack_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_hurt_01.png": {
+      "action": "hurt",
+      "index": 1,
+      "path": "frames/hurt/khitan_infantry_hurt_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_hurt_02.png": {
+      "action": "hurt",
+      "index": 2,
+      "path": "frames/hurt/khitan_infantry_hurt_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_hurt_03.png": {
+      "action": "hurt",
+      "index": 3,
+      "path": "frames/hurt/khitan_infantry_hurt_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_01.png": {
+      "action": "death",
+      "index": 1,
+      "path": "frames/death/khitan_infantry_death_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_02.png": {
+      "action": "death",
+      "index": 2,
+      "path": "frames/death/khitan_infantry_death_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_03.png": {
+      "action": "death",
+      "index": 3,
+      "path": "frames/death/khitan_infantry_death_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_04.png": {
+      "action": "death",
+      "index": 4,
+      "path": "frames/death/khitan_infantry_death_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_05.png": {
+      "action": "death",
+      "index": 5,
+      "path": "frames/death/khitan_infantry_death_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    },
+    "khitan_infantry_death_06.png": {
+      "action": "death",
+      "index": 6,
+      "path": "frames/death/khitan_infantry_death_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      }
+    }
+  }
+}

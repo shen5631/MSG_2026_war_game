@@ -1,0 +1,2188 @@
+{
+  "version": 1,
+  "title": "강감찬 1라운드 지형·소품 분리 리소스",
+  "asset_count": 67,
+  "terrain_and_platform_count": 51,
+  "prop_count": 16,
+  "units": "source image pixels",
+  "pixel_resize_applied": false,
+  "alpha_processing": "Preserve source RGB/alpha on selected subjects; discard faint background matte, alpha<=8, and unassociated isolated noise. Add 4 px transparent padding.",
+  "recommended_initial_display_scale": 0.25,
+  "recommended_scale_is_not_a_fixed_game_rule": true,
+  "atlas": {
+    "image": "atlas/round1_environment.png",
+    "data": "atlas/round1_environment.json"
+  },
+  "assets": [
+    {
+      "key": "ground_surface_01",
+      "label_ko": "흙길 표면 01",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_01.png",
+      "width": 128,
+      "height": 128,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 120,
+        "h": 120
+      },
+      "anchor_px": {
+        "x": 64.0,
+        "y": 124
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 34,
+        "y": 43,
+        "w": 120,
+        "h": 120
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_02",
+      "label_ko": "흙길 표면 02",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_02.png",
+      "width": 121,
+      "height": 123,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 113,
+        "h": 115
+      },
+      "anchor_px": {
+        "x": 60.5,
+        "y": 119
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 160,
+        "y": 48,
+        "w": 113,
+        "h": 115
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_03",
+      "label_ko": "흙길 표면 03",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_03.png",
+      "width": 118,
+      "height": 126,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 110,
+        "h": 118
+      },
+      "anchor_px": {
+        "x": 59.0,
+        "y": 122
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 286,
+        "y": 45,
+        "w": 110,
+        "h": 118
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_04",
+      "label_ko": "흙길 표면 04",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_04.png",
+      "width": 126,
+      "height": 133,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 118,
+        "h": 125
+      },
+      "anchor_px": {
+        "x": 63.0,
+        "y": 129
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 400,
+        "y": 38,
+        "w": 118,
+        "h": 125
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_05",
+      "label_ko": "흙길 표면 05",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_05.png",
+      "width": 139,
+      "height": 121,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 131,
+        "h": 113
+      },
+      "anchor_px": {
+        "x": 69.5,
+        "y": 117
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 527,
+        "y": 50,
+        "w": 131,
+        "h": 113
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_06",
+      "label_ko": "흙길 표면 06",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_06.png",
+      "width": 121,
+      "height": 135,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 113,
+        "h": 127
+      },
+      "anchor_px": {
+        "x": 60.5,
+        "y": 131
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 665,
+        "y": 36,
+        "w": 113,
+        "h": 127
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_07",
+      "label_ko": "흙길 표면 07",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_07.png",
+      "width": 118,
+      "height": 122,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 110,
+        "h": 114
+      },
+      "anchor_px": {
+        "x": 59.0,
+        "y": 118
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 787,
+        "y": 49,
+        "w": 110,
+        "h": 114
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_08",
+      "label_ko": "흙길 표면 08",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_08.png",
+      "width": 128,
+      "height": 127,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 120,
+        "h": 119
+      },
+      "anchor_px": {
+        "x": 64.0,
+        "y": 123
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 902,
+        "y": 44,
+        "w": 120,
+        "h": 119
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_09",
+      "label_ko": "흙길 표면 09",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_09.png",
+      "width": 133,
+      "height": 126,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 125,
+        "h": 118
+      },
+      "anchor_px": {
+        "x": 66.5,
+        "y": 122
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1029,
+        "y": 45,
+        "w": 125,
+        "h": 118
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_10",
+      "label_ko": "흙길 표면 10",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_10.png",
+      "width": 134,
+      "height": 133,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 126,
+        "h": 125
+      },
+      "anchor_px": {
+        "x": 67.0,
+        "y": 129
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1160,
+        "y": 38,
+        "w": 126,
+        "h": 125
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "ground_surface_11",
+      "label_ko": "흙길 표면 11",
+      "category": "terrain/ground_surfaces",
+      "file": "terrain/ground_surfaces/ground_surface_11.png",
+      "width": 129,
+      "height": 128,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 121,
+        "h": 120
+      },
+      "anchor_px": {
+        "x": 64.5,
+        "y": 124
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1292,
+        "y": 43,
+        "w": 121,
+        "h": 120
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "윗면이 보이는 흙길 조각입니다. 횡스크롤 충돌 바닥이나 이음새 없는 타일이 아닙니다."
+      ]
+    },
+    {
+      "key": "cliff_face_01",
+      "label_ko": "절벽 전면 01",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_01.png",
+      "width": 178,
+      "height": 191,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 170,
+        "h": 183
+      },
+      "anchor_px": {
+        "x": 89.0,
+        "y": 187
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 35,
+        "y": 173,
+        "w": 170,
+        "h": 183
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_02",
+      "label_ko": "절벽 전면 02",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_02.png",
+      "width": 177,
+      "height": 187,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 169,
+        "h": 179
+      },
+      "anchor_px": {
+        "x": 88.5,
+        "y": 183
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 217,
+        "y": 177,
+        "w": 169,
+        "h": 179
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_03",
+      "label_ko": "절벽 전면 03",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_03.png",
+      "width": 161,
+      "height": 190,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 153,
+        "h": 182
+      },
+      "anchor_px": {
+        "x": 80.5,
+        "y": 186
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 400,
+        "y": 173,
+        "w": 153,
+        "h": 182
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_04",
+      "label_ko": "절벽 전면 04",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_04.png",
+      "width": 260,
+      "height": 191,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 252,
+        "h": 183
+      },
+      "anchor_px": {
+        "x": 130.0,
+        "y": 187
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 567,
+        "y": 173,
+        "w": 252,
+        "h": 183
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_05",
+      "label_ko": "절벽 전면 05",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_05.png",
+      "width": 175,
+      "height": 184,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 167,
+        "h": 176
+      },
+      "anchor_px": {
+        "x": 87.5,
+        "y": 180
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 831,
+        "y": 180,
+        "w": 167,
+        "h": 176
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_06",
+      "label_ko": "절벽 전면 06",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_06.png",
+      "width": 154,
+      "height": 183,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 146,
+        "h": 175
+      },
+      "anchor_px": {
+        "x": 77.0,
+        "y": 179
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1014,
+        "y": 181,
+        "w": 146,
+        "h": 175
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_face_07",
+      "label_ko": "절벽 전면 07",
+      "category": "terrain/cliff_faces",
+      "file": "terrain/cliff_faces/cliff_face_07.png",
+      "width": 248,
+      "height": 187,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 240,
+        "h": 179
+      },
+      "anchor_px": {
+        "x": 124.0,
+        "y": 183
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1172,
+        "y": 177,
+        "w": 240,
+        "h": 179
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_01",
+      "label_ko": "절벽 가장자리 01",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_01.png",
+      "width": 133,
+      "height": 198,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 125,
+        "h": 190
+      },
+      "anchor_px": {
+        "x": 66.5,
+        "y": 194
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 40,
+        "y": 377,
+        "w": 125,
+        "h": 190
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_02",
+      "label_ko": "절벽 가장자리 02",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_02.png",
+      "width": 121,
+      "height": 200,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 113,
+        "h": 192
+      },
+      "anchor_px": {
+        "x": 60.5,
+        "y": 196
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 178,
+        "y": 375,
+        "w": 113,
+        "h": 192
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_03",
+      "label_ko": "절벽 가장자리 03",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_03.png",
+      "width": 132,
+      "height": 200,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 124,
+        "h": 192
+      },
+      "anchor_px": {
+        "x": 66.0,
+        "y": 196
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 306,
+        "y": 375,
+        "w": 124,
+        "h": 192
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_04",
+      "label_ko": "절벽 가장자리 04",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_04.png",
+      "width": 151,
+      "height": 194,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 143,
+        "h": 186
+      },
+      "anchor_px": {
+        "x": 75.5,
+        "y": 190
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 449,
+        "y": 378,
+        "w": 143,
+        "h": 186
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_05",
+      "label_ko": "절벽 가장자리 05",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_05.png",
+      "width": 156,
+      "height": 196,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 148,
+        "h": 188
+      },
+      "anchor_px": {
+        "x": 78.0,
+        "y": 192
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 605,
+        "y": 376,
+        "w": 148,
+        "h": 188
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_06",
+      "label_ko": "절벽 가장자리 06",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_06.png",
+      "width": 156,
+      "height": 198,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 148,
+        "h": 190
+      },
+      "anchor_px": {
+        "x": 78.0,
+        "y": 194
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 770,
+        "y": 374,
+        "w": 148,
+        "h": 190
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_07",
+      "label_ko": "절벽 가장자리 07",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_07.png",
+      "width": 144,
+      "height": 191,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 136,
+        "h": 183
+      },
+      "anchor_px": {
+        "x": 72.0,
+        "y": 187
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 942,
+        "y": 382,
+        "w": 136,
+        "h": 183
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_08",
+      "label_ko": "절벽 가장자리 08",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_08.png",
+      "width": 137,
+      "height": 191,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 129,
+        "h": 183
+      },
+      "anchor_px": {
+        "x": 68.5,
+        "y": 187
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1103,
+        "y": 382,
+        "w": 129,
+        "h": 183
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "cliff_edge_09",
+      "label_ko": "절벽 가장자리 09",
+      "category": "terrain/cliff_edges",
+      "file": "terrain/cliff_edges/cliff_edge_09.png",
+      "width": 159,
+      "height": 201,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 151,
+        "h": 193
+      },
+      "anchor_px": {
+        "x": 79.5,
+        "y": 197
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1257,
+        "y": 372,
+        "w": 151,
+        "h": 193
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_01",
+      "label_ko": "높은 지면 블록 01",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_01.png",
+      "width": 132,
+      "height": 107,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 124,
+        "h": 99
+      },
+      "anchor_px": {
+        "x": 66.0,
+        "y": 103
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 33,
+        "y": 641,
+        "w": 124,
+        "h": 99
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_02",
+      "label_ko": "높은 지면 블록 02",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_02.png",
+      "width": 162,
+      "height": 110,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 154,
+        "h": 102
+      },
+      "anchor_px": {
+        "x": 81.0,
+        "y": 106
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 171,
+        "y": 637,
+        "w": 154,
+        "h": 102
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_03",
+      "label_ko": "높은 지면 블록 03",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_03.png",
+      "width": 119,
+      "height": 115,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 111,
+        "h": 107
+      },
+      "anchor_px": {
+        "x": 59.5,
+        "y": 111
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 338,
+        "y": 632,
+        "w": 111,
+        "h": 107
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_04",
+      "label_ko": "높은 지면 블록 04",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_04.png",
+      "width": 109,
+      "height": 136,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 101,
+        "h": 128
+      },
+      "anchor_px": {
+        "x": 54.5,
+        "y": 132
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 463,
+        "y": 611,
+        "w": 101,
+        "h": 128
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_05",
+      "label_ko": "높은 지면 블록 05",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_05.png",
+      "width": 142,
+      "height": 164,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 134,
+        "h": 156
+      },
+      "anchor_px": {
+        "x": 71.0,
+        "y": 160
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 580,
+        "y": 583,
+        "w": 134,
+        "h": 156
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "raised_block_06",
+      "label_ko": "높은 지면 블록 06",
+      "category": "terrain/raised_blocks",
+      "file": "terrain/raised_blocks/raised_block_06.png",
+      "width": 138,
+      "height": 152,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 130,
+        "h": 144
+      },
+      "anchor_px": {
+        "x": 69.0,
+        "y": 148
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 728,
+        "y": 594,
+        "w": 130,
+        "h": 144
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "terrain_step_01",
+      "label_ko": "계단형 지형 01",
+      "category": "terrain/steps",
+      "file": "terrain/steps/terrain_step_01.png",
+      "width": 236,
+      "height": 156,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 228,
+        "h": 148
+      },
+      "anchor_px": {
+        "x": 118.0,
+        "y": 152
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 868,
+        "y": 590,
+        "w": 228,
+        "h": 148
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "terrain_step_02",
+      "label_ko": "계단형 지형 02",
+      "category": "terrain/steps",
+      "file": "terrain/steps/terrain_step_02.png",
+      "width": 157,
+      "height": 157,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 149,
+        "h": 149
+      },
+      "anchor_px": {
+        "x": 78.5,
+        "y": 153
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1118,
+        "y": 587,
+        "w": 149,
+        "h": 149
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "terrain_step_03",
+      "label_ko": "계단형 지형 03",
+      "category": "terrain/steps",
+      "file": "terrain/steps/terrain_step_03.png",
+      "width": 134,
+      "height": 159,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 126,
+        "h": 151
+      },
+      "anchor_px": {
+        "x": 67.0,
+        "y": 155
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1287,
+        "y": 585,
+        "w": 126,
+        "h": 151
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_01",
+      "label_ko": "목재 발판 01",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_01.png",
+      "width": 181,
+      "height": 110,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 173,
+        "h": 102
+      },
+      "anchor_px": {
+        "x": 90.5,
+        "y": 106
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 42,
+        "y": 779,
+        "w": 173,
+        "h": 102
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_02",
+      "label_ko": "목재 발판 02",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_02.png",
+      "width": 224,
+      "height": 124,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 216,
+        "h": 116
+      },
+      "anchor_px": {
+        "x": 112.0,
+        "y": 120
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 233,
+        "y": 765,
+        "w": 216,
+        "h": 116
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_03",
+      "label_ko": "목재 발판 03",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_03.png",
+      "width": 262,
+      "height": 127,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 254,
+        "h": 119
+      },
+      "anchor_px": {
+        "x": 131.0,
+        "y": 123
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 472,
+        "y": 765,
+        "w": 254,
+        "h": 119
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_04",
+      "label_ko": "목재 발판 04",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_04.png",
+      "width": 256,
+      "height": 121,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 248,
+        "h": 113
+      },
+      "anchor_px": {
+        "x": 128.0,
+        "y": 117
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 746,
+        "y": 784,
+        "w": 248,
+        "h": 113
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_05",
+      "label_ko": "목재 발판 05",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_05.png",
+      "width": 186,
+      "height": 131,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 178,
+        "h": 123
+      },
+      "anchor_px": {
+        "x": 93.0,
+        "y": 127
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1010,
+        "y": 758,
+        "w": 178,
+        "h": 123
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_platform_06",
+      "label_ko": "목재 발판 06",
+      "category": "platforms/wood_full",
+      "file": "platforms/wood_full/wood_platform_06.png",
+      "width": 217,
+      "height": 130,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 209,
+        "h": 122
+      },
+      "anchor_px": {
+        "x": 108.5,
+        "y": 126
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1202,
+        "y": 759,
+        "w": 209,
+        "h": 122
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_01",
+      "label_ko": "목재 발판 조각 01",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_01.png",
+      "width": 161,
+      "height": 70,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 153,
+        "h": 62
+      },
+      "anchor_px": {
+        "x": 80.5,
+        "y": 66
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 43,
+        "y": 942,
+        "w": 153,
+        "h": 62
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_02",
+      "label_ko": "목재 발판 조각 02",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_02.png",
+      "width": 97,
+      "height": 118,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 89,
+        "h": 110
+      },
+      "anchor_px": {
+        "x": 48.5,
+        "y": 114
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 216,
+        "y": 906,
+        "w": 89,
+        "h": 110
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_03",
+      "label_ko": "목재 발판 조각 03",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_03.png",
+      "width": 133,
+      "height": 125,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 125,
+        "h": 117
+      },
+      "anchor_px": {
+        "x": 66.5,
+        "y": 121
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 324,
+        "y": 906,
+        "w": 125,
+        "h": 117
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_04",
+      "label_ko": "목재 발판 조각 04",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_04.png",
+      "width": 161,
+      "height": 111,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 153,
+        "h": 103
+      },
+      "anchor_px": {
+        "x": 80.5,
+        "y": 107
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 467,
+        "y": 923,
+        "w": 153,
+        "h": 103
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_05",
+      "label_ko": "목재 발판 조각 05",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_05.png",
+      "width": 129,
+      "height": 140,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 121,
+        "h": 132
+      },
+      "anchor_px": {
+        "x": 64.5,
+        "y": 136
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 632,
+        "y": 890,
+        "w": 121,
+        "h": 132
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_06",
+      "label_ko": "목재 발판 조각 06",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_06.png",
+      "width": 120,
+      "height": 114,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 112,
+        "h": 106
+      },
+      "anchor_px": {
+        "x": 60.0,
+        "y": 110
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 774,
+        "y": 910,
+        "w": 112,
+        "h": 106
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_07",
+      "label_ko": "목재 발판 조각 07",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_07.png",
+      "width": 169,
+      "height": 115,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 161,
+        "h": 107
+      },
+      "anchor_px": {
+        "x": 84.5,
+        "y": 111
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 906,
+        "y": 925,
+        "w": 161,
+        "h": 107
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_08",
+      "label_ko": "목재 발판 조각 08",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_08.png",
+      "width": 159,
+      "height": 118,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 151,
+        "h": 110
+      },
+      "anchor_px": {
+        "x": 79.5,
+        "y": 114
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1080,
+        "y": 923,
+        "w": 151,
+        "h": 110
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wood_part_09",
+      "label_ko": "목재 발판 조각 09",
+      "category": "platforms/wood_parts",
+      "file": "platforms/wood_parts/wood_part_09.png",
+      "width": 167,
+      "height": 155,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 159,
+        "h": 147
+      },
+      "anchor_px": {
+        "x": 83.5,
+        "y": 151
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동양_성채풍_픽셀_타일_아틀라스.png",
+      "source_crop": {
+        "x": 1249,
+        "y": 890,
+        "w": 159,
+        "h": 147
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "spike_barricade",
+      "label_ko": "목책 방어 장애물",
+      "category": "props/defenses",
+      "file": "props/defenses/spike_barricade.png",
+      "width": 453,
+      "height": 308,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 445,
+        "h": 300
+      },
+      "anchor_px": {
+        "x": 226.5,
+        "y": 304
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 24,
+        "y": 54,
+        "w": 445,
+        "h": 300
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "palisade_wall",
+      "label_ko": "나무 방벽",
+      "category": "props/defenses",
+      "file": "props/defenses/palisade_wall.png",
+      "width": 352,
+      "height": 306,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 344,
+        "h": 298
+      },
+      "anchor_px": {
+        "x": 176.0,
+        "y": 302
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 475,
+        "y": 54,
+        "w": 344,
+        "h": 298
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "sandbag_cover",
+      "label_ko": "모래주머니 엄폐물",
+      "category": "props/defenses",
+      "file": "props/defenses/sandbag_cover.png",
+      "width": 365,
+      "height": 217,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 357,
+        "h": 209
+      },
+      "anchor_px": {
+        "x": 182.5,
+        "y": 213
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 832,
+        "y": 143,
+        "w": 357,
+        "h": 209
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wooden_crate",
+      "label_ko": "나무 상자",
+      "category": "props/containers",
+      "file": "props/containers/wooden_crate.png",
+      "width": 242,
+      "height": 205,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 234,
+        "h": 197
+      },
+      "anchor_px": {
+        "x": 121.0,
+        "y": 201
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 1201,
+        "y": 157,
+        "w": 234,
+        "h": 197
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wooden_barrel",
+      "label_ko": "나무 통",
+      "category": "props/containers",
+      "file": "props/containers/wooden_barrel.png",
+      "width": 219,
+      "height": 206,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 211,
+        "h": 198
+      },
+      "anchor_px": {
+        "x": 109.5,
+        "y": 202
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 17,
+        "y": 436,
+        "w": 211,
+        "h": 198
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "supply_chest",
+      "label_ko": "보급 상자",
+      "category": "props/containers",
+      "file": "props/containers/supply_chest.png",
+      "width": 260,
+      "height": 156,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 252,
+        "h": 148
+      },
+      "anchor_px": {
+        "x": 130.0,
+        "y": 152
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 244,
+        "y": 488,
+        "w": 252,
+        "h": 148
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "broken_cart",
+      "label_ko": "부서진 수레",
+      "category": "props/wreckage",
+      "file": "props/wreckage/broken_cart.png",
+      "width": 507,
+      "height": 238,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 499,
+        "h": 230
+      },
+      "anchor_px": {
+        "x": 253.5,
+        "y": 234
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 508,
+        "y": 406,
+        "w": 499,
+        "h": 230
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "brazier_lit",
+      "label_ko": "불타는 화로",
+      "category": "props/decor",
+      "file": "props/decor/brazier_lit.png",
+      "width": 163,
+      "height": 277,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 155,
+        "h": 269
+      },
+      "anchor_px": {
+        "x": 81.5,
+        "y": 273
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 1034,
+        "y": 367,
+        "w": 155,
+        "h": 269
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "불꽃을 포함하는 정지 이미지 1장입니다. 불 애니메이션은 포함하지 않습니다."
+      ]
+    },
+    {
+      "key": "blue_banner_stone_ruin",
+      "label_ko": "파란 깃발과 돌담 결합 소품",
+      "category": "props/decor",
+      "file": "props/decor/blue_banner_stone_ruin.png",
+      "width": 357,
+      "height": 507,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 349,
+        "h": 499
+      },
+      "anchor_px": {
+        "x": 178.5,
+        "y": 503
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 1072,
+        "y": 365,
+        "w": 349,
+        "h": 499
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": [
+        "원본에서 깃대 아래와 돌담이 붙어 있으므로 한 소품으로 보존했습니다. 독립 깃발 또는 완전한 돌담으로 분리하지 않았습니다."
+      ]
+    },
+    {
+      "key": "low_wood_fence",
+      "label_ko": "낮은 나무 울타리",
+      "category": "props/defenses",
+      "file": "props/defenses/low_wood_fence.png",
+      "width": 384,
+      "height": 155,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 376,
+        "h": 147
+      },
+      "anchor_px": {
+        "x": 192.0,
+        "y": 151
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 20,
+        "y": 680,
+        "w": 376,
+        "h": 147
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "rock_pile",
+      "label_ko": "바위 더미",
+      "category": "props/wreckage",
+      "file": "props/wreckage/rock_pile.png",
+      "width": 336,
+      "height": 171,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 328,
+        "h": 163
+      },
+      "anchor_px": {
+        "x": 168.0,
+        "y": 167
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 406,
+        "y": 677,
+        "w": 328,
+        "h": 163
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "stone_ruin_low",
+      "label_ko": "낮은 돌담 잔해",
+      "category": "props/wreckage",
+      "file": "props/wreckage/stone_ruin_low.png",
+      "width": 323,
+      "height": 204,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 315,
+        "h": 196
+      },
+      "anchor_px": {
+        "x": 161.5,
+        "y": 200
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 744,
+        "y": 652,
+        "w": 315,
+        "h": 196
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "spike_log_wreck",
+      "label_ko": "부서진 말뚝과 통나무",
+      "category": "props/wreckage",
+      "file": "props/wreckage/spike_log_wreck.png",
+      "width": 392,
+      "height": 197,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 384,
+        "h": 189
+      },
+      "anchor_px": {
+        "x": 196.0,
+        "y": 193
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 26,
+        "y": 870,
+        "w": 384,
+        "h": 189
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "red_palisade_wreck",
+      "label_ko": "붉은 천이 걸린 목책 잔해",
+      "category": "props/wreckage",
+      "file": "props/wreckage/red_palisade_wreck.png",
+      "width": 308,
+      "height": 225,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 300,
+        "h": 217
+      },
+      "anchor_px": {
+        "x": 154.0,
+        "y": 221
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 422,
+        "y": 844,
+        "w": 300,
+        "h": 217
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "red_flag_wreck",
+      "label_ko": "붉은 깃발과 울타리 잔해",
+      "category": "props/wreckage",
+      "file": "props/wreckage/red_flag_wreck.png",
+      "width": 289,
+      "height": 224,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 281,
+        "h": 216
+      },
+      "anchor_px": {
+        "x": 144.5,
+        "y": 220
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 734,
+        "y": 847,
+        "w": 281,
+        "h": 216
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    },
+    {
+      "key": "wheel_wreck",
+      "label_ko": "수레바퀴 잔해",
+      "category": "props/wreckage",
+      "file": "props/wreckage/wheel_wreck.png",
+      "width": 408,
+      "height": 197,
+      "format": "RGBA PNG",
+      "content_rect": {
+        "x": 4,
+        "y": 4,
+        "w": 400,
+        "h": 189
+      },
+      "anchor_px": {
+        "x": 204.0,
+        "y": 193
+      },
+      "anchor_description": "visible lower edge, horizontal center; no physics collider supplied",
+      "source_file": "originals/동아시아_요새_전쟁터_픽셀_아트_타일셋.png",
+      "source_crop": {
+        "x": 1029,
+        "y": 879,
+        "w": 400,
+        "h": 189
+      },
+      "source_scale": 1.0,
+      "transparent_padding_px": 4,
+      "is_seamless_verified": false,
+      "animation_frames": 1,
+      "notes": []
+    }
+  ]
+}
