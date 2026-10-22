@@ -141,8 +141,11 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .hud { position: absolute; inset: 0; pointer-events: none; text-shadow: 1px 1px 0 #000; }
 .hud-hp { position: absolute; left: 12px; top: 12px; width: 180px; }
 .hud-hp .label { font-size: 10px; }
-.hpbar { height: 8px; background: #3a0d0d; border: 1px solid #000; outline: 1px solid var(--gold); }
+.hpbar { position: relative; height: 8px; background: #3a0d0d; border: 1px solid #000; outline: 1px solid var(--gold); }
+.hpbar .fill, .bossbar .fill { position: relative; }
 .hpbar .fill { height: 100%; background: linear-gradient(#e0533d, #a3271a); }
+/* Damage trail: hidden behind the red fill when HP rises, shows the lost chunk and shrinks after a beat when HP drops. */
+.hpbar .lag, .bossbar .lag { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(#ffb25a, #e0781e); transition: width 0.6s ease-out 0.35s; }
 .statuses { margin-top: 2px; display: flex; gap: 3px; flex-wrap: wrap; }
 .tag { font-size: 8px; padding: 0 3px; border: 1px solid; background: rgba(0, 0, 0, 0.5); }
 .tag.shield { color: #9cc4ff; border-color: #6fa8ff; }

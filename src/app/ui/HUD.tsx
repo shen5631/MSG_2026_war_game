@@ -22,7 +22,8 @@ export function HUD() {
     <div className="hud" data-testid="hud">
       <div className="hud-hp" data-testid="hud-hp">
         <div className="label">HP <b>{h.hp}</b>/{h.maxHp}</div>
-        <div className="hpbar"><div className="fill" style={{ width: `${h.hp}%` }} /></div>
+        {/* Red drops at once; the orange trail behind it catches up slowly (CSS transition with a short delay). */}
+        <div className="hpbar"><div className="lag" style={{ width: `${h.hp}%` }} /><div className="fill" style={{ width: `${h.hp}%` }} /></div>
         <div className="statuses">
           {h.shield > 0 && <span className="tag shield" data-testid="hud-shield">방패 {Math.ceil(h.shield)} · {(h.shieldRemainingMs / 1000).toFixed(1)}초</span>}
           {h.buffRemainingMs > 0 && <span className="tag buff" data-testid="hud-buff">지휘 강화 {(h.buffRemainingMs / 1000).toFixed(1)}초</span>}
@@ -35,7 +36,7 @@ export function HUD() {
       {h.boss && (
         <div className="hud-boss" data-testid="hud-boss">
           <div className="name">{h.boss.name} {h.boss.phase === 2 && <span className="phase">{STORY.ui.phase2}</span>}</div>
-          <div className="bossbar"><div className="fill" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} /><div className="half" /></div>
+          <div className="bossbar"><div className="lag" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} /><div className="fill" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} /><div className="half" /></div>
         </div>
       )}
       {phaseBanner && <div className="phase-banner">{STORY.ui.phase2}</div>}
