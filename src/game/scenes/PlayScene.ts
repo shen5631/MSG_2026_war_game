@@ -10,6 +10,7 @@ import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
 import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
+import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 
 /** Round-1 illustration: crop above its own road (y<700) and scale so that line meets the game ground. */
 const BG_CROP_H = 700;
@@ -314,8 +315,14 @@ export class PlayScene extends Phaser.Scene {
     this.renderBoss(r.boss, r, t);
 
     // projectiles
-    this.syncPool(this.pools.arrows, r.projectiles.length, () => this.add.image(0, 0, 'generated_pickups', 'arrow').setDepth(25));
-    r.projectiles.forEach((p, i) => this.pools.arrows[i].setPosition(Math.round(p.x), Math.round(p.y)).setFlipX(p.vx < 0));
+    this.syncPool(this.pools.arrows, r.projectiles.length, () => this.add.image(0, 0, ARROW_KEYS[0]).setScale(ARCHER_SCALE).setDepth(25));
+    r.projectiles.forEach((p, i) => {
+      const a = arrowPlacement(p);
+      const img = this.pools.arrows[i];
+      const key = arrowTextureFor(p);
+      if (img.texture.key !== key) img.setTexture(key);
+      img.setOrigin(a.originX, a.originY).setFlipX(a.flipX).setPosition(Math.round(a.x), Math.round(a.y));
+    });
 
     // pickups
     const pseen = new Set<string>();
@@ -384,6 +391,8 @@ export class PlayScene extends Phaser.Scene {
     if (!v) {
       const s = e.kind === 'infantry'
         ? this.add.sprite(e.body.x, e.body.y, INFANTRY_KEY, 'khitan_infantry_idle_01.png').setDepth(12)
+        : e.kind === 'archer'
+        ? this.add.sprite(e.body.x, e.body.y, ARCHER_KEY, 'khitan_archer_idle_01.png').setOrigin(ARCHER_ORIGIN.x, ARCHER_ORIGIN.y).setScale(ARCHER_SCALE).setDepth(12)
         : this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
       const bar = this.add.rectangle(0, 0, 24, 2, 0xd04030).setOrigin(0, 0.5).setDepth(13);
       v = { s, bar, lastHp: e.hp, flashUntil: 0 };
@@ -396,6 +405,8 @@ export class PlayScene extends Phaser.Scene {
       const pat = ENEMY_PATTERNS.infantry;
       const pose = infantryPose(e, t, pat.startupMs, pat.activeMs ?? 100);
       v.s.setFrame(pose.frame).setScale(pose.scale).setOrigin(0.5, pose.originY);
+    } else if (e.kind === 'archer') {
+      v.s.setFrame(archerFrame(e, t, ENEMY_PATTERNS.archer.startupMs));
     } else {
       v.s.setFrame(this.enemyPose(e, t));
     }

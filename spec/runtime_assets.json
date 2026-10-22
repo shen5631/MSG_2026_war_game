@@ -17,6 +17,25 @@
     },
     {
       "type": "atlas",
+      "key": "khitan_archer",
+      "texture": "assets/khitan_archer_assets_v2/atlas/khitan_archer_all_atlas.png",
+      "atlas": "assets/khitan_archer_assets_v2/atlas/khitan_archer_all_atlas.json",
+      "note": "거란군 궁병 v2 수정본 25프레임(idle4/walk6/attack6/hurt3/death6), 128x128, baseline y=122, origin (0.5,0.953125)"
+    },
+    {
+      "type": "image",
+      "key": "khitan_archer_arrow_01",
+      "texture": "assets/khitan_archer_assets_v2/projectiles/arrow/khitan_archer_arrow_01.png",
+      "note": "궁병 화살 64x32(오른쪽 방향), 공격당 1발 별도 생성"
+    },
+    {
+      "type": "image",
+      "key": "khitan_archer_arrow_02",
+      "texture": "assets/khitan_archer_assets_v2/projectiles/arrow/khitan_archer_arrow_02.png",
+      "note": "궁병 화살 모양 변형(애니메이션 아님)"
+    },
+    {
+      "type": "atlas",
       "key": "round1_env",
       "texture": "assets/round1_environment/round1_environment.png",
       "atlas": "assets/round1_environment/round1_environment.json",
@@ -27,6 +46,12 @@
       "key": "bg_round1_fortress",
       "texture": "assets/backgrounds/round1_fortress_village.png",
       "note": "1라운드 성곽 마을 배경 1672x941"
+    },
+    {
+      "type": "image",
+      "key": "ui_title_logo",
+      "texture": "assets/ui/title_logo.png",
+      "note": "타이틀 로고(사용자 제공 2056x765를 1028x383으로 축소, 투명 배경). React 타이틀 화면에서 표시"
     }
   ],
   "preloadPolicy": "load-all-registered-runtime-assets-at-boot",
@@ -36,7 +61,7 @@
     "original-composite-sheets"
   ],
   "missingProductionAssets": [
-    "enemy-types: archer, spearman, shieldman, cavalry",
+    "enemy-types: spearman, shieldman, cavalry",
     "three-bosses",
     "two-ally-types",
     "round2-round3-backgrounds",

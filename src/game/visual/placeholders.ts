@@ -6,7 +6,7 @@ import type { BossId, EnemyKind } from '../../config/spec';
 export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
 export type Pose = (typeof POSES)[number];
 
-type Weapon = 'sword' | 'spear' | 'bow' | 'shield' | 'lance' | 'bigsword' | 'glaive';
+type Weapon = 'sword' | 'spear' | 'shield' | 'lance' | 'bigsword' | 'glaive';
 interface Palette { armor: string; armorDark: string; trim: string; skin: string; helmet: string; plume: string; cloth: string; metal: string; wood: string; outline: string }
 
 const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
@@ -16,7 +16,7 @@ const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_enemy_archer', 'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
+  'generated_enemy_spearman', 'generated_enemy_shieldman', 'generated_enemy_cavalry',
   'generated_boss_vanguard', 'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
   'generated_ally_spear', 'generated_ally_shield',
   'generated_pickups', 'generated_ui_markers',
@@ -100,13 +100,6 @@ function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, sca
       else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 7, -86, 2, 84, pal.wood); p.r(ax + 5, -94, 6, 9, pal.metal); }
       break;
     }
-    case 'bow': {
-      if (pose === 'windup') { p.r(ax, -50, 18, 5, pal.armor); p.r(ax + 18, -66, 3, 36, pal.wood); p.r(ax - 2, -48, 22, 1, pal.metal); }
-      else if (pose === 'attack') { p.r(ax, -50, 18, 5, pal.armor); p.r(ax + 18, -66, 3, 36, pal.wood); p.r(ax + 20, -66, 1, 36, pal.metal); }
-      else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 6, -62, 3, 34, pal.wood); p.r(ax + 8, -62, 1, 34, pal.metal); }
-      p.r(-14 + lean, -50, 5, 18, pal.wood); // quiver
-      break;
-    }
     case 'shield': {
       if (pose === 'attack') { p.r(ax, -46, 14, 6, pal.armor); p.r(ax + 14, -47, 18, 3, pal.metal); p.r(ax - 4, -56, 8, 34, pal.wood); }
       else if (pose === 'windup') { p.r(ax - 12, -58, 6, 14, pal.armor); p.r(ax - 16, -76, 3, 20, pal.metal); p.r(ax + 2, -58, 8, 38, pal.wood); }
@@ -160,7 +153,7 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
   POSES.forEach((pose, i) => tex.add(pose, 0, i * fw, 0, fw, fh));
 }
 
-const ENEMY_WEAPON: Record<EnemyKind, Weapon> = { infantry: 'sword', archer: 'bow', spearman: 'spear', shieldman: 'shield', cavalry: 'lance' };
+const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer'>, Weapon> = { spearman: 'spear', shieldman: 'shield', cavalry: 'lance' };
 
 const BOSS_STYLE: Record<BossId, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
   vanguard: { pal: { ...ENEMY_PAL, armor: '#7a2e22', trim: '#d08a3a', plume: '#d0402a' }, weapon: 'bigsword', scale: 1.25, cape: false },
@@ -172,8 +165,8 @@ export const ENEMY_FRAME = FRAME;
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // Infantry uses the supplied khitan_infantry atlas; the other four kinds are still generated.
-  (Object.keys(ENEMY_WEAPON) as EnemyKind[]).filter((k) => k !== 'infantry').forEach((kind) => {
+  // Infantry and archer use their supplied atlases; the other three kinds are still generated.
+  (Object.keys(ENEMY_WEAPON) as (keyof typeof ENEMY_WEAPON)[]).forEach((kind) => {
     makeSheet(scene, `generated_enemy_${kind}`, FRAME.w, FRAME.h, (ctx, pose, ox) => {
       if (kind === 'cavalry') drawCavalry(ctx, ox + FRAME.w / 2 - 8, FRAME.footY, ENEMY_PAL, pose);
       else drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ENEMY_PAL, pose, ENEMY_WEAPON[kind]);
@@ -202,14 +195,9 @@ export function generatePropTextures(scene: Phaser.Scene): void {
     c.fillStyle = '#4c8a34'; c.fillRect(18, 5, 12, 10);
     c.fillStyle = '#c9a227'; c.fillRect(19, 3, 10, 2);
     c.fillStyle = '#9fd36f'; c.fillRect(22, 0, 2, 4); c.fillRect(25, 1, 2, 3);
-    // arrow
-    c.fillStyle = '#6b4a2b'; c.fillRect(32, 7, 12, 2);
-    c.fillStyle = '#d8d8d8'; c.fillRect(44, 6, 3, 4);
-    c.fillStyle = '#b8452e'; c.fillRect(32, 5, 3, 6);
     tex.refresh();
     tex.add('riceball', 0, 0, 0, 16, 16);
     tex.add('herb', 0, 16, 0, 16, 16);
-    tex.add('arrow', 0, 32, 4, 16, 8);
   }
   if (!scene.textures.exists('generated_ui_markers')) {
     const tex = scene.textures.createCanvas('generated_ui_markers', 96, 32)!;
