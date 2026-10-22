@@ -245,6 +245,7 @@ export class PlayScene extends Phaser.Scene {
     this.enemySprites.clear();
     this.bossSprite?.destroy();
     this.bossSprite = null;
+    this.bossFlashUntil = 0;
     for (const s of this.solidSprites.values()) s.destroy();
     this.solidSprites.clear();
     for (const s of this.pickupSprites.values()) s.destroy();
@@ -495,6 +496,9 @@ export class PlayScene extends Phaser.Scene {
         ? this.add.sprite(b.body.x, b.body.y, SPEAR_CAPTAIN_KEY, 'elite_spearman_commander_idle_01.png').setDepth(14)
         : this.add.sprite(b.body.x, b.body.y, texKey, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
       this.bossLastHp = b.hp;
+      // presentationT restarts every round: a flash deadline left over from the previous boss would keep the
+      // new boss white until the new round caught up with it.
+      this.bossFlashUntil = 0;
     }
     if (b.hp < this.bossLastHp) this.bossFlashUntil = r.presentationT + 70;
     this.bossLastHp = b.hp;
