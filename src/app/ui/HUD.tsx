@@ -9,8 +9,11 @@ export function HUD() {
   const s = useServices();
   const [h, setH] = useState<HudSnapshot | null>(null);
   const [phaseBanner, setPhaseBanner] = useState(false);
+  const [hurtFlash, setHurtFlash] = useState(0);
   useEffect(() => s.controller.onHud(setH), [s]);
   useEffect(() => s.controller.onEvent((e) => {
+    // A new key remounts the vignette so its fade restarts on every hit.
+    if (e.type === 'playerDamaged') setHurtFlash((n) => n + 1);
     if (e.type === 'bossPhase2') {
       setPhaseBanner(true);
       setTimeout(() => setPhaseBanner(false), 1400);
@@ -20,6 +23,7 @@ export function HUD() {
   const cdRatio = h.cooldownTotalMs > 0 ? h.cooldownRemainingMs / h.cooldownTotalMs : 0;
   return (
     <div className="hud" data-testid="hud">
+      {hurtFlash > 0 && <div key={hurtFlash} className="damage-vignette" data-testid="damage-vignette" />}
       <div className="hud-hp" data-testid="hud-hp">
         <div className="label">HP <b>{h.hp}</b>/{h.maxHp}</div>
         {/* Red drops at once; the orange trail behind it catches up slowly (CSS transition with a short delay). */}

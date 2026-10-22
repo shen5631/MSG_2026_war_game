@@ -14,6 +14,8 @@ export type GameEvent =
   | { type: 'bossPhase2' }
   | { type: 'bossDefeated' }
   | { type: 'playerDied' }
+  /** HP actually lost (not fully absorbed by the shield). */
+  | { type: 'playerDamaged' }
   | { type: 'waveStarted'; arenaId: string; waveIndex: number }
   | { type: 'arenaCleared'; arenaId: string }
   | { type: 'hud' };

@@ -138,6 +138,10 @@ table.controls kbd { display: inline-block; padding: 1px 5px; border: 1px solid 
 table.results td:last-child { text-align: right; color: var(--m-gold-light); font-weight: 700; }
 
 /* HUD — internal coordinates (spec §17.1) */
+/* Red screen-edge flash when the hero loses HP (shield-absorbed hits do not trigger it). */
+.damage-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(160, 0, 0, 0) 45%, rgba(190, 10, 10, 0.32) 78%, rgba(220, 20, 20, 0.62) 100%); animation: damage-flash 450ms ease-out forwards; }
+@keyframes damage-flash { from { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .damage-vignette { animation-duration: 250ms; } }
 .hud { position: absolute; inset: 0; pointer-events: none; text-shadow: 1px 1px 0 #000; }
 .hud-hp { position: absolute; left: 12px; top: 12px; width: 180px; }
 .hud-hp .label { font-size: 10px; }

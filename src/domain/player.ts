@@ -541,6 +541,7 @@ export class Player {
     if (this.mode === 'charge') this.chargeLock = true;
     this.resetCombo();
     ctx.events.push({ type: 'hud' });
+    ctx.events.push({ type: 'playerDamaged' });
     if (this.hp <= 0) {
       this.hp = 0;
       this.setMode('dead', t);
