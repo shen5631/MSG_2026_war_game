@@ -2,8 +2,12 @@ import { useEffect, useState } from 'react';
 import { SKILL_CYCLE, SKILL_NAMES, STORY, type SkillId } from '../../config/spec';
 import type { HudSnapshot } from '../../domain/round';
 import { useServices } from '../useMenu';
+import { SkillGaugeIcon } from '../../skill-gauges/SkillGaugeIcon';
+import type { SkillId as GaugeSkillId } from '../../skill-gauges/core';
 
-const SKILL_ICON: Record<SkillId, string> = { command_buff: '旗', spear_support: '槍', shield_guard: '盾' };
+const GAUGE_SKILL: Record<SkillId, GaugeSkillId> = { command_buff: 'command', spear_support: 'spear', shield_guard: 'shield' };
+/** Registered in spec/runtime_assets.json (ui_skill_gauges_64) so the boot loader has it cached. */
+const GAUGE_BASE = `${import.meta.env.BASE_URL}assets/skill_gauges_v1`;
 
 export function HUD() {
   const s = useServices();
@@ -20,7 +24,9 @@ export function HUD() {
     }
   }), [s]);
   if (!h) return null;
-  const cdRatio = h.cooldownTotalMs > 0 ? h.cooldownRemainingMs / h.cooldownTotalMs : 0;
+  // The game's one shared cooldown, passed identically to all three icons (no UI timer). 000 = just used, 100 = ready.
+  const cdRemaining = Math.max(0, h.cooldownRemainingMs);
+  const cdTotal = Math.max(1, h.cooldownTotalMs);
   return (
     <div className="hud" data-testid="hud">
       {hurtFlash > 0 && <div key={hurtFlash} className="damage-vignette" data-testid="damage-vignette" />}
@@ -46,9 +52,8 @@ export function HUD() {
       {phaseBanner && <div className="phase-banner">{STORY.ui.phase2}</div>}
       <div className="hud-skills" data-testid="hud-skills">
         {SKILL_CYCLE.map((id) => (
-          <div key={id} className={`skill ${h.selectedSkill === id ? 'selected' : ''} ${cdRatio > 0 ? 'cooling' : ''}`}>
-            <span className="icon">{SKILL_ICON[id]}</span>
-            <span className="cd" style={{ height: `${cdRatio * 100}%` }} />
+          <div key={id} className={`skill ${h.selectedSkill === id ? 'selected' : ''} ${cdRemaining > 0 ? 'cooling' : ''}`} data-testid={`hud-skill-${id}`}>
+            <SkillGaugeIcon skill={GAUGE_SKILL[id]} remainingMs={cdRemaining} totalMs={cdTotal} size={26} assetBaseUrl={GAUGE_BASE} />
             <span className="nm">{SKILL_NAMES[id]}</span>
           </div>
         ))}

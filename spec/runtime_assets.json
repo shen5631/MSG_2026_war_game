@@ -59,6 +59,12 @@
       "key": "ui_title_logo",
       "texture": "assets/ui/title_logo.png",
       "note": "타이틀 로고(사용자 제공 2056x765를 1028x383으로 축소, 투명 배경). React 타이틀 화면에서 표시"
+    },
+    {
+      "type": "image",
+      "key": "ui_skill_gauges_64",
+      "texture": "assets/skill_gauges_v1/atlas/skill_gauges_64.png",
+      "note": "지휘 스킬 충전 아이콘 64px 아틀라스(3종×101단계, 16열×19행, 패딩 2px). HUD(React)가 CSS 배경으로 사용. 000=사용 직후, 100=준비"
     }
   ],
   "audio": [

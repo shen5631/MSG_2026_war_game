@@ -163,11 +163,9 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .bossbar .half { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255, 255, 255, 0.6); }
 .phase-banner { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-size: 28px; font-weight: bold; color: #ff5a3a; letter-spacing: 6px; text-shadow: 2px 2px 0 #000; }
 .hud-skills { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); display: flex; gap: 4px; align-items: flex-end; }
-.skill { position: relative; width: 52px; height: 22px; background: rgba(12, 18, 36, 0.85); border: 1px solid #555; overflow: hidden; display: flex; align-items: center; gap: 2px; padding: 0 3px; }
+.skill { position: relative; width: 56px; padding: 3px 2px 2px; background: rgba(12, 18, 36, 0.85); border: 1px solid #555; display: flex; flex-direction: column; align-items: center; gap: 1px; }
 .skill.selected { border-color: var(--gold-2); box-shadow: 0 0 0 1px var(--gold); }
-.skill .icon { font-size: 11px; color: var(--gold-2); }
 .skill .nm { font-size: 7px; white-space: nowrap; }
-.skill .cd { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6); }
 .cd-text { font-size: 8px; margin-left: 4px; min-width: 86px; }
 .exit-hint { position: absolute; right: 12px; top: 44px; color: var(--gold-2); font-size: 10px; }
 .toasts { position: absolute; left: 0; right: 0; top: 70px; display: flex; flex-direction: column; align-items: center; gap: 2px; pointer-events: none; }
