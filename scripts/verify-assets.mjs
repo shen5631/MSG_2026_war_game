@@ -25,6 +25,7 @@ const EXPECT = {
   ganggamchan: { cell: 128, count: 72 },
   khitan_infantry: { cell: 128, count: 25 },
   khitan_archer: { cell: 128, count: 25 },
+  khitan_spearman: { cell: 192, count: 25 },
   'khitan-vanguard-v2': { cell: 192, count: 51 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
@@ -178,4 +179,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: spearman/shieldman/cavalry, bosses 2-3, spear ally, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used).');
+console.log('verify:assets OK — still missing final art: shieldman/cavalry, bosses 2-3, spear ally, round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used).');
