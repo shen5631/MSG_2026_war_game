@@ -1,0 +1,650 @@
+{
+  "name": "elite_spearman_commander_round2_boss_v1",
+  "boss_name_ko": "정예 창병장",
+  "boss_name_en": "Elite Spearman Commander",
+  "round": 2,
+  "max_hp": 500,
+  "phase2_trigger_hp": 250,
+  "frame_size": {
+    "w": 567,
+    "h": 737
+  },
+  "default_facing": "right",
+  "notes": "Round 2 boss package. Enemy Khitan elite spearman commander. Red-brown armored commander with long spear. Split from horizontal source sheets.",
+  "animations": {
+    "idle": {
+      "frame_count": 4,
+      "loop": true,
+      "frames": [
+        "elite_spearman_commander_idle_01.png",
+        "elite_spearman_commander_idle_02.png",
+        "elite_spearman_commander_idle_03.png",
+        "elite_spearman_commander_idle_04.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_idle_sheet.png"
+    },
+    "walk": {
+      "frame_count": 6,
+      "loop": true,
+      "frames": [
+        "elite_spearman_commander_walk_01.png",
+        "elite_spearman_commander_walk_02.png",
+        "elite_spearman_commander_walk_03.png",
+        "elite_spearman_commander_walk_04.png",
+        "elite_spearman_commander_walk_05.png",
+        "elite_spearman_commander_walk_06.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png"
+    },
+    "attack": {
+      "frame_count": 6,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_attack_01.png",
+        "elite_spearman_commander_attack_02.png",
+        "elite_spearman_commander_attack_03.png",
+        "elite_spearman_commander_attack_04.png",
+        "elite_spearman_commander_attack_05.png",
+        "elite_spearman_commander_attack_06.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png"
+    },
+    "charge": {
+      "frame_count": 6,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_charge_01.png",
+        "elite_spearman_commander_charge_02.png",
+        "elite_spearman_commander_charge_03.png",
+        "elite_spearman_commander_charge_04.png",
+        "elite_spearman_commander_charge_05.png",
+        "elite_spearman_commander_charge_06.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png"
+    },
+    "combo": {
+      "frame_count": 8,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_combo_01.png",
+        "elite_spearman_commander_combo_02.png",
+        "elite_spearman_commander_combo_03.png",
+        "elite_spearman_commander_combo_04.png",
+        "elite_spearman_commander_combo_05.png",
+        "elite_spearman_commander_combo_06.png",
+        "elite_spearman_commander_combo_07.png",
+        "elite_spearman_commander_combo_08.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png"
+    },
+    "phase2": {
+      "frame_count": 4,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_phase2_01.png",
+        "elite_spearman_commander_phase2_02.png",
+        "elite_spearman_commander_phase2_03.png",
+        "elite_spearman_commander_phase2_04.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_phase2_sheet.png"
+    },
+    "hurt": {
+      "frame_count": 4,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_hurt_01.png",
+        "elite_spearman_commander_hurt_02.png",
+        "elite_spearman_commander_hurt_03.png",
+        "elite_spearman_commander_hurt_04.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_hurt_sheet.png"
+    },
+    "death": {
+      "frame_count": 6,
+      "loop": false,
+      "frames": [
+        "elite_spearman_commander_death_01.png",
+        "elite_spearman_commander_death_02.png",
+        "elite_spearman_commander_death_03.png",
+        "elite_spearman_commander_death_04.png",
+        "elite_spearman_commander_death_05.png",
+        "elite_spearman_commander_death_06.png"
+      ],
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png"
+    }
+  },
+  "frames": {
+    "elite_spearman_commander_idle_01.png": {
+      "action": "idle",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/idle/elite_spearman_commander_idle_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_idle_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_idle_02.png": {
+      "action": "idle",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/idle/elite_spearman_commander_idle_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_idle_sheet.png",
+      "source_rect": {
+        "x": 543,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_idle_03.png": {
+      "action": "idle",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/idle/elite_spearman_commander_idle_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_idle_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_idle_04.png": {
+      "action": "idle",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/idle/elite_spearman_commander_idle_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_idle_sheet.png",
+      "source_rect": {
+        "x": 1629,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_01.png": {
+      "action": "walk",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_02.png": {
+      "action": "walk",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 362,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_03.png": {
+      "action": "walk",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 724,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_04.png": {
+      "action": "walk",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_05.png": {
+      "action": "walk",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 1448,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_walk_06.png": {
+      "action": "walk",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/walk/elite_spearman_commander_walk_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_walk_sheet.png",
+      "source_rect": {
+        "x": 1810,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_01.png": {
+      "action": "attack",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_02.png": {
+      "action": "attack",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 362,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_03.png": {
+      "action": "attack",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 724,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_04.png": {
+      "action": "attack",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_05.png": {
+      "action": "attack",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 1448,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_attack_06.png": {
+      "action": "attack",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/attack/elite_spearman_commander_attack_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_attack_sheet.png",
+      "source_rect": {
+        "x": 1810,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_01.png": {
+      "action": "charge",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_02.png": {
+      "action": "charge",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 362,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_03.png": {
+      "action": "charge",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 724,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_04.png": {
+      "action": "charge",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_05.png": {
+      "action": "charge",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 1448,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_charge_06.png": {
+      "action": "charge",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/charge/elite_spearman_commander_charge_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_charge_sheet.png",
+      "source_rect": {
+        "x": 1810,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_01.png": {
+      "action": "combo",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 272,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_02.png": {
+      "action": "combo",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 272,
+        "y": 0,
+        "w": 271,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_03.png": {
+      "action": "combo",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 543,
+        "y": 0,
+        "w": 271,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_04.png": {
+      "action": "combo",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 814,
+        "y": 0,
+        "w": 272,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_05.png": {
+      "action": "combo",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 272,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_06.png": {
+      "action": "combo",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 1358,
+        "y": 0,
+        "w": 271,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_07.png": {
+      "action": "combo",
+      "index": 7,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_07.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 1629,
+        "y": 0,
+        "w": 271,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_combo_08.png": {
+      "action": "combo",
+      "index": 8,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/combo/elite_spearman_commander_combo_08.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_combo_sheet.png",
+      "source_rect": {
+        "x": 1900,
+        "y": 0,
+        "w": 272,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_phase2_01.png": {
+      "action": "phase2",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/phase2/elite_spearman_commander_phase2_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_phase2_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_phase2_02.png": {
+      "action": "phase2",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/phase2/elite_spearman_commander_phase2_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_phase2_sheet.png",
+      "source_rect": {
+        "x": 543,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_phase2_03.png": {
+      "action": "phase2",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/phase2/elite_spearman_commander_phase2_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_phase2_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_phase2_04.png": {
+      "action": "phase2",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/phase2/elite_spearman_commander_phase2_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_phase2_sheet.png",
+      "source_rect": {
+        "x": 1629,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_hurt_01.png": {
+      "action": "hurt",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/hurt/elite_spearman_commander_hurt_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_hurt_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_hurt_02.png": {
+      "action": "hurt",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/hurt/elite_spearman_commander_hurt_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_hurt_sheet.png",
+      "source_rect": {
+        "x": 543,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_hurt_03.png": {
+      "action": "hurt",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/hurt/elite_spearman_commander_hurt_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_hurt_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_hurt_04.png": {
+      "action": "hurt",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/hurt/elite_spearman_commander_hurt_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_hurt_sheet.png",
+      "source_rect": {
+        "x": 1629,
+        "y": 0,
+        "w": 543,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_01.png": {
+      "action": "death",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_02.png": {
+      "action": "death",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 362,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_03.png": {
+      "action": "death",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 724,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_04.png": {
+      "action": "death",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 1086,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_05.png": {
+      "action": "death",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 1448,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    },
+    "elite_spearman_commander_death_06.png": {
+      "action": "death",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_v1/frames/death/elite_spearman_commander_death_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_v1/sheets/elite_spearman_commander_death_sheet.png",
+      "source_rect": {
+        "x": 1810,
+        "y": 0,
+        "w": 362,
+        "h": 724
+      }
+    }
+  },
+  "anchor": {
+    "x": 283,
+    "y": 719
+  }
+}
