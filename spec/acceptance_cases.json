@@ -263,7 +263,7 @@
       "group": "차징",
       "method": "단위",
       "steps": "차징도중HP피격",
-      "expected": "충전/현재공격취소·경직",
+      "expected": "[사용자 변경 2026-10-23] 차징 유지·HP 피해와 0.5초 무적만, 경직 없음 (이전: 충전/현재공격취소·경직)",
       "status": "NOT_RUN_GAME_NOT_IMPLEMENTED"
     },
     {
