@@ -12,7 +12,7 @@ export interface Body {
   blockedX: 0 | 1 | -1;
 }
 
-export type SolidKind = 'crate' | 'step' | 'rock' | 'barricade';
+export type SolidKind = 'crate' | 'step' | 'platform' | 'rock' | 'barricade';
 
 export interface Solid extends Rect {
   id: string;

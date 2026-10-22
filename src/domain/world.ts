@@ -5,8 +5,31 @@ import type { Solid, SolidKind } from './physics';
 const SIZES: Record<SolidKind, { w: number; h: number; hp: number; destructible: boolean; blocks: boolean }> = {
   crate: { w: 32, h: 32, hp: DEFAULTS.world.crateHp, destructible: true, blocks: true },
   step: { w: 96, h: 40, hp: 0, destructible: false, blocks: true },
+  // Wooden platform (art: wood_platform_04). Solid down to the ground: no walking underneath.
+  platform: { w: 112, h: 44, hp: 0, destructible: false, blocks: true },
   rock: { w: 48, h: 24, hp: 0, destructible: false, blocks: true },
-  barricade: { w: 28, h: 48, hp: DEFAULTS.world.barricadeHp, destructible: true, blocks: true },
+  // Sized to the palisade_wall art (was 28×48 before real art existed).
+  barricade: { w: 52, h: 46, hp: DEFAULTS.world.barricadeHp, destructible: true, blocks: true },
+};
+
+/**
+ * Extra jumpable terrain in traversal sections only (never inside combat or boss arenas).
+ * Implementation-default layout added with the round-1 environment art; levels.json props are unchanged.
+ */
+const EXTRA_TERRAIN: Record<number, { x: number; kind: SolidKind }[]> = {
+  1: [
+    { x: 760, kind: 'platform' },
+    { x: 2200, kind: 'platform' },
+  ],
+  2: [
+    { x: 580, kind: 'platform' },
+    { x: 3120, kind: 'platform' },
+  ],
+  3: [
+    { x: 720, kind: 'platform' },
+    { x: 2200, kind: 'platform' },
+    { x: 3600, kind: 'platform' },
+  ],
 };
 
 /** Boss arena obstacles per round (relative to arena left). Round 1: flat ground in front of the gate. */
@@ -42,6 +65,7 @@ export function makeSolid(id: string, kind: SolidKind, centerX: number, groundY:
 export function buildSolids(round: RoundSpec): Solid[] {
   const solids: Solid[] = [];
   round.traversalProps.forEach((p, i) => solids.push(makeSolid(`r${round.id}p${i}`, p.kind, p.x, round.groundY)));
+  (EXTRA_TERRAIN[round.id] ?? []).forEach((t, i) => solids.push(makeSolid(`r${round.id}t${i}`, t.kind, t.x, round.groundY)));
   (BOSS_OBSTACLES[round.id] ?? []).forEach((o, i) =>
     solids.push(makeSolid(`r${round.id}b${i}`, o.kind, round.bossArena.left + o.dx, round.groundY)),
   );
