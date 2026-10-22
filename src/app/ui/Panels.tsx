@@ -221,7 +221,7 @@ export function Title({ padNotice, padActive }: { padNotice: string | null; padA
         </footer>
       </Frame>
       {padNotice && <p className="pad-notice">{padNotice}</p>}
-      <p className="temp-tag">개발 빌드 · 보병·궁병 외 적/보스, 2·3라운드 배경, 타이틀·엔딩 음악·효과음은 임시 자료</p>
+      <p className="temp-tag">개발 빌드 · 보병·궁병 외 적/보스, 2·3라운드 배경, 엔딩 음악·효과음은 임시 자료</p>
       {sub === 'settings' && <Settings onClose={() => setSub(null)} />}
       {sub === 'controls' && <Controls onClose={() => setSub(null)} />}
     </div>

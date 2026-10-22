@@ -1,4 +1,4 @@
-// Audio: supplied BGM tracks (spec/runtime_assets.json "audio") for the themes they cover; every other theme
+// Audio: supplied BGM tracks (spec/runtime_assets.json "audio": lobby + combat) for the themes they cover; every other theme
 // and all SFX are TEMPORARY synthesized Web Audio — see IMPLEMENTATION_NOTES.md replacement list.
 import { DEFAULTS, RUNTIME_ASSETS } from '../config/spec';
 import type { SfxId } from '../domain/events';

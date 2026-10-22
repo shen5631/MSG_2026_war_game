@@ -56,6 +56,15 @@
   ],
   "audio": [
     {
+      "key": "bgm_prepare_yourselves",
+      "file": "assets/audio/prepare_yourselves.mp3",
+      "themes": [
+        "title"
+      ],
+      "loop": true,
+      "note": "사용자 제공 「준비 yourselves.mp3」(개발착수패키지). 로비(타이틀·조작 방법·설정) 배경음악"
+    },
+    {
       "key": "bgm_battle_standard_bearer",
       "file": "assets/audio/battle_standard_bearer.mp3",
       "themes": [
@@ -81,7 +90,7 @@
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
     "story-art",
-    "bgm: title, ending (전투 구간은 「전투의 기수」 사용)",
+    "bgm: ending (로비는 「준비 yourselves」, 전투 구간은 「전투의 기수」 사용)",
     "sfx"
   ],
   "missingAssetPolicy": "explicit-generated-development-placeholder-and-status-report-not-silent-final-substitution"
