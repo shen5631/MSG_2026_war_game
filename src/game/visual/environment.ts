@@ -46,6 +46,10 @@ const SOLID_ART: Record<SolidKind, { frame: string; fit: 'width' | 'height'; top
 };
 
 /** Places the image so the frame's visible top sits at the solid top (bottom may sink behind the ground strip). */
+const SOLID_RIM_COLOR = 0xffe2a0;
+/** Non-colliding props are pushed back: cooler and darker than the obstacles you can stand on or hit. */
+const DECOR_TINT = 0x8f96a8;
+
 export function makeSolidImage(scene: Phaser.Scene, s: Solid): Phaser.GameObjects.Image {
   const art = SOLID_ART[s.kind];
   const c = CONTENT[art.frame];
@@ -53,6 +57,8 @@ export function makeSolidImage(scene: Phaser.Scene, s: Solid): Phaser.GameObject
   const img = scene.add.image(0, 0, ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
   img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(s.y - art.topInset - c.y * scale));
   img.setDepth(art.behindGround ? -12 : 6);
+  // Colliding terrain must read apart from the painted background: warm rim light (WebGL FX; absent on canvas).
+  img.preFX?.addGlow(SOLID_RIM_COLOR, 3, 0, false, 0.1, 6);
   return img;
 }
 
@@ -83,7 +89,7 @@ export function makeDecor(scene: Phaser.Scene, round: number, groundY: number): 
   return (DECOR[round] ?? []).map((d) => {
     const c = CONTENT[d.frame];
     const scale = d.height / c.h;
-    const img = scene.add.image(0, 0, ENV_KEY, d.frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13);
+    const img = scene.add.image(0, 0, ENV_KEY, d.frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13).setTint(DECOR_TINT);
     // Sink the base 3px into the ground strip so props read as standing on it.
     img.setPosition(Math.round(d.x - (c.x + c.w / 2) * scale), Math.round(groundY + 3 - (c.y + c.h) * scale));
     return img;
