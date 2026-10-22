@@ -16,7 +16,7 @@ function Overlay({ st, padActive, padNotice }: { st: ControllerState; padActive:
     case 'load-error':
       return <LoadError files={st.loadErrorFiles} />;
     case 'title':
-      return <Title padNotice={padNotice} />;
+      return <Title padNotice={padNotice} padActive={padActive} />;
     case 'playing': {
       const r = st.pauseReasons;
       return (
