@@ -1,0 +1,362 @@
+{
+  "name": "khitan_spearman_enemy_v1",
+  "role": "enemy_spearman_round2_or_later",
+  "frame_size": {
+    "w": 192,
+    "h": 192
+  },
+  "baseline_y": 184,
+  "default_facing": "right",
+  "theme": "Khitan red-brown enemy infantry spearman",
+  "source_sheets": {
+    "idle": "/mnt/data/네_프레임_픽셀_전사_스프라이트.png",
+    "walk": "/mnt/data/픽셀_아트_창병_걷기_애니메이션_시트.png",
+    "attack": "/mnt/data/쿠탄_창병의_6단계_찌르기_동작.png",
+    "hurt": "/mnt/data/창병의_세_단계_피격_반응_스프라이트.png",
+    "death": "/mnt/data/기울어_쓰러지는_기마병_전사_스프라이트_시트.png"
+  },
+  "animations": {
+    "idle": {
+      "frames": [
+        "khitan_spearman_idle_01.png",
+        "khitan_spearman_idle_02.png",
+        "khitan_spearman_idle_03.png",
+        "khitan_spearman_idle_04.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "strip_image": "public/assets/khitan_spearman_enemy_v1/strips/khitan_spearman_idle_strip.png",
+      "strip_json": "public/assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_idle_strip.json"
+    },
+    "walk": {
+      "frames": [
+        "khitan_spearman_walk_01.png",
+        "khitan_spearman_walk_02.png",
+        "khitan_spearman_walk_03.png",
+        "khitan_spearman_walk_04.png",
+        "khitan_spearman_walk_05.png",
+        "khitan_spearman_walk_06.png"
+      ],
+      "fps": 8,
+      "loop": true,
+      "strip_image": "public/assets/khitan_spearman_enemy_v1/strips/khitan_spearman_walk_strip.png",
+      "strip_json": "public/assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_walk_strip.json"
+    },
+    "attack": {
+      "frames": [
+        "khitan_spearman_attack_01.png",
+        "khitan_spearman_attack_02.png",
+        "khitan_spearman_attack_03.png",
+        "khitan_spearman_attack_04.png",
+        "khitan_spearman_attack_05.png",
+        "khitan_spearman_attack_06.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "public/assets/khitan_spearman_enemy_v1/strips/khitan_spearman_attack_strip.png",
+      "strip_json": "public/assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_attack_strip.json"
+    },
+    "hurt": {
+      "frames": [
+        "khitan_spearman_hurt_01.png",
+        "khitan_spearman_hurt_02.png",
+        "khitan_spearman_hurt_03.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "strip_image": "public/assets/khitan_spearman_enemy_v1/strips/khitan_spearman_hurt_strip.png",
+      "strip_json": "public/assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_hurt_strip.json"
+    },
+    "death": {
+      "frames": [
+        "khitan_spearman_death_01.png",
+        "khitan_spearman_death_02.png",
+        "khitan_spearman_death_03.png",
+        "khitan_spearman_death_04.png",
+        "khitan_spearman_death_05.png",
+        "khitan_spearman_death_06.png"
+      ],
+      "fps": 8,
+      "loop": false,
+      "strip_image": "public/assets/khitan_spearman_enemy_v1/strips/khitan_spearman_death_strip.png",
+      "strip_json": "public/assets/khitan_spearman_enemy_v1/atlas/khitan_spearman_death_strip.json"
+    }
+  },
+  "frames": {
+    "khitan_spearman_idle_01.png": {
+      "action": "idle",
+      "index": 1,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/idle/khitan_spearman_idle_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_idle_02.png": {
+      "action": "idle",
+      "index": 2,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/idle/khitan_spearman_idle_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_idle_03.png": {
+      "action": "idle",
+      "index": 3,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/idle/khitan_spearman_idle_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_idle_04.png": {
+      "action": "idle",
+      "index": 4,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/idle/khitan_spearman_idle_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_01.png": {
+      "action": "walk",
+      "index": 1,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_02.png": {
+      "action": "walk",
+      "index": 2,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_03.png": {
+      "action": "walk",
+      "index": 3,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_04.png": {
+      "action": "walk",
+      "index": 4,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_05.png": {
+      "action": "walk",
+      "index": 5,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_walk_06.png": {
+      "action": "walk",
+      "index": 6,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/walk/khitan_spearman_walk_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_01.png": {
+      "action": "attack",
+      "index": 1,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_02.png": {
+      "action": "attack",
+      "index": 2,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_03.png": {
+      "action": "attack",
+      "index": 3,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_04.png": {
+      "action": "attack",
+      "index": 4,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_05.png": {
+      "action": "attack",
+      "index": 5,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_attack_06.png": {
+      "action": "attack",
+      "index": 6,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/attack/khitan_spearman_attack_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_hurt_01.png": {
+      "action": "hurt",
+      "index": 1,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/hurt/khitan_spearman_hurt_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_hurt_02.png": {
+      "action": "hurt",
+      "index": 2,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/hurt/khitan_spearman_hurt_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_hurt_03.png": {
+      "action": "hurt",
+      "index": 3,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/hurt/khitan_spearman_hurt_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_01.png": {
+      "action": "death",
+      "index": 1,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_01.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_02.png": {
+      "action": "death",
+      "index": 2,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_02.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_03.png": {
+      "action": "death",
+      "index": 3,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_03.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_04.png": {
+      "action": "death",
+      "index": 4,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_04.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_05.png": {
+      "action": "death",
+      "index": 5,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_05.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    },
+    "khitan_spearman_death_06.png": {
+      "action": "death",
+      "index": 6,
+      "path": "public/assets/khitan_spearman_enemy_v1/frames/death/khitan_spearman_death_06.png",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 192
+      }
+    }
+  }
+}
