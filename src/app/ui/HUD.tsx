@@ -3,6 +3,7 @@ import { SKILL_CYCLE, SKILL_NAMES, STORY, type SkillId } from '../../config/spec
 import type { HudSnapshot } from '../../domain/round';
 import { useServices } from '../useMenu';
 import { SkillGaugeIcon } from '../../skill-gauges/SkillGaugeIcon';
+import { shieldSegment } from './hudBars';
 import type { SkillId as GaugeSkillId } from '../../skill-gauges/core';
 
 const GAUGE_SKILL: Record<SkillId, GaugeSkillId> = { command_buff: 'command', spear_support: 'spear', shield_guard: 'shield' };
@@ -27,15 +28,20 @@ export function HUD() {
   // The game's one shared cooldown, passed identically to all three icons (no UI timer). 000 = just used, 100 = ready.
   const cdRemaining = Math.max(0, h.cooldownRemainingMs);
   const cdTotal = Math.max(1, h.cooldownTotalMs);
+  const sh = shieldSegment(h.hp, h.shield, h.maxHp);
   return (
     <div className="hud" data-testid="hud">
       {hurtFlash > 0 && <div key={hurtFlash} className="damage-vignette" data-testid="damage-vignette" />}
       <div className="hud-hp" data-testid="hud-hp">
         <div className="label">HP <b>{h.hp}</b>/{h.maxHp}</div>
         {/* Red drops at once; the orange trail behind it catches up slowly (CSS transition with a short delay). */}
-        <div className="hpbar"><div className="lag" style={{ width: `${h.hp}%` }} /><div className="fill" style={{ width: `${h.hp}%` }} /></div>
+        <div className="hpbar">
+          <div className="lag" style={{ width: `${h.hp}%` }} />
+          <div className="fill" style={{ width: `${h.hp}%` }} />
+          {/* Shield (방패병 막기) as a blue segment inside the bar instead of a text tag. */}
+          {sh.width > 0 && <div className="shield" data-testid="hud-shield" style={{ left: `${sh.left}%`, width: `${sh.width}%` }} />}
+        </div>
         <div className="statuses">
-          {h.shield > 0 && <span className="tag shield" data-testid="hud-shield">방패 {Math.ceil(h.shield)} · {(h.shieldRemainingMs / 1000).toFixed(1)}초</span>}
           {h.buffRemainingMs > 0 && <span className="tag buff" data-testid="hud-buff">지휘 강화 {(h.buffRemainingMs / 1000).toFixed(1)}초</span>}
         </div>
       </div>
@@ -53,7 +59,7 @@ export function HUD() {
       <div className="hud-skills" data-testid="hud-skills">
         {SKILL_CYCLE.map((id) => (
           <div key={id} className={`skill ${h.selectedSkill === id ? 'selected' : ''} ${cdRemaining > 0 ? 'cooling' : ''}`} data-testid={`hud-skill-${id}`}>
-            <SkillGaugeIcon skill={GAUGE_SKILL[id]} remainingMs={cdRemaining} totalMs={cdTotal} size={26} assetBaseUrl={GAUGE_BASE} />
+            <SkillGaugeIcon skill={GAUGE_SKILL[id]} remainingMs={cdRemaining} totalMs={cdTotal} size={30} selected={h.selectedSkill === id} assetBaseUrl={GAUGE_BASE} />
             <span className="nm">{SKILL_NAMES[id]}</span>
           </div>
         ))}

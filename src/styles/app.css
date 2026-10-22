@@ -149,10 +149,10 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .hpbar .fill, .bossbar .fill { position: relative; }
 .hpbar .fill { height: 100%; background: linear-gradient(#e0533d, #a3271a); }
 /* Damage trail: hidden behind the red fill when HP rises, shows the lost chunk and shrinks after a beat when HP drops. */
+.hpbar .shield { position: absolute; top: 0; height: 100%; background: linear-gradient(#9cd0ff, #3d7fe0); box-shadow: inset 0 0 0 1px rgba(220, 240, 255, 0.5); transition: width 0.1s linear, left 0.1s linear; }
 .hpbar .lag, .bossbar .lag { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(#ffb25a, #e0781e); transition: width 0.6s ease-out 0.35s; }
 .statuses { margin-top: 2px; display: flex; gap: 3px; flex-wrap: wrap; }
 .tag { font-size: 8px; padding: 0 3px; border: 1px solid; background: rgba(0, 0, 0, 0.5); }
-.tag.shield { color: #9cc4ff; border-color: #6fa8ff; }
 .tag.buff { color: var(--gold-2); border-color: var(--gold); }
 .hud-round { position: absolute; right: 12px; top: 12px; text-align: right; font-size: 10px; }
 .hud-boss { position: absolute; left: 160px; top: 40px; width: 320px; text-align: center; }
@@ -162,10 +162,11 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .bossbar .fill { height: 100%; background: linear-gradient(#d0402a, #8a1c10); }
 .bossbar .half { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(255, 255, 255, 0.6); }
 .phase-banner { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-size: 28px; font-weight: bold; color: #ff5a3a; letter-spacing: 6px; text-shadow: 2px 2px 0 #000; }
-.hud-skills { position: absolute; left: 50%; bottom: 6px; transform: translateX(-50%); display: flex; gap: 4px; align-items: flex-end; }
-.skill { position: relative; width: 56px; padding: 3px 2px 2px; background: rgba(12, 18, 36, 0.85); border: 1px solid #555; display: flex; flex-direction: column; align-items: center; gap: 1px; }
-.skill.selected { border-color: var(--gold-2); box-shadow: 0 0 0 1px var(--gold); }
-.skill .nm { font-size: 7px; white-space: nowrap; }
+.hud-skills { position: absolute; left: 50%; bottom: 5px; transform: translateX(-50%); display: flex; gap: 8px; align-items: flex-end; }
+/* Icons shown directly (no dark box); the selected skill gets the gauge icon's own gold outline. */
+.skill { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.skill .nm { font-size: 7px; white-space: nowrap; text-shadow: 1px 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000; }
+.skill.selected .nm { color: var(--gold-2); }
 .cd-text { font-size: 8px; margin-left: 4px; min-width: 86px; }
 .exit-hint { position: absolute; right: 12px; top: 44px; color: var(--gold-2); font-size: 10px; }
 .toasts { position: absolute; left: 0; right: 0; top: 70px; display: flex; flex-direction: column; align-items: center; gap: 2px; pointer-events: none; }
