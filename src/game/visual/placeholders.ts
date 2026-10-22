@@ -6,7 +6,7 @@ import type { BossId, EnemyKind } from '../../config/spec';
 export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
 export type Pose = (typeof POSES)[number];
 
-type Weapon = 'sword' | 'shield' | 'lance' | 'bigsword' | 'glaive';
+type Weapon = 'sword' | 'shield' | 'lance' | 'bigsword';
 interface Palette { armor: string; armorDark: string; trim: string; skin: string; helmet: string; plume: string; cloth: string; metal: string; wood: string; outline: string }
 
 const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
@@ -16,7 +16,7 @@ const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
   'generated_enemy_shieldman', 'generated_enemy_cavalry',
-  'generated_boss_spear_captain', 'generated_boss_so_bae_ap',
+  'generated_boss_so_bae_ap',
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
   'generated_pickups', 'generated_ui_markers',
@@ -86,12 +86,6 @@ function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, sca
       else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 6, -54 - len + 20, wid, len, pal.metal); p.r(ax + 3, -36, wid + 6, 3, pal.trim); }
       break;
     }
-    case 'glaive': {
-      if (pose === 'windup') { p.r(ax - 12, -58, 6, 16, pal.armor); p.r(ax - 40, -66, 44, 3, pal.wood); p.r(ax - 52, -70, 14, 8, pal.metal); }
-      else if (pose === 'attack') { p.r(ax, -46, 14, 6, pal.armor); p.r(ax + 4, -46, 50, 3, pal.wood); p.r(ax + 52, -50, 18, 9, pal.metal); }
-      else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 8, -92, 3, 90, pal.wood); p.r(ax + 6, -102, 9, 14, pal.metal); }
-      break;
-    }
     case 'lance': {
       const len = 64;
       if (pose === 'windup') { p.r(ax - 10, -50, 8, 6, pal.armor); p.r(ax - 40, -48, len, 2, pal.wood); p.r(ax - 40 + len, -50, 8, 6, pal.metal); }
@@ -154,9 +148,8 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
 
 const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer' | 'spearman'>, Weapon> = { shieldman: 'shield', cavalry: 'lance' };
 
-// The round-1 vanguard uses the supplied V2 atlas (visual/vanguard.ts); the other two bosses are still generated.
-const BOSS_STYLE: Record<Exclude<BossId, 'vanguard'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
-  spear_captain: { pal: { ...ENEMY_PAL, armor: '#6a3a26', trim: '#b9b9b9', helmet: '#3a1f16', plume: '#e0e0e0' }, weapon: 'glaive', scale: 1.3, cape: false },
+// Vanguard (V2) and 정예 창병장 (v1) use supplied atlases; only 소배압 is still generated.
+const BOSS_STYLE: Record<Exclude<BossId, 'vanguard' | 'spear_captain'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
   so_bae_ap: { pal: { ...ENEMY_PAL, armor: '#5a1e1a', armorDark: '#33100d', trim: '#d4a72c', helmet: '#2a1410', plume: '#9c1c1c' }, weapon: 'bigsword', scale: 1.38, cape: true },
 };
 

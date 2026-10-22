@@ -9,6 +9,7 @@ import { ARCHER_KEY, REQUIRED_ARCHER_FRAMES } from '../visual/archer';
 import { REQUIRED_SPEARMAN_FRAMES, SPEARMAN_KEY } from '../visual/spearman';
 import { ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES } from '../visual/allySpearman';
 import { REQUIRED_VANGUARD_FRAMES, VANGUARD_KEY } from '../visual/vanguard';
+import { REQUIRED_SPEAR_CAPTAIN_FRAMES, SPEAR_CAPTAIN_KEY } from '../visual/spearCaptain';
 import { REQUIRED_FRAME_KEYS as REQUIRED_SHIELD_FRAMES, SHIELD_TEXTURE_KEY } from '../skills/shield/presentation';
 
 export const assetUrl = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
@@ -60,6 +61,8 @@ export class BootScene extends Phaser.Scene {
         ctl.setLoadError(missing);
         return;
       }
+      // The round-2 boss is painted (not pixel art) and shown downscaled: smooth filtering for that texture only.
+      this.textures.get(SPEAR_CAPTAIN_KEY).setFilter(Phaser.Textures.FilterMode.LINEAR);
       buildGroundStrip(this);
       generateCharacterTextures(this);
       generatePropTextures(this);
@@ -76,7 +79,7 @@ export class BootScene extends Phaser.Scene {
     for (const a of RUNTIME_ASSETS.assets) {
       if (!this.textures.exists(a.key)) missing.push(a.texture);
     }
-    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
     for (const [key, frames] of need) {
       if (!this.textures.exists(key)) continue;
       const tex = this.textures.get(key);

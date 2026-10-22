@@ -14,6 +14,7 @@ import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrow
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
+import { SPEAR_CAPTAIN_KEY, spearCaptainPose } from '../visual/spearCaptain';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -484,20 +485,27 @@ export class PlayScene extends Phaser.Scene {
       return;
     }
     const real = b.bossId === 'vanguard';
-    const texKey = real ? VANGUARD_KEY : `generated_boss_${b.bossId}`;
+    const captain = b.bossId === 'spear_captain';
+    const texKey = real ? VANGUARD_KEY : captain ? SPEAR_CAPTAIN_KEY : `generated_boss_${b.bossId}`;
     if (!this.bossSprite || this.bossSprite.texture.key !== texKey) {
       this.bossSprite?.destroy();
       this.bossSprite = real
         ? this.add.sprite(b.body.x, b.body.y, VANGUARD_KEY, 'idle_01').setOrigin(VANGUARD_ORIGIN.x, VANGUARD_ORIGIN.y).setDepth(14)
+        : captain
+        ? this.add.sprite(b.body.x, b.body.y, SPEAR_CAPTAIN_KEY, 'elite_spearman_commander_idle_01.png').setDepth(14)
         : this.add.sprite(b.body.x, b.body.y, texKey, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
       this.bossLastHp = b.hp;
     }
     if (b.hp < this.bossLastHp) this.bossFlashUntil = r.presentationT + 70;
     this.bossLastHp = b.hp;
     let frame: string;
+    const view = { t, transitionProgress: r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 };
     if (real) {
-      const transitionProgress = r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0;
-      frame = vanguardFrame(b, { t, transitionProgress, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 });
+      frame = vanguardFrame(b, view);
+    } else if (captain) {
+      const pose = spearCaptainPose(b, view);
+      frame = pose.frame;
+      this.bossSprite.setScale(pose.scale).setOrigin(pose.originX, pose.originY);
     } else {
       let pose: Pose = 'idle';
       switch (b.state) {
@@ -518,7 +526,7 @@ export class PlayScene extends Phaser.Scene {
     if (r.presentationT < this.bossFlashUntil) s.setTintFill(0xffffff);
     else if (red) s.setTint(Math.floor(r.presentationT / 90) % 2 ? 0xff3030 : 0xff8080);
     // The V2 transition frames already carry their red aura: no extra flashing tint on top.
-    else if (b.state === 'transition' && !real) s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
+    else if (b.state === 'transition' && !real && !captain) s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
     else s.clearTint();
     this.bossGlow.setVisible(red).setPosition(b.body.x, b.body.y - 2).setAlpha(0.3 + 0.3 * Math.abs(Math.sin(r.presentationT / 80)));
   }
