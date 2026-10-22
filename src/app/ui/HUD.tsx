@@ -26,7 +26,6 @@ export function HUD() {
         <div className="statuses">
           {h.shield > 0 && <span className="tag shield" data-testid="hud-shield">방패 {Math.ceil(h.shield)} · {(h.shieldRemainingMs / 1000).toFixed(1)}초</span>}
           {h.buffRemainingMs > 0 && <span className="tag buff" data-testid="hud-buff">지휘 강화 {(h.buffRemainingMs / 1000).toFixed(1)}초</span>}
-          {h.chargeStage > 0 && <span className="tag charge">차징 {h.chargeStage}단계</span>}
         </div>
       </div>
       <div className="hud-round" data-testid="hud-round">

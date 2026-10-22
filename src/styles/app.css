@@ -147,7 +147,6 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .tag { font-size: 8px; padding: 0 3px; border: 1px solid; background: rgba(0, 0, 0, 0.5); }
 .tag.shield { color: #9cc4ff; border-color: #6fa8ff; }
 .tag.buff { color: var(--gold-2); border-color: var(--gold); }
-.tag.charge { color: #ffb070; border-color: #ff9a40; }
 .hud-round { position: absolute; right: 12px; top: 12px; text-align: right; font-size: 10px; }
 .hud-boss { position: absolute; left: 160px; top: 40px; width: 320px; text-align: center; }
 .hud-boss .name { font-size: 10px; color: #ffd0c0; }
