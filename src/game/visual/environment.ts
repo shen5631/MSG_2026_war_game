@@ -3,6 +3,7 @@
 import Phaser from 'phaser';
 import type { Enemy } from '../../domain/enemies';
 import type { Solid, SolidKind } from '../../domain/physics';
+import { R2_CONTENT, R2_DECOR, R2_GROUND_PIECES, R2_SOLID_ART, ROUND2_ENV_KEY } from './round2Environment';
 
 export const ENV_KEY = 'round1_env';
 export const INFANTRY_KEY = 'khitan_infantry';
@@ -11,6 +12,9 @@ export const BG_ROUND2_KEY = 'bg_round2_war_camp';
 /** Supplied full-scene illustrations (1672×941) per round; rounds without one use generated parallax layers. */
 export const ROUND_BG_KEYS: Partial<Record<number, string>> = { 1: BG_ROUND1_KEY, 2: BG_ROUND2_KEY };
 export const GROUND_STRIP_KEY = 'terrain_ground_strip';
+export const GROUND_STRIP_R2_KEY = 'terrain_ground_strip_r2';
+/** Ground band per round (round 2: war-camp terrain; rounds 1/3: round-1 cliff faces). */
+export const groundStripKey = (round: number): string => (round === 2 ? GROUND_STRIP_R2_KEY : GROUND_STRIP_KEY);
 
 /** Visible (alpha) content rect of each used environment frame, measured from the supplied atlas. */
 const CONTENT: Record<string, { x: number; y: number; w: number; h: number }> = {
@@ -53,11 +57,14 @@ const SOLID_RIM_COLOR = 0xffe2a0;
 /** Non-colliding props are pushed back: cooler and darker than the obstacles you can stand on or hit. */
 const DECOR_TINT = 0x8f96a8;
 
-export function makeSolidImage(scene: Phaser.Scene, s: Solid): Phaser.GameObjects.Image {
-  const art = SOLID_ART[s.kind];
-  const c = CONTENT[art.frame];
+export function makeSolidImage(scene: Phaser.Scene, s: Solid, round = 1): Phaser.GameObjects.Image {
+  const r2 = round === 2;
+  const art = r2 ? R2_SOLID_ART[s.kind] : SOLID_ART[s.kind];
+  const c = r2 ? R2_CONTENT[art.frame] : CONTENT[art.frame];
   const scale = art.fit === 'width' ? (s.w + 4) / c.w : (s.h + art.topInset) / c.h;
-  const img = scene.add.image(0, 0, ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
+  const img = scene.add.image(0, 0, r2 ? ROUND2_ENV_KEY : ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
+  // Round-2 cells can hold slivers of neighbouring pieces: show only the measured main object.
+  if (r2) img.setCrop(c.x, c.y, c.w, c.h);
   img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(s.y - art.topInset - c.y * scale));
   img.setDepth(art.behindGround ? -12 : 6);
   // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
@@ -68,7 +75,7 @@ export function makeSolidImage(scene: Phaser.Scene, s: Solid): Phaser.GameObject
 
 interface Decor { x: number; frame: string; height: number; flip?: boolean }
 
-/** Non-colliding scenery per round (implementation default layout). Rounds 2/3 reuse round-1 props temporarily. */
+/** Non-colliding scenery per round (implementation default layout). Round 2 uses its own camp props (R2_DECOR); round 3 reuses round-1 props temporarily. */
 const DECOR: Record<number, Decor[]> = {
   1: [
     { x: 40, frame: 'brazier_lit', height: 58 }, { x: 430, frame: 'low_wood_fence', height: 30 }, { x: 700, frame: 'wooden_barrel', height: 30 },
@@ -90,10 +97,12 @@ const DECOR: Record<number, Decor[]> = {
 };
 
 export function makeDecor(scene: Phaser.Scene, round: number, groundY: number): Phaser.GameObjects.Image[] {
-  return (DECOR[round] ?? []).map((d) => {
-    const c = CONTENT[d.frame];
+  const r2 = round === 2;
+  return ((r2 ? R2_DECOR : DECOR[round]) ?? []).map((d) => {
+    const c = r2 ? R2_CONTENT[d.frame] : CONTENT[d.frame];
     const scale = d.height / c.h;
-    const img = scene.add.image(0, 0, ENV_KEY, d.frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13).setTint(DECOR_TINT);
+    const img = scene.add.image(0, 0, r2 ? ROUND2_ENV_KEY : ENV_KEY, d.frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13).setTint(DECOR_TINT);
+    if (r2) img.setCrop(c.x, c.y, c.w, c.h);
     // Sink the base 3px into the ground strip so props read as standing on it.
     img.setPosition(Math.round(d.x - (c.x + c.w / 2) * scale), Math.round(groundY + 3 - (c.y + c.h) * scale));
     return img;
@@ -109,23 +118,29 @@ const GROUND_STRIP_H = 64;
  * The supplied pieces are not verified seamless tiles; seams are reported in IMPLEMENTATION_NOTES.md.
  */
 export function buildGroundStrip(scene: Phaser.Scene): void {
-  if (scene.textures.exists(GROUND_STRIP_KEY)) return;
-  const tex = scene.textures.get(ENV_KEY);
+  buildStrip(scene, GROUND_STRIP_KEY, ENV_KEY, GROUND_PIECES.map((k) => ({ frame: k, ...CONTENT[k] })), (GROUND_STRIP_H + 6) / 181);
+  // Round 2: war-camp ground; scale 0.5 puts the grass top (source row ~16) at the walk line 8 px under the band top.
+  if (scene.textures.exists(ROUND2_ENV_KEY)) buildStrip(scene, GROUND_STRIP_R2_KEY, ROUND2_ENV_KEY, R2_GROUND_PIECES, 0.5);
+}
+
+function buildStrip(
+  scene: Phaser.Scene, key: string, atlasKey: string, pieces: { frame: string; x: number; y: number; w: number; h: number }[], scale: number,
+): void {
+  if (scene.textures.exists(key)) return;
+  const tex = scene.textures.get(atlasKey);
   const src = tex.getSourceImage() as HTMLImageElement;
-  const scale = (GROUND_STRIP_H + 6) / 181;
   const overlap = 6;
-  const widths = GROUND_PIECES.map((k) => Math.round(CONTENT[k].w * scale));
+  const widths = pieces.map((p) => Math.round(p.w * scale));
   const total = widths.reduce((a, b) => a + b - overlap, 0);
-  const canvas = scene.textures.createCanvas(GROUND_STRIP_KEY, total, GROUND_STRIP_H)!;
+  const canvas = scene.textures.createCanvas(key, total, GROUND_STRIP_H)!;
   const ctx = canvas.getContext();
   ctx.imageSmoothingEnabled = true;
   ctx.imageSmoothingQuality = 'high';
   ctx.fillStyle = '#3a2416';
   ctx.fillRect(0, 10, total, GROUND_STRIP_H - 10);
   let x = 0;
-  GROUND_PIECES.forEach((k, i) => {
-    const f = tex.get(k);
-    const c = CONTENT[k];
+  pieces.forEach((c, i) => {
+    const f = tex.get(c.frame);
     ctx.drawImage(src, f.cutX + c.x, f.cutY + c.y, c.w, c.h, x, 0, widths[i], Math.round(c.h * scale));
     x += widths[i] - overlap;
   });

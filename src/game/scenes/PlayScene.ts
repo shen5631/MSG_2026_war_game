@@ -9,7 +9,7 @@ import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
 import { BOSS_FRAME_INFO, type Pose } from '../visual/placeholders';
-import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
+import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, groundStripKey, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
@@ -239,6 +239,7 @@ export class PlayScene extends Phaser.Scene {
     const real = bgKey !== undefined;
     this.bgImage.setVisible(real);
     if (bgKey) this.bgImage.setTexture(bgKey).setCrop(0, 0, 1672, BG_CROP_H);
+    this.ground.setTexture(groundStripKey(round));
     for (const l of [this.sky, this.far, this.mid, this.near]) l.setVisible(!real);
     if (!real) {
       this.sky.setTexture(`generated_bg_r${round}_sky`);
@@ -269,7 +270,7 @@ export class PlayScene extends Phaser.Scene {
     this.clearEntities();
     this.renderedRound = r;
     this.setTheme(r.roundIndex);
-    for (const s of r.solids) this.solidSprites.set(s.id, makeSolidImage(this, s));
+    for (const s of r.solids) this.solidSprites.set(s.id, makeSolidImage(this, s, r.roundIndex));
     this.decor = makeDecor(this, r.roundIndex, r.groundY);
     this.worldW = r.spec.worldWidth;
     this.camX = r.cameraX;
