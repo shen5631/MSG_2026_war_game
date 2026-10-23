@@ -44,6 +44,9 @@ const IMAGE_SIZE = {
   ui_title_logo: { w: 1028, h: 383 },
   ui_skill_gauges_64: { w: 1088, h: 1292 },
 };
+// Round-3 environment tiles are separate PNGs (no atlas): each registered tile must match its manifest size.
+const r3Manifest = readJson('public/assets/round3_environment_game_ready_v1/manifest.json');
+for (const t of r3Manifest.assets) IMAGE_SIZE[`r3env_${t.id}`] = { w: t.size[0], h: t.size[1] };
 
 for (const a of runtime.assets) {
   for (const rel of [a.texture, a.atlas].filter(Boolean)) {

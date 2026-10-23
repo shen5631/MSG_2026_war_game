@@ -1,0 +1,2528 @@
+{
+  "name": "round3_environment_game_ready_v1",
+  "displayName": "Round 3 Environment Game Ready V1",
+  "description": "Burning ruined fortress round 3 environment kit split into individual transparent PNG assets for immediate game use.",
+  "source": "불타는_요새_픽셀_아트_타일셋.png",
+  "assetCount": 93,
+  "categories": {
+    "terrain_cliffs": 22,
+    "ruins_walls": 14,
+    "platforms": 10,
+    "hazards_barricades": 2,
+    "fortress_props": 26,
+    "small_decor": 19
+  },
+  "assets": [
+    {
+      "id": "terrain_cliffs_01",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_01.png",
+      "filename": "round3_terrain_cliffs_01.png",
+      "source_bbox": [
+        1017,
+        4,
+        1157,
+        154
+      ],
+      "crop_bbox": [
+        1009,
+        0,
+        1165,
+        162
+      ],
+      "size": [
+        156,
+        162
+      ],
+      "area": 13461,
+      "anchor_bottom_center": [
+        78,
+        154
+      ]
+    },
+    {
+      "id": "terrain_cliffs_02",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_02.png",
+      "filename": "round3_terrain_cliffs_02.png",
+      "source_bbox": [
+        765,
+        6,
+        885,
+        153
+      ],
+      "crop_bbox": [
+        757,
+        0,
+        893,
+        161
+      ],
+      "size": [
+        136,
+        161
+      ],
+      "area": 12378,
+      "anchor_bottom_center": [
+        68,
+        153
+      ]
+    },
+    {
+      "id": "terrain_cliffs_03",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_03.png",
+      "filename": "round3_terrain_cliffs_03.png",
+      "source_bbox": [
+        902,
+        7,
+        1002,
+        153
+      ],
+      "crop_bbox": [
+        894,
+        0,
+        1010,
+        161
+      ],
+      "size": [
+        116,
+        161
+      ],
+      "area": 11432,
+      "anchor_bottom_center": [
+        58,
+        153
+      ]
+    },
+    {
+      "id": "terrain_cliffs_04",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_04.png",
+      "filename": "round3_terrain_cliffs_04.png",
+      "source_bbox": [
+        529,
+        14,
+        645,
+        154
+      ],
+      "crop_bbox": [
+        521,
+        6,
+        653,
+        162
+      ],
+      "size": [
+        132,
+        156
+      ],
+      "area": 13693,
+      "anchor_bottom_center": [
+        66,
+        148
+      ]
+    },
+    {
+      "id": "terrain_cliffs_05",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_05.png",
+      "filename": "round3_terrain_cliffs_05.png",
+      "source_bbox": [
+        208,
+        26,
+        352,
+        153
+      ],
+      "crop_bbox": [
+        200,
+        18,
+        360,
+        161
+      ],
+      "size": [
+        160,
+        143
+      ],
+      "area": 17193,
+      "anchor_bottom_center": [
+        80,
+        135
+      ]
+    },
+    {
+      "id": "terrain_cliffs_06",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_06.png",
+      "filename": "round3_terrain_cliffs_06.png",
+      "source_bbox": [
+        23,
+        28,
+        192,
+        153
+      ],
+      "crop_bbox": [
+        15,
+        20,
+        200,
+        161
+      ],
+      "size": [
+        185,
+        141
+      ],
+      "area": 18926,
+      "anchor_bottom_center": [
+        92,
+        133
+      ]
+    },
+    {
+      "id": "terrain_cliffs_07",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_07.png",
+      "filename": "round3_terrain_cliffs_07.png",
+      "source_bbox": [
+        651,
+        32,
+        753,
+        153
+      ],
+      "crop_bbox": [
+        643,
+        24,
+        761,
+        161
+      ],
+      "size": [
+        118,
+        137
+      ],
+      "area": 11837,
+      "anchor_bottom_center": [
+        59,
+        129
+      ]
+    },
+    {
+      "id": "terrain_cliffs_08",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_08.png",
+      "filename": "round3_terrain_cliffs_08.png",
+      "source_bbox": [
+        364,
+        33,
+        515,
+        154
+      ],
+      "crop_bbox": [
+        356,
+        25,
+        523,
+        162
+      ],
+      "size": [
+        167,
+        137
+      ],
+      "area": 17397,
+      "anchor_bottom_center": [
+        83,
+        129
+      ]
+    },
+    {
+      "id": "terrain_cliffs_09",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_09.png",
+      "filename": "round3_terrain_cliffs_09.png",
+      "source_bbox": [
+        1301,
+        48,
+        1429,
+        156
+      ],
+      "crop_bbox": [
+        1293,
+        40,
+        1437,
+        164
+      ],
+      "size": [
+        144,
+        124
+      ],
+      "area": 9333,
+      "anchor_bottom_center": [
+        72,
+        116
+      ]
+    },
+    {
+      "id": "terrain_cliffs_10",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_10.png",
+      "filename": "round3_terrain_cliffs_10.png",
+      "source_bbox": [
+        1180,
+        50,
+        1285,
+        155
+      ],
+      "crop_bbox": [
+        1172,
+        42,
+        1293,
+        163
+      ],
+      "size": [
+        121,
+        121
+      ],
+      "area": 9772,
+      "anchor_bottom_center": [
+        60,
+        113
+      ]
+    },
+    {
+      "id": "terrain_cliffs_11",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_11.png",
+      "filename": "round3_terrain_cliffs_11.png",
+      "source_bbox": [
+        988,
+        164,
+        1079,
+        303
+      ],
+      "crop_bbox": [
+        980,
+        156,
+        1087,
+        311
+      ],
+      "size": [
+        107,
+        155
+      ],
+      "area": 10524,
+      "anchor_bottom_center": [
+        53,
+        147
+      ]
+    },
+    {
+      "id": "terrain_cliffs_12",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_12.png",
+      "filename": "round3_terrain_cliffs_12.png",
+      "source_bbox": [
+        1097,
+        171,
+        1189,
+        305
+      ],
+      "crop_bbox": [
+        1089,
+        163,
+        1197,
+        313
+      ],
+      "size": [
+        108,
+        150
+      ],
+      "area": 10972,
+      "anchor_bottom_center": [
+        54,
+        142
+      ]
+    },
+    {
+      "id": "terrain_cliffs_13",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_13.png",
+      "filename": "round3_terrain_cliffs_13.png",
+      "source_bbox": [
+        138,
+        173,
+        243,
+        302
+      ],
+      "crop_bbox": [
+        130,
+        165,
+        251,
+        310
+      ],
+      "size": [
+        121,
+        145
+      ],
+      "area": 12867,
+      "anchor_bottom_center": [
+        60,
+        137
+      ]
+    },
+    {
+      "id": "terrain_cliffs_14",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_14.png",
+      "filename": "round3_terrain_cliffs_14.png",
+      "source_bbox": [
+        376,
+        173,
+        485,
+        302
+      ],
+      "crop_bbox": [
+        368,
+        165,
+        493,
+        310
+      ],
+      "size": [
+        125,
+        145
+      ],
+      "area": 13218,
+      "anchor_bottom_center": [
+        62,
+        137
+      ]
+    },
+    {
+      "id": "terrain_cliffs_15",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_15.png",
+      "filename": "round3_terrain_cliffs_15.png",
+      "source_bbox": [
+        1205,
+        173,
+        1337,
+        304
+      ],
+      "crop_bbox": [
+        1197,
+        165,
+        1345,
+        312
+      ],
+      "size": [
+        148,
+        147
+      ],
+      "area": 13208,
+      "anchor_bottom_center": [
+        74,
+        139
+      ]
+    },
+    {
+      "id": "terrain_cliffs_16",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_16.png",
+      "filename": "round3_terrain_cliffs_16.png",
+      "source_bbox": [
+        16,
+        174,
+        127,
+        302
+      ],
+      "crop_bbox": [
+        8,
+        166,
+        135,
+        310
+      ],
+      "size": [
+        127,
+        144
+      ],
+      "area": 13180,
+      "anchor_bottom_center": [
+        63,
+        136
+      ]
+    },
+    {
+      "id": "terrain_cliffs_17",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_17.png",
+      "filename": "round3_terrain_cliffs_17.png",
+      "source_bbox": [
+        259,
+        174,
+        366,
+        302
+      ],
+      "crop_bbox": [
+        251,
+        166,
+        374,
+        310
+      ],
+      "size": [
+        123,
+        144
+      ],
+      "area": 12802,
+      "anchor_bottom_center": [
+        61,
+        136
+      ]
+    },
+    {
+      "id": "terrain_cliffs_18",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_18.png",
+      "filename": "round3_terrain_cliffs_18.png",
+      "source_bbox": [
+        625,
+        174,
+        738,
+        302
+      ],
+      "crop_bbox": [
+        617,
+        166,
+        746,
+        310
+      ],
+      "size": [
+        129,
+        144
+      ],
+      "area": 13734,
+      "anchor_bottom_center": [
+        64,
+        136
+      ]
+    },
+    {
+      "id": "terrain_cliffs_19",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_19.png",
+      "filename": "round3_terrain_cliffs_19.png",
+      "source_bbox": [
+        502,
+        175,
+        610,
+        302
+      ],
+      "crop_bbox": [
+        494,
+        167,
+        618,
+        310
+      ],
+      "size": [
+        124,
+        143
+      ],
+      "area": 13157,
+      "anchor_bottom_center": [
+        62,
+        135
+      ]
+    },
+    {
+      "id": "terrain_cliffs_20",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_20.png",
+      "filename": "round3_terrain_cliffs_20.png",
+      "source_bbox": [
+        1341,
+        175,
+        1434,
+        303
+      ],
+      "crop_bbox": [
+        1333,
+        167,
+        1442,
+        311
+      ],
+      "size": [
+        109,
+        144
+      ],
+      "area": 11198,
+      "anchor_bottom_center": [
+        54,
+        136
+      ]
+    },
+    {
+      "id": "terrain_cliffs_21",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_21.png",
+      "filename": "round3_terrain_cliffs_21.png",
+      "source_bbox": [
+        874,
+        176,
+        967,
+        303
+      ],
+      "crop_bbox": [
+        866,
+        168,
+        975,
+        311
+      ],
+      "size": [
+        109,
+        143
+      ],
+      "area": 11333,
+      "anchor_bottom_center": [
+        54,
+        135
+      ]
+    },
+    {
+      "id": "terrain_cliffs_22",
+      "category": "terrain_cliffs",
+      "file": "tiles/terrain_cliffs/round3_terrain_cliffs_22.png",
+      "filename": "round3_terrain_cliffs_22.png",
+      "source_bbox": [
+        750,
+        180,
+        855,
+        301
+      ],
+      "crop_bbox": [
+        742,
+        172,
+        863,
+        309
+      ],
+      "size": [
+        121,
+        137
+      ],
+      "area": 10275,
+      "anchor_bottom_center": [
+        60,
+        129
+      ]
+    },
+    {
+      "id": "ruins_walls_01",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_01.png",
+      "filename": "round3_ruins_walls_01.png",
+      "source_bbox": [
+        257,
+        335,
+        481,
+        425
+      ],
+      "crop_bbox": [
+        249,
+        327,
+        489,
+        433
+      ],
+      "size": [
+        240,
+        106
+      ],
+      "area": 17227,
+      "anchor_bottom_center": [
+        120,
+        98
+      ]
+    },
+    {
+      "id": "ruins_walls_02",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_02.png",
+      "filename": "round3_ruins_walls_02.png",
+      "source_bbox": [
+        490,
+        335,
+        584,
+        437
+      ],
+      "crop_bbox": [
+        482,
+        327,
+        592,
+        445
+      ],
+      "size": [
+        110,
+        118
+      ],
+      "area": 6700,
+      "anchor_bottom_center": [
+        55,
+        110
+      ]
+    },
+    {
+      "id": "ruins_walls_03",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_03.png",
+      "filename": "round3_ruins_walls_03.png",
+      "source_bbox": [
+        15,
+        336,
+        128,
+        425
+      ],
+      "crop_bbox": [
+        7,
+        328,
+        136,
+        433
+      ],
+      "size": [
+        129,
+        105
+      ],
+      "area": 9744,
+      "anchor_bottom_center": [
+        64,
+        97
+      ]
+    },
+    {
+      "id": "ruins_walls_04",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_04.png",
+      "filename": "round3_ruins_walls_04.png",
+      "source_bbox": [
+        137,
+        336,
+        244,
+        425
+      ],
+      "crop_bbox": [
+        129,
+        328,
+        252,
+        433
+      ],
+      "size": [
+        123,
+        105
+      ],
+      "area": 9276,
+      "anchor_bottom_center": [
+        61,
+        97
+      ]
+    },
+    {
+      "id": "ruins_walls_05",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_05.png",
+      "filename": "round3_ruins_walls_05.png",
+      "source_bbox": [
+        602,
+        337,
+        678,
+        443
+      ],
+      "crop_bbox": [
+        594,
+        329,
+        686,
+        451
+      ],
+      "size": [
+        92,
+        122
+      ],
+      "area": 7658,
+      "anchor_bottom_center": [
+        46,
+        114
+      ]
+    },
+    {
+      "id": "ruins_walls_06",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_06.png",
+      "filename": "round3_ruins_walls_06.png",
+      "source_bbox": [
+        694,
+        337,
+        818,
+        443
+      ],
+      "crop_bbox": [
+        686,
+        329,
+        826,
+        451
+      ],
+      "size": [
+        140,
+        122
+      ],
+      "area": 8436,
+      "anchor_bottom_center": [
+        70,
+        114
+      ]
+    },
+    {
+      "id": "ruins_walls_07",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_07.png",
+      "filename": "round3_ruins_walls_07.png",
+      "source_bbox": [
+        18,
+        448,
+        81,
+        598
+      ],
+      "crop_bbox": [
+        10,
+        440,
+        89,
+        606
+      ],
+      "size": [
+        79,
+        166
+      ],
+      "area": 9130,
+      "anchor_bottom_center": [
+        39,
+        158
+      ]
+    },
+    {
+      "id": "ruins_walls_08",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_08.png",
+      "filename": "round3_ruins_walls_08.png",
+      "source_bbox": [
+        118,
+        448,
+        187,
+        594
+      ],
+      "crop_bbox": [
+        110,
+        440,
+        195,
+        602
+      ],
+      "size": [
+        85,
+        162
+      ],
+      "area": 9058,
+      "anchor_bottom_center": [
+        42,
+        154
+      ]
+    },
+    {
+      "id": "ruins_walls_09",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_09.png",
+      "filename": "round3_ruins_walls_09.png",
+      "source_bbox": [
+        217,
+        448,
+        268,
+        598
+      ],
+      "crop_bbox": [
+        209,
+        440,
+        276,
+        606
+      ],
+      "size": [
+        67,
+        166
+      ],
+      "area": 6528,
+      "anchor_bottom_center": [
+        33,
+        158
+      ]
+    },
+    {
+      "id": "ruins_walls_10",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_10.png",
+      "filename": "round3_ruins_walls_10.png",
+      "source_bbox": [
+        302,
+        448,
+        369,
+        597
+      ],
+      "crop_bbox": [
+        294,
+        440,
+        377,
+        605
+      ],
+      "size": [
+        83,
+        165
+      ],
+      "area": 8939,
+      "anchor_bottom_center": [
+        41,
+        157
+      ]
+    },
+    {
+      "id": "ruins_walls_11",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_11.png",
+      "filename": "round3_ruins_walls_11.png",
+      "source_bbox": [
+        400,
+        451,
+        469,
+        597
+      ],
+      "crop_bbox": [
+        392,
+        443,
+        477,
+        605
+      ],
+      "size": [
+        85,
+        162
+      ],
+      "area": 7296,
+      "anchor_bottom_center": [
+        42,
+        154
+      ]
+    },
+    {
+      "id": "ruins_walls_12",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_12.png",
+      "filename": "round3_ruins_walls_12.png",
+      "source_bbox": [
+        489,
+        451,
+        553,
+        535
+      ],
+      "crop_bbox": [
+        481,
+        443,
+        561,
+        543
+      ],
+      "size": [
+        80,
+        100
+      ],
+      "area": 4479,
+      "anchor_bottom_center": [
+        40,
+        92
+      ]
+    },
+    {
+      "id": "ruins_walls_13",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_13.png",
+      "filename": "round3_ruins_walls_13.png",
+      "source_bbox": [
+        575,
+        464,
+        677,
+        590
+      ],
+      "crop_bbox": [
+        567,
+        456,
+        685,
+        598
+      ],
+      "size": [
+        118,
+        142
+      ],
+      "area": 10912,
+      "anchor_bottom_center": [
+        59,
+        134
+      ]
+    },
+    {
+      "id": "ruins_walls_14",
+      "category": "ruins_walls",
+      "file": "tiles/ruins_walls/round3_ruins_walls_14.png",
+      "filename": "round3_ruins_walls_14.png",
+      "source_bbox": [
+        696,
+        465,
+        808,
+        590
+      ],
+      "crop_bbox": [
+        688,
+        457,
+        816,
+        598
+      ],
+      "size": [
+        128,
+        141
+      ],
+      "area": 11792,
+      "anchor_bottom_center": [
+        64,
+        133
+      ]
+    },
+    {
+      "id": "platforms_01",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_01.png",
+      "filename": "round3_platforms_01.png",
+      "source_bbox": [
+        539,
+        612,
+        678,
+        797
+      ],
+      "crop_bbox": [
+        531,
+        604,
+        686,
+        805
+      ],
+      "size": [
+        155,
+        201
+      ],
+      "area": 12464,
+      "anchor_bottom_center": [
+        77,
+        193
+      ]
+    },
+    {
+      "id": "platforms_02",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_02.png",
+      "filename": "round3_platforms_02.png",
+      "source_bbox": [
+        19,
+        616,
+        221,
+        805
+      ],
+      "crop_bbox": [
+        11,
+        608,
+        229,
+        813
+      ],
+      "size": [
+        218,
+        205
+      ],
+      "area": 19074,
+      "anchor_bottom_center": [
+        109,
+        197
+      ]
+    },
+    {
+      "id": "platforms_03",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_03.png",
+      "filename": "round3_platforms_03.png",
+      "source_bbox": [
+        695,
+        616,
+        854,
+        793
+      ],
+      "crop_bbox": [
+        687,
+        608,
+        862,
+        801
+      ],
+      "size": [
+        175,
+        193
+      ],
+      "area": 14399,
+      "anchor_bottom_center": [
+        87,
+        185
+      ]
+    },
+    {
+      "id": "platforms_04",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_04.png",
+      "filename": "round3_platforms_04.png",
+      "source_bbox": [
+        236,
+        617,
+        369,
+        745
+      ],
+      "crop_bbox": [
+        228,
+        609,
+        377,
+        753
+      ],
+      "size": [
+        149,
+        144
+      ],
+      "area": 8826,
+      "anchor_bottom_center": [
+        74,
+        136
+      ]
+    },
+    {
+      "id": "platforms_05",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_05.png",
+      "filename": "round3_platforms_05.png",
+      "source_bbox": [
+        867,
+        617,
+        995,
+        784
+      ],
+      "crop_bbox": [
+        859,
+        609,
+        1003,
+        792
+      ],
+      "size": [
+        144,
+        183
+      ],
+      "area": 8913,
+      "anchor_bottom_center": [
+        72,
+        175
+      ]
+    },
+    {
+      "id": "platforms_06",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_06.png",
+      "filename": "round3_platforms_06.png",
+      "source_bbox": [
+        388,
+        641,
+        529,
+        776
+      ],
+      "crop_bbox": [
+        380,
+        633,
+        537,
+        784
+      ],
+      "size": [
+        157,
+        151
+      ],
+      "area": 9364,
+      "anchor_bottom_center": [
+        78,
+        143
+      ]
+    },
+    {
+      "id": "platforms_07",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_07.png",
+      "filename": "round3_platforms_07.png",
+      "source_bbox": [
+        744,
+        791,
+        1066,
+        927
+      ],
+      "crop_bbox": [
+        736,
+        783,
+        1074,
+        935
+      ],
+      "size": [
+        338,
+        152
+      ],
+      "area": 22595,
+      "anchor_bottom_center": [
+        169,
+        144
+      ]
+    },
+    {
+      "id": "platforms_08",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_08.png",
+      "filename": "round3_platforms_08.png",
+      "source_bbox": [
+        354,
+        794,
+        585,
+        928
+      ],
+      "crop_bbox": [
+        346,
+        786,
+        593,
+        936
+      ],
+      "size": [
+        247,
+        150
+      ],
+      "area": 15192,
+      "anchor_bottom_center": [
+        123,
+        142
+      ]
+    },
+    {
+      "id": "platforms_09",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_09.png",
+      "filename": "round3_platforms_09.png",
+      "source_bbox": [
+        187,
+        795,
+        344,
+        927
+      ],
+      "crop_bbox": [
+        179,
+        787,
+        352,
+        935
+      ],
+      "size": [
+        173,
+        148
+      ],
+      "area": 11254,
+      "anchor_bottom_center": [
+        86,
+        140
+      ]
+    },
+    {
+      "id": "platforms_10",
+      "category": "platforms",
+      "file": "tiles/platforms/round3_platforms_10.png",
+      "filename": "round3_platforms_10.png",
+      "source_bbox": [
+        16,
+        802,
+        178,
+        928
+      ],
+      "crop_bbox": [
+        8,
+        794,
+        186,
+        936
+      ],
+      "size": [
+        178,
+        142
+      ],
+      "area": 13068,
+      "anchor_bottom_center": [
+        89,
+        134
+      ]
+    },
+    {
+      "id": "hazards_barricades_01",
+      "category": "hazards_barricades",
+      "file": "tiles/hazards_barricades/round3_hazards_barricades_01.png",
+      "filename": "round3_hazards_barricades_01.png",
+      "source_bbox": [
+        587,
+        844,
+        735,
+        927
+      ],
+      "crop_bbox": [
+        579,
+        836,
+        743,
+        935
+      ],
+      "size": [
+        164,
+        99
+      ],
+      "area": 6480,
+      "anchor_bottom_center": [
+        82,
+        91
+      ]
+    },
+    {
+      "id": "hazards_barricades_02",
+      "category": "hazards_barricades",
+      "file": "tiles/hazards_barricades/round3_hazards_barricades_02.png",
+      "filename": "round3_hazards_barricades_02.png",
+      "source_bbox": [
+        1159,
+        918,
+        1229,
+        1070
+      ],
+      "crop_bbox": [
+        1151,
+        910,
+        1237,
+        1078
+      ],
+      "size": [
+        86,
+        168
+      ],
+      "area": 6524,
+      "anchor_bottom_center": [
+        43,
+        160
+      ]
+    },
+    {
+      "id": "fortress_props_01",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_01.png",
+      "filename": "round3_fortress_props_01.png",
+      "source_bbox": [
+        837,
+        318,
+        931,
+        533
+      ],
+      "crop_bbox": [
+        829,
+        310,
+        939,
+        541
+      ],
+      "size": [
+        110,
+        231
+      ],
+      "area": 14983,
+      "anchor_bottom_center": [
+        55,
+        223
+      ]
+    },
+    {
+      "id": "fortress_props_02",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_02.png",
+      "filename": "round3_fortress_props_02.png",
+      "source_bbox": [
+        1060,
+        319,
+        1153,
+        543
+      ],
+      "crop_bbox": [
+        1052,
+        311,
+        1161,
+        551
+      ],
+      "size": [
+        109,
+        240
+      ],
+      "area": 14056,
+      "anchor_bottom_center": [
+        54,
+        232
+      ]
+    },
+    {
+      "id": "fortress_props_03",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_03.png",
+      "filename": "round3_fortress_props_03.png",
+      "source_bbox": [
+        1238,
+        319,
+        1382,
+        484
+      ],
+      "crop_bbox": [
+        1230,
+        311,
+        1390,
+        492
+      ],
+      "size": [
+        160,
+        181
+      ],
+      "area": 8257,
+      "anchor_bottom_center": [
+        80,
+        173
+      ]
+    },
+    {
+      "id": "fortress_props_04",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_04.png",
+      "filename": "round3_fortress_props_04.png",
+      "source_bbox": [
+        942,
+        322,
+        1043,
+        474
+      ],
+      "crop_bbox": [
+        934,
+        314,
+        1051,
+        482
+      ],
+      "size": [
+        117,
+        168
+      ],
+      "area": 12951,
+      "anchor_bottom_center": [
+        58,
+        160
+      ]
+    },
+    {
+      "id": "fortress_props_05",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_05.png",
+      "filename": "round3_fortress_props_05.png",
+      "source_bbox": [
+        1386,
+        324,
+        1433,
+        486
+      ],
+      "crop_bbox": [
+        1378,
+        316,
+        1441,
+        494
+      ],
+      "size": [
+        63,
+        178
+      ],
+      "area": 3417,
+      "anchor_bottom_center": [
+        31,
+        170
+      ]
+    },
+    {
+      "id": "fortress_props_06",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_06.png",
+      "filename": "round3_fortress_props_06.png",
+      "source_bbox": [
+        1167,
+        333,
+        1223,
+        570
+      ],
+      "crop_bbox": [
+        1159,
+        325,
+        1231,
+        578
+      ],
+      "size": [
+        72,
+        253
+      ],
+      "area": 10638,
+      "anchor_bottom_center": [
+        36,
+        245
+      ]
+    },
+    {
+      "id": "fortress_props_07",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_07.png",
+      "filename": "round3_fortress_props_07.png",
+      "source_bbox": [
+        1333,
+        488,
+        1438,
+        732
+      ],
+      "crop_bbox": [
+        1325,
+        480,
+        1446,
+        740
+      ],
+      "size": [
+        121,
+        260
+      ],
+      "area": 18548,
+      "anchor_bottom_center": [
+        60,
+        252
+      ]
+    },
+    {
+      "id": "fortress_props_08",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_08.png",
+      "filename": "round3_fortress_props_08.png",
+      "source_bbox": [
+        960,
+        489,
+        1012,
+        602
+      ],
+      "crop_bbox": [
+        952,
+        481,
+        1020,
+        610
+      ],
+      "size": [
+        68,
+        129
+      ],
+      "area": 5475,
+      "anchor_bottom_center": [
+        34,
+        121
+      ]
+    },
+    {
+      "id": "fortress_props_09",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_09.png",
+      "filename": "round3_fortress_props_09.png",
+      "source_bbox": [
+        1027,
+        513,
+        1108,
+        615
+      ],
+      "crop_bbox": [
+        1019,
+        505,
+        1116,
+        623
+      ],
+      "size": [
+        97,
+        118
+      ],
+      "area": 4450,
+      "anchor_bottom_center": [
+        48,
+        110
+      ]
+    },
+    {
+      "id": "fortress_props_10",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_10.png",
+      "filename": "round3_fortress_props_10.png",
+      "source_bbox": [
+        1228,
+        527,
+        1322,
+        725
+      ],
+      "crop_bbox": [
+        1220,
+        519,
+        1330,
+        733
+      ],
+      "size": [
+        110,
+        214
+      ],
+      "area": 10912,
+      "anchor_bottom_center": [
+        55,
+        206
+      ]
+    },
+    {
+      "id": "fortress_props_11",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_11.png",
+      "filename": "round3_fortress_props_11.png",
+      "source_bbox": [
+        874,
+        528,
+        940,
+        602
+      ],
+      "crop_bbox": [
+        866,
+        520,
+        948,
+        610
+      ],
+      "size": [
+        82,
+        90
+      ],
+      "area": 3291,
+      "anchor_bottom_center": [
+        41,
+        82
+      ]
+    },
+    {
+      "id": "fortress_props_12",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_12.png",
+      "filename": "round3_fortress_props_12.png",
+      "source_bbox": [
+        826,
+        547,
+        873,
+        602
+      ],
+      "crop_bbox": [
+        818,
+        539,
+        881,
+        610
+      ],
+      "size": [
+        63,
+        71
+      ],
+      "area": 2155,
+      "anchor_bottom_center": [
+        31,
+        63
+      ]
+    },
+    {
+      "id": "fortress_props_13",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_13.png",
+      "filename": "round3_fortress_props_13.png",
+      "source_bbox": [
+        1115,
+        558,
+        1191,
+        615
+      ],
+      "crop_bbox": [
+        1107,
+        550,
+        1199,
+        623
+      ],
+      "size": [
+        92,
+        73
+      ],
+      "area": 2809,
+      "anchor_bottom_center": [
+        46,
+        65
+      ]
+    },
+    {
+      "id": "fortress_props_14",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_14.png",
+      "filename": "round3_fortress_props_14.png",
+      "source_bbox": [
+        1156,
+        619,
+        1214,
+        724
+      ],
+      "crop_bbox": [
+        1148,
+        611,
+        1222,
+        732
+      ],
+      "size": [
+        74,
+        121
+      ],
+      "area": 4435,
+      "anchor_bottom_center": [
+        37,
+        113
+      ]
+    },
+    {
+      "id": "fortress_props_15",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_15.png",
+      "filename": "round3_fortress_props_15.png",
+      "source_bbox": [
+        1014,
+        625,
+        1049,
+        746
+      ],
+      "crop_bbox": [
+        1006,
+        617,
+        1057,
+        754
+      ],
+      "size": [
+        51,
+        137
+      ],
+      "area": 3235,
+      "anchor_bottom_center": [
+        25,
+        129
+      ]
+    },
+    {
+      "id": "fortress_props_16",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_16.png",
+      "filename": "round3_fortress_props_16.png",
+      "source_bbox": [
+        1063,
+        626,
+        1141,
+        732
+      ],
+      "crop_bbox": [
+        1055,
+        618,
+        1149,
+        740
+      ],
+      "size": [
+        94,
+        122
+      ],
+      "area": 4692,
+      "anchor_bottom_center": [
+        47,
+        114
+      ]
+    },
+    {
+      "id": "fortress_props_17",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_17.png",
+      "filename": "round3_fortress_props_17.png",
+      "source_bbox": [
+        1072,
+        739,
+        1318,
+        1068
+      ],
+      "crop_bbox": [
+        1064,
+        731,
+        1326,
+        1076
+      ],
+      "size": [
+        262,
+        345
+      ],
+      "area": 35972,
+      "anchor_bottom_center": [
+        131,
+        337
+      ]
+    },
+    {
+      "id": "fortress_props_18",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_18.png",
+      "filename": "round3_fortress_props_18.png",
+      "source_bbox": [
+        1176,
+        743,
+        1320,
+        860
+      ],
+      "crop_bbox": [
+        1168,
+        735,
+        1328,
+        868
+      ],
+      "size": [
+        160,
+        133
+      ],
+      "area": 5232,
+      "anchor_bottom_center": [
+        80,
+        125
+      ]
+    },
+    {
+      "id": "fortress_props_19",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_19.png",
+      "filename": "round3_fortress_props_19.png",
+      "source_bbox": [
+        1388,
+        754,
+        1433,
+        996
+      ],
+      "crop_bbox": [
+        1380,
+        746,
+        1441,
+        1004
+      ],
+      "size": [
+        61,
+        258
+      ],
+      "area": 6327,
+      "anchor_bottom_center": [
+        30,
+        250
+      ]
+    },
+    {
+      "id": "fortress_props_20",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_20.png",
+      "filename": "round3_fortress_props_20.png",
+      "source_bbox": [
+        1328,
+        767,
+        1367,
+        966
+      ],
+      "crop_bbox": [
+        1320,
+        759,
+        1375,
+        974
+      ],
+      "size": [
+        55,
+        215
+      ],
+      "area": 4020,
+      "anchor_bottom_center": [
+        27,
+        207
+      ]
+    },
+    {
+      "id": "fortress_props_21",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_21.png",
+      "filename": "round3_fortress_props_21.png",
+      "source_bbox": [
+        20,
+        936,
+        98,
+        1060
+      ],
+      "crop_bbox": [
+        12,
+        928,
+        106,
+        1068
+      ],
+      "size": [
+        94,
+        140
+      ],
+      "area": 4359,
+      "anchor_bottom_center": [
+        47,
+        132
+      ]
+    },
+    {
+      "id": "fortress_props_22",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_22.png",
+      "filename": "round3_fortress_props_22.png",
+      "source_bbox": [
+        1235,
+        937,
+        1309,
+        1058
+      ],
+      "crop_bbox": [
+        1227,
+        929,
+        1317,
+        1066
+      ],
+      "size": [
+        90,
+        137
+      ],
+      "area": 6886,
+      "anchor_bottom_center": [
+        45,
+        129
+      ]
+    },
+    {
+      "id": "fortress_props_23",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_23.png",
+      "filename": "round3_fortress_props_23.png",
+      "source_bbox": [
+        643,
+        939,
+        885,
+        1070
+      ],
+      "crop_bbox": [
+        635,
+        931,
+        893,
+        1078
+      ],
+      "size": [
+        258,
+        147
+      ],
+      "area": 17948,
+      "anchor_bottom_center": [
+        129,
+        139
+      ]
+    },
+    {
+      "id": "fortress_props_24",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_24.png",
+      "filename": "round3_fortress_props_24.png",
+      "source_bbox": [
+        961,
+        940,
+        1067,
+        1001
+      ],
+      "crop_bbox": [
+        953,
+        932,
+        1075,
+        1009
+      ],
+      "size": [
+        122,
+        77
+      ],
+      "area": 5023,
+      "anchor_bottom_center": [
+        61,
+        69
+      ]
+    },
+    {
+      "id": "fortress_props_25",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_25.png",
+      "filename": "round3_fortress_props_25.png",
+      "source_bbox": [
+        122,
+        951,
+        289,
+        995
+      ],
+      "crop_bbox": [
+        114,
+        943,
+        297,
+        1003
+      ],
+      "size": [
+        183,
+        60
+      ],
+      "area": 5097,
+      "anchor_bottom_center": [
+        91,
+        52
+      ]
+    },
+    {
+      "id": "fortress_props_26",
+      "category": "fortress_props",
+      "file": "tiles/fortress_props/round3_fortress_props_26.png",
+      "filename": "round3_fortress_props_26.png",
+      "source_bbox": [
+        1319,
+        976,
+        1432,
+        1067
+      ],
+      "crop_bbox": [
+        1311,
+        968,
+        1440,
+        1075
+      ],
+      "size": [
+        129,
+        107
+      ],
+      "area": 5938,
+      "anchor_bottom_center": [
+        64,
+        99
+      ]
+    },
+    {
+      "id": "small_decor_01",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_01.png",
+      "filename": "round3_small_decor_01.png",
+      "source_bbox": [
+        418,
+        938,
+        512,
+        990
+      ],
+      "crop_bbox": [
+        410,
+        930,
+        520,
+        998
+      ],
+      "size": [
+        110,
+        68
+      ],
+      "area": 3621,
+      "anchor_bottom_center": [
+        55,
+        60
+      ]
+    },
+    {
+      "id": "small_decor_02",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_02.png",
+      "filename": "round3_small_decor_02.png",
+      "source_bbox": [
+        526,
+        942,
+        619,
+        991
+      ],
+      "crop_bbox": [
+        518,
+        934,
+        627,
+        999
+      ],
+      "size": [
+        109,
+        65
+      ],
+      "area": 3437,
+      "anchor_bottom_center": [
+        54,
+        57
+      ]
+    },
+    {
+      "id": "small_decor_03",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_03.png",
+      "filename": "round3_small_decor_03.png",
+      "source_bbox": [
+        878,
+        942,
+        950,
+        998
+      ],
+      "crop_bbox": [
+        870,
+        934,
+        958,
+        1006
+      ],
+      "size": [
+        88,
+        72
+      ],
+      "area": 3761,
+      "anchor_bottom_center": [
+        44,
+        64
+      ]
+    },
+    {
+      "id": "small_decor_04",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_04.png",
+      "filename": "round3_small_decor_04.png",
+      "source_bbox": [
+        304,
+        953,
+        413,
+        990
+      ],
+      "crop_bbox": [
+        296,
+        945,
+        421,
+        998
+      ],
+      "size": [
+        125,
+        53
+      ],
+      "area": 2834,
+      "anchor_bottom_center": [
+        62,
+        45
+      ]
+    },
+    {
+      "id": "small_decor_05",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_05.png",
+      "filename": "round3_small_decor_05.png",
+      "source_bbox": [
+        478,
+        994,
+        553,
+        1023
+      ],
+      "crop_bbox": [
+        470,
+        986,
+        561,
+        1031
+      ],
+      "size": [
+        91,
+        45
+      ],
+      "area": 1495,
+      "anchor_bottom_center": [
+        45,
+        37
+      ]
+    },
+    {
+      "id": "small_decor_06",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_06.png",
+      "filename": "round3_small_decor_06.png",
+      "source_bbox": [
+        339,
+        999,
+        422,
+        1070
+      ],
+      "crop_bbox": [
+        331,
+        991,
+        430,
+        1078
+      ],
+      "size": [
+        99,
+        87
+      ],
+      "area": 3234,
+      "anchor_bottom_center": [
+        49,
+        79
+      ]
+    },
+    {
+      "id": "small_decor_07",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_07.png",
+      "filename": "round3_small_decor_07.png",
+      "source_bbox": [
+        574,
+        1002,
+        638,
+        1023
+      ],
+      "crop_bbox": [
+        566,
+        994,
+        646,
+        1031
+      ],
+      "size": [
+        80,
+        37
+      ],
+      "area": 1039,
+      "anchor_bottom_center": [
+        40,
+        29
+      ]
+    },
+    {
+      "id": "small_decor_08",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_08.png",
+      "filename": "round3_small_decor_08.png",
+      "source_bbox": [
+        272,
+        1003,
+        332,
+        1040
+      ],
+      "crop_bbox": [
+        264,
+        995,
+        340,
+        1048
+      ],
+      "size": [
+        76,
+        53
+      ],
+      "area": 1480,
+      "anchor_bottom_center": [
+        38,
+        45
+      ]
+    },
+    {
+      "id": "small_decor_09",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_09.png",
+      "filename": "round3_small_decor_09.png",
+      "source_bbox": [
+        994,
+        1005,
+        1063,
+        1067
+      ],
+      "crop_bbox": [
+        986,
+        997,
+        1071,
+        1075
+      ],
+      "size": [
+        85,
+        78
+      ],
+      "area": 3662,
+      "anchor_bottom_center": [
+        42,
+        70
+      ]
+    },
+    {
+      "id": "small_decor_10",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_10.png",
+      "filename": "round3_small_decor_10.png",
+      "source_bbox": [
+        417,
+        1010,
+        459,
+        1039
+      ],
+      "crop_bbox": [
+        409,
+        1002,
+        467,
+        1047
+      ],
+      "size": [
+        58,
+        45
+      ],
+      "area": 836,
+      "anchor_bottom_center": [
+        29,
+        37
+      ]
+    },
+    {
+      "id": "small_decor_11",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_11.png",
+      "filename": "round3_small_decor_11.png",
+      "source_bbox": [
+        892,
+        1011,
+        982,
+        1069
+      ],
+      "crop_bbox": [
+        884,
+        1003,
+        990,
+        1077
+      ],
+      "size": [
+        106,
+        74
+      ],
+      "area": 3457,
+      "anchor_bottom_center": [
+        53,
+        66
+      ]
+    },
+    {
+      "id": "small_decor_12",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_12.png",
+      "filename": "round3_small_decor_12.png",
+      "source_bbox": [
+        107,
+        1014,
+        162,
+        1058
+      ],
+      "crop_bbox": [
+        99,
+        1006,
+        170,
+        1066
+      ],
+      "size": [
+        71,
+        60
+      ],
+      "area": 1595,
+      "anchor_bottom_center": [
+        35,
+        52
+      ]
+    },
+    {
+      "id": "small_decor_13",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_13.png",
+      "filename": "round3_small_decor_13.png",
+      "source_bbox": [
+        176,
+        1016,
+        258,
+        1065
+      ],
+      "crop_bbox": [
+        168,
+        1008,
+        266,
+        1073
+      ],
+      "size": [
+        98,
+        65
+      ],
+      "area": 3065,
+      "anchor_bottom_center": [
+        49,
+        57
+      ]
+    },
+    {
+      "id": "small_decor_14",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_14.png",
+      "filename": "round3_small_decor_14.png",
+      "source_bbox": [
+        558,
+        1027,
+        589,
+        1044
+      ],
+      "crop_bbox": [
+        550,
+        1019,
+        597,
+        1052
+      ],
+      "size": [
+        47,
+        33
+      ],
+      "area": 362,
+      "anchor_bottom_center": [
+        23,
+        25
+      ]
+    },
+    {
+      "id": "small_decor_15",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_15.png",
+      "filename": "round3_small_decor_15.png",
+      "source_bbox": [
+        440,
+        1037,
+        510,
+        1070
+      ],
+      "crop_bbox": [
+        432,
+        1029,
+        518,
+        1078
+      ],
+      "size": [
+        86,
+        49
+      ],
+      "area": 1703,
+      "anchor_bottom_center": [
+        43,
+        41
+      ]
+    },
+    {
+      "id": "small_decor_16",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_16.png",
+      "filename": "round3_small_decor_16.png",
+      "source_bbox": [
+        575,
+        1039,
+        652,
+        1070
+      ],
+      "crop_bbox": [
+        567,
+        1031,
+        660,
+        1078
+      ],
+      "size": [
+        93,
+        47
+      ],
+      "area": 1755,
+      "anchor_bottom_center": [
+        46,
+        39
+      ]
+    },
+    {
+      "id": "small_decor_17",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_17.png",
+      "filename": "round3_small_decor_17.png",
+      "source_bbox": [
+        522,
+        1045,
+        553,
+        1068
+      ],
+      "crop_bbox": [
+        514,
+        1037,
+        561,
+        1076
+      ],
+      "size": [
+        47,
+        39
+      ],
+      "area": 572,
+      "anchor_bottom_center": [
+        23,
+        31
+      ]
+    },
+    {
+      "id": "small_decor_18",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_18.png",
+      "filename": "round3_small_decor_18.png",
+      "source_bbox": [
+        274,
+        1048,
+        322,
+        1069
+      ],
+      "crop_bbox": [
+        266,
+        1040,
+        330,
+        1077
+      ],
+      "size": [
+        64,
+        37
+      ],
+      "area": 746,
+      "anchor_bottom_center": [
+        32,
+        29
+      ]
+    },
+    {
+      "id": "small_decor_19",
+      "category": "small_decor",
+      "file": "tiles/small_decor/round3_small_decor_19.png",
+      "filename": "round3_small_decor_19.png",
+      "source_bbox": [
+        672,
+        1051,
+        696,
+        1068
+      ],
+      "crop_bbox": [
+        664,
+        1043,
+        704,
+        1076
+      ],
+      "size": [
+        40,
+        33
+      ],
+      "area": 324,
+      "anchor_bottom_center": [
+        20,
+        25
+      ]
+    }
+  ]
+}

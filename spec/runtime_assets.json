@@ -117,6 +117,126 @@
     },
     {
       "type": "image",
+      "key": "r3env_ruins_walls_03",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/ruins_walls/round3_ruins_walls_03.png",
+      "note": "3라운드 환경 타일 129x105 (ruins_walls, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_platforms_02",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/platforms/round3_platforms_02.png",
+      "note": "3라운드 환경 타일 218x205 (platforms, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_small_decor_09",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/small_decor/round3_small_decor_09.png",
+      "note": "3라운드 환경 타일 85x78 (small_decor, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_22",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_22.png",
+      "note": "3라운드 환경 타일 90x137 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_small_decor_01",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/small_decor/round3_small_decor_01.png",
+      "note": "3라운드 환경 타일 110x68 (small_decor, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_06",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_06.png",
+      "note": "3라운드 환경 타일 72x253 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_19",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_19.png",
+      "note": "3라운드 환경 타일 61x258 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_01",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_01.png",
+      "note": "3라운드 환경 타일 110x231 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_hazards_barricades_01",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/hazards_barricades/round3_hazards_barricades_01.png",
+      "note": "3라운드 환경 타일 164x99 (hazards_barricades, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_hazards_barricades_02",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/hazards_barricades/round3_hazards_barricades_02.png",
+      "note": "3라운드 환경 타일 86x168 (hazards_barricades, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_25",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_25.png",
+      "note": "3라운드 환경 타일 183x60 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_12",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_12.png",
+      "note": "3라운드 환경 타일 63x71 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_fortress_props_11",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_11.png",
+      "note": "3라운드 환경 타일 82x90 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_platforms_09",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/platforms/round3_platforms_09.png",
+      "note": "3라운드 환경 타일 173x148 (platforms, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_small_decor_13",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/small_decor/round3_small_decor_13.png",
+      "note": "3라운드 환경 타일 98x65 (small_decor, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_small_decor_02",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/small_decor/round3_small_decor_02.png",
+      "note": "3라운드 환경 타일 109x65 (small_decor, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_terrain_cliffs_18",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/terrain_cliffs/round3_terrain_cliffs_18.png",
+      "note": "3라운드 환경 타일 129x144 (terrain_cliffs, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_terrain_cliffs_19",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/terrain_cliffs/round3_terrain_cliffs_19.png",
+      "note": "3라운드 환경 타일 124x143 (terrain_cliffs, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_terrain_cliffs_17",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/terrain_cliffs/round3_terrain_cliffs_17.png",
+      "note": "3라운드 환경 타일 123x144 (terrain_cliffs, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
+      "key": "r3env_terrain_cliffs_20",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/terrain_cliffs/round3_terrain_cliffs_20.png",
+      "note": "3라운드 환경 타일 109x144 (terrain_cliffs, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+    },
+    {
+      "type": "image",
       "key": "ui_title_logo",
       "texture": "assets/ui/title_logo.png",
       "note": "타이틀 로고(사용자 제공 2056x765를 1028x383으로 축소, 투명 배경). React 타이틀 화면에서 표시"
