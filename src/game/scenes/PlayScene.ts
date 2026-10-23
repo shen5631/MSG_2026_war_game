@@ -9,7 +9,7 @@ import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
 import { BOSS_FRAME_INFO, type Pose } from '../visual/placeholders';
-import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, groundStripKey, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
+import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, groundStripKey, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage, type SolidView } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
@@ -67,7 +67,7 @@ export class PlayScene extends Phaser.Scene {
   private bossSprite: Phaser.GameObjects.Sprite | null = null;
   private bossFlashUntil = 0;
   private bossLastHp = 0;
-  private solidSprites = new Map<string, Phaser.GameObjects.Image>();
+  private solidSprites = new Map<string, SolidView>();
   private pickupSprites = new Map<string, Phaser.GameObjects.Image>();
   private pools = { arrows: [] as Phaser.GameObjects.Image[], allies: [] as Phaser.GameObjects.Sprite[] };
   private fx: FxItem[] = [];

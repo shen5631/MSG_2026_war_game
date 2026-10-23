@@ -4,6 +4,7 @@ import Phaser from 'phaser';
 import type { Enemy } from '../../domain/enemies';
 import type { Solid, SolidKind } from '../../domain/physics';
 import { R2_CONTENT, R2_DECOR, R2_GROUND_PIECES, R2_SOLID_ART, R2_STEP_BRIGHTNESS, ROUND2_ENV_KEY } from './round2Environment';
+import { R3_CONTENT, R3_DECOR, R3_GROUND_PIECES, R3_SOLID_ART, r3TextureKey } from './round3Environment';
 
 export const ENV_KEY = 'round1_env';
 export const INFANTRY_KEY = 'khitan_infantry';
@@ -14,8 +15,9 @@ export const BG_ROUND3_KEY = 'bg_round3_burning_fortress';
 export const ROUND_BG_KEYS: Record<number, string> = { 1: BG_ROUND1_KEY, 2: BG_ROUND2_KEY, 3: BG_ROUND3_KEY };
 export const GROUND_STRIP_KEY = 'terrain_ground_strip';
 export const GROUND_STRIP_R2_KEY = 'terrain_ground_strip_r2';
-/** Ground band per round (round 2: war-camp terrain; rounds 1/3: round-1 cliff faces). */
-export const groundStripKey = (round: number): string => (round === 2 ? GROUND_STRIP_R2_KEY : GROUND_STRIP_KEY);
+export const GROUND_STRIP_R3_KEY = 'terrain_ground_strip_r3';
+/** Ground band per round (each round has its own terrain set). */
+export const groundStripKey = (round: number): string => (round === 2 ? GROUND_STRIP_R2_KEY : round === 3 ? GROUND_STRIP_R3_KEY : GROUND_STRIP_KEY);
 
 /** Visible (alpha) content rect of each used environment frame, measured from the supplied atlas. */
 const CONTENT: Record<string, { x: number; y: number; w: number; h: number }> = {
@@ -49,7 +51,16 @@ export const REQUIRED_ENV_FRAMES = Object.keys(CONTENT);
  * `groundSink`: anchor the art by its BOTTOM instead (sunk this many px under the walk line). Used for rocks, whose
  * art is shorter than the solid once scaled to its width, so top-anchoring left them floating above the ground.
  */
-export type SolidArt = { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean; groundSink?: number };
+export type SolidArt = { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean; groundSink?: number; repeat?: number };
+
+type Rect = { x: number; y: number; w: number; h: number };
+/** Where a round's environment art lives: atlas frames (rounds 1/2) or one image per tile (round 3). */
+interface RoundEnv { tex: (frame: string) => [string, string | undefined]; content: Record<string, Rect>; solid: Record<SolidKind, SolidArt>; crop: boolean }
+function envFor(round: number): RoundEnv {
+  if (round === 2) return { tex: (f) => [ROUND2_ENV_KEY, f], content: R2_CONTENT, solid: R2_SOLID_ART, crop: true };
+  if (round === 3) return { tex: (f) => [r3TextureKey(f), undefined], content: R3_CONTENT, solid: R3_SOLID_ART, crop: true };
+  return { tex: (f) => [ENV_KEY, f], content: CONTENT, solid: SOLID_ART, crop: false };
+}
 const SOLID_ART: Record<SolidKind, SolidArt> = {
   crate: { frame: 'wooden_crate', fit: 'width', topInset: 2, behindGround: false },
   step: { frame: 'raised_block_02', fit: 'width', topInset: 4, behindGround: true },
@@ -63,29 +74,43 @@ const SOLID_RIM_COLOR = 0xffe2a0;
 /** Non-colliding props are pushed back: cooler and darker than the obstacles you can stand on or hit. */
 const DECOR_TINT = 0x8f96a8;
 
-export function makeSolidImage(scene: Phaser.Scene, s: Solid, round = 1): Phaser.GameObjects.Image {
-  const r2 = round === 2;
-  const art = r2 ? R2_SOLID_ART[s.kind] : SOLID_ART[s.kind];
-  const c = r2 ? R2_CONTENT[art.frame] : CONTENT[art.frame];
-  const scale = art.fit === 'width' ? (s.w + 4) / c.w : (s.h + art.topInset) / c.h;
-  const img = scene.add.image(0, 0, r2 ? ROUND2_ENV_KEY : ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
-  // Round-2 cells can hold slivers of neighbouring pieces: show only the measured main object.
-  if (r2) img.setCrop(c.x, c.y, c.w, c.h);
-  // WebGL colour matrix (absent on the canvas renderer, where the step simply stays darker).
-  if (r2 && s.kind === 'step') img.preFX?.addColorMatrix().brightness(R2_STEP_BRIGHTNESS);
+export type SolidView = Phaser.GameObjects.Image | Phaser.GameObjects.Container;
+
+export function makeSolidImage(scene: Phaser.Scene, s: Solid, round = 1): SolidView {
+  const env = envFor(round);
+  const art = env.solid[s.kind];
+  const c = env.content[art.frame];
+  const n = Math.max(1, art.repeat ?? 1);
+  // `repeat` panels sit side by side (2 px overlap) and share one scale.
+  const scale = art.fit === 'width' ? ((s.w + 4) / n + (n > 1 ? 2 : 0)) / c.w : (s.h + art.topInset) / c.h;
   const y = art.groundSink !== undefined ? s.y + s.h + art.groundSink - (c.y + c.h) * scale : s.y - art.topInset - c.y * scale;
-  img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(y));
-  img.setDepth(art.behindGround ? -12 : 6);
-  // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
-  // (WebGL FX; absent on the canvas renderer).
-  if (s.destructible) img.preFX?.addGlow(SOLID_RIM_COLOR, 3, 0, false, 0.1, 6);
-  return img;
+  const shownW = c.w * scale;
+  const span = n * shownW - (n - 1) * 2;
+  const panels = Array.from({ length: n }, (_, i) => {
+    const [key, frame] = env.tex(art.frame);
+    const flip = i % 2 === 1;
+    const img = scene.add.image(0, 0, key, frame).setScale(scale).setOrigin(0, 0).setFlipX(flip);
+    // Cells/tiles can hold slivers of neighbouring pieces or padding: show only the measured main object.
+    if (env.crop) img.setCrop(c.x, c.y, c.w, c.h);
+    // WebGL colour matrix (absent on the canvas renderer, where the step simply stays darker).
+    if (round === 2 && s.kind === 'step') img.preFX?.addColorMatrix().brightness(R2_STEP_BRIGHTNESS);
+    // flipX mirrors the crop as well: the visible part of a flipped panel starts at (frame width - c.x - c.w).
+    const cx = flip ? img.frame.width - c.x - c.w : c.x;
+    img.setPosition(Math.round(s.x + s.w / 2 - span / 2 + i * (shownW - 2) - cx * scale), Math.round(y));
+    // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
+    // (WebGL FX; absent on the canvas renderer).
+    if (s.destructible) img.preFX?.addGlow(SOLID_RIM_COLOR, 3, 0, false, 0.1, 6);
+    return img;
+  });
+  const depth = art.behindGround ? -12 : 6;
+  if (n === 1) return panels[0].setDepth(depth);
+  return scene.add.container(0, 0, panels).setDepth(depth);
 }
 
 interface Decor { x: number; frame: string; height: number; flip?: boolean }
 
-/** Non-colliding scenery per round (implementation default layout). Round 2 uses its own camp props (R2_DECOR); round 3 reuses round-1 props temporarily. */
-const DECOR: Record<number, Decor[]> = {
+/** Non-colliding round-1 scenery (implementation default layout). Rounds 2/3 use their own props (R2_DECOR / R3_DECOR). */
+const DECOR: Partial<Record<number, Decor[]>> = {
   1: [
     { x: 40, frame: 'brazier_lit', height: 58 }, { x: 430, frame: 'low_wood_fence', height: 30 }, { x: 700, frame: 'wooden_barrel', height: 30 },
     { x: 880, frame: 'blue_banner_stone_ruin', height: 104 }, { x: 1090, frame: 'sandbag_cover', height: 30 }, { x: 1440, frame: 'broken_cart', height: 38 },
@@ -93,27 +118,20 @@ const DECOR: Record<number, Decor[]> = {
     { x: 2470, frame: 'spike_barricade', height: 48 }, { x: 2560, frame: 'brazier_lit', height: 58 }, { x: 3140, frame: 'brazier_lit', height: 58 },
     { x: 2800, frame: 'supply_chest', height: 26 },
   ],
-  2: [
-    { x: 160, frame: 'wooden_barrel', height: 30 }, { x: 900, frame: 'low_wood_fence', height: 30 }, { x: 1250, frame: 'wheel_wreck', height: 36 },
-    { x: 1950, frame: 'blue_banner_stone_ruin', height: 104 }, { x: 2400, frame: 'sandbag_cover', height: 30 }, { x: 3000, frame: 'broken_cart', height: 38 },
-    { x: 3300, frame: 'red_palisade_wreck', height: 46 }, { x: 3720, frame: 'stone_ruin_low', height: 40 },
-  ],
-  3: [
-    { x: 200, frame: 'red_flag_wreck', height: 46 }, { x: 1100, frame: 'spike_log_wreck', height: 36 }, { x: 1500, frame: 'brazier_lit', height: 58 },
-    { x: 2100, frame: 'blue_banner_stone_ruin', height: 104 }, { x: 2600, frame: 'wheel_wreck', height: 36 }, { x: 2950, frame: 'red_palisade_wreck', height: 46 },
-    { x: 3550, frame: 'spike_barricade', height: 48 }, { x: 4000, frame: 'brazier_lit', height: 58 }, { x: 4500, frame: 'red_flag_wreck', height: 46, flip: true },
-  ],
 };
 
 export function makeDecor(scene: Phaser.Scene, round: number, groundY: number): Phaser.GameObjects.Image[] {
-  const r2 = round === 2;
-  return ((r2 ? R2_DECOR : DECOR[round]) ?? []).map((d) => {
-    const c = r2 ? R2_CONTENT[d.frame] : CONTENT[d.frame];
+  const env = envFor(round);
+  const list = round === 2 ? R2_DECOR : round === 3 ? R3_DECOR : DECOR[round];
+  return (list ?? []).map((d) => {
+    const c = env.content[d.frame];
     const scale = d.height / c.h;
-    const img = scene.add.image(0, 0, r2 ? ROUND2_ENV_KEY : ENV_KEY, d.frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13).setTint(DECOR_TINT);
-    if (r2) img.setCrop(c.x, c.y, c.w, c.h);
-    // Sink the base 3px into the ground strip so props read as standing on it.
-    img.setPosition(Math.round(d.x - (c.x + c.w / 2) * scale), Math.round(groundY + 3 - (c.y + c.h) * scale));
+    const [key, frame] = env.tex(d.frame);
+    const img = scene.add.image(0, 0, key, frame).setScale(scale).setOrigin(0, 0).setFlipX(!!d.flip).setDepth(-13).setTint(DECOR_TINT);
+    if (env.crop) img.setCrop(c.x, c.y, c.w, c.h);
+    // Sink the base 3px into the ground strip so props read as standing on it (flipX mirrors the crop).
+    const cx = d.flip ? img.frame.width - c.x - c.w : c.x;
+    img.setPosition(Math.round(d.x - (cx + c.w / 2) * scale), Math.round(groundY + 3 - (c.y + c.h) * scale));
     return img;
   });
 }
@@ -138,14 +156,19 @@ export function buildGroundStrip(scene: Phaser.Scene): void {
   buildStrip(scene, GROUND_STRIP_KEY, ENV_KEY, GROUND_PIECES, (GROUND_STRIP_H + 6) / 181);
   // Round 2: war-camp ground; scale 0.5 puts the grass top (source row ~16) at the walk line 8 px under the band top.
   if (scene.textures.exists(ROUND2_ENV_KEY)) buildStrip(scene, GROUND_STRIP_R2_KEY, ROUND2_ENV_KEY, R2_GROUND_PIECES, 0.5);
+  // Round 3: burning-fortress cliffs (one image per tile); scale 0.65 puts the top (source row ~12) at the walk line.
+  if (R3_GROUND_PIECES.every((p) => scene.textures.exists(r3TextureKey(p.frame)))) {
+    buildStrip(scene, GROUND_STRIP_R3_KEY, (f) => [r3TextureKey(f), undefined], R3_GROUND_PIECES, 0.65);
+  }
 }
 
 function buildStrip(
-  scene: Phaser.Scene, key: string, atlasKey: string, pieces: { frame: string; x: number; y: number; w: number; h: number }[], scale: number,
+  scene: Phaser.Scene, key: string, source: string | ((frame: string) => [string, string | undefined]),
+  pieces: { frame: string; x: number; y: number; w: number; h: number }[], scale: number,
 ): void {
   if (scene.textures.exists(key)) return;
-  const tex = scene.textures.get(atlasKey);
-  const src = tex.getSourceImage() as HTMLImageElement;
+  // An atlas key (all pieces are frames of it) or a resolver to per-piece images.
+  const resolve = typeof source === 'string' ? (f: string): [string, string | undefined] => [source, f] : source;
   const overlap = 6;
   const widths = pieces.map((p) => Math.round(p.w * scale));
   const total = widths.reduce((a, b) => a + b - overlap, 0);
@@ -157,7 +180,10 @@ function buildStrip(
   ctx.fillRect(0, 10, total, GROUND_STRIP_H - 10);
   let x = 0;
   pieces.forEach((c, i) => {
-    const f = tex.get(c.frame);
+    const [texKey, frameName] = resolve(c.frame);
+    const tex = scene.textures.get(texKey);
+    const f = tex.get(frameName);
+    const src = tex.getSourceImage() as HTMLImageElement;
     ctx.drawImage(src, f.cutX + c.x, f.cutY + c.y, c.w, c.h, x, 0, widths[i], Math.round(c.h * scale));
     x += widths[i] - overlap;
   });
