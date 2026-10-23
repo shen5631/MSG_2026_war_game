@@ -19,9 +19,11 @@ export const R3_CONTENT: Record<string, { x: number; y: number; w: number; h: nu
   small_decor_09: { x: 9, y: 8, w: 67, h: 62 },
   fortress_props_22: { x: 8, y: 9, w: 73, h: 120 },
   small_decor_01: { x: 8, y: 9, w: 93, h: 51 },
-  fortress_props_06: { x: 9, y: 9, w: 54, h: 236 },
+  // Wall sections whose base reaches the ground. (fortress_props_06/01 are NOT used: their wall is broken off above
+  // a hanging banner, so with the banner on the ground the masonry floated in the air.)
+  fortress_props_04: { x: 10, y: 9, w: 97, h: 150 },
+  fortress_props_08: { x: 8, y: 9, w: 52, h: 112 },
   fortress_props_19: { x: 8, y: 8, w: 45, h: 242 },
-  fortress_props_01: { x: 8, y: 9, w: 91, h: 213 },
   hazards_barricades_01: { x: 8, y: 8, w: 147, h: 83 },
   hazards_barricades_02: { x: 9, y: 18, w: 68, h: 142 },
   fortress_props_25: { x: 8, y: 8, w: 167, h: 44 },
@@ -48,18 +50,18 @@ export const R3_SOLID_ART: Record<SolidKind, SolidArt> = {
 
 /** Non-colliding fortress scenery for round 3 (implementation default layout; height = displayed px). */
 export const R3_DECOR: { x: number; frame: string; height: number; flip?: boolean }[] = [
-  { x: 60, frame: 'fortress_props_06', height: 80 },
+  { x: 60, frame: 'fortress_props_04', height: 56 },
   { x: 300, frame: 'small_decor_01', height: 20 },
   { x: 620, frame: 'fortress_props_19', height: 78 },
   { x: 880, frame: 'hazards_barricades_02', height: 48 },
   { x: 1150, frame: 'fortress_props_25', height: 18 },
-  { x: 1320, frame: 'fortress_props_01', height: 72 },
+  { x: 1320, frame: 'fortress_props_08', height: 44 },
   { x: 1640, frame: 'platforms_09', height: 40 },
   { x: 2010, frame: 'fortress_props_12', height: 24 },
   { x: 2330, frame: 'hazards_barricades_01', height: 32 },
   { x: 2620, frame: 'fortress_props_11', height: 30 },
   { x: 2860, frame: 'small_decor_13', height: 18 },
-  { x: 3120, frame: 'fortress_props_06', height: 80, flip: true },
+  { x: 3120, frame: 'fortress_props_04', height: 56, flip: true },
   { x: 3460, frame: 'small_decor_02', height: 18 },
   { x: 3820, frame: 'hazards_barricades_02', height: 48 },
   { x: 4180, frame: 'fortress_props_19', height: 78, flip: true },

@@ -161,9 +161,9 @@
     },
     {
       "type": "image",
-      "key": "r3env_fortress_props_06",
-      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_06.png",
-      "note": "3라운드 환경 타일 72x253 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+      "key": "r3env_fortress_props_04",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_04.png",
+      "note": "3라운드 환경 타일 117x168 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
     },
     {
       "type": "image",
@@ -173,9 +173,9 @@
     },
     {
       "type": "image",
-      "key": "r3env_fortress_props_01",
-      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_01.png",
-      "note": "3라운드 환경 타일 110x231 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
+      "key": "r3env_fortress_props_08",
+      "texture": "assets/round3_environment_game_ready_v1/tiles/fortress_props/round3_fortress_props_08.png",
+      "note": "3라운드 환경 타일 68x129 (fortress_props, round3_environment_game_ready_v1, 개별 PNG 그대로)"
     },
     {
       "type": "image",
