@@ -173,7 +173,7 @@ export class PlayScene extends Phaser.Scene {
     const r = this.services.controller.round;
     let item = this.healTexts.find((h) => !h.active);
     if (!item) {
-      const text = this.add.text(0, 0, '', { fontFamily: '"Noto Sans KR", "Malgun Gothic", sans-serif', fontSize: '10px', fontStyle: 'bold', color: '#8dff8d', stroke: '#06210a', strokeThickness: 3 })
+      const text = this.add.text(0, 0, '', { fontFamily: '"Gowun Batang", "Noto Sans KR", "Malgun Gothic", serif', fontSize: '10px', fontStyle: 'bold', color: '#8dff8d', stroke: '#06210a', strokeThickness: 3 })
         .setOrigin(0.5, 1).setDepth(27).setResolution(4);
       item = { text, start: 0, active: false };
       this.healTexts.push(item);

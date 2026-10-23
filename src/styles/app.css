@@ -14,7 +14,10 @@
   --m-gold-light: #f2d98e;
   --m-text: #f0eee5;
   --m-muted: #99a5b7;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', system-ui, sans-serif;
+  /* Game typefaces: brush-style Song Myung for titles/menus, Gowun Batang for body; Noto Sans KR stays as fallback. */
+  --font-title: 'Song Myung', 'Gowun Batang', 'Noto Sans KR', serif;
+  --font-body: 'Gowun Batang', 'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', serif;
+  font-family: var(--font-body);
   font-synthesis: none;
   color: var(--ink);
   background: #050608;
@@ -260,3 +263,6 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .tut-dots i { width: 4px; height: 4px; background: #2f3d52; transform: rotate(45deg); }
 .tut-dots i.on { background: var(--m-gold-light); }
 @media (prefers-reduced-motion: reduce) { .tut-hole { animation: none; transition: none; } .tut-card, .tut-skip { transition: none; } }
+
+/* Titles, menus and headings in the brush-style face (Song Myung has one weight; font-synthesis stays off). */
+h1, h2, h3, .menu-item, .tab, .btn, .back-button, .boss-plate .name, .phase-banner, .toast, .hud-round > :first-child, .skill .nm, .skill-status .value, .tut-skip, .exit-hint, .audio-unlock { font-family: var(--font-title); }
