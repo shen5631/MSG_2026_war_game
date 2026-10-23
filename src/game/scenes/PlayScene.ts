@@ -14,7 +14,7 @@ import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrow
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
-import { SPEAR_CAPTAIN_KEY, spearCaptainPose } from '../visual/spearCaptain';
+import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -493,7 +493,7 @@ export class PlayScene extends Phaser.Scene {
       this.bossSprite = real
         ? this.add.sprite(b.body.x, b.body.y, VANGUARD_KEY, 'idle_01').setOrigin(VANGUARD_ORIGIN.x, VANGUARD_ORIGIN.y).setDepth(14)
         : captain
-        ? this.add.sprite(b.body.x, b.body.y, SPEAR_CAPTAIN_KEY, 'elite_spearman_commander_idle_01.png').setDepth(14)
+        ? this.add.sprite(b.body.x, b.body.y, SPEAR_CAPTAIN_KEY, 'idle_01').setOrigin(SPEAR_CAPTAIN_ORIGIN.x, SPEAR_CAPTAIN_ORIGIN.y).setDepth(14)
         : this.add.sprite(b.body.x, b.body.y, texKey, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
       this.bossLastHp = b.hp;
       // presentationT restarts every round: a flash deadline left over from the previous boss would keep the
@@ -507,9 +507,8 @@ export class PlayScene extends Phaser.Scene {
     if (real) {
       frame = vanguardFrame(b, view);
     } else if (captain) {
-      const pose = spearCaptainPose(b, view);
-      frame = pose.frame;
-      this.bossSprite.setScale(pose.scale).setOrigin(pose.originX, pose.originY);
+      // Native scale 1, fixed feet anchor (160,176): no per-frame resizing or bbox cropping.
+      frame = spearCaptainFrame(b, view);
     } else {
       let pose: Pose = 'idle';
       switch (b.state) {

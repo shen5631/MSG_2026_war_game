@@ -61,8 +61,6 @@ export class BootScene extends Phaser.Scene {
         ctl.setLoadError(missing);
         return;
       }
-      // The round-2 boss is painted (not pixel art) and shown downscaled: smooth filtering for that texture only.
-      this.textures.get(SPEAR_CAPTAIN_KEY).setFilter(Phaser.Textures.FilterMode.LINEAR);
       buildGroundStrip(this);
       generateCharacterTextures(this);
       generatePropTextures(this);
