@@ -19,7 +19,7 @@ export const TEMPORARY_ASSETS = [
   'generated_boss_so_bae_ap',
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
-  'generated_pickups', 'generated_ui_markers',
+  'generated_pickups', 'spawn marker (code-drawn, src/game/visual/spawnWarning.ts)',
   'generated_bg_r2_*', 'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
 ] as const;
@@ -184,24 +184,6 @@ export function generatePropTextures(scene: Phaser.Scene): void {
     tex.refresh();
     tex.add('riceball', 0, 0, 0, 16, 16);
     tex.add('herb', 0, 16, 0, 16, 16);
-  }
-  if (!scene.textures.exists('generated_ui_markers')) {
-    const tex = scene.textures.createCanvas('generated_ui_markers', 96, 32)!;
-    const c = tex.getContext();
-    // spawn warning (dust + red flag)
-    c.fillStyle = 'rgba(200,60,40,0.5)'; c.fillRect(0, 26, 32, 6);
-    c.fillStyle = '#2a1a0c'; c.fillRect(14, 4, 2, 24);
-    c.fillStyle = '#c8402a'; c.fillRect(16, 4, 12, 8);
-    // exit arrow
-    c.fillStyle = '#f5d76e';
-    for (let i = 0; i < 8; i++) c.fillRect(36 + i, 8 + i, 3, 16 - i * 2);
-    c.fillRect(44, 12, 3, 8);
-    // gate wall segment 32x32 (blocked boundary)
-    c.fillStyle = 'rgba(200,60,40,0.35)'; c.fillRect(64, 0, 6, 32);
-    tex.refresh();
-    tex.add('spawn', 0, 0, 0, 32, 32);
-    tex.add('exit', 0, 32, 0, 32, 32);
-    tex.add('wall', 0, 64, 0, 8, 32);
   }
 }
 

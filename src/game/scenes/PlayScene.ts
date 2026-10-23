@@ -14,6 +14,7 @@ import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrow
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
 import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
+import { drawSpawnWarning, spawnWarningProgress } from '../visual/spawnWarning';
 import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from '../visual/enemyHpBar';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
@@ -61,6 +62,7 @@ export class PlayScene extends Phaser.Scene {
   /** 방패병 막기 soldiers (goryeo_shield_skill_v1): a view of the player's shield, never an actor. */
   private shieldView!: PhaserShieldView;
   private walls!: Phaser.GameObjects.Graphics;
+  private spawnMarks!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
   private bossGlow!: Phaser.GameObjects.Ellipse;
   private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Graphics; barState: EnemyBarState; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView }>();
@@ -69,7 +71,7 @@ export class PlayScene extends Phaser.Scene {
   private bossLastHp = 0;
   private solidSprites = new Map<string, Phaser.GameObjects.Image>();
   private pickupSprites = new Map<string, Phaser.GameObjects.Image>();
-  private pools = { arrows: [] as Phaser.GameObjects.Image[], warn: [] as Phaser.GameObjects.Image[], allies: [] as Phaser.GameObjects.Sprite[] };
+  private pools = { arrows: [] as Phaser.GameObjects.Image[], allies: [] as Phaser.GameObjects.Sprite[] };
   private fx: FxItem[] = [];
   private renderedRound: RoundSim | null = null;
   private roundTheme = 1;
@@ -91,6 +93,7 @@ export class PlayScene extends Phaser.Scene {
     this.ground = this.add.tileSprite(0, GROUND_STRIP_TOP, VIEW_W, strip.height, GROUND_STRIP_KEY).setOrigin(0).setScrollFactor(0).setDepth(-10);
     this.roundTheme = 0;
     this.walls = this.add.graphics().setDepth(40);
+    this.spawnMarks = this.add.graphics().setDepth(7);
     this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
     // Above terrain art (depth 6) so it shows on platforms and crates, below the hero (20).
     this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(7);
@@ -300,7 +303,7 @@ export class PlayScene extends Phaser.Scene {
     this.walls.clear();
     this.debugGfx?.clear();
     for (const a of this.pools.arrows) a.setVisible(false);
-    for (const a of this.pools.warn) a.setVisible(false);
+    this.spawnMarks.clear();
     for (const a of this.pools.allies) a.setVisible(false);
   }
 
@@ -377,9 +380,9 @@ export class PlayScene extends Phaser.Scene {
     }
     for (const [id, img] of this.pickupSprites) if (!pseen.has(id)) { img.destroy(); this.pickupSprites.delete(id); }
 
-    // spawn warnings
-    this.syncPool(this.pools.warn, r.spawnWarnings.length, () => this.add.image(0, 0, 'generated_ui_markers', 'spawn').setOrigin(0.5, 1).setDepth(7));
-    r.spawnWarnings.forEach((w, i) => this.pools.warn[i].setPosition(w.x, r.groundY).setAlpha(Math.floor(r.presentationT / 100) % 2 ? 1 : 0.4));
+    // spawn warnings: only at the planned spawn points the sim will actually use
+    this.spawnMarks.clear();
+    for (const w of r.spawnWarnings) drawSpawnWarning(this.spawnMarks, w.x, r.groundY, spawnWarningProgress(w.start, w.until, r.t), r.presentationT);
 
     // ally spear soldiers (visual only)
     // 창병 공격: damage was already applied by the domain at the command instant; this only plays the art.
