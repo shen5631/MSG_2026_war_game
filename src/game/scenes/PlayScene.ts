@@ -1,6 +1,6 @@
 // Owns the single render loop: polls input, advances the controller's fixed-step simulation, renders the state.
 import Phaser from 'phaser';
-import { DEFAULTS, ENEMY_PATTERNS, VIEW_H, VIEW_W } from '../../config/spec';
+import { DEFAULTS, ENEMY_PATTERNS, VIEW_W } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import type { Boss } from '../../domain/boss';
 import type { Enemy } from '../../domain/enemies';
@@ -48,10 +48,6 @@ const FX_FRAMES: Record<string, string[]> = {
 };
 
 export class PlayScene extends Phaser.Scene {
-  private sky!: Phaser.GameObjects.TileSprite;
-  private far!: Phaser.GameObjects.TileSprite;
-  private mid!: Phaser.GameObjects.TileSprite;
-  private near!: Phaser.GameObjects.TileSprite;
   private ground!: Phaser.GameObjects.TileSprite;
   private bgImage!: Phaser.GameObjects.Image;
   private decor: Phaser.GameObjects.Image[] = [];
@@ -86,10 +82,6 @@ export class PlayScene extends Phaser.Scene {
   private get services(): Services { return this.game.registry.get('services') as Services; }
 
   create(): void {
-    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
-    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
-    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
-    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
     this.bgImage = this.add.image(0, 0, BG_ROUND1_KEY).setOrigin(0).setScrollFactor(0).setDepth(-45).setScale(BG_SCALE).setCrop(0, 0, 1672, BG_CROP_H);
     const strip = this.textures.get(GROUND_STRIP_KEY).getSourceImage();
     this.ground = this.add.tileSprite(0, GROUND_STRIP_TOP, VIEW_W, strip.height, GROUND_STRIP_KEY).setOrigin(0).setScrollFactor(0).setDepth(-10);
@@ -231,22 +223,12 @@ export class PlayScene extends Phaser.Scene {
     }
   }
 
-  /** Rounds 1/2 use the supplied illustrations (same 1672×941 layout and crop); round 3 still uses generated parallax layers. */
+  /** Every round uses its supplied illustration (same 1672×941 layout and crop). */
   private setTheme(round: number): void {
     if (this.roundTheme === round) return;
     this.roundTheme = round;
-    const bgKey = ROUND_BG_KEYS[round];
-    const real = bgKey !== undefined;
-    this.bgImage.setVisible(real);
-    if (bgKey) this.bgImage.setTexture(bgKey).setCrop(0, 0, 1672, BG_CROP_H);
+    this.bgImage.setTexture(ROUND_BG_KEYS[round] ?? BG_ROUND1_KEY).setCrop(0, 0, 1672, BG_CROP_H);
     this.ground.setTexture(groundStripKey(round));
-    for (const l of [this.sky, this.far, this.mid, this.near]) l.setVisible(!real);
-    if (!real) {
-      this.sky.setTexture(`generated_bg_r${round}_sky`);
-      this.far.setTexture(`generated_bg_r${round}_far`);
-      this.mid.setTexture(`generated_bg_r${round}_mid`);
-      this.near.setTexture(`generated_bg_r${round}_near`);
-    }
   }
 
   private clearEntities(): void {
@@ -282,9 +264,6 @@ export class PlayScene extends Phaser.Scene {
     this.cameras.main.setScroll(Math.round(camX), 0);
     const k = Math.max(0, Math.min(1, camX / Math.max(1, this.worldW - VIEW_W)));
     this.bgImage.x = -Math.round(k * (BG_DISPLAY_W - VIEW_W));
-    this.far.tilePositionX = Math.round(camX * 0.2);
-    this.mid.tilePositionX = Math.round(camX * 0.45);
-    this.near.tilePositionX = Math.round(camX * 0.8);
     this.ground.tilePositionX = Math.round(camX);
   }
 
@@ -435,7 +414,7 @@ export class PlayScene extends Phaser.Scene {
     if (!v) {
       // Shieldman: the package view (192×192, feet 96,160, SHIELDMAN_SCALE) owns its sprite; we keep tint/fade/HP bar.
       const shieldView = e.kind === 'shieldman' ? new PhaserShieldEnemyView(this, e.body.x, e.body.y, SHIELDMAN_SCALE) : undefined;
-      // Cavalry: package view (320×224, feet 160,192, scale 1, flipX for left) on the existing cavalry AI.
+      // Cavalry: package V6 view (448×256, feet 224,220, flipX for left) on the existing cavalry AI.
       const cavalryView = e.kind === 'cavalry' ? new PhaserCavalryView(this, 12) : undefined;
       const s = shieldView
         ? (shieldView.sprite as unknown as Phaser.GameObjects.Sprite).setDepth(12)

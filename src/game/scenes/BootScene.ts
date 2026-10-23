@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 import { RUNTIME_ASSETS } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import { requiredFrames } from '../visual/AnimationBindings';
-import { generateBackgrounds, generateCharacterTextures, generatePropTextures } from '../visual/placeholders';
+import { generateCharacterTextures, generatePropTextures } from '../visual/placeholders';
 import { ENV_KEY, INFANTRY_KEY, REQUIRED_ENV_FRAMES, REQUIRED_INFANTRY_FRAMES, buildGroundStrip } from '../visual/environment';
 import { ARCHER_KEY, REQUIRED_ARCHER_FRAMES } from '../visual/archer';
 import { REQUIRED_SPEARMAN_FRAMES, SPEARMAN_KEY } from '../visual/spearman';
@@ -68,7 +68,6 @@ export class BootScene extends Phaser.Scene {
       buildGroundStrip(this);
       generateCharacterTextures(this);
       generatePropTextures(this);
-      generateBackgrounds(this);
       ctl.setLoaded();
       this.scene.start('play');
     });

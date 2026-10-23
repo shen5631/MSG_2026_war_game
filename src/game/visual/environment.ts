@@ -9,8 +9,9 @@ export const ENV_KEY = 'round1_env';
 export const INFANTRY_KEY = 'khitan_infantry';
 export const BG_ROUND1_KEY = 'bg_round1_fortress';
 export const BG_ROUND2_KEY = 'bg_round2_war_camp';
-/** Supplied full-scene illustrations (1672×941) per round; rounds without one use generated parallax layers. */
-export const ROUND_BG_KEYS: Partial<Record<number, string>> = { 1: BG_ROUND1_KEY, 2: BG_ROUND2_KEY };
+export const BG_ROUND3_KEY = 'bg_round3_burning_fortress';
+/** Supplied full-scene illustrations (1672×941, same crop/scale) for every round. */
+export const ROUND_BG_KEYS: Record<number, string> = { 1: BG_ROUND1_KEY, 2: BG_ROUND2_KEY, 3: BG_ROUND3_KEY };
 export const GROUND_STRIP_KEY = 'terrain_ground_strip';
 export const GROUND_STRIP_R2_KEY = 'terrain_ground_strip_r2';
 /** Ground band per round (round 2: war-camp terrain; rounds 1/3: round-1 cliff faces). */

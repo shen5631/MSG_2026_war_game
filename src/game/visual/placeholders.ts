@@ -18,7 +18,6 @@ export const TEMPORARY_ASSETS = [
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
   'generated_pickups', 'spawn marker (code-drawn, src/game/visual/spawnWarning.ts)',
-  'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
 ] as const;
 
@@ -140,80 +139,5 @@ export function generatePropTextures(scene: Phaser.Scene): void {
     tex.refresh();
     tex.add('riceball', 0, 0, 0, 16, 16);
     tex.add('herb', 0, 16, 0, 16, 16);
-  }
-}
-
-const BG: Record<number, { skyTop: string; skyBottom: string; far: string; mid: string; near: string }> = {
-  3: { skyTop: '#3b2a4a', skyBottom: '#e08a4a', far: '#4a3a52', mid: '#2a2230', near: '#3a2c20' },
-};
-
-/** Parallax layers for round 3 (rounds 1/2 use supplied illustrations). */
-export function generateBackgrounds(scene: Phaser.Scene): void {
-  for (const r of [3]) {
-    const pal = BG[r];
-    const sky = `generated_bg_r${r}_sky`;
-    if (!scene.textures.exists(sky)) {
-      const t = scene.textures.createCanvas(sky, 640, 360)!;
-      const c = t.getContext();
-      const g = c.createLinearGradient(0, 0, 0, 300);
-      g.addColorStop(0, pal.skyTop);
-      g.addColorStop(1, pal.skyBottom);
-      c.fillStyle = g;
-      c.fillRect(0, 0, 640, 360);
-      if (r === 3) { c.fillStyle = '#f2c45a'; c.fillRect(470, 150, 40, 40); }
-      else { c.fillStyle = 'rgba(255,255,255,0.7)'; for (let i = 0; i < 6; i++) c.fillRect(40 + i * 105, 40 + (i % 3) * 22, 54, 8); }
-      t.refresh();
-    }
-    const far = `generated_bg_r${r}_far`;
-    if (!scene.textures.exists(far)) {
-      const t = scene.textures.createCanvas(far, 640, 360)!;
-      const c = t.getContext();
-      c.fillStyle = pal.far;
-      for (let i = 0; i < 6; i++) {
-        const cx = i * 128 + 40;
-        for (let y = 0; y < 110; y += 2) {
-          const w = Math.round((y / 110) * 150);
-          c.fillRect(cx - w / 2, 170 + y, w, 2);
-        }
-      }
-      c.fillRect(0, 280, 640, 80);
-      t.refresh();
-    }
-    const mid = `generated_bg_r${r}_mid`;
-    if (!scene.textures.exists(mid)) {
-      const t = scene.textures.createCanvas(mid, 640, 360)!;
-      const c = t.getContext();
-      c.fillStyle = pal.mid;
-      if (r === 2) {
-        // river band + bridge piers
-        c.fillStyle = '#3c7aa0'; c.fillRect(0, 262, 640, 30);
-        c.fillStyle = '#7fb6d4'; for (let i = 0; i < 16; i++) c.fillRect(i * 40 + (i % 2) * 12, 270 + (i % 3) * 6, 18, 2);
-        c.fillStyle = '#5a4026'; c.fillRect(0, 238, 640, 8);
-        for (let i = 0; i < 8; i++) c.fillRect(i * 80 + 30, 238, 8, 54);
-      } else {
-        // tents and banners
-        for (let i = 0; i < 5; i++) {
-          const x = i * 128 + 20;
-          for (let y = 0; y < 40; y += 2) c.fillRect(x + 40 - y, 240 + y, y * 2, 2);
-          c.fillStyle = i % 2 ? '#2a3f7a' : '#8a3b2a';
-          c.fillRect(x + 90, 196, 18, 26);
-          c.fillStyle = '#2a1a0c'; c.fillRect(x + 88, 196, 2, 84);
-          c.fillStyle = pal.mid;
-        }
-      }
-      t.refresh();
-    }
-    const near = `generated_bg_r${r}_near`;
-    if (!scene.textures.exists(near)) {
-      const t = scene.textures.createCanvas(near, 640, 360)!;
-      const c = t.getContext();
-      c.fillStyle = pal.near;
-      for (let i = 0; i < 20; i++) {
-        const x = i * 32;
-        if (r === 2) { c.fillRect(x + 6, 284 - (i % 3) * 4, 2, 20 + (i % 3) * 4); c.fillRect(x + 12, 288, 2, 16); }
-        else { c.fillRect(x + 8, 292, 3, 12); c.fillRect(x + 14, 296, 2, 8); }
-      }
-      t.refresh();
-    }
   }
 }
