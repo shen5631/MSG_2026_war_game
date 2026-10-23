@@ -309,6 +309,18 @@
       "key": "ui_skill_gauges_64",
       "texture": "assets/skill_gauges_v1/atlas/skill_gauges_64.png",
       "note": "지휘 스킬 충전 아이콘 64px 아틀라스(3종×101단계, 16열×19행, 패딩 2px). HUD(React)가 CSS 배경으로 사용. 000=사용 직후, 100=준비"
+    },
+    {
+      "type": "image",
+      "key": "pickup_riceball",
+      "texture": "assets/pickups/riceball_48.png",
+      "note": "회복 아이템 주먹밥(+15). 사용자 제공 「픽셀 아트 삼각 김밥 아이콘.png」(1254x1254)의 그림 부분을 48x44로 최근접 축소(원본 픽셀 블록 유지), 표시 0.45배"
+    },
+    {
+      "type": "image",
+      "key": "pickup_herb_pouch",
+      "texture": "assets/pickups/herb_pouch_48.png",
+      "note": "회복 아이템 약초 주머니(+30). 사용자 제공 「픽셀 아트 약초 주머니.png」(1254x1254)의 그림 부분을 40x48로 최근접 축소, 표시 0.45배"
     }
   ],
   "audio": [

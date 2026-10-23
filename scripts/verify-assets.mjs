@@ -47,6 +47,8 @@ const IMAGE_SIZE = {
   khitan_archer_arrow_01: { w: 64, h: 32 },
   khitan_archer_arrow_02: { w: 64, h: 32 },
   ui_title_logo: { w: 1028, h: 383 },
+  pickup_riceball: { w: 48, h: 44 },
+  pickup_herb_pouch: { w: 40, h: 48 },
   ui_skill_gauges_64: { w: 1088, h: 1292 },
 };
 // Round-3 environment tiles are separate PNGs (no atlas): each registered tile must match its manifest size.
