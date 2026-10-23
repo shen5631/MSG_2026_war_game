@@ -144,8 +144,12 @@ const INF_FOOT: Record<string, number[]> = {
   idle: [116, 118, 111, 116], walk: [122, 122, 122, 117, 117, 117], attack: [122, 122, 122, 110, 110, 113],
   hurt: [117, 117, 121], death: [119, 119, 119, 107, 106, 107],
 };
-/** Display scale per action so standing height stays ~79px (hurt sheet was drawn larger, walk/attack smaller). */
-const INF_SCALE: Record<string, number> = { idle: 1, walk: 1.1, attack: 1.1, hurt: 0.9, death: 1 };
+/**
+ * Display scale per action so the soldier keeps one body size (~79px standing). The source sheets were drawn at
+ * different sizes: attack ~0.83× and death ~0.8× the walk sheet, hurt ~1.4× — matched by head/body size, not by
+ * pose height (attack/death poses crouch).
+ */
+const INF_SCALE: Record<string, number> = { idle: 1, walk: 1.1, attack: 1.32, hurt: 0.78, death: 1.25 };
 
 const pick = (n: number, p: number) => Math.min(n - 1, Math.max(0, Math.floor(p * n)));
 
