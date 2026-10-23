@@ -1,23 +1,32 @@
-// Round-3 final boss 소배압 — V3 art (sobaeap_final_boss_v3, 512×320 frames, feet origin 282/320) driven by the
-// EXISTING domain Boss AI (src/domain/boss.ts: HP 700, phase 2 at 350, distance/phase pattern choice, summons ≤3).
-// Only frame choice lives here; no second AI, hitbox or damage. Frames follow the same pattern clock the domain uses
-// for its hit windows, so the strike frames are on screen exactly while a hit is live. The package's
-// PhaserSobaeapVisual (Phaser animation clock) is not instantiated: it would not freeze with pause/hitstop.
+// Round-3 final boss 소배압 — V5 art (sobaeap_no_clipping_v5: one atlas per action, 704×480 frames, feet origin
+// 416/480, shown at scale 0.5) driven by the EXISTING domain Boss AI (src/domain/boss.ts: HP 700, phase 2 at 350,
+// distance/phase pattern choice, summons ≤3). Only frame choice lives here; no second AI, hitbox or damage. Frames
+// follow the same pattern clock the domain uses for its hit windows, so strike frames are on screen exactly while a
+// hit is live. The package's Phaser animations (play() on the animation clock) are not used: they would not freeze
+// with pause / parry hitstop.
 import { DEFAULTS, type BossPatternSpec } from '../../config/spec';
 import type { Boss } from '../../domain/boss';
-import { ATLAS, FPS, FRAMES } from '../bosses/sobaeap/PhaserSobaeapVisual';
+import { SOBAEAP_VISUALS, type SobaeapAnim } from '../bosses/sobaeap/PhaserSobaeapV5';
 
-export type SobaeapAction = 'idle' | 'walk' | 'attack' | 'charge' | 'combo' | 'phase2' | 'hurt' | 'death';
-export const SOBAEAP_KEY = ATLAS;
-/** Feet anchor (256,282) of the 512×320 frames. */
-export const SOBAEAP_ORIGIN = { x: 0.5, y: 282 / 320 };
+export type SobaeapAction = SobaeapAnim;
+const ANIMS = SOBAEAP_VISUALS.animations;
+const ACTIONS = Object.keys(ANIMS) as SobaeapAction[];
+
+/** Atlas key of an action (the package's preload naming). */
+export const sobaeapAtlasKey = (a: SobaeapAction): string => `sobaeap-v5-${a}`;
+export const SOBAEAP_ATLAS_KEYS = ACTIONS.map(sobaeapAtlasKey);
+/** Atlas holding a frame name (`sobaeap_<action>_NN.png`). */
+export const sobaeapTextureFor = (frame: string): string => sobaeapAtlasKey(frame.replace(/^sobaeap_/, '').replace(/_\d+\.png$/, '') as SobaeapAction);
+/** Feet anchor (352,416) of the 704×480 frames. */
+export const SOBAEAP_ORIGIN = { x: SOBAEAP_VISUALS.originX, y: SOBAEAP_VISUALS.originY };
+export const SOBAEAP_SCALE = SOBAEAP_VISUALS.scale;
 
 const f = (action: SobaeapAction, n: number): string => `sobaeap_${action}_${String(n).padStart(2, '0')}.png`;
-export const REQUIRED_SOBAEAP_FRAMES = (Object.keys(FRAMES) as SobaeapAction[]).flatMap((a) => Array.from({ length: FRAMES[a] }, (_, i) => f(a, i + 1)));
-/** Looping clip frame on sim time. */
-const loop = (a: SobaeapAction, t: number): string => f(a, 1 + (Math.floor((Math.max(0, t) * FPS[a]) / 1000) % FRAMES[a]));
+/** Every frame, grouped by the atlas it lives in (for the boot check). */
+export const REQUIRED_SOBAEAP_FRAMES: [string, string[]][] = ACTIONS.map((a) => [sobaeapAtlasKey(a), Array.from({ length: ANIMS[a].count }, (_, i) => f(a, i + 1))]);
+const loop = (a: SobaeapAction, t: number): string => f(a, 1 + (Math.floor((Math.max(0, t) * ANIMS[a].fps) / 1000) % ANIMS[a].count));
 
-/** Domain pattern id → V3 action. Multi-hit sword patterns use the combo sheet, the rush the charge sheet. */
+/** Domain pattern id → V5 action. Multi-hit sword patterns use the combo sheet, the rush the charge sheet. */
 export const SOBAEAP_PATTERN_ACTION: Record<string, 'attack' | 'charge' | 'combo'> = {
   double_sword: 'combo',
   fast_triple: 'combo',
@@ -26,9 +35,10 @@ export const SOBAEAP_PATTERN_ACTION: Record<string, 'attack' | 'charge' | 'combo
   red_ground_wave: 'attack',
   summon: 'attack',
 };
-/** Strike frame for hit 1/2/3 of a combo (wide cut, spin cut, wide cut); between hits the spear is drawn back. */
-const COMBO_HITS = [f('combo', 3), f('combo', 4), f('combo', 3)];
-export const SOBAEAP_STRIKE_FRAMES = new Set([f('attack', 3), f('attack', 4), f('charge', 2), f('combo', 3), f('combo', 4)]);
+/** Combo: hit 1/2/3 = big arc / spinning cut / low cut; after hit 1/2 the spear is set again (thrust / overhead). */
+const COMBO_HITS = [f('combo', 3), f('combo', 5), f('combo', 7)];
+const COMBO_BETWEEN = [f('combo', 4), f('combo', 6)];
+export const SOBAEAP_STRIKE_FRAMES = new Set([f('attack', 3), f('attack', 4), f('charge', 2), f('charge', 3), f('charge', 4), ...COMBO_HITS]);
 
 /** Frame for pattern `p` at `e` ms after the pattern start (windup → hit windows → recovery of `recMs`). */
 export function sobaeapPatternFrame(p: BossPatternSpec, e: number, recMs: number): string {
@@ -40,21 +50,21 @@ export function sobaeapPatternFrame(p: BossPatternSpec, e: number, recMs: number
   const lastEnd = hits > 0 ? startup + (hits - 1) * spacing + active : startup;
   if (e < startup) {
     if (action === 'charge') return f('charge', 1);
-    if (action === 'combo') return f('combo', 1);
-    return e < startup / 2 ? f('attack', 1) : f('attack', 2);
+    return e < startup / 2 ? f(action, 1) : f(action, 2);
   }
   if (e < lastEnd) {
     const k = spacing > 0 ? Math.min(hits - 1, Math.floor((e - startup) / spacing)) : 0;
     const into = e - startup - k * spacing;
-    if (action === 'combo') return into < active ? COMBO_HITS[k % COMBO_HITS.length] : f('combo', 2);
-    if (action === 'charge') return f('charge', 2);
-    // Thrust, then the wide sweep follows through.
+    if (action === 'combo') return into < active ? COMBO_HITS[k % COMBO_HITS.length] : COMBO_BETWEEN[k % COMBO_BETWEEN.length];
+    if (action === 'charge') return f('charge', 2 + Math.min(2, Math.floor((into / Math.max(1, active)) * 3)));
+    // Overhead arc, then the low lunge follows through.
     return into < active / 2 ? f('attack', 3) : f('attack', 4);
   }
-  // Recovery: back to the guard stance (summon has no hit: command pose straight to recovery).
+  // Recovery (summon has no hit: command pose straight back to the stance).
   if (action === 'charge') return f('charge', 1);
-  if (action === 'combo') return f('combo', 1);
-  return hits > 0 && e - lastEnd < Math.min(200, recMs / 3) ? f('attack', 4) : f('attack', 5);
+  if (action === 'combo') return f('combo', 8);
+  if (hits === 0) return f('attack', 1);
+  return e - lastEnd < recMs / 2 ? f('attack', 5) : f('attack', 6);
 }
 
 export interface SobaeapView { t: number; transitionProgress: number; deadMs: number }
@@ -66,8 +76,8 @@ export function sobaeapFrame(b: Boss, v: SobaeapView): string {
   switch (b.state) {
     case 'move': {
       // Faces the player while backing off: reverse the walk cycle (no dedicated retreat frames).
-      const n = FRAMES.walk;
-      const i = Math.floor((t * FPS.walk) / 1000) % n;
+      const n = ANIMS.walk.count;
+      const i = Math.floor((t * ANIMS.walk.fps) / 1000) % n;
       const backing = b.body.vx !== 0 && Math.sign(b.body.vx) !== b.facing;
       return f('walk', 1 + (backing ? n - 1 - i : i));
     }

@@ -15,7 +15,7 @@ import { REQUIRED_ROUND3_TILES, r3TextureKey, r3TileFile } from '../visual/round
 import { ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES } from '../visual/allySpearman';
 import { REQUIRED_VANGUARD_FRAMES, VANGUARD_KEY } from '../visual/vanguard';
 import { REQUIRED_SPEAR_CAPTAIN_FRAMES, SPEAR_CAPTAIN_KEY } from '../visual/spearCaptain';
-import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_KEY } from '../visual/sobaeap';
+import { REQUIRED_SOBAEAP_FRAMES } from '../visual/sobaeap';
 import { REQUIRED_VANGUARD_FX_FRAMES, VANGUARD_FX_KEY } from '../visual/vanguardFx';
 import { REQUIRED_FRAME_KEYS as REQUIRED_SHIELD_FRAMES, SHIELD_TEXTURE_KEY } from '../skills/shield/presentation';
 
@@ -84,7 +84,7 @@ export class BootScene extends Phaser.Scene {
     }
     // Round-3 tiles are separate images: every tile the placement code uses must be registered and loaded.
     for (const id of REQUIRED_ROUND3_TILES) if (!this.textures.exists(r3TextureKey(id))) missing.push(r3TileFile(id));
-    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [SHIELDMAN_KEY, Object.values(SHIELDMAN_FRAMES).flat()], [CAVALRY_KEY, REQUIRED_CAVALRY_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [VANGUARD_FX_KEY, REQUIRED_VANGUARD_FX_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SOBAEAP_KEY, REQUIRED_SOBAEAP_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES], [ROUND2_ENV_KEY, REQUIRED_ROUND2_ENV_FRAMES]];
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [SHIELDMAN_KEY, Object.values(SHIELDMAN_FRAMES).flat()], [CAVALRY_KEY, REQUIRED_CAVALRY_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [VANGUARD_FX_KEY, REQUIRED_VANGUARD_FX_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], ...REQUIRED_SOBAEAP_FRAMES, [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES], [ROUND2_ENV_KEY, REQUIRED_ROUND2_ENV_FRAMES]];
     for (const [key, frames] of need) {
       if (!this.textures.exists(key)) continue;
       const tex = this.textures.get(key);

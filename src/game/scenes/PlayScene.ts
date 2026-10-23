@@ -20,7 +20,7 @@ import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
-import { SOBAEAP_KEY, SOBAEAP_ORIGIN, sobaeapFrame } from '../visual/sobaeap';
+import { SOBAEAP_ORIGIN, SOBAEAP_SCALE, sobaeapFrame, sobaeapTextureFor } from '../visual/sobaeap';
 import { VanguardFxView } from '../visual/vanguardFx';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
@@ -67,6 +67,7 @@ export class PlayScene extends Phaser.Scene {
   private bossGlow!: Phaser.GameObjects.Ellipse;
   private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Graphics; barState: EnemyBarState; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView; cavalryView?: PhaserCavalryView }>();
   private bossSprite: Phaser.GameObjects.Sprite | null = null;
+  private bossArtId: string | null = null;
   private bossFlashUntil = 0;
   private bossLastHp = 0;
   private solidSprites = new Map<string, SolidView>();
@@ -242,6 +243,7 @@ export class PlayScene extends Phaser.Scene {
     this.enemySprites.clear();
     this.bossSprite?.destroy();
     this.bossSprite = null;
+    this.bossArtId = null;
     this.bossFlashUntil = 0;
     for (const s of this.solidSprites.values()) s.destroy();
     this.solidSprites.clear();
@@ -478,15 +480,18 @@ export class PlayScene extends Phaser.Scene {
       return;
     }
     // Every boss has supplied art: vanguard V2 (round 1), elite spear captain V2 (round 2), 소배압 V2 (round 3).
+    // `tex` maps a frame to its atlas (소배압 V5 ships one atlas per action); the others use a single atlas.
+    const one = (key: string) => () => key;
     const art = b.bossId === 'vanguard'
-      ? { key: VANGUARD_KEY, origin: VANGUARD_ORIGIN, frame: vanguardFrame, first: 'idle_01' }
+      ? { tex: one(VANGUARD_KEY), origin: VANGUARD_ORIGIN, scale: 1, frame: vanguardFrame, first: 'idle_01' }
       : b.bossId === 'spear_captain'
-      ? { key: SPEAR_CAPTAIN_KEY, origin: SPEAR_CAPTAIN_ORIGIN, frame: spearCaptainFrame, first: 'idle_01' }
-      : { key: SOBAEAP_KEY, origin: SOBAEAP_ORIGIN, frame: sobaeapFrame, first: 'sobaeap_idle_01.png' };
-    if (!this.bossSprite || this.bossSprite.texture.key !== art.key) {
+      ? { tex: one(SPEAR_CAPTAIN_KEY), origin: SPEAR_CAPTAIN_ORIGIN, scale: 1, frame: spearCaptainFrame, first: 'idle_01' }
+      : { tex: sobaeapTextureFor, origin: SOBAEAP_ORIGIN, scale: SOBAEAP_SCALE, frame: sobaeapFrame, first: 'sobaeap_idle_01.png' };
+    if (!this.bossSprite || this.bossArtId !== b.bossId) {
       this.bossSprite?.destroy();
-      // Native scale 1, fixed feet anchor per sheet: no per-frame resizing or bbox cropping.
-      this.bossSprite = this.add.sprite(b.body.x, b.body.y, art.key, art.first).setOrigin(art.origin.x, art.origin.y).setDepth(14);
+      this.bossArtId = b.bossId;
+      // Fixed feet anchor and one display scale per sheet: no per-frame resizing or bbox cropping.
+      this.bossSprite = this.add.sprite(b.body.x, b.body.y, art.tex(art.first), art.first).setOrigin(art.origin.x, art.origin.y).setScale(art.scale).setDepth(14);
       this.bossLastHp = b.hp;
       // presentationT restarts every round: a flash deadline left over from the previous boss would keep the
       // new boss white until the new round caught up with it.
@@ -498,7 +503,7 @@ export class PlayScene extends Phaser.Scene {
     const frame = art.frame(b, view);
     // Round-1 boss phase-2 red slam effects (visual only, sim-time frames).
     this.vanguardFx.draw(b.bossId === 'vanguard' ? this.vanguardFx.planner.update(b, t, r.groundY) : []);
-    const s = this.bossSprite.setVisible(true).setFrame(frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
+    const s = this.bossSprite.setVisible(true).setTexture(art.tex(frame), frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
     s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
     const red = b.redTelegraph;
     if (r.presentationT < this.bossFlashUntil) s.setTintFill(0xffffff);
