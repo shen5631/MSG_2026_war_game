@@ -6,6 +6,7 @@ import { GameHost } from './GameHost';
 import { ServicesContext } from './useMenu';
 import { Ending, Results, Rewards } from './ui/Flow';
 import { HUD, Toasts } from './ui/HUD';
+import { Tutorial } from './ui/Tutorial';
 import { GameOver, Loading, LoadError, Pause, PadDisconnected, RuntimeError, Title } from './ui/Panels';
 
 // Dev server only: the test panel (` key) is dropped from production builds with this constant branch.
@@ -27,6 +28,7 @@ function Overlay({ st, padActive, padNotice }: { st: ControllerState; padActive:
           <HUD />
           <Toasts />
           {st.runtimeError ? <RuntimeError message={st.runtimeError} />
+            : r.includes('tutorial') ? <Tutorial />
             : r.includes('pad-disconnected') ? <PadDisconnected padActive={padActive} />
               : st.paused && r.includes('manual') ? <Pause note={st.pauseNote} /> : null}
         </>

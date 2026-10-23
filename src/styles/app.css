@@ -235,3 +235,28 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .ending-card p { font-size: 12px; }
 .blink { animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0.2; } }
+
+/* Control guide after 시작하기: the held game screen is dimmed except the spotlight on what is explained. */
+.tutorial { position: absolute; inset: 0; z-index: 5; pointer-events: auto; }
+.tut-dim { position: absolute; inset: 0; background: rgba(3, 6, 12, 0.8); }
+.tut-hole { position: absolute; border: 1px solid var(--m-gold-light); border-radius: 3px; box-shadow: 0 0 0 1px #0b1524, 0 0 10px 1px #f2d98e88, 0 0 0 2000px rgba(3, 6, 12, 0.8); transition: left 220ms ease, top 220ms ease, width 220ms ease, height 220ms ease; animation: tut-glow 1.4s ease-in-out infinite; pointer-events: none; }
+@keyframes tut-glow { 50% { box-shadow: 0 0 0 1px #0b1524, 0 0 16px 3px #f2d98ecc, 0 0 0 2000px rgba(3, 6, 12, 0.8); } }
+.tut-skip { position: absolute; right: 6px; height: 18px; padding: 0 9px; color: var(--m-text); background: #111e30; border: 1px solid #7c6638; font-size: 9px; letter-spacing: 1px; cursor: pointer; transition: top 220ms ease; }
+.tut-skip:hover { color: var(--m-gold-light); border-color: var(--m-gold); background: #2d2c26; }
+.tut-card { position: absolute; padding: 7px 10px 6px; color: var(--m-text); background: linear-gradient(125deg, #101d30, #0b1524 55%, #101b2c); border: 1px solid var(--m-gold); box-shadow: 0 0 0 1px #392d17, 0 8px 20px #000a, inset 0 0 0 2px #0b1524, inset 0 0 0 3px #6d5b3433; transition: left 220ms ease, top 220ms ease; }
+.tut-head { display: flex; align-items: baseline; gap: 6px; margin-bottom: 3px; }
+.tut-head h3 { margin: 0; color: var(--m-gold-light); font-size: 12px; letter-spacing: 1px; }
+.tut-step { color: var(--m-muted); font-size: 8px; font-variant-numeric: tabular-nums; }
+.tut-card ul { margin: 0; padding: 0 0 0 9px; font-size: 8.5px; line-height: 1.55; }
+.tut-card li::marker { color: var(--m-gold); }
+.tut-card kbd, .tut-pad kbd { display: inline-block; min-width: 9px; padding: 0 3px; border: 1px solid #4a5a72; border-bottom-width: 2px; background: #172337; color: #f2f5f9; font-family: inherit; font-size: 7.5px; line-height: 1.3; text-align: center; }
+.tut-pad { margin: 4px 0 0; padding-top: 3px; border-top: 1px solid #263549; color: #c4cedb; font-size: 8px; }
+.tut-pad span { margin-right: 5px; color: var(--m-gold); font-size: 7px; letter-spacing: 1px; }
+.tut-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 6px; }
+.tut-nav .btn { height: 16px; margin-top: 0; padding: 0 8px; font-size: 8px; }
+.tut-nav .btn:disabled { opacity: 0.35; cursor: default; }
+.tut-nav .btn.primary { color: var(--m-gold-light); border-color: var(--m-gold); }
+.tut-dots { display: flex; gap: 3px; }
+.tut-dots i { width: 4px; height: 4px; background: #2f3d52; transform: rotate(45deg); }
+.tut-dots i.on { background: var(--m-gold-light); }
+@media (prefers-reduced-motion: reduce) { .tut-hole { animation: none; transition: none; } .tut-card, .tut-skip { transition: none; } }
