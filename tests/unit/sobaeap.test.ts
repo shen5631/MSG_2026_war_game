@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { BOSS_HP, BOSS_PATTERNS, LOCKED } from '../../src/config/spec';
 import { Boss, type BossCtx } from '../../src/domain/boss';
 import { AttackSlots } from '../../src/domain/enemies';
-import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_ORIGIN, SOBAEAP_PATTERN_ACTION, sobaeapFrame } from '../../src/game/visual/sobaeap';
+import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_ORIGIN, SOBAEAP_PATTERN_ACTION, SOBAEAP_STRIKE_FRAMES, sobaeapFrame } from '../../src/game/visual/sobaeap';
 
 const GROUND = 304;
 
@@ -24,18 +24,18 @@ function run(playerX: number, ms: number, phase: 1 | 2, summons: string[] = []) 
 const uniq = (xs: string[]) => [...new Set(xs)].sort();
 const fr = (a: string, n: number) => `sobaeap_${a}_0${n}.png`;
 
-describe('소배압 V2 art on the existing boss AI', () => {
-  it('keeps HP 700, phase 2 at 350, at most 3 summons; 40 atlas frames, feet origin (224,220) of 448×256', () => {
+describe('소배압 V3 art on the existing boss AI', () => {
+  it('keeps HP 700, phase 2 at 350, at most 3 summons; 35 atlas frames, feet origin (256,282) of 512×320', () => {
     expect(BOSS_HP.so_bae_ap).toBe(700);
     expect(700 * LOCKED.bosses.phase2HpRatio).toBe(350);
     expect(LOCKED.bosses.so_bae_ap.maxLivingSummons).toBe(3);
-    expect(REQUIRED_SOBAEAP_FRAMES).toHaveLength(40);
-    expect(SOBAEAP_ORIGIN).toEqual({ x: 0.5, y: 220 / 256 });
+    expect(REQUIRED_SOBAEAP_FRAMES).toHaveLength(35);
+    expect(SOBAEAP_ORIGIN).toEqual({ x: 0.5, y: 282 / 320 });
     for (const p of BOSS_PATTERNS.so_bae_ap) expect(SOBAEAP_PATTERN_ACTION[p.id], p.id).toBeDefined();
   });
 
   it('every live hit shows a thrust/charge frame; windups never do; the boss faces the player on both sides', () => {
-    const thrust = new Set([fr('attack', 3), fr('attack', 4), fr('combo', 2), fr('combo', 3), fr('combo', 5), fr('charge', 2), fr('charge', 3), fr('charge', 4)]);
+    const thrust = SOBAEAP_STRIKE_FRAMES;
     const seen = new Set<string>();
     for (const [px, phase] of [[340, 1], [150, 1], [340, 2], [150, 2], [620, 2]] as const) {
       const { log } = run(px, 25000, phase);
@@ -47,12 +47,14 @@ describe('소배압 V2 art on the existing boss AI', () => {
     for (const p of ['double_sword', 'rush', 'heavy_cut', 'fast_triple', 'red_ground_wave']) expect(seen.has(p), p).toBe(true);
   });
 
-  it('combo hits step through combo_02 → combo_05 (→ combo_03) with the spear drawn back (combo_04) between hits', () => {
+  it('combo hits alternate combo_03 / combo_04 with the spear drawn back (combo_02) between hits; rush shows charge_02', () => {
     const { log } = run(340, 25000, 2);
     const tri = log.filter((l) => l.pattern === 'fast_triple' && l.hit).map((l) => l.frame);
-    expect(uniq(tri)).toEqual([fr('combo', 2), fr('combo', 3), fr('combo', 5)]);
+    expect(uniq(tri)).toEqual([fr('combo', 3), fr('combo', 4)]);
     const dbl = log.filter((l) => l.pattern === 'double_sword' && l.state === 'hits' && !l.hit).map((l) => l.frame);
-    expect(uniq(dbl)).toEqual([fr('combo', 4)]);
+    expect(uniq(dbl)).toEqual([fr('combo', 2)]);
+    const rush = run(150, 25000, 1).log.filter((l) => l.pattern === 'rush' && l.hit).map((l) => l.frame);
+    expect(uniq(rush)).toEqual([fr('charge', 2)]);
   });
 
   it('summon, parry stun, phase-2 transition and death use their own frames', () => {
