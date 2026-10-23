@@ -36,6 +36,7 @@ describe('game flow', () => {
     const c = new GameController(1);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     expect(c.phase).toBe('playing');
     clearRound(c);
     expect(c.phase).toBe('reward');
@@ -66,6 +67,7 @@ describe('game flow', () => {
     const c = new GameController(2);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     clearRound(c);
     c.chooseUpgrade('command_cooldown');
     const sim = c.round!;
@@ -94,6 +96,7 @@ describe('game flow', () => {
     const c = new GameController(3);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     const p = c.round!.player;
     p.cooldownRemaining = 10000;
     p.buffRemaining = 5000;
@@ -108,6 +111,7 @@ describe('game flow', () => {
     const c = new GameController(4);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     c.addAutoPause('hidden');
     c.clearAutoPause('hidden');
     expect(c.pause.paused).toBe(true);
@@ -119,6 +123,7 @@ describe('game flow', () => {
     const c = new GameController(5);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     clearRound(c);
     c.chooseUpgrade('parry');
     c.returnToMenu();
@@ -131,6 +136,7 @@ describe('game flow', () => {
     const c = new GameController(6);
     c.setLoaded();
     c.startGame();
+    c.finishTutorial(); // skip the control guide (tested separately)
     // A long frame right after the start is dropped without pausing (texture upload grace)…
     c.frame(5000, idle);
     expect(c.pause.paused).toBe(false);
@@ -140,5 +146,43 @@ describe('game flow', () => {
     c.frame(5000, idle);
     expect(c.round!.t).toBe(t0);
     expect(c.pause.paused).toBe(true);
+  });
+});
+
+describe('control guide after 시작하기', () => {
+  it('holds round 1 on its first frame until finished; START/pause cannot stack on top', () => {
+    const c = new GameController(1);
+    c.setLoaded();
+    c.startGame();
+    expect(c.phase).toBe('playing');
+    expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
+    frames(c, 120);
+    expect(c.round!.t).toBe(0);
+    c.pauseManual();
+    expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
+    c.finishTutorial();
+    expect(c.snapshot().paused).toBe(false);
+    frames(c, 60);
+    expect(c.round!.t).toBeGreaterThan(0);
+    c.finishTutorial(); // second call is a no-op
+    expect(c.snapshot().paused).toBe(false);
+  });
+
+  it('shows again for every new game from the title, never on a retry or a later round', () => {
+    const c = new GameController(1);
+    c.setLoaded();
+    c.startGame();
+    c.finishTutorial();
+    c.round!.player.hp = 0;
+    frames(c, 120);
+    expect(c.phase).toBe('game-over');
+    c.retryRound();
+    expect(c.phase).toBe('playing');
+    expect(c.snapshot().pauseReasons).not.toContain('tutorial');
+    c.debugStartRound(2);
+    expect(c.snapshot().pauseReasons).not.toContain('tutorial');
+    c.returnToMenu();
+    c.startGame();
+    expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
   });
 });

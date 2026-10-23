@@ -22,10 +22,15 @@ async function boot(page: Page) {
   return errors;
 }
 
+/** 시작하기, then skips the control guide with Esc (menu cancel) so round 1 runs. */
 async function startGame(page: Page) {
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('hud')).toBeVisible();
   await expect.poll(async () => (await state(page)).phase).toBe('playing');
+  await expect(page.getByTestId('tutorial')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByTestId('tutorial')).toBeHidden();
+  await expect.poll(async () => (await state(page)).paused).toBe(false);
 }
 
 async function waitPhase(page: Page, phase: string, timeout = 20_000) {
@@ -199,4 +204,42 @@ test('T061/T103/T104 full run: 3 rounds, real waves in round 1, 2 rewards, endin
   await page.keyboard.press('Enter');
   await waitPhase(page, 'title');
   expect(errors).toEqual([]);
+});
+
+test('control guide after 시작하기: held round, spotlight steps, skip button top-right', async ({ page }) => {
+  await boot(page);
+  await page.keyboard.press('Enter');
+  const guide = page.getByTestId('tutorial');
+  await expect(guide).toBeVisible();
+  await expect.poll(async () => (await state(page)).pauseReasons).toEqual(['tutorial']);
+  const simT = await page.evaluate(() => (window.__GGC__!.state() as { simT: number }).simT);
+  await page.waitForTimeout(400);
+  expect(await page.evaluate(() => (window.__GGC__!.state() as { simT: number }).simT)).toBe(simT);
+  // step 1 has no spotlight; Enter / → go forward, ← goes back
+  await expect(page.getByTestId('tutorial-hole')).toHaveCount(0);
+  await page.keyboard.press('Enter');
+  await expect(guide).toHaveAttribute('data-step', '1');
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('ArrowLeft');
+  await expect(guide).toHaveAttribute('data-step', '1');
+  // the hero spotlight is around the player; then the HP spotlight wraps the HP bar
+  await page.keyboard.press('Enter');
+  await page.keyboard.press('Enter');
+  await expect(guide).toHaveAttribute('data-step', '3');
+  await page.waitForTimeout(300); // spotlight slides into place
+  const hole = (await page.getByTestId('tutorial-hole').boundingBox())!;
+  const hp = (await page.getByTestId('hud-hp').boundingBox())!;
+  expect(hole.x).toBeLessThanOrEqual(hp.x);
+  expect(hole.y).toBeLessThanOrEqual(hp.y);
+  expect(hole.x + hole.width).toBeGreaterThanOrEqual(hp.x + hp.width);
+  expect(hole.y + hole.height).toBeGreaterThanOrEqual(hp.y + hp.height);
+  // 건너뛰기 sits in the top-right corner of the stage and resumes the round
+  const skip = (await page.getByTestId('tutorial-skip').boundingBox())!;
+  const stage = (await page.getByTestId('stage').boundingBox())!;
+  expect(stage.x + stage.width - (skip.x + skip.width)).toBeLessThan(40);
+  expect(skip.y - stage.y).toBeLessThan(40);
+  await page.getByTestId('tutorial-skip').click();
+  await expect(guide).toBeHidden();
+  await expect.poll(async () => (await state(page)).paused).toBe(false);
+  await expect.poll(async () => page.evaluate(() => (window.__GGC__!.state() as { simT: number }).simT)).toBeGreaterThan(simT);
 });
