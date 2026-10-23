@@ -236,7 +236,7 @@ export function ConfirmExit({ onCancel, onConfirm }: { onCancel: () => void; onC
         <p className="small">다음 게임은 1라운드부터 시작합니다.</p>
         <MenuList initial={0} onCancel={onCancel} items={[
           { label: '취소', onSelect: onCancel, testId: 'confirm-cancel' },
-          { label: '메인 메뉴로', onSelect: onConfirm, testId: 'confirm-ok' },
+          { label: '메인 메뉴로', glyph: 'home', onSelect: onConfirm, testId: 'confirm-ok' },
         ]} />
       </Frame>
     </div>
@@ -256,7 +256,7 @@ export function Pause({ note }: { note: string | null }) {
           { label: '계속하기', glyph: 'sword', onSelect: resume, testId: 'resume' },
           { label: '조작 방법', glyph: 'book', onSelect: () => setSub('controls') },
           { label: '설정', glyph: 'gear', onSelect: () => setSub('settings') },
-          { label: '메인 메뉴', onSelect: () => setSub('confirm'), testId: 'to-menu' },
+          { label: '메인 메뉴', glyph: 'home', onSelect: () => setSub('confirm'), testId: 'to-menu' },
         ]} />
       </Frame>
       {sub === 'settings' && <Settings onClose={() => setSub(null)} />}
@@ -276,7 +276,7 @@ export function GameOver() {
         <p>현재 라운드 처음부터 다시 도전할 수 있습니다. 이전 강화와 기록은 유지됩니다.</p>
         <MenuList enabled={!confirm} items={[
           { label: '재도전', glyph: 'sword', onSelect: () => sendCommand(s, { type: 'retryRound' }), testId: 'retry' },
-          { label: '메인 메뉴', onSelect: () => setConfirm(true) },
+          { label: '메인 메뉴', glyph: 'home', onSelect: () => setConfirm(true) },
         ]} />
       </Frame>
       {confirm && <ConfirmExit onCancel={() => setConfirm(false)} onConfirm={() => sendCommand(s, { type: 'returnToMenu' })} />}
@@ -293,7 +293,7 @@ export function RuntimeError({ message }: { message: string }) {
         <p className="small">{message}</p>
         <MenuList items={[
           { label: '현재 라운드 재시도', onSelect: () => sendCommand(s, { type: 'retryRound' }) },
-          { label: '메인 메뉴', onSelect: () => sendCommand(s, { type: 'returnToMenu' }) },
+          { label: '메인 메뉴', glyph: 'home', onSelect: () => sendCommand(s, { type: 'returnToMenu' }) },
         ]} />
       </Frame>
     </div>

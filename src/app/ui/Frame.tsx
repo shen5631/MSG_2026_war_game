@@ -14,7 +14,7 @@ export function Frame({ className = '', children, ...rest }: { className?: strin
   );
 }
 
-export type GlyphKind = 'sword' | 'book' | 'gear';
+export type GlyphKind = 'sword' | 'book' | 'gear' | 'home';
 
 export function MenuGlyph({ kind }: { kind: GlyphKind }) {
   return (
@@ -23,6 +23,13 @@ export function MenuGlyph({ kind }: { kind: GlyphKind }) {
         <>
           <path d="m5 19 3-3m-3-4 7 7M8 13 17 4l3-1-1 4-9 9" />
           <path d="m16 5 3 3" />
+        </>
+      ) : kind === 'home' ? (
+        // Main menu: a hall with an upturned (hanok) roof and a door.
+        <>
+          <path d="M2 11c3.5-.5 6.5-3 10-7 3.5 4 6.5 6.5 10 7" />
+          <path d="M5.5 10.5V20h13v-9.5" />
+          <path d="M10 20v-5h4v5M3.5 20h17" />
         </>
       ) : kind === 'book' ? (
         <>
