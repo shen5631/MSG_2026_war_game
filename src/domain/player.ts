@@ -29,6 +29,14 @@ const DASH_TOTAL = M.dashActiveMs + M.dashRecoveryMs;
 const PARRY_FAIL_MS = C.parryFailureRecoveryMs;
 const HURT_MS = C.hpHitStunMs;
 const COMMAND_MS = DEFAULTS.skills.spearCommandMs;
+/**
+ * [구현 기본값] Walking into a low rock pops the player up onto it (an automatic hop) instead of stopping dead;
+ * gravity then brings them back down past its far edge. Only rocks (the low boss-arena/terrain stones): crates,
+ * steps, platforms and barricades still need a real jump. The hop clears the rock top by this margin.
+ */
+const AUTO_HOP_KINDS = new Set(['rock']);
+const AUTO_HOP_MARGIN_PX = 8;
+const AUTO_HOP_MAX_RISE_PX = 32;
 
 export interface PlayerAttack {
   kind: AttackKind;
@@ -488,6 +496,7 @@ export class Player {
     }
     const wasGround = b.onGround;
     stepBody(b, ctx.dt, ctx.solids, ctx.bounds, ctx.groundY, M.gravityY);
+    if (this.mode === 'free' && b.onGround && input.moveX !== 0 && b.blockedX === Math.sign(input.moveX)) this.autoHop(ctx.solids);
     if (b.onGround) {
       this.lastGroundT = t;
       this.jumpedSinceGround = false;
@@ -496,6 +505,20 @@ export class Player {
       this.lastSafe = { x: b.x, y: b.y };
       if (this.mode === 'free' && t - this.jumpBufferedAt <= M.jumpBufferMs) this.doJump(t);
     }
+  }
+
+  /** Pops over a low rock the player is walking into (see AUTO_HOP_KINDS). Not a jump: no jump state is consumed. */
+  private autoHop(solids: Solid[]): void {
+    const b = this.body;
+    const dir = b.blockedX;
+    const face = b.x + (dir * b.w) / 2;
+    const rock = solids.find((s) => s.alive && AUTO_HOP_KINDS.has(s.kind) && b.y > s.y && b.y - b.h < s.y + s.h &&
+      Math.abs((dir > 0 ? s.x : s.x + s.w) - face) <= 1);
+    if (!rock) return;
+    const rise = b.y - rock.y;
+    if (rise > AUTO_HOP_MAX_RISE_PX) return;
+    b.vy = -Math.sqrt(2 * M.gravityY * (rise + AUTO_HOP_MARGIN_PX));
+    b.onGround = false;
   }
 
   /** Active forward hitbox of the current sword attack, if any. */
