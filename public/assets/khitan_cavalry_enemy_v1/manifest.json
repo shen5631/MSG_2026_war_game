@@ -1,0 +1,1155 @@
+{
+  "id": "khitan_cavalry_enemy_v1",
+  "enemyId": "cavalry",
+  "role": "enemy_normal_mounted_lancer",
+  "frameSize": {
+    "w": 320,
+    "h": 224
+  },
+  "anchor": {
+    "x": 160,
+    "y": 192
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.8571428571428571
+  },
+  "defaultFacing": "right",
+  "displayScale": 1,
+  "totalPngs": 34,
+  "uniquePngs": 34,
+  "animations": {
+    "idle": {
+      "frames": [
+        "khitan_cavalry_idle_01.png",
+        "khitan_cavalry_idle_02.png",
+        "khitan_cavalry_idle_03.png",
+        "khitan_cavalry_idle_04.png"
+      ],
+      "frameCount": 4,
+      "fps": 5,
+      "loop": true,
+      "label": "대기"
+    },
+    "walk": {
+      "frames": [
+        "khitan_cavalry_walk_01.png",
+        "khitan_cavalry_walk_02.png",
+        "khitan_cavalry_walk_03.png",
+        "khitan_cavalry_walk_04.png",
+        "khitan_cavalry_walk_05.png",
+        "khitan_cavalry_walk_06.png"
+      ],
+      "frameCount": 6,
+      "fps": 8,
+      "loop": true,
+      "label": "이동"
+    },
+    "run": {
+      "frames": [
+        "khitan_cavalry_run_01.png",
+        "khitan_cavalry_run_02.png",
+        "khitan_cavalry_run_03.png",
+        "khitan_cavalry_run_04.png",
+        "khitan_cavalry_run_05.png",
+        "khitan_cavalry_run_06.png"
+      ],
+      "frameCount": 6,
+      "fps": 12,
+      "loop": true,
+      "label": "질주"
+    },
+    "attack": {
+      "frames": [
+        "khitan_cavalry_attack_01.png",
+        "khitan_cavalry_attack_02.png",
+        "khitan_cavalry_attack_03.png",
+        "khitan_cavalry_attack_04.png",
+        "khitan_cavalry_attack_05.png",
+        "khitan_cavalry_attack_06.png"
+      ],
+      "frameCount": 6,
+      "fps": 6,
+      "loop": false,
+      "label": "준비·복귀"
+    },
+    "charge": {
+      "frames": [
+        "khitan_cavalry_charge_01.png",
+        "khitan_cavalry_charge_02.png"
+      ],
+      "frameCount": 2,
+      "fps": 10,
+      "loop": true,
+      "label": "돌진 창 공격"
+    },
+    "hurt": {
+      "frames": [
+        "khitan_cavalry_hurt_01.png",
+        "khitan_cavalry_hurt_02.png",
+        "khitan_cavalry_hurt_03.png",
+        "khitan_cavalry_hurt_04.png"
+      ],
+      "frameCount": 4,
+      "fps": 8,
+      "loop": false,
+      "label": "피격·패링 경직"
+    },
+    "death": {
+      "frames": [
+        "khitan_cavalry_death_01.png",
+        "khitan_cavalry_death_02.png",
+        "khitan_cavalry_death_03.png",
+        "khitan_cavalry_death_04.png",
+        "khitan_cavalry_death_05.png",
+        "khitan_cavalry_death_06.png"
+      ],
+      "frameCount": 6,
+      "fps": 7,
+      "loop": false,
+      "label": "사망"
+    }
+  },
+  "frames": [
+    {
+      "name": "khitan_cavalry_idle_01.png",
+      "action": "idle",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        12,
+        242,
+        468,
+        345
+      ],
+      "sourceBounds": [
+        5,
+        11,
+        106,
+        100
+      ],
+      "sourceAnchor": [
+        49,
+        90
+      ],
+      "scale": 1.35,
+      "path": "frames/idle/khitan_cavalry_idle_01.png",
+      "bbox": [
+        94,
+        70,
+        230,
+        190
+      ]
+    },
+    {
+      "name": "khitan_cavalry_idle_02.png",
+      "action": "idle",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        12,
+        242,
+        468,
+        345
+      ],
+      "sourceBounds": [
+        121,
+        10,
+        228,
+        100
+      ],
+      "sourceAnchor": [
+        47,
+        91
+      ],
+      "scale": 1.35,
+      "path": "frames/idle/khitan_cavalry_idle_02.png",
+      "bbox": [
+        97,
+        69,
+        241,
+        191
+      ]
+    },
+    {
+      "name": "khitan_cavalry_idle_03.png",
+      "action": "idle",
+      "index": 3,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        12,
+        242,
+        468,
+        345
+      ],
+      "sourceBounds": [
+        234,
+        10,
+        341,
+        100
+      ],
+      "sourceAnchor": [
+        48,
+        91
+      ],
+      "scale": 1.35,
+      "path": "frames/idle/khitan_cavalry_idle_03.png",
+      "bbox": [
+        95,
+        69,
+        239,
+        191
+      ]
+    },
+    {
+      "name": "khitan_cavalry_idle_04.png",
+      "action": "idle",
+      "index": 4,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        12,
+        242,
+        468,
+        345
+      ],
+      "sourceBounds": [
+        347,
+        10,
+        454,
+        100
+      ],
+      "sourceAnchor": [
+        51,
+        91
+      ],
+      "scale": 1.35,
+      "path": "frames/idle/khitan_cavalry_idle_04.png",
+      "bbox": [
+        91,
+        69,
+        235,
+        191
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_01.png",
+      "action": "walk",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        2,
+        0,
+        94,
+        99
+      ],
+      "sourceAnchor": [
+        44,
+        101
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_01.png",
+      "bbox": [
+        101,
+        56,
+        225,
+        190
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_02.png",
+      "action": "walk",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        93,
+        0,
+        185,
+        99
+      ],
+      "sourceAnchor": [
+        43,
+        101
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_02.png",
+      "bbox": [
+        102,
+        56,
+        226,
+        190
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_03.png",
+      "action": "walk",
+      "index": 3,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        180,
+        8,
+        270,
+        99
+      ],
+      "sourceAnchor": [
+        44,
+        93
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_03.png",
+      "bbox": [
+        101,
+        66,
+        223,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_04.png",
+      "action": "walk",
+      "index": 4,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        266,
+        8,
+        354,
+        99
+      ],
+      "sourceAnchor": [
+        44,
+        93
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_04.png",
+      "bbox": [
+        101,
+        66,
+        220,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_05.png",
+      "action": "walk",
+      "index": 5,
+      "sourceIndex": 5,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        351,
+        0,
+        438,
+        99
+      ],
+      "sourceAnchor": [
+        43,
+        101
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_05.png",
+      "bbox": [
+        102,
+        56,
+        219,
+        190
+      ]
+    },
+    {
+      "name": "khitan_cavalry_walk_06.png",
+      "action": "walk",
+      "index": 6,
+      "sourceIndex": 6,
+      "sourceRegion": [
+        482,
+        242,
+        1013,
+        345
+      ],
+      "sourceBounds": [
+        436,
+        8,
+        526,
+        100
+      ],
+      "sourceAnchor": [
+        46,
+        93
+      ],
+      "scale": 1.35,
+      "path": "frames/walk/khitan_cavalry_walk_06.png",
+      "bbox": [
+        98,
+        66,
+        220,
+        190
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_01.png",
+      "action": "run",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        3,
+        10,
+        105,
+        99
+      ],
+      "sourceAnchor": [
+        45,
+        91
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_01.png",
+      "bbox": [
+        99,
+        69,
+        237,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_02.png",
+      "action": "run",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        88,
+        12,
+        181,
+        99
+      ],
+      "sourceAnchor": [
+        45,
+        89
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_02.png",
+      "bbox": [
+        99,
+        72,
+        225,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_03.png",
+      "action": "run",
+      "index": 3,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        173,
+        11,
+        268,
+        99
+      ],
+      "sourceAnchor": [
+        44,
+        90
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_03.png",
+      "bbox": [
+        101,
+        70,
+        229,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_04.png",
+      "action": "run",
+      "index": 4,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        256,
+        12,
+        340,
+        99
+      ],
+      "sourceAnchor": [
+        44,
+        89
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_04.png",
+      "bbox": [
+        101,
+        72,
+        214,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_05.png",
+      "action": "run",
+      "index": 5,
+      "sourceIndex": 5,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        335,
+        12,
+        416,
+        99
+      ],
+      "sourceAnchor": [
+        45,
+        89
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_05.png",
+      "bbox": [
+        99,
+        72,
+        208,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_run_06.png",
+      "action": "run",
+      "index": 6,
+      "sourceIndex": 6,
+      "sourceRegion": [
+        1027,
+        242,
+        1525,
+        345
+      ],
+      "sourceBounds": [
+        411,
+        12,
+        496,
+        99
+      ],
+      "sourceAnchor": [
+        51,
+        89
+      ],
+      "scale": 1.35,
+      "path": "frames/run/khitan_cavalry_run_06.png",
+      "bbox": [
+        91,
+        72,
+        206,
+        189
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_01.png",
+      "action": "attack",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        3,
+        4,
+        100,
+        87
+      ],
+      "sourceAnchor": [
+        45,
+        83
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_01.png",
+      "bbox": [
+        99,
+        80,
+        230,
+        192
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_02.png",
+      "action": "attack",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        93,
+        4,
+        179,
+        87
+      ],
+      "sourceAnchor": [
+        41,
+        83
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_02.png",
+      "bbox": [
+        105,
+        80,
+        221,
+        192
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_03.png",
+      "action": "attack",
+      "index": 3,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        174,
+        5,
+        258,
+        87
+      ],
+      "sourceAnchor": [
+        44,
+        82
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_03.png",
+      "bbox": [
+        101,
+        81,
+        214,
+        192
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_04.png",
+      "action": "attack",
+      "index": 4,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        256,
+        5,
+        348,
+        87
+      ],
+      "sourceAnchor": [
+        46,
+        82
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_04.png",
+      "bbox": [
+        98,
+        81,
+        222,
+        192
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_05.png",
+      "action": "attack",
+      "index": 5,
+      "sourceIndex": 5,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        337,
+        5,
+        432,
+        88
+      ],
+      "sourceAnchor": [
+        49,
+        82
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_05.png",
+      "bbox": [
+        94,
+        81,
+        222,
+        193
+      ]
+    },
+    {
+      "name": "khitan_cavalry_attack_06.png",
+      "action": "attack",
+      "index": 6,
+      "sourceIndex": 6,
+      "sourceRegion": [
+        12,
+        396,
+        524,
+        487
+      ],
+      "sourceBounds": [
+        420,
+        4,
+        508,
+        87
+      ],
+      "sourceAnchor": [
+        50,
+        83
+      ],
+      "scale": 1.35,
+      "path": "frames/attack/khitan_cavalry_attack_06.png",
+      "bbox": [
+        92,
+        80,
+        211,
+        192
+      ]
+    },
+    {
+      "name": "khitan_cavalry_charge_01.png",
+      "action": "charge",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        537,
+        396,
+        1073,
+        487
+      ],
+      "sourceBounds": [
+        2,
+        2,
+        138,
+        88
+      ],
+      "sourceAnchor": [
+        54,
+        85
+      ],
+      "scale": 1.35,
+      "path": "frames/charge/khitan_cavalry_charge_01.png",
+      "bbox": [
+        87,
+        77,
+        271,
+        193
+      ]
+    },
+    {
+      "name": "khitan_cavalry_charge_02.png",
+      "action": "charge",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        537,
+        396,
+        1073,
+        487
+      ],
+      "sourceBounds": [
+        116,
+        12,
+        264,
+        88
+      ],
+      "sourceAnchor": [
+        68,
+        75
+      ],
+      "scale": 1.35,
+      "path": "frames/charge/khitan_cavalry_charge_02.png",
+      "bbox": [
+        68,
+        91,
+        268,
+        194
+      ]
+    },
+    {
+      "name": "khitan_cavalry_hurt_01.png",
+      "action": "hurt",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        1088,
+        396,
+        1526,
+        487
+      ],
+      "sourceBounds": [
+        5,
+        5,
+        100,
+        88
+      ],
+      "sourceAnchor": [
+        47,
+        82
+      ],
+      "scale": 1.35,
+      "path": "frames/hurt/khitan_cavalry_hurt_01.png",
+      "bbox": [
+        97,
+        81,
+        225,
+        193
+      ]
+    },
+    {
+      "name": "khitan_cavalry_hurt_02.png",
+      "action": "hurt",
+      "index": 2,
+      "sourceIndex": 2,
+      "sourceRegion": [
+        1088,
+        396,
+        1526,
+        487
+      ],
+      "sourceBounds": [
+        113,
+        4,
+        207,
+        89
+      ],
+      "sourceAnchor": [
+        46,
+        83
+      ],
+      "scale": 1.35,
+      "path": "frames/hurt/khitan_cavalry_hurt_02.png",
+      "bbox": [
+        98,
+        80,
+        225,
+        195
+      ]
+    },
+    {
+      "name": "khitan_cavalry_hurt_03.png",
+      "action": "hurt",
+      "index": 3,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        1088,
+        396,
+        1526,
+        487
+      ],
+      "sourceBounds": [
+        219,
+        7,
+        315,
+        89
+      ],
+      "sourceAnchor": [
+        46,
+        80
+      ],
+      "scale": 1.35,
+      "path": "frames/hurt/khitan_cavalry_hurt_03.png",
+      "bbox": [
+        98,
+        84,
+        228,
+        195
+      ]
+    },
+    {
+      "name": "khitan_cavalry_hurt_04.png",
+      "action": "hurt",
+      "index": 4,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        1088,
+        396,
+        1526,
+        487
+      ],
+      "sourceBounds": [
+        328,
+        13,
+        427,
+        90
+      ],
+      "sourceAnchor": [
+        47,
+        74
+      ],
+      "scale": 1.35,
+      "path": "frames/hurt/khitan_cavalry_hurt_04.png",
+      "bbox": [
+        97,
+        92,
+        231,
+        196
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_01.png",
+      "action": "death",
+      "index": 1,
+      "sourceIndex": 1,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        7,
+        7,
+        112,
+        91
+      ],
+      "sourceAnchor": [
+        51,
+        79
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_01.png",
+      "bbox": [
+        91,
+        85,
+        233,
+        198
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_02.png",
+      "action": "death",
+      "index": 2,
+      "sourceIndex": 3,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        232,
+        12,
+        324,
+        90
+      ],
+      "sourceAnchor": [
+        48,
+        74
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_02.png",
+      "bbox": [
+        95,
+        92,
+        219,
+        197
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_03.png",
+      "action": "death",
+      "index": 3,
+      "sourceIndex": 4,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        339,
+        27,
+        428,
+        88
+      ],
+      "sourceAnchor": [
+        45,
+        59
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_03.png",
+      "bbox": [
+        99,
+        112,
+        219,
+        194
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_04.png",
+      "action": "death",
+      "index": 4,
+      "sourceIndex": 5,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        439,
+        27,
+        549,
+        89
+      ],
+      "sourceAnchor": [
+        49,
+        59
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_04.png",
+      "bbox": [
+        94,
+        112,
+        242,
+        196
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_05.png",
+      "action": "death",
+      "index": 5,
+      "sourceIndex": 6,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        559,
+        44,
+        664,
+        91
+      ],
+      "sourceAnchor": [
+        50,
+        42
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_05.png",
+      "bbox": [
+        92,
+        135,
+        234,
+        198
+      ]
+    },
+    {
+      "name": "khitan_cavalry_death_06.png",
+      "action": "death",
+      "index": 6,
+      "sourceIndex": 7,
+      "sourceRegion": [
+        12,
+        535,
+        803,
+        629
+      ],
+      "sourceBounds": [
+        674,
+        50,
+        785,
+        86
+      ],
+      "sourceAnchor": [
+        55,
+        36
+      ],
+      "scale": 1.35,
+      "path": "frames/death/khitan_cavalry_death_06.png",
+      "bbox": [
+        86,
+        143,
+        236,
+        192
+      ]
+    }
+  ],
+  "stats": {
+    "maxHp": 70,
+    "damage": 18,
+    "chargeSpeed": 260,
+    "startRangeMin": 160,
+    "startRangeMax": 320,
+    "windupMs": 850,
+    "chargeMaxMs": 600,
+    "recoveryMs": 1000
+  },
+  "sourceNotes": [
+    "Generated source images were separated using content masks, not uniform grid slicing.",
+    "Runtime assets contain no panel labels, folder drawings or background scene.",
+    "Charge uses 2 unique poses looped. Run contains 6 separate gait poses. No interpolated poses are claimed.",
+    "Frame size is transparent canvas, not collision size.",
+    "HP70 confirmed; damage/speed/timing are existing planning defaults."
+  ],
+  "rounds": [
+    3
+  ]
+}

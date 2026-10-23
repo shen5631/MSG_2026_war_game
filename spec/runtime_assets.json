@@ -37,6 +37,13 @@
       "note": "거란군 일반 적 방패병 V2: idle4/walk6/guard4/attack6/guard_break4/hurt4(guard_break 재사용)/death5 = 33프레임, 192x192, 발 기준점 (96,160), scale 1"
     },
     {
+      "type": "atlas",
+      "key": "khitan-cavalry-v1",
+      "texture": "assets/khitan_cavalry_enemy_v1/atlas/khitan_cavalry.png",
+      "atlas": "assets/khitan_cavalry_enemy_v1/atlas/khitan_cavalry.json",
+      "note": "거란군 일반 적 기병 v1: idle4/walk6/run6/attack6(돌진 준비3·복귀3)/charge2/hurt4/death6 = 34프레임, 320x224, 발 기준점 (160,192), scale 1, 오른쪽 기본·왼쪽 flipX"
+    },
+    {
       "type": "image",
       "key": "khitan_archer_arrow_01",
       "texture": "assets/khitan_archer_assets_v2/projectiles/arrow/khitan_archer_arrow_01.png",
@@ -132,7 +139,6 @@
     "original-composite-sheets"
   ],
   "missingProductionAssets": [
-    "enemy-types: cavalry",
     "bosses: so_bae_ap (선봉대장 V2·정예 창병장 elite_spearman_v2 사용)",
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
