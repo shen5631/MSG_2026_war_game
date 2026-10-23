@@ -23,6 +23,8 @@ const EXTRA_TERRAIN: Record<number, { x: number; kind: SolidKind }[]> = {
   ],
   2: [
     { x: 580, kind: 'platform' },
+    // Palisade obstacle in front of the second arena (round2_sample_layout: palisade_tall + crate + bridge mix).
+    { x: 1960, kind: 'barricade' },
     { x: 3120, kind: 'platform' },
   ],
   3: [
