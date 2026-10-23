@@ -14,6 +14,13 @@ describe('BGM track mapping', () => {
     expect(trackFor('title')?.key).not.toBe(trackFor('round1')?.key);
   });
 
+  it('the opening story (and the control guide after it) plays 「성宵의 별」, then round 1 switches to the battle track', () => {
+    expect(trackFor('story')?.key).toBe('bgm_story_star');
+    expect(trackFor('story')?.file).toBe('assets/audio/성宵의 별.mp3');
+    expect(trackFor('story')?.key).not.toBe(trackFor('round1')?.key);
+    expect(trackFor('story')?.key).not.toBe(trackFor('title')?.key);
+  });
+
   it('ending keeps the temporary synthesized theme', () => {
     expect(trackFor('ending')).toBeNull();
     expect(trackFor(null)).toBeNull();
