@@ -8,7 +8,6 @@ export const ROUND2_ENV_KEY = 'round2-environment-v2';
 
 /** Visible main-object rect inside each used frame (frame-local px). */
 export const R2_CONTENT: Record<string, { x: number; y: number; w: number; h: number }> = {
-  ground_long_02: { x: 0, y: 0, w: 235, h: 144 },
   cliff_mid_01: { x: 0, y: 4, w: 160, h: 171 },
   raised_cliff_02: { x: 25, y: 0, w: 130, h: 145 },
   wood_bridge_01: { x: 24, y: 4, w: 266, h: 131 },
@@ -27,8 +26,6 @@ export const R2_CONTENT: Record<string, { x: number; y: number; w: number; h: nu
   sacks_01: { x: 0, y: 22, w: 245, h: 153 },
   lantern_01: { x: 20, y: 28, w: 104, h: 147 },
 };
-
-export const REQUIRED_ROUND2_ENV_FRAMES = Object.keys(R2_CONTENT);
 
 /** Solid kind → round-2 art (fit/topInset as in the round-1 table: topInset = art top above the walkable top). */
 export const R2_SOLID_ART: Record<SolidKind, { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean }> = {
@@ -57,11 +54,19 @@ export const R2_DECOR: { x: number; frame: string; height: number; flip?: boolea
 ];
 
 /**
- * Round-2 ground band, left to right (repeated by the tile sprite): only the column ranges whose grass top is flat
- * (~row 16 in both frames), drawn from frame row 0 so the tops line up. The left half of ground_long_02 dips to
- * rows 29–42 and the rounded edge of cliff_mid_01 would leave notches in the band, so those columns are not used.
+ * Round-2 ground band, left to right (repeated by the tile sprite): middle cliff pieces whose grass top is flat
+ * (~row 16) and whose face has the same brightness (column mean luminance ~65–88), drawn from frame row 0 so the
+ * tops line up. Not used: ground_long_02 (top dips to rows 29–42 and the face is ~15 darker, which showed as dark
+ * bands) and the shaded rounded ends of each piece.
  */
 export const R2_GROUND_PIECES: { frame: string; x: number; y: number; w: number; h: number }[] = [
-  { frame: 'cliff_mid_01', x: 20, y: 0, w: 140, h: 175 },
-  { frame: 'ground_long_02', x: 150, y: 0, w: 85, h: 145 },
+  { frame: 'cliff_mid_01', x: 20, y: 0, w: 105, h: 175 },
+  { frame: 'cliff_mid_03', x: 8, y: 0, w: 84, h: 175 },
+  { frame: 'cliff_mid_02', x: 28, y: 0, w: 110, h: 175 },
+  { frame: 'cliff_mid_04', x: 45, y: 0, w: 85, h: 180 },
 ];
+
+/** raised_cliff_02 is drawn with deeper shading (face luminance ~41–60) than the ground band; lift it to match. */
+export const R2_STEP_BRIGHTNESS = 1.3;
+
+export const REQUIRED_ROUND2_ENV_FRAMES = [...new Set([...Object.keys(R2_CONTENT), ...R2_GROUND_PIECES.map((p) => p.frame)])];

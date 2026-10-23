@@ -3,7 +3,7 @@
 import Phaser from 'phaser';
 import type { Enemy } from '../../domain/enemies';
 import type { Solid, SolidKind } from '../../domain/physics';
-import { R2_CONTENT, R2_DECOR, R2_GROUND_PIECES, R2_SOLID_ART, ROUND2_ENV_KEY } from './round2Environment';
+import { R2_CONTENT, R2_DECOR, R2_GROUND_PIECES, R2_SOLID_ART, R2_STEP_BRIGHTNESS, ROUND2_ENV_KEY } from './round2Environment';
 
 export const ENV_KEY = 'round1_env';
 export const INFANTRY_KEY = 'khitan_infantry';
@@ -65,6 +65,8 @@ export function makeSolidImage(scene: Phaser.Scene, s: Solid, round = 1): Phaser
   const img = scene.add.image(0, 0, r2 ? ROUND2_ENV_KEY : ENV_KEY, art.frame).setScale(scale).setOrigin(0, 0);
   // Round-2 cells can hold slivers of neighbouring pieces: show only the measured main object.
   if (r2) img.setCrop(c.x, c.y, c.w, c.h);
+  // WebGL colour matrix (absent on the canvas renderer, where the step simply stays darker).
+  if (r2 && s.kind === 'step') img.preFX?.addColorMatrix().brightness(R2_STEP_BRIGHTNESS);
   img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(s.y - art.topInset - c.y * scale));
   img.setDepth(art.behindGround ? -12 : 6);
   // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
@@ -109,7 +111,15 @@ export function makeDecor(scene: Phaser.Scene, round: number, groundY: number): 
   });
 }
 
-const GROUND_PIECES = ['cliff_face_04', 'cliff_face_07', 'cliff_face_01'];
+/**
+ * Round-1 ground band pieces. The shaded ends of each cliff face (column luminance ~35–45 vs ~50–68 inside) left a
+ * dark band at every join, so a few columns are trimmed from each end.
+ */
+const GROUND_PIECES: { frame: string; x: number; y: number; w: number; h: number }[] = [
+  { frame: 'cliff_face_04', x: 12, y: 5, w: 232, h: 181 },
+  { frame: 'cliff_face_07', x: 10, y: 5, w: 228, h: 177 },
+  { frame: 'cliff_face_01', x: 14, y: 4, w: 152, h: 183 },
+];
 export const GROUND_STRIP_TOP = 296;
 const GROUND_STRIP_H = 64;
 
@@ -118,7 +128,7 @@ const GROUND_STRIP_H = 64;
  * The supplied pieces are not verified seamless tiles; seams are reported in IMPLEMENTATION_NOTES.md.
  */
 export function buildGroundStrip(scene: Phaser.Scene): void {
-  buildStrip(scene, GROUND_STRIP_KEY, ENV_KEY, GROUND_PIECES.map((k) => ({ frame: k, ...CONTENT[k] })), (GROUND_STRIP_H + 6) / 181);
+  buildStrip(scene, GROUND_STRIP_KEY, ENV_KEY, GROUND_PIECES, (GROUND_STRIP_H + 6) / 181);
   // Round 2: war-camp ground; scale 0.5 puts the grass top (source row ~16) at the walk line 8 px under the band top.
   if (scene.textures.exists(ROUND2_ENV_KEY)) buildStrip(scene, GROUND_STRIP_R2_KEY, ROUND2_ENV_KEY, R2_GROUND_PIECES, 0.5);
 }
