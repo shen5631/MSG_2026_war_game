@@ -389,6 +389,17 @@ E2E 범위: 실제 아틀라스 표시·캔버스 1개(StrictMode), 정수 배�
 - 체력바 옆 "1페이즈/2페이즈" 배지 제거(2페이즈는 붉은 맥동 테두리로만 구분, 전환 순간의 화면 중앙 "2페이즈" 문구는 유지).
 - 50% 눈금이 1px 오른쪽으로 치우쳐 있던 문제 수정: 마름모가 -2px 기준으로 그려져 테두리 포함 7px 상자의 중심이 어긋났고 눈금선도 50% 지점에서 오른쪽으로 그려졌음 → 눈금선·마름모 모두 자기 폭의 절반만큼 되돌림(`translateX(-50%)`). Chrome 1280×720·1920×1080에서 눈금 중심과 바 안쪽 중심 차이 0.00px 측정.
 
+## 작업 기록 — 2026-10-23 (29) 거란군 일반 적 방패병 V2 (`khitan_shield_enemy_v2`)
+- 기존 방패병은 임시 생성 그림이었고(V1 이미지 연결 이력 없음) 이를 V2로 교체. 아군 방패병 막기 스킬과는 별개.
+- 기존 도메인 방패병 AI 그대로: HP 80, 피해 10, 사거리 62, 650/120/900ms 공격, 정면 방어(약공격·대쉬 피해 0 / 강공격·마무리·차징은 정상 피해 + 가드 경직 800ms), 후방·창병 지원 관통, 공격 중 방어 해제, 공격 ID당 1회 적중. 패키지 `ShieldEnemyController`는 복사·실행하지 않음(단위 시험이 src 전체 검사).
+- 자료: 아틀라스(1176×1176, 33프레임: idle4/walk6/guard4/attack6/guard_break4/hurt4(guard_break 재사용)/death5)와 manifest·README만 복사. `src/enemy/{core,PhaserShieldEnemyView}.ts` → `src/game/enemies/shield/`(원본 그대로).
+- 표시: 방패병마다 `PhaserShieldEnemyView`(192×192, origin (0.5,160/192), scale 1, 좌향 flipX, 최근접 필터) 생성. `src/game/visual/shieldman.ts`가 기존 상태를 패키지 스냅샷으로 변환: move→walk, windup/active/recover→attack(한 시계 0~1670ms, 판정 120ms 동안 attack_05), guardBroken→guard_break, stunned→hurt, dead→death, 정면 막기 직후 165ms block 반응(도메인 `Enemy.lastBlockAt`에 시각만 기록, 판정 불변). 기존 피격 번쩍임·사망 페이드·HP 막대 유지. `setDisplaySize`·마스크 없음.
+- 제거된 임시 자료: `generated_enemy_shieldman`(및 쓰이지 않게 된 방패 그리기 코드).
+- 검증:
+  - 단위 6개: HP 80·650/120/900, 판정 중 attack_05만, 좌우 facing, 공격 1회당 피해 10 한 번, 정면 약공격 막기(HP 그대로·block 프레임)·후방/창병 지원 관통·정면 강공격 가드 파괴(guard_break 01→04), 사망 프레임·처치 1회 집계.
+  - Chrome 2라운드 첫 구역(테스트 함수로 2라운드 시작): 걷기, 정면 J 막기(HP 80 유지, guard_02), 정면 K 가드 파괴(80→55, guard_break 01→03), 후방 J 관통(80→70, hurt), 공격 준비 attack_01 → 판정 중 attack_05(플레이어 피해 10 한 번), 일시정지 중 프레임·상태 고정, 사망 처치 수 +1(처치 명령 2회에도 1), 재도전 후 적·스프라이트 정리. 막기·가드 파괴 화면은 깔끔한 확인을 위해 무적 ON과 방패병 AI 일시 정지(디버그)로 촬영. 33개 중 22개 프레임 화면 표시, 나머지는 단위 시험.
+- 미검증: 3라운드 웨이브(기병 동반) 안의 방패병, 실물 게임패드.
+
 ## 단계 체크리스트
 - [x] P0 실행뼈대와실제자산표시
 - [x] P1 도메인·입력·시간
