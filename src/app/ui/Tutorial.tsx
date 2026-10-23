@@ -1,16 +1,18 @@
 // Control guide shown once after 시작하기: the real round-1 screen is held (pause reason 'tutorial') and dimmed,
 // except a spotlight on the HUD part or the hero being explained. Menu input path (useMenu): Enter/A next,
-// ←/→ previous/next, Esc/B/START skip. Display only; the controller resumes the round on finish or skip.
+// ←/→ previous/next, Esc/B/START skip. Gamepad-first: each step names the pad buttons, keyboard keys follow. Display only; the controller resumes the round on finish or skip.
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { LOCKED, VIEW_H, VIEW_W } from '../../config/spec';
 import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
+import { Kb, Pad } from './Keys';
 
 type Target = { kind: 'hud'; testId: string } | { kind: 'hero' } | null;
-interface Step { title: string; target: Target; lines: ReactNode[]; pad?: ReactNode }
+interface Step { title: string; target: Target; lines: ReactNode[]; keyboard?: ReactNode }
 interface Rect { x: number; y: number; w: number; h: number }
 
-const K = ({ children }: { children: ReactNode }) => <kbd>{children}</kbd>;
+const P = Pad;
+const K = Kb;
 const SKILLS = LOCKED.skills;
 
 export const TUTORIAL_STEPS: Step[] = [
@@ -26,22 +28,22 @@ export const TUTORIAL_STEPS: Step[] = [
     title: '이동',
     target: { kind: 'hero' },
     lines: [
-      <><K>A</K> <K>D</K> 좌우 이동 · <K>Ctrl</K>을 누른 채 이동하면 달리기</>,
-      <><K>Space</K> 점프 · <K>Shift</K> 대쉬 (빠르게 돌진하며 적에게 {LOCKED.player.dashDamage} 피해)</>,
+      <><P>L 스틱</P> 좌우 이동 · <P>LT</P> 누른 채 이동하면 달리기</>,
+      <><P>A</P> 점프 · <P>RT</P> 대쉬 (돌진하며 적에게 {LOCKED.player.dashDamage} 피해)</>,
       '낮은 바위는 걸어가면 저절로 넘어갑니다.',
     ],
-    pad: <>왼쪽 스틱 이동 · <K>LT</K> 달리기 · <K>A</K> 점프 · <K>RT</K> 대쉬</>,
+    keyboard: <><K>A</K><K>D</K> 이동 <K>Ctrl</K> 달리기 <K>Space</K> 점프 <K>Shift</K> 대쉬</>,
   },
   {
     title: '공격과 패링',
     target: { kind: 'hero' },
     lines: [
-      <><K>J</K> 약공격 — 연달아 누르면 3연속 공격</>,
-      <><K>K</K> 강공격 — 방패병의 방어를 깨뜨립니다</>,
-      <><K>J</K>+<K>K</K> 함께 길게 누르기 — 차징 공격 (오래 누를수록 3단계까지 강해짐)</>,
-      <><K>L</K> 패링 — 적의 공격이 닿기 직전에 누르면 적이 휘청입니다. 그 틈에 반격하세요!</>,
+      <><P>B</P> 약공격 — 연달아 누르면 3연속 공격</>,
+      <><P>Y</P> 강공격 — 방패병의 방어를 깨뜨립니다</>,
+      <><P>B</P>+<P>Y</P> 함께 길게 누르기 — 차징 공격 (오래 누를수록 3단계까지 강해짐)</>,
+      <><P>X</P> 패링 — 적의 공격이 닿기 직전에 누르면 적이 휘청입니다. 그 틈에 반격하세요!</>,
     ],
-    pad: <><K>B</K> 약공격 · <K>Y</K> 강공격 · <K>B</K>+<K>Y</K> 차징 · <K>X</K> 패링</>,
+    keyboard: <><K>J</K> 약공격 · <K>K</K> 강공격 · <K>J</K>+<K>K</K> 차징 · <K>L</K> 패링</>,
   },
   {
     title: '체력',
@@ -63,12 +65,12 @@ export const TUTORIAL_STEPS: Step[] = [
     title: '지휘 스킬',
     target: { kind: 'hud', testId: 'hud-skills' },
     lines: [
-      <><K>Q</K> 스킬 고르기 · <K>E</K> 사용</>,
+      <><P>LB</P> 스킬 고르기 · <P>RB</P> 사용</>,
       `지휘 강화: ${SKILLS.command_buff.durationMs / 1000}초 동안 공격력 +${Math.round(SKILLS.command_buff.damageIncrease * 100)}%`,
       `창병 공격: 가까운 적 최대 ${SKILLS.spear_support.maxTargets}명에게 창병이 ${SKILLS.spear_support.damagePerTarget} 피해`,
       `방패병 막기: 보호막 ${SKILLS.shield_guard.initialShield} (최대 ${SKILLS.shield_guard.maxDurationMs / 1000}초)`,
     ],
-    pad: <><K>LB</K> 스킬 고르기 · <K>RB</K> 사용</>,
+    keyboard: <><K>Q</K> 스킬 고르기 · <K>E</K> 사용</>,
   },
   {
     title: '공유 쿨타임',
@@ -82,13 +84,14 @@ export const TUTORIAL_STEPS: Step[] = [
     title: '준비 완료',
     target: null,
     lines: [
-      <><K>Esc</K> (게임패드 <K>START</K>) 일시정지 — 조작 방법은 일시정지 메뉴에서 다시 볼 수 있습니다.</>,
+      <><P>START</P> 일시정지 — 조작 방법은 일시정지 메뉴에서 다시 볼 수 있습니다.</>,
       '고려의 운명이 그대의 칼끝에 달렸습니다. 출전!',
     ],
+    keyboard: <><K>Esc</K> 일시정지</>,
   },
 ];
 
-const CARD_W = 236;
+const CARD_W = 256;
 const GAP = 8;
 const HERO_BOX = { w: 56, h: 96 };
 
@@ -158,7 +161,8 @@ export function Tutorial() {
           <h3>{step.title}</h3>
         </div>
         <ul>{step.lines.map((l, n) => <li key={n}>{l}</li>)}</ul>
-        {step.pad && <p className="tut-pad"><span>게임패드</span>{step.pad}</p>}
+        {step.keyboard && <p className="tut-pad"><span>키보드</span>{step.keyboard}</p>}
+        <p className="tut-help"><P>A</P> 다음 · <P>B</P> 건너뛰기 <span>(키보드 Enter · Esc)</span></p>
         <div className="tut-nav">
           <button className="btn" disabled={i === 0} onClick={prev} data-testid="tutorial-prev">◂ 이전</button>
           <span className="tut-dots" aria-hidden="true">{TUTORIAL_STEPS.map((_, n) => <i key={n} className={n === i ? 'on' : ''} />)}</span>

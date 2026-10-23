@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { DEFAULTS, STORY } from '../../config/spec';
 import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
+import { Pad } from './Keys';
 
 type Scene = { eyebrow?: string; title: string; body: string; star?: boolean };
 export const PROLOGUE: Scene[] = (STORY as { prologue: Scene[] }).prologue;
@@ -76,7 +77,7 @@ export function Prologue() {
       </div>
       <div className="pro-foot">
         <span className="tut-dots" aria-hidden="true">{PROLOGUE.map((_, n) => <i key={n} className={n === i ? 'on' : ''} />)}</span>
-        <span className="small blink">{last ? 'A / Enter : 출전' : 'A / Enter : 다음'}</span>
+        <span className="small blink pad-hint"><Pad>A</Pad> {last ? '출전' : '다음'} · <Pad>B</Pad> 건너뛰기 <span>(Enter · Esc)</span></span>
       </div>
     </div>
   );

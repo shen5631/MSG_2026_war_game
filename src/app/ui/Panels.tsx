@@ -6,6 +6,7 @@ import type { InputSource } from '../../input/InputRouter';
 import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
 import { Frame } from './Frame';
+import { Pad } from './Keys';
 import { MenuList } from './MenuList';
 
 /** Registered in spec/runtime_assets.json (ui_title_logo), so it is already cached by the boot loader. */
@@ -160,6 +161,12 @@ const CONTROL_PAGES = [
   },
 ] as const;
 
+const PAD_TOKENS = new Set(['A', 'B', 'X', 'Y', 'LB', 'RB', 'LT', 'RT', 'START']);
+/** "B + Y 유지" → coloured pad buttons with the words in between. */
+function PadCombo({ text }: { text: string }) {
+  return <>{text.split(' ').map((tok, i) => (PAD_TOKENS.has(tok) ? <Pad key={i}>{tok}</Pad> : <span key={i} className="pad-word">{tok}</span>))}</>;
+}
+
 export function Controls({ onClose }: { onClose: () => void }) {
   const [page, setPage] = useState(0);
   const flip = () => setPage((p) => 1 - p);
@@ -188,12 +195,12 @@ export function Controls({ onClose }: { onClose: () => void }) {
         <table className="controls">
           <thead><tr><th>동작</th><th>Xbox형 게임패드</th><th>키보드</th></tr></thead>
           <tbody>{p.rows.map(([action, pad, key]) => (
-            <tr key={action}><th>{action}</th><td><kbd>{pad}</kbd></td><td><kbd>{key}</kbd></td></tr>
+            <tr key={action}><th>{action}</th><td className="pad-cell"><PadCombo text={pad} /></td><td><kbd>{key}</kbd></td></tr>
           ))}</tbody>
         </table>
         <p className="control-note">{p.note}</p>
         <footer className="sheet-footer">
-          <span className="hint">← → 페이지 · Esc / B 뒤로</span>
+          <span className="hint pad-hint">방향키 ← → 페이지 · <Pad>B</Pad> 뒤로 (Esc)</span>
           <BackButton focused={index === 2} onHover={() => setIndex(2)} onClick={onClose} />
         </footer>
       </Frame>
@@ -217,7 +224,7 @@ export function Title({ padNotice, padActive }: { padNotice: string | null; padA
         ]} />
         <footer className="title-footer">
           <span className={`device-dot ${padActive ? 'connected' : ''}`} aria-hidden="true" />
-          <span>{padActive ? '스틱 / 방향키 이동 · A 선택 · B 뒤로' : '↑ ↓ 이동 · Enter 선택 · Esc 뒤로'}</span>
+          <span className="pad-hint"><Pad>A</Pad> 선택 · <Pad>B</Pad> 뒤로{padActive ? '' : <span>· 키보드 Enter / Esc</span>}</span>
         </footer>
       </Frame>
       {padNotice && <p className="pad-notice">{padNotice}</p>}

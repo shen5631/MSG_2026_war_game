@@ -7,6 +7,7 @@ import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
 import { Frame, MenuGlyph } from './Frame';
 import { NightSky } from './Prologue';
+import { Pad } from './Keys';
 
 export function Rewards({ upgrades, round }: { upgrades: UpgradeStacks; round: number }) {
   const s = useServices();
@@ -65,7 +66,7 @@ export function Ending({ index }: { index: number }) {
       </div>
       <div className="pro-foot">
         <span className="tut-dots" aria-hidden="true">{scenes.map((_, n) => <i key={n} className={n === index ? 'on' : ''} />)}</span>
-        <span className="small blink">{last ? 'A / Enter : 결과 보기' : 'A / Enter : 계속'}</span>
+        <span className="small blink pad-hint"><Pad>A</Pad> {last ? '결과 보기' : '계속'} <span>(Enter)</span></span>
       </div>
     </div>
   );
