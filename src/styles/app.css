@@ -268,15 +268,32 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 h1, h2, h3, .menu-item, .tab, .btn, .back-button, .boss-plate .name, .phase-banner, .toast, .hud-round > :first-child, .skill .nm, .skill-status .value, .tut-skip, .exit-hint, .audio-unlock { font-family: var(--font-title); }
 
 /* Opening story (낙성대 prologue) after 시작하기, over the held round-1 screen. */
-.prologue { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at 50% 45%, rgba(10, 16, 34, 0.82), rgba(2, 3, 8, 0.97) 75%); cursor: pointer; pointer-events: auto; overflow: hidden; }
-.pro-card { max-width: 430px; padding: 0 20px; text-align: center; animation: pro-in 700ms ease-out both; }
+.prologue { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #01030a; cursor: pointer; pointer-events: auto; overflow: hidden; }
+.pro-card { position: relative; max-width: 430px; margin-top: -40px; padding: 0 20px; text-align: center; animation: pro-in 700ms ease-out both; }
 .pro-eyebrow { margin: 0 0 4px; color: var(--m-gold); font-size: 9px; letter-spacing: 3px; }
 .pro-card h2 { margin: 0 0 12px; color: var(--m-gold-light); font-size: 24px; letter-spacing: 4px; text-shadow: 0 0 12px #f2d98e55, 0 2px 0 #000; }
 .pro-body { margin: 0; color: var(--m-text); font-size: 11.5px; line-height: 1.9; text-shadow: 0 1px 0 #000; word-break: keep-all; }
-.pro-foot { position: absolute; bottom: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--m-muted); }
+.pro-foot { position: absolute; bottom: 14px; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--m-muted); }
 @keyframes pro-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-/* The falling star of 낙성대: a bright head with a gold tail streaking down to the right, then fading. */
-.pro-star { position: absolute; left: 18%; top: -10px; width: 3px; height: 3px; border-radius: 50%; background: #fff8dc; box-shadow: 0 0 6px 2px #ffe9a8, 0 0 14px 4px #f2d98e88; animation: pro-star 2.6s ease-in 0.3s infinite; }
-.pro-star::after { content: ""; position: absolute; right: 1px; bottom: 1px; width: 70px; height: 1px; background: linear-gradient(90deg, transparent, #f2d98e); transform-origin: 100% 50%; transform: rotate(35deg); }
-@keyframes pro-star { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 55% { transform: translate(230px, 160px); opacity: 1; } 70%, 100% { transform: translate(260px, 180px); opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .pro-card { animation: none; } .pro-star { animation: none; opacity: 0; } }
+/* Night sky behind the story (no game screen): stars twinkle, far ridges and the 낙성대 village at the bottom. */
+.pro-sky { position: absolute; inset: 0; overflow: hidden; background: linear-gradient(#01030a 0%, #060c22 45%, #141a3a 78%, #2a2240 100%); }
+.pro-sky i { position: absolute; width: 1px; height: 1px; background: #dfe6ff; opacity: 0.35; animation: pro-twinkle 3s ease-in-out infinite; }
+.pro-sky i.big { width: 2px; height: 2px; background: #fff6d8; box-shadow: 0 0 3px #fff2c0aa; }
+@keyframes pro-twinkle { 50% { opacity: 1; } }
+.pro-moon { position: absolute; right: 74px; top: 40px; width: 22px; height: 22px; border-radius: 50%; background: #f3ecd2; box-shadow: 0 0 18px 6px #f3ecd233, inset -6px -3px 0 #d8cfae; }
+.pro-land { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pro-land .far { fill: #10142a; }
+.pro-land .near { fill: #090b18; }
+.pro-land .house path { fill: #05060d; }
+.pro-land .win { fill: #3a2a12; }
+.pro-land .ground { fill: #05060d; }
+.pro-glow { position: absolute; left: 470px; top: 308px; width: 2px; height: 2px; border-radius: 50%; opacity: 0; }
+/* Scene 1: the star streaks down onto the house, the window flares and a warm glow spreads, then it repeats. */
+.pro-star { position: absolute; left: 150px; top: -10px; width: 3px; height: 3px; border-radius: 50%; background: #fff8dc; box-shadow: 0 0 6px 2px #ffe9a8, 0 0 14px 4px #f2d98e88; animation: pro-star 4.2s ease-in 0.4s infinite; }
+.pro-star::after { content: ""; position: absolute; right: 1px; bottom: 1px; width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #f2d98e); transform-origin: 100% 50%; transform: rotate(44deg); }
+@keyframes pro-star { 0% { transform: translate(0, 0); opacity: 0; } 6% { opacity: 1; } 46% { transform: translate(320px, 312px); opacity: 1; } 48%, 100% { transform: translate(320px, 312px); opacity: 0; } }
+.pro-sky.falling .win { animation: pro-win 4.2s ease-out 0.4s infinite; }
+@keyframes pro-win { 0%, 45% { fill: #3a2a12; } 50% { fill: #fff2c0; } 75% { fill: #f2b84a; } 100% { fill: #3a2a12; } }
+.pro-sky.falling .pro-glow { animation: pro-glowing 4.2s ease-out 0.4s infinite; }
+@keyframes pro-glowing { 0%, 45% { opacity: 0; box-shadow: 0 0 0 0 #ffd88a00; } 50% { opacity: 1; box-shadow: 0 0 40px 26px #ffd88a99; } 100% { opacity: 0; box-shadow: 0 0 70px 40px #ffd88a00; } }
+@media (prefers-reduced-motion: reduce) { .pro-card { animation: none; } .pro-sky i, .pro-star, .pro-sky.falling .win, .pro-sky.falling .pro-glow { animation: none; } .pro-star { opacity: 0; } }
