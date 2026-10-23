@@ -8,7 +8,9 @@ export type PauseReason =
   | 'focus-lost'
   | 'viewport-small'
   | 'runtime-error'
-  | 'stall';
+  | 'stall'
+  /** Control guide shown once after 시작하기 (title → new game), before round 1 runs. */
+  | 'tutorial';
 
 export class PauseReasons {
   private reasons = new Set<PauseReason>();
