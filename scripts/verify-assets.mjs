@@ -33,6 +33,8 @@ const EXPECT = {
   // Round-2 boss elite_spearman_v2: 320×192 native-scale frames (feet anchor 160,176).
   elite_spearman_v2: { cellW: 320, cellH: 192, count: 50 },
   'khitan-vanguard-v2': { cell: 192, count: 51 },
+  // Round-3 boss 소배압 V2: 448×256 native-scale frames (feet anchor 224,220).
+  'sobaeap-final-v2': { cellW: 448, cellH: 256, count: 40 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
   'round2-environment-v2': { cell: null, count: 70 },
@@ -191,4 +193,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: boss 3 (so_bae_ap), ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
+console.log('verify:assets OK — still missing final art: ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
