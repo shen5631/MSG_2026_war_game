@@ -44,11 +44,16 @@ const CONTENT: Record<string, { x: number; y: number; w: number; h: number }> = 
 export const REQUIRED_ENV_FRAMES = Object.keys(CONTENT);
 
 /** Solid kind → art. `topInset` lets grass tufts overhang the walkable top slightly. */
-const SOLID_ART: Record<SolidKind, { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean }> = {
+/**
+ * `groundSink`: anchor the art by its BOTTOM instead (sunk this many px under the walk line). Used for rocks, whose
+ * art is shorter than the solid once scaled to its width, so top-anchoring left them floating above the ground.
+ */
+export type SolidArt = { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean; groundSink?: number };
+const SOLID_ART: Record<SolidKind, SolidArt> = {
   crate: { frame: 'wooden_crate', fit: 'width', topInset: 2, behindGround: false },
   step: { frame: 'raised_block_02', fit: 'width', topInset: 4, behindGround: true },
   platform: { frame: 'wood_platform_04', fit: 'width', topInset: 3, behindGround: false },
-  rock: { frame: 'rock_pile', fit: 'width', topInset: 3, behindGround: false },
+  rock: { frame: 'rock_pile', fit: 'width', topInset: 3, behindGround: false, groundSink: 3 },
   barricade: { frame: 'palisade_wall', fit: 'height', topInset: 4, behindGround: false },
 };
 
@@ -67,7 +72,8 @@ export function makeSolidImage(scene: Phaser.Scene, s: Solid, round = 1): Phaser
   if (r2) img.setCrop(c.x, c.y, c.w, c.h);
   // WebGL colour matrix (absent on the canvas renderer, where the step simply stays darker).
   if (r2 && s.kind === 'step') img.preFX?.addColorMatrix().brightness(R2_STEP_BRIGHTNESS);
-  img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(s.y - art.topInset - c.y * scale));
+  const y = art.groundSink !== undefined ? s.y + s.h + art.groundSink - (c.y + c.h) * scale : s.y - art.topInset - c.y * scale;
+  img.setPosition(Math.round(s.x + s.w / 2 - (c.x + c.w / 2) * scale), Math.round(y));
   img.setDepth(art.behindGround ? -12 : 6);
   // Only breakable terrain (crate, barricade) gets the warm rim light, so the player can tell what can be destroyed
   // (WebGL FX; absent on the canvas renderer).

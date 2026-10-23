@@ -3,6 +3,7 @@
 // pieces from the source sheet, so each used frame is shown through a crop of its main object (`CONTENT`, measured
 // by connected alpha regions). Collision stays in the domain Solids (src/domain/world.ts), never the PNG bounds.
 import type { SolidKind } from '../../domain/physics';
+import type { SolidArt } from './environment';
 
 export const ROUND2_ENV_KEY = 'round2-environment-v2';
 
@@ -28,11 +29,11 @@ export const R2_CONTENT: Record<string, { x: number; y: number; w: number; h: nu
 };
 
 /** Solid kind → round-2 art (fit/topInset as in the round-1 table: topInset = art top above the walkable top). */
-export const R2_SOLID_ART: Record<SolidKind, { frame: string; fit: 'width' | 'height'; topInset: number; behindGround: boolean }> = {
+export const R2_SOLID_ART: Record<SolidKind, SolidArt> = {
   crate: { frame: 'crate_stack_01', fit: 'width', topInset: 2, behindGround: false },
   step: { frame: 'raised_cliff_02', fit: 'width', topInset: 8, behindGround: true },
   platform: { frame: 'wood_bridge_01', fit: 'width', topInset: 9, behindGround: false },
-  rock: { frame: 'rocks_01', fit: 'width', topInset: 3, behindGround: false },
+  rock: { frame: 'rocks_01', fit: 'width', topInset: 3, behindGround: false, groundSink: 3 },
   barricade: { frame: 'palisade_tall_02', fit: 'height', topInset: 4, behindGround: false },
 };
 
