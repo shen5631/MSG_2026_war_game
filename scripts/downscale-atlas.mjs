@@ -11,9 +11,13 @@ if (!scaleArg) throw new Error('usage: downscale-atlas.mjs <src.png> <src.json> 
 const scale = Number(scaleArg);
 const atlas = JSON.parse(readFileSync(srcJson, 'utf8'));
 const names = Object.keys(atlas.frames);
-const cols = atlas.meta.columns ?? 4;
-const cellW = Math.round(atlas.meta.frame_size.w * scale);
-const cellH = Math.round(atlas.meta.frame_size.h * scale);
+// Cell size / columns from meta when present, else from the first frame and the atlas width.
+const first = atlas.frames[names[0]].frame;
+const srcW = atlas.meta.frame_size?.w ?? first.w;
+const srcH = atlas.meta.frame_size?.h ?? first.h;
+const cols = atlas.meta.columns ?? Math.round(atlas.meta.size.w / srcW);
+const cellW = Math.round(srcW * scale);
+const cellH = Math.round(srcH * scale);
 const PAD = 2;
 const strideW = cellW + PAD * 2;
 const strideH = cellH + PAD * 2;

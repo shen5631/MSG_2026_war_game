@@ -1,0 +1,937 @@
+{
+  "name": "elite_spearman_commander_round2_boss_game_ready_v2",
+  "boss_name_ko": "정예 창병장",
+  "boss_name_en": "Elite Spearman Commander",
+  "round": 2,
+  "faction": "Khitan",
+  "role": "boss",
+  "max_hp": 500,
+  "phase2_trigger_hp": 250,
+  "frame_size": {
+    "w": 640,
+    "h": 640
+  },
+  "anchor": {
+    "x": 320,
+    "y": 622
+  },
+  "default_facing": "right",
+  "transparent_background": true,
+  "animations": {
+    "idle": {
+      "frames": [
+        "elite_spearman_commander_idle_01.png",
+        "elite_spearman_commander_idle_02.png",
+        "elite_spearman_commander_idle_03.png",
+        "elite_spearman_commander_idle_04.png"
+      ],
+      "frame_count": 4,
+      "fps": 6,
+      "loop": true,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_idle_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_idle_strip.json"
+    },
+    "walk": {
+      "frames": [
+        "elite_spearman_commander_walk_01.png",
+        "elite_spearman_commander_walk_02.png",
+        "elite_spearman_commander_walk_03.png",
+        "elite_spearman_commander_walk_04.png",
+        "elite_spearman_commander_walk_05.png",
+        "elite_spearman_commander_walk_06.png"
+      ],
+      "frame_count": 6,
+      "fps": 10,
+      "loop": true,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_walk_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_walk_strip.json"
+    },
+    "attack": {
+      "frames": [
+        "elite_spearman_commander_attack_01.png",
+        "elite_spearman_commander_attack_02.png",
+        "elite_spearman_commander_attack_03.png",
+        "elite_spearman_commander_attack_04.png",
+        "elite_spearman_commander_attack_05.png",
+        "elite_spearman_commander_attack_06.png"
+      ],
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_attack_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_attack_strip.json"
+    },
+    "charge": {
+      "frames": [
+        "elite_spearman_commander_charge_01.png",
+        "elite_spearman_commander_charge_02.png",
+        "elite_spearman_commander_charge_03.png",
+        "elite_spearman_commander_charge_04.png",
+        "elite_spearman_commander_charge_05.png",
+        "elite_spearman_commander_charge_06.png"
+      ],
+      "frame_count": 6,
+      "fps": 12,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_charge_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_charge_strip.json"
+    },
+    "combo": {
+      "frames": [
+        "elite_spearman_commander_combo_01.png",
+        "elite_spearman_commander_combo_02.png",
+        "elite_spearman_commander_combo_03.png",
+        "elite_spearman_commander_combo_04.png",
+        "elite_spearman_commander_combo_05.png",
+        "elite_spearman_commander_combo_06.png",
+        "elite_spearman_commander_combo_07.png",
+        "elite_spearman_commander_combo_08.png"
+      ],
+      "frame_count": 8,
+      "fps": 14,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_combo_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_combo_strip.json"
+    },
+    "phase2": {
+      "frames": [
+        "elite_spearman_commander_phase2_01.png",
+        "elite_spearman_commander_phase2_02.png",
+        "elite_spearman_commander_phase2_03.png",
+        "elite_spearman_commander_phase2_04.png"
+      ],
+      "frame_count": 4,
+      "fps": 8,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_phase2_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_phase2_strip.json"
+    },
+    "hurt": {
+      "frames": [
+        "elite_spearman_commander_hurt_01.png",
+        "elite_spearman_commander_hurt_02.png",
+        "elite_spearman_commander_hurt_03.png",
+        "elite_spearman_commander_hurt_04.png"
+      ],
+      "frame_count": 4,
+      "fps": 10,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_hurt_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_hurt_strip.json"
+    },
+    "death": {
+      "frames": [
+        "elite_spearman_commander_death_01.png",
+        "elite_spearman_commander_death_02.png",
+        "elite_spearman_commander_death_03.png",
+        "elite_spearman_commander_death_04.png",
+        "elite_spearman_commander_death_05.png",
+        "elite_spearman_commander_death_06.png"
+      ],
+      "frame_count": 6,
+      "fps": 8,
+      "loop": false,
+      "strip_image": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/strips/elite_spearman_commander_death_strip.png",
+      "strip_json": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_death_strip.json"
+    }
+  },
+  "frames": {
+    "elite_spearman_commander_idle_01.png": {
+      "action": "idle",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/idle/elite_spearman_commander_idle_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_idle_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_idle_02.png": {
+      "action": "idle",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/idle/elite_spearman_commander_idle_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_idle_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_idle_03.png": {
+      "action": "idle",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/idle/elite_spearman_commander_idle_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_idle_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_idle_04.png": {
+      "action": "idle",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/idle/elite_spearman_commander_idle_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_idle_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_01.png": {
+      "action": "walk",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_02.png": {
+      "action": "walk",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_03.png": {
+      "action": "walk",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_04.png": {
+      "action": "walk",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_05.png": {
+      "action": "walk",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_walk_06.png": {
+      "action": "walk",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/walk/elite_spearman_commander_walk_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_walk_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_01.png": {
+      "action": "attack",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_02.png": {
+      "action": "attack",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_03.png": {
+      "action": "attack",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_04.png": {
+      "action": "attack",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_05.png": {
+      "action": "attack",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_attack_06.png": {
+      "action": "attack",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/attack/elite_spearman_commander_attack_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_attack_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_01.png": {
+      "action": "charge",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_02.png": {
+      "action": "charge",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_03.png": {
+      "action": "charge",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_04.png": {
+      "action": "charge",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_05.png": {
+      "action": "charge",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_charge_06.png": {
+      "action": "charge",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/charge/elite_spearman_commander_charge_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_charge_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_01.png": {
+      "action": "combo",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 444,
+        "h": 444
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_02.png": {
+      "action": "combo",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 444,
+        "y": 0,
+        "w": 443,
+        "h": 444
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_03.png": {
+      "action": "combo",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 887,
+        "y": 0,
+        "w": 443,
+        "h": 444
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_04.png": {
+      "action": "combo",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 1330,
+        "y": 0,
+        "w": 444,
+        "h": 444
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_05.png": {
+      "action": "combo",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 444,
+        "w": 444,
+        "h": 443
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_06.png": {
+      "action": "combo",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 444,
+        "y": 444,
+        "w": 443,
+        "h": 443
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_07.png": {
+      "action": "combo",
+      "index": 7,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_07.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 887,
+        "y": 444,
+        "w": 443,
+        "h": 443
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_combo_08.png": {
+      "action": "combo",
+      "index": 8,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/combo/elite_spearman_commander_combo_08.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_combo_source.png",
+      "source_rect": {
+        "x": 1330,
+        "y": 444,
+        "w": 444,
+        "h": 443
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_phase2_01.png": {
+      "action": "phase2",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/phase2/elite_spearman_commander_phase2_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_phase2_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_phase2_02.png": {
+      "action": "phase2",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/phase2/elite_spearman_commander_phase2_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_phase2_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_phase2_03.png": {
+      "action": "phase2",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/phase2/elite_spearman_commander_phase2_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_phase2_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_phase2_04.png": {
+      "action": "phase2",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/phase2/elite_spearman_commander_phase2_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_phase2_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_hurt_01.png": {
+      "action": "hurt",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/hurt/elite_spearman_commander_hurt_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_hurt_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_hurt_02.png": {
+      "action": "hurt",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/hurt/elite_spearman_commander_hurt_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_hurt_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 0,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_hurt_03.png": {
+      "action": "hurt",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/hurt/elite_spearman_commander_hurt_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_hurt_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_hurt_04.png": {
+      "action": "hurt",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/hurt/elite_spearman_commander_hurt_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_hurt_source.png",
+      "source_rect": {
+        "x": 627,
+        "y": 627,
+        "w": 627,
+        "h": 627
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_01.png": {
+      "action": "death",
+      "index": 1,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_01.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_02.png": {
+      "action": "death",
+      "index": 2,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_02.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_03.png": {
+      "action": "death",
+      "index": 3,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_03.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 0,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_04.png": {
+      "action": "death",
+      "index": 4,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_04.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 0,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_05.png": {
+      "action": "death",
+      "index": 5,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_05.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 512,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    },
+    "elite_spearman_commander_death_06.png": {
+      "action": "death",
+      "index": 6,
+      "path": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/frames/death/elite_spearman_commander_death_06.png",
+      "source_sheet": "public/assets/elite_spearman_commander_round2_boss_game_ready_v2/source_sheets/elite_spearman_commander_death_source.png",
+      "source_rect": {
+        "x": 1024,
+        "y": 512,
+        "w": 512,
+        "h": 512
+      },
+      "canvas_rect": {
+        "x": 0,
+        "y": 0,
+        "w": 640,
+        "h": 640
+      }
+    }
+  },
+  "notes": [
+    "Repacked from repaired source sheets with consistent 640x640 transparent frames.",
+    "Bottom-aligned using a shared baseline for Phaser-friendly use.",
+    "Use flipX for left-facing animation."
+  ]
+}
