@@ -1,0 +1,715 @@
+{
+  "name": "khitan_cavalry_v6",
+  "role": "enemy",
+  "round": 3,
+  "frame_size": {
+    "w": 448,
+    "h": 256
+  },
+  "anchor": {
+    "x": 224,
+    "y": 220
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.859375
+  },
+  "default_scale": 1,
+  "facing": "right",
+  "animations": {
+    "idle": {
+      "frames": [
+        "khitan_cavalry_idle_01.png",
+        "khitan_cavalry_idle_02.png",
+        "khitan_cavalry_idle_03.png",
+        "khitan_cavalry_idle_04.png"
+      ],
+      "fps": 5,
+      "loop": true,
+      "frame_count": 4
+    },
+    "walk": {
+      "frames": [
+        "khitan_cavalry_walk_01.png",
+        "khitan_cavalry_walk_02.png",
+        "khitan_cavalry_walk_03.png",
+        "khitan_cavalry_walk_04.png",
+        "khitan_cavalry_walk_05.png",
+        "khitan_cavalry_walk_06.png"
+      ],
+      "fps": 9,
+      "loop": true,
+      "frame_count": 6
+    },
+    "run": {
+      "frames": [
+        "khitan_cavalry_run_01.png",
+        "khitan_cavalry_run_02.png",
+        "khitan_cavalry_run_03.png",
+        "khitan_cavalry_run_04.png",
+        "khitan_cavalry_run_05.png",
+        "khitan_cavalry_run_06.png"
+      ],
+      "fps": 12,
+      "loop": true,
+      "frame_count": 6
+    },
+    "attack": {
+      "frames": [
+        "khitan_cavalry_attack_01.png",
+        "khitan_cavalry_attack_02.png",
+        "khitan_cavalry_attack_03.png",
+        "khitan_cavalry_attack_04.png",
+        "khitan_cavalry_attack_05.png",
+        "khitan_cavalry_attack_06.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "frame_count": 6
+    },
+    "charge": {
+      "frames": [
+        "khitan_cavalry_charge_01.png",
+        "khitan_cavalry_charge_02.png"
+      ],
+      "fps": 10,
+      "loop": true,
+      "frame_count": 2
+    },
+    "hurt": {
+      "frames": [
+        "khitan_cavalry_hurt_01.png",
+        "khitan_cavalry_hurt_02.png",
+        "khitan_cavalry_hurt_03.png",
+        "khitan_cavalry_hurt_04.png"
+      ],
+      "fps": 10,
+      "loop": false,
+      "frame_count": 4
+    },
+    "death": {
+      "frames": [
+        "khitan_cavalry_death_01.png",
+        "khitan_cavalry_death_02.png",
+        "khitan_cavalry_death_03.png",
+        "khitan_cavalry_death_04.png",
+        "khitan_cavalry_death_05.png",
+        "khitan_cavalry_death_06.png"
+      ],
+      "fps": 8,
+      "loop": false,
+      "frame_count": 6
+    }
+  },
+  "source_replacements": [
+    {
+      "action": "walk",
+      "index": 1,
+      "source_action": "walk",
+      "source_index": 2,
+      "reason": "원본 좌측 경계에서 말꼬리 잘림: 온전한 2번 보행 포즈 재사용"
+    },
+    {
+      "action": "walk",
+      "index": 6,
+      "source_action": "walk",
+      "source_index": 5,
+      "reason": "원본 우측 경계에서 창끝 인접: 온전한 5번 보행 포즈 재사용"
+    },
+    {
+      "action": "run",
+      "index": 6,
+      "source_action": "run",
+      "source_index": 5,
+      "reason": "원본 우측 경계에서 창끝 인접: 온전한 5번 질주 포즈 재사용"
+    },
+    {
+      "action": "attack",
+      "index": 1,
+      "source_action": "idle",
+      "source_index": 4,
+      "reason": "원본 좌측 경계에서 말꼬리 잘림: 온전한 대기 4번 포즈로 공격 준비 시작"
+    }
+  ],
+  "frame_data": {
+    "khitan_cavalry_idle_01.png": {
+      "action": "idle",
+      "index": 1,
+      "frame_path": "frames/idle/khitan_cavalry_idle_01.png",
+      "image_bbox": [
+        140,
+        74,
+        320,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/idle/khitan_cavalry_idle_01.png",
+      "from_original": "idle/01",
+      "original_sheet": "투명_배경의_기마_랜서_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_idle_02.png": {
+      "action": "idle",
+      "index": 2,
+      "frame_path": "frames/idle/khitan_cavalry_idle_02.png",
+      "image_bbox": [
+        141,
+        75,
+        330,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/idle/khitan_cavalry_idle_02.png",
+      "from_original": "idle/02",
+      "original_sheet": "투명_배경의_기마_랜서_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_idle_03.png": {
+      "action": "idle",
+      "index": 3,
+      "frame_path": "frames/idle/khitan_cavalry_idle_03.png",
+      "image_bbox": [
+        138,
+        74,
+        324,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/idle/khitan_cavalry_idle_03.png",
+      "from_original": "idle/03",
+      "original_sheet": "투명_배경의_기마_랜서_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_idle_04.png": {
+      "action": "idle",
+      "index": 4,
+      "frame_path": "frames/idle/khitan_cavalry_idle_04.png",
+      "image_bbox": [
+        144,
+        75,
+        329,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/idle/khitan_cavalry_idle_04.png",
+      "from_original": "idle/04",
+      "original_sheet": "투명_배경의_기마_랜서_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_walk_01.png": {
+      "action": "walk",
+      "index": 1,
+      "frame_path": "frames/walk/khitan_cavalry_walk_01.png",
+      "image_bbox": [
+        138,
+        79,
+        309,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_01.png",
+      "from_original": "walk/02",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": true,
+      "replacement_reason": "원본 좌측 경계에서 말꼬리 잘림: 온전한 2번 보행 포즈 재사용"
+    },
+    "khitan_cavalry_walk_02.png": {
+      "action": "walk",
+      "index": 2,
+      "frame_path": "frames/walk/khitan_cavalry_walk_02.png",
+      "image_bbox": [
+        138,
+        79,
+        309,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_02.png",
+      "from_original": "walk/02",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_walk_03.png": {
+      "action": "walk",
+      "index": 3,
+      "frame_path": "frames/walk/khitan_cavalry_walk_03.png",
+      "image_bbox": [
+        144,
+        77,
+        311,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_03.png",
+      "from_original": "walk/03",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_walk_04.png": {
+      "action": "walk",
+      "index": 4,
+      "frame_path": "frames/walk/khitan_cavalry_walk_04.png",
+      "image_bbox": [
+        141,
+        79,
+        313,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_04.png",
+      "from_original": "walk/04",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_walk_05.png": {
+      "action": "walk",
+      "index": 5,
+      "frame_path": "frames/walk/khitan_cavalry_walk_05.png",
+      "image_bbox": [
+        139,
+        80,
+        311,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_05.png",
+      "from_original": "walk/05",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_walk_06.png": {
+      "action": "walk",
+      "index": 6,
+      "frame_path": "frames/walk/khitan_cavalry_walk_06.png",
+      "image_bbox": [
+        139,
+        80,
+        311,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/walk/khitan_cavalry_walk_06.png",
+      "from_original": "walk/05",
+      "original_sheet": "6프레임_기마_창병_픽셀_스프라이트_시트.png",
+      "reused": true,
+      "replacement_reason": "원본 우측 경계에서 창끝 인접: 온전한 5번 보행 포즈 재사용"
+    },
+    "khitan_cavalry_run_01.png": {
+      "action": "run",
+      "index": 1,
+      "frame_path": "frames/run/khitan_cavalry_run_01.png",
+      "image_bbox": [
+        122,
+        79,
+        311,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/run/khitan_cavalry_run_01.png",
+      "from_original": "run/01",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_run_02.png": {
+      "action": "run",
+      "index": 2,
+      "frame_path": "frames/run/khitan_cavalry_run_02.png",
+      "image_bbox": [
+        125,
+        78,
+        317,
+        219
+      ],
+      "minimum_alpha_margin": 37,
+      "master_source": "source/masters/run/khitan_cavalry_run_02.png",
+      "from_original": "run/02",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_run_03.png": {
+      "action": "run",
+      "index": 3,
+      "frame_path": "frames/run/khitan_cavalry_run_03.png",
+      "image_bbox": [
+        121,
+        77,
+        322,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/run/khitan_cavalry_run_03.png",
+      "from_original": "run/03",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_run_04.png": {
+      "action": "run",
+      "index": 4,
+      "frame_path": "frames/run/khitan_cavalry_run_04.png",
+      "image_bbox": [
+        122,
+        79,
+        310,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/run/khitan_cavalry_run_04.png",
+      "from_original": "run/04",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_run_05.png": {
+      "action": "run",
+      "index": 5,
+      "frame_path": "frames/run/khitan_cavalry_run_05.png",
+      "image_bbox": [
+        132,
+        76,
+        324,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/run/khitan_cavalry_run_05.png",
+      "from_original": "run/05",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_run_06.png": {
+      "action": "run",
+      "index": 6,
+      "frame_path": "frames/run/khitan_cavalry_run_06.png",
+      "image_bbox": [
+        132,
+        76,
+        324,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/run/khitan_cavalry_run_06.png",
+      "from_original": "run/05",
+      "original_sheet": "질주하는_기마_창기사_스프라이트_시트.png",
+      "reused": true,
+      "replacement_reason": "원본 우측 경계에서 창끝 인접: 온전한 5번 질주 포즈 재사용"
+    },
+    "khitan_cavalry_attack_01.png": {
+      "action": "attack",
+      "index": 1,
+      "frame_path": "frames/attack/khitan_cavalry_attack_01.png",
+      "image_bbox": [
+        144,
+        75,
+        329,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_01.png",
+      "from_original": "idle/04",
+      "original_sheet": "투명_배경의_기마_랜서_스프라이트_시트.png",
+      "reused": true,
+      "replacement_reason": "원본 좌측 경계에서 말꼬리 잘림: 온전한 대기 4번 포즈로 공격 준비 시작"
+    },
+    "khitan_cavalry_attack_02.png": {
+      "action": "attack",
+      "index": 2,
+      "frame_path": "frames/attack/khitan_cavalry_attack_02.png",
+      "image_bbox": [
+        144,
+        85,
+        300,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_02.png",
+      "from_original": "attack/02",
+      "original_sheet": "기마_창기병_돌격_애니메이션_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_attack_03.png": {
+      "action": "attack",
+      "index": 3,
+      "frame_path": "frames/attack/khitan_cavalry_attack_03.png",
+      "image_bbox": [
+        141,
+        99,
+        322,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_03.png",
+      "from_original": "attack/03",
+      "original_sheet": "기마_창기병_돌격_애니메이션_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_attack_04.png": {
+      "action": "attack",
+      "index": 4,
+      "frame_path": "frames/attack/khitan_cavalry_attack_04.png",
+      "image_bbox": [
+        132,
+        104,
+        329,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_04.png",
+      "from_original": "attack/04",
+      "original_sheet": "기마_창기병_돌격_애니메이션_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_attack_05.png": {
+      "action": "attack",
+      "index": 5,
+      "frame_path": "frames/attack/khitan_cavalry_attack_05.png",
+      "image_bbox": [
+        139,
+        83,
+        286,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_05.png",
+      "from_original": "attack/05",
+      "original_sheet": "기마_창기병_돌격_애니메이션_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_attack_06.png": {
+      "action": "attack",
+      "index": 6,
+      "frame_path": "frames/attack/khitan_cavalry_attack_06.png",
+      "image_bbox": [
+        139,
+        75,
+        270,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/attack/khitan_cavalry_attack_06.png",
+      "from_original": "attack/06",
+      "original_sheet": "기마_창기병_돌격_애니메이션_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_charge_01.png": {
+      "action": "charge",
+      "index": 1,
+      "frame_path": "frames/charge/khitan_cavalry_charge_01.png",
+      "image_bbox": [
+        86,
+        76,
+        392,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/charge/khitan_cavalry_charge_01.png",
+      "from_original": "charge/01",
+      "original_sheet": "질주하는_금빛_중장기병_스프라이트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_charge_02.png": {
+      "action": "charge",
+      "index": 2,
+      "frame_path": "frames/charge/khitan_cavalry_charge_02.png",
+      "image_bbox": [
+        97,
+        72,
+        413,
+        220
+      ],
+      "minimum_alpha_margin": 35,
+      "master_source": "source/masters/charge/khitan_cavalry_charge_02.png",
+      "from_original": "charge/02",
+      "original_sheet": "질주하는_금빛_중장기병_스프라이트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_hurt_01.png": {
+      "action": "hurt",
+      "index": 1,
+      "frame_path": "frames/hurt/khitan_cavalry_hurt_01.png",
+      "image_bbox": [
+        138,
+        75,
+        308,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/hurt/khitan_cavalry_hurt_01.png",
+      "from_original": "hurt/01",
+      "original_sheet": "부상_반동을_겪는_기마_창병_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_hurt_02.png": {
+      "action": "hurt",
+      "index": 2,
+      "frame_path": "frames/hurt/khitan_cavalry_hurt_02.png",
+      "image_bbox": [
+        145,
+        75,
+        296,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/hurt/khitan_cavalry_hurt_02.png",
+      "from_original": "hurt/02",
+      "original_sheet": "부상_반동을_겪는_기마_창병_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_hurt_03.png": {
+      "action": "hurt",
+      "index": 3,
+      "frame_path": "frames/hurt/khitan_cavalry_hurt_03.png",
+      "image_bbox": [
+        137,
+        86,
+        313,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/hurt/khitan_cavalry_hurt_03.png",
+      "from_original": "hurt/03",
+      "original_sheet": "부상_반동을_겪는_기마_창병_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_hurt_04.png": {
+      "action": "hurt",
+      "index": 4,
+      "frame_path": "frames/hurt/khitan_cavalry_hurt_04.png",
+      "image_bbox": [
+        138,
+        85,
+        310,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/hurt/khitan_cavalry_hurt_04.png",
+      "from_original": "hurt/04",
+      "original_sheet": "부상_반동을_겪는_기마_창병_스프라이트_시트.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_01.png": {
+      "action": "death",
+      "index": 1,
+      "frame_path": "frames/death/khitan_cavalry_death_01.png",
+      "image_bbox": [
+        163,
+        80,
+        276,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_01.png",
+      "from_original": "death/01",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_02.png": {
+      "action": "death",
+      "index": 2,
+      "frame_path": "frames/death/khitan_cavalry_death_02.png",
+      "image_bbox": [
+        153,
+        90,
+        274,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_02.png",
+      "from_original": "death/02",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_03.png": {
+      "action": "death",
+      "index": 3,
+      "frame_path": "frames/death/khitan_cavalry_death_03.png",
+      "image_bbox": [
+        150,
+        122,
+        281,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_03.png",
+      "from_original": "death/03",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_04.png": {
+      "action": "death",
+      "index": 4,
+      "frame_path": "frames/death/khitan_cavalry_death_04.png",
+      "image_bbox": [
+        150,
+        141,
+        293,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_04.png",
+      "from_original": "death/04",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_05.png": {
+      "action": "death",
+      "index": 5,
+      "frame_path": "frames/death/khitan_cavalry_death_05.png",
+      "image_bbox": [
+        153,
+        160,
+        296,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_05.png",
+      "from_original": "death/05",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    },
+    "khitan_cavalry_death_06.png": {
+      "action": "death",
+      "index": 6,
+      "frame_path": "frames/death/khitan_cavalry_death_06.png",
+      "image_bbox": [
+        160,
+        171,
+        302,
+        220
+      ],
+      "minimum_alpha_margin": 36,
+      "master_source": "source/masters/death/khitan_cavalry_death_06.png",
+      "from_original": "death/06",
+      "original_sheet": "픽셀_아트_기사의_여섯_단계_낙마.png",
+      "reused": false,
+      "replacement_reason": ""
+    }
+  },
+  "render_notes": "모든 원본은 하나의 연결 실루엣으로 분리. 창과 말꼬리처럼 다른 칸에 넘어간 픽셀도 해당 원본의 연결된 객체라면 함께 보존."
+}

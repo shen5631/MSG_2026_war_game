@@ -27,8 +27,8 @@ const EXPECT = {
   khitan_archer: { cell: 128, count: 25 },
   khitan_spearman: { cell: 192, count: 25 },
   'khitan-shield-enemy-v2': { cell: 192, count: 33 },
-  // Cavalry v1: 320×224 native-scale frames (feet anchor 160,192).
-  'khitan-cavalry-v1': { cellW: 320, cellH: 224, count: 34 },
+  // Cavalry V6: 448×256 native-scale frames (feet anchor 224,220).
+  'khitan-cavalry-v6': { cellW: 448, cellH: 256, count: 34 },
   goryeo_spearman_skill: { cell: 192, count: 18 },
   // Round-2 boss elite_spearman_v2: 320×192 native-scale frames (feet anchor 160,176).
   elite_spearman_v2: { cellW: 320, cellH: 192, count: 50 },

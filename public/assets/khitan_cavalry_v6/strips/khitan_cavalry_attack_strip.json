@@ -1,0 +1,132 @@
+{
+  "frames": {
+    "khitan_cavalry_attack_01.png": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    },
+    "khitan_cavalry_attack_02.png": {
+      "frame": {
+        "x": 448,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    },
+    "khitan_cavalry_attack_03.png": {
+      "frame": {
+        "x": 896,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    },
+    "khitan_cavalry_attack_04.png": {
+      "frame": {
+        "x": 1344,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    },
+    "khitan_cavalry_attack_05.png": {
+      "frame": {
+        "x": 1792,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    },
+    "khitan_cavalry_attack_06.png": {
+      "frame": {
+        "x": 2240,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 448,
+        "h": 256
+      },
+      "sourceSize": {
+        "w": 448,
+        "h": 256
+      }
+    }
+  },
+  "meta": {
+    "image": "khitan_cavalry_attack_strip.png",
+    "size": {
+      "w": 2688,
+      "h": 256
+    },
+    "scale": "1"
+  }
+}
