@@ -113,7 +113,7 @@ const BOSS_STYLE: Record<Exclude<BossId, 'vanguard' | 'spear_captain'>, { pal: P
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // All five regular enemy kinds use supplied atlases (cavalry: khitan_cavalry_enemy_v1).
+  // All five regular enemy kinds use supplied atlases (cavalry: khitan_cavalry_v6).
   (Object.keys(BOSS_STYLE) as (keyof typeof BOSS_STYLE)[]).forEach((id) => {
     const st = BOSS_STYLE[id];
     makeSheet(scene, `generated_boss_${id}`, BOSS_FRAME.w, BOSS_FRAME.h, (ctx, pose, ox) =>
