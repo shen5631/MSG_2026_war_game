@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 import { RUNTIME_ASSETS } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import { requiredFrames } from '../visual/AnimationBindings';
-import { generateCharacterTextures, generatePropTextures } from '../visual/placeholders';
+import { generatePropTextures } from '../visual/placeholders';
 import { ENV_KEY, INFANTRY_KEY, REQUIRED_ENV_FRAMES, REQUIRED_INFANTRY_FRAMES, buildGroundStrip } from '../visual/environment';
 import { ARCHER_KEY, REQUIRED_ARCHER_FRAMES } from '../visual/archer';
 import { REQUIRED_SPEARMAN_FRAMES, SPEARMAN_KEY } from '../visual/spearman';
@@ -15,6 +15,7 @@ import { REQUIRED_ROUND3_TILES, r3TextureKey, r3TileFile } from '../visual/round
 import { ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES } from '../visual/allySpearman';
 import { REQUIRED_VANGUARD_FRAMES, VANGUARD_KEY } from '../visual/vanguard';
 import { REQUIRED_SPEAR_CAPTAIN_FRAMES, SPEAR_CAPTAIN_KEY } from '../visual/spearCaptain';
+import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_KEY } from '../visual/sobaeap';
 import { REQUIRED_FRAME_KEYS as REQUIRED_SHIELD_FRAMES, SHIELD_TEXTURE_KEY } from '../skills/shield/presentation';
 
 export const assetUrl = (path: string): string => `${import.meta.env.BASE_URL}${path}`;
@@ -67,7 +68,6 @@ export class BootScene extends Phaser.Scene {
         return;
       }
       buildGroundStrip(this);
-      generateCharacterTextures(this);
       generatePropTextures(this);
       ctl.setLoaded();
       this.scene.start('play');
@@ -83,7 +83,7 @@ export class BootScene extends Phaser.Scene {
     }
     // Round-3 tiles are separate images: every tile the placement code uses must be registered and loaded.
     for (const id of REQUIRED_ROUND3_TILES) if (!this.textures.exists(r3TextureKey(id))) missing.push(r3TileFile(id));
-    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [SHIELDMAN_KEY, Object.values(SHIELDMAN_FRAMES).flat()], [CAVALRY_KEY, REQUIRED_CAVALRY_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES], [ROUND2_ENV_KEY, REQUIRED_ROUND2_ENV_FRAMES]];
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [SHIELDMAN_KEY, Object.values(SHIELDMAN_FRAMES).flat()], [CAVALRY_KEY, REQUIRED_CAVALRY_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SOBAEAP_KEY, REQUIRED_SOBAEAP_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES], [ROUND2_ENV_KEY, REQUIRED_ROUND2_ENV_FRAMES]];
     for (const [key, frames] of need) {
       if (!this.textures.exists(key)) continue;
       const tex = this.textures.get(key);

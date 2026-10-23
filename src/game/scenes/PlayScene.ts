@@ -8,7 +8,6 @@ import type { GameEvent } from '../../domain/events';
 import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
-import { BOSS_FRAME_INFO, type Pose } from '../visual/placeholders';
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, groundStripKey, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage, type SolidView } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
@@ -21,6 +20,7 @@ import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
+import { SOBAEAP_KEY, SOBAEAP_ORIGIN, sobaeapFrame } from '../visual/sobaeap';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -468,16 +468,16 @@ export class PlayScene extends Phaser.Scene {
       this.bossGlow.setVisible(false);
       return;
     }
-    const real = b.bossId === 'vanguard';
-    const captain = b.bossId === 'spear_captain';
-    const texKey = real ? VANGUARD_KEY : captain ? SPEAR_CAPTAIN_KEY : `generated_boss_${b.bossId}`;
-    if (!this.bossSprite || this.bossSprite.texture.key !== texKey) {
+    // Every boss has supplied art: vanguard V2 (round 1), elite spear captain V2 (round 2), 소배압 V2 (round 3).
+    const art = b.bossId === 'vanguard'
+      ? { key: VANGUARD_KEY, origin: VANGUARD_ORIGIN, frame: vanguardFrame, first: 'idle_01' }
+      : b.bossId === 'spear_captain'
+      ? { key: SPEAR_CAPTAIN_KEY, origin: SPEAR_CAPTAIN_ORIGIN, frame: spearCaptainFrame, first: 'idle_01' }
+      : { key: SOBAEAP_KEY, origin: SOBAEAP_ORIGIN, frame: sobaeapFrame, first: 'sobaeap_idle_01.png' };
+    if (!this.bossSprite || this.bossSprite.texture.key !== art.key) {
       this.bossSprite?.destroy();
-      this.bossSprite = real
-        ? this.add.sprite(b.body.x, b.body.y, VANGUARD_KEY, 'idle_01').setOrigin(VANGUARD_ORIGIN.x, VANGUARD_ORIGIN.y).setDepth(14)
-        : captain
-        ? this.add.sprite(b.body.x, b.body.y, SPEAR_CAPTAIN_KEY, 'idle_01').setOrigin(SPEAR_CAPTAIN_ORIGIN.x, SPEAR_CAPTAIN_ORIGIN.y).setDepth(14)
-        : this.add.sprite(b.body.x, b.body.y, texKey, 'idle').setOrigin(0.5, BOSS_FRAME_INFO.footY / BOSS_FRAME_INFO.h).setDepth(14);
+      // Native scale 1, fixed feet anchor per sheet: no per-frame resizing or bbox cropping.
+      this.bossSprite = this.add.sprite(b.body.x, b.body.y, art.key, art.first).setOrigin(art.origin.x, art.origin.y).setDepth(14);
       this.bossLastHp = b.hp;
       // presentationT restarts every round: a flash deadline left over from the previous boss would keep the
       // new boss white until the new round caught up with it.
@@ -485,34 +485,14 @@ export class PlayScene extends Phaser.Scene {
     }
     if (b.hp < this.bossLastHp) this.bossFlashUntil = r.presentationT + 70;
     this.bossLastHp = b.hp;
-    let frame: string;
     const view = { t, transitionProgress: r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 };
-    if (real) {
-      frame = vanguardFrame(b, view);
-    } else if (captain) {
-      // Native scale 1, fixed feet anchor (160,176): no per-frame resizing or bbox cropping.
-      frame = spearCaptainFrame(b, view);
-    } else {
-      let pose: Pose = 'idle';
-      switch (b.state) {
-        case 'move': pose = Math.floor(t / 180) % 2 ? 'walkA' : 'walkB'; break;
-        case 'windup': pose = 'windup'; break;
-        case 'hits': pose = 'attack'; break;
-        case 'recover': pose = t - b.stateT < 220 ? 'attack' : 'idle'; break;
-        case 'stunned': pose = 'hurt'; break;
-        case 'transition': pose = 'hurt'; break;
-        case 'dead': pose = 'dead'; break;
-        default: pose = 'idle';
-      }
-      frame = pose;
-    }
+    const frame = art.frame(b, view);
     const s = this.bossSprite.setVisible(true).setFrame(frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
     s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
     const red = b.redTelegraph;
     if (r.presentationT < this.bossFlashUntil) s.setTintFill(0xffffff);
     else if (red) s.setTint(Math.floor(r.presentationT / 90) % 2 ? 0xff3030 : 0xff8080);
-    // The V2 transition frames already carry their red aura: no extra flashing tint on top.
-    else if (b.state === 'transition' && !real && !captain) s.setTint(Math.floor(r.presentationT / 70) % 2 ? 0xffffff : 0xffb0a0);
+    // All boss transition frames carry their own red aura: no extra flashing tint on top.
     else s.clearTint();
     this.bossGlow.setVisible(red).setPosition(b.body.x, b.body.y - 2).setAlpha(0.3 + 0.3 * Math.abs(Math.sin(r.presentationT / 80)));
   }
