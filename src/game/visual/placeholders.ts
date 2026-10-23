@@ -6,7 +6,7 @@ import type { BossId, EnemyKind } from '../../config/spec';
 export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
 export type Pose = (typeof POSES)[number];
 
-type Weapon = 'sword' | 'shield' | 'lance' | 'bigsword';
+type Weapon = 'sword' | 'lance' | 'bigsword';
 interface Palette { armor: string; armorDark: string; trim: string; skin: string; helmet: string; plume: string; cloth: string; metal: string; wood: string; outline: string }
 
 const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
@@ -15,7 +15,7 @@ const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_enemy_shieldman', 'generated_enemy_cavalry',
+  'generated_enemy_cavalry',
   'generated_boss_so_bae_ap',
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
@@ -93,12 +93,6 @@ function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, sca
       else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 7, -86, 2, 84, pal.wood); p.r(ax + 5, -94, 6, 9, pal.metal); }
       break;
     }
-    case 'shield': {
-      if (pose === 'attack') { p.r(ax, -46, 14, 6, pal.armor); p.r(ax + 14, -47, 18, 3, pal.metal); p.r(ax - 4, -56, 8, 34, pal.wood); }
-      else if (pose === 'windup') { p.r(ax - 12, -58, 6, 14, pal.armor); p.r(ax - 16, -76, 3, 20, pal.metal); p.r(ax + 2, -58, 8, 38, pal.wood); }
-      else { p.r(ax + 6, -60, 10, 42, pal.wood); p.r(ax + 9, -48, 4, 18, pal.trim); }
-      break;
-    }
   }
   p.flush(ctx, pal.outline);
 }
@@ -146,7 +140,7 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
   POSES.forEach((pose, i) => tex.add(pose, 0, i * fw, 0, fw, fh));
 }
 
-const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer' | 'spearman'>, Weapon> = { shieldman: 'shield', cavalry: 'lance' };
+const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer' | 'spearman' | 'shieldman'>, Weapon> = { cavalry: 'lance' };
 
 // Vanguard (V2) and 정예 창병장 (v1) use supplied atlases; only 소배압 is still generated.
 const BOSS_STYLE: Record<Exclude<BossId, 'vanguard' | 'spear_captain'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
@@ -157,7 +151,7 @@ export const ENEMY_FRAME = FRAME;
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // Infantry, archer and spearman use their supplied atlases; shieldman and cavalry are still generated.
+  // Infantry, archer, spearman and shieldman use their supplied atlases; only cavalry is still generated.
   (Object.keys(ENEMY_WEAPON) as (keyof typeof ENEMY_WEAPON)[]).forEach((kind) => {
     makeSheet(scene, `generated_enemy_${kind}`, FRAME.w, FRAME.h, (ctx, pose, ox) => {
       if (kind === 'cavalry') drawCavalry(ctx, ox + FRAME.w / 2 - 8, FRAME.footY, ENEMY_PAL, pose);

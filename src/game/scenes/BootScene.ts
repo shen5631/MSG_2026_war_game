@@ -7,6 +7,8 @@ import { generateBackgrounds, generateCharacterTextures, generatePropTextures } 
 import { ENV_KEY, INFANTRY_KEY, REQUIRED_ENV_FRAMES, REQUIRED_INFANTRY_FRAMES, buildGroundStrip } from '../visual/environment';
 import { ARCHER_KEY, REQUIRED_ARCHER_FRAMES } from '../visual/archer';
 import { REQUIRED_SPEARMAN_FRAMES, SPEARMAN_KEY } from '../visual/spearman';
+import { ATLAS_KEY as SHIELDMAN_KEY } from '../enemies/shield/PhaserShieldEnemyView';
+import { FRAMES as SHIELDMAN_FRAMES } from '../enemies/shield/core';
 import { ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES } from '../visual/allySpearman';
 import { REQUIRED_VANGUARD_FRAMES, VANGUARD_KEY } from '../visual/vanguard';
 import { REQUIRED_SPEAR_CAPTAIN_FRAMES, SPEAR_CAPTAIN_KEY } from '../visual/spearCaptain';
@@ -77,7 +79,7 @@ export class BootScene extends Phaser.Scene {
     for (const a of RUNTIME_ASSETS.assets) {
       if (!this.textures.exists(a.key)) missing.push(a.texture);
     }
-    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
+    const need: [string, string[]][] = [['ganggamchan', requiredFrames()], [INFANTRY_KEY, REQUIRED_INFANTRY_FRAMES], [ARCHER_KEY, REQUIRED_ARCHER_FRAMES], [SPEARMAN_KEY, REQUIRED_SPEARMAN_FRAMES], [SHIELDMAN_KEY, Object.values(SHIELDMAN_FRAMES).flat()], [ALLY_SPEAR_KEY, REQUIRED_ALLY_SPEAR_FRAMES], [VANGUARD_KEY, REQUIRED_VANGUARD_FRAMES], [SPEAR_CAPTAIN_KEY, REQUIRED_SPEAR_CAPTAIN_FRAMES], [SHIELD_TEXTURE_KEY, REQUIRED_SHIELD_FRAMES], [ENV_KEY, REQUIRED_ENV_FRAMES]];
     for (const [key, frames] of need) {
       if (!this.textures.exists(key)) continue;
       const tex = this.textures.get(key);

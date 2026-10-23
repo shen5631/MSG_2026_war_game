@@ -87,6 +87,8 @@ export class Enemy {
   relocateAt = 0;
   relocateRetries = 0;
   relocateTargetX: number | null = null;
+  /** Sim time of the last front block (presentation only: the shield "block" reaction pose). */
+  lastBlockAt = -Infinity;
 
   constructor(
     public id: string,
@@ -307,7 +309,10 @@ export class Enemy {
     if (!this.targetable) return 'hit';
     const fromFront = (fromX - this.body.x) * this.facing >= 0;
     if (attackKind && this.guarding && fromFront) {
-      if (!GUARD_BREAK_TAGS.has(attackKind)) return 'blocked';
+      if (!GUARD_BREAK_TAGS.has(attackKind)) {
+        this.lastBlockAt = t;
+        return 'blocked';
+      }
       this.hp -= damage;
       if (this.hp <= 0) return this.die(slots, t);
       this.cancelAttack(slots, t);
