@@ -1,7 +1,7 @@
 // TEMPORARY generated pixel art (generated_* textures). Every key here is listed in TEMPORARY_ASSETS
 // and in IMPLEMENTATION_NOTES.md. Replacing them means swapping texture keys, not gameplay numbers.
 import Phaser from 'phaser';
-import type { BossId, EnemyKind } from '../../config/spec';
+import type { BossId } from '../../config/spec';
 
 export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
 export type Pose = (typeof POSES)[number];
@@ -11,11 +11,9 @@ interface Palette { armor: string; armorDark: string; trim: string; skin: string
 
 const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
 
-const FRAME = { w: 96, h: 112, footY: 106 };
 const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_enemy_cavalry',
   'generated_boss_so_bae_ap',
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
@@ -97,39 +95,6 @@ function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, sca
   p.flush(ctx, pal.outline);
 }
 
-function drawCavalry(ctx: CanvasRenderingContext2D, fx: number, fy: number, pal: Palette, pose: Pose): void {
-  const p = new Painter(fx, fy, 1);
-  if (pose === 'dead') {
-    p.r(-34, -16, 60, 14, '#5b3a29');
-    p.r(-20, -24, 26, 9, pal.armor);
-    p.flush(ctx, pal.outline);
-    return;
-  }
-  const gallop = pose === 'walkA' || pose === 'attack' ? 5 : pose === 'walkB' ? -5 : 0;
-  const horse = '#5b3a29';
-  const horseDark = '#3b2418';
-  p.r(-30, -44, 54, 22, horse);
-  p.r(18, -60, 10, 22, horse);
-  p.r(22, -66, 18, 10, horse);
-  p.r(34, -62, 4, 3, pal.outline);
-  p.r(14, -64, 6, 16, horseDark);
-  p.r(-36, -42, 8, 18, horseDark);
-  p.r(-26 + gallop, -24, 6, 24, horseDark);
-  p.r(-14 - gallop, -24, 6, 24, horse);
-  p.r(10 + gallop, -24, 6, 24, horseDark);
-  p.r(18 - gallop, -24, 6, 24, horse);
-  p.r(-14, -50, 30, 6, pal.trim);
-  // rider
-  p.r(-8, -76, 16, 26, pal.armor);
-  p.r(-5, -88, 11, 11, pal.skin);
-  p.r(-7, -92, 15, 6, pal.helmet);
-  p.r(-1, -97, 3, 5, pal.plume);
-  if (pose === 'windup') { p.r(-40, -70, 64, 2, pal.wood); p.r(24, -72, 8, 6, pal.metal); }
-  else if (pose === 'attack') { p.r(0, -64, 70, 2, pal.wood); p.r(70, -66, 10, 6, pal.metal); }
-  else { p.r(8, -110, 2, 60, pal.wood); p.r(6, -116, 6, 8, pal.metal); }
-  p.flush(ctx, pal.outline);
-}
-
 function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, draw: (ctx: CanvasRenderingContext2D, pose: Pose, ox: number) => void): void {
   if (scene.textures.exists(key)) return;
   const tex = scene.textures.createCanvas(key, fw * POSES.length, fh)!;
@@ -140,24 +105,15 @@ function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, dra
   POSES.forEach((pose, i) => tex.add(pose, 0, i * fw, 0, fw, fh));
 }
 
-const ENEMY_WEAPON: Record<Exclude<EnemyKind, 'infantry' | 'archer' | 'spearman' | 'shieldman'>, Weapon> = { cavalry: 'lance' };
-
 // Vanguard (V2) and 정예 창병장 (v1) use supplied atlases; only 소배압 is still generated.
 const BOSS_STYLE: Record<Exclude<BossId, 'vanguard' | 'spear_captain'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
   so_bae_ap: { pal: { ...ENEMY_PAL, armor: '#5a1e1a', armorDark: '#33100d', trim: '#d4a72c', helmet: '#2a1410', plume: '#9c1c1c' }, weapon: 'bigsword', scale: 1.38, cape: true },
 };
 
-export const ENEMY_FRAME = FRAME;
 export const BOSS_FRAME_INFO = BOSS_FRAME;
 
 export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // Infantry, archer, spearman and shieldman use their supplied atlases; only cavalry is still generated.
-  (Object.keys(ENEMY_WEAPON) as (keyof typeof ENEMY_WEAPON)[]).forEach((kind) => {
-    makeSheet(scene, `generated_enemy_${kind}`, FRAME.w, FRAME.h, (ctx, pose, ox) => {
-      if (kind === 'cavalry') drawCavalry(ctx, ox + FRAME.w / 2 - 8, FRAME.footY, ENEMY_PAL, pose);
-      else drawHumanoid(ctx, ox + FRAME.w / 2, FRAME.footY, 1, ENEMY_PAL, pose, ENEMY_WEAPON[kind]);
-    });
-  });
+  // All five regular enemy kinds use supplied atlases (cavalry: khitan_cavalry_enemy_v1).
   (Object.keys(BOSS_STYLE) as (keyof typeof BOSS_STYLE)[]).forEach((id) => {
     const st = BOSS_STYLE[id];
     makeSheet(scene, `generated_boss_${id}`, BOSS_FRAME.w, BOSS_FRAME.h, (ctx, pose, ox) =>

@@ -1,6 +1,6 @@
 // Owns the single render loop: polls input, advances the controller's fixed-step simulation, renders the state.
 import Phaser from 'phaser';
-import { DEFAULTS, ENEMY_PATTERNS, VIEW_H, VIEW_W, type EnemyKind } from '../../config/spec';
+import { DEFAULTS, ENEMY_PATTERNS, VIEW_H, VIEW_W } from '../../config/spec';
 import type { Services } from '../../app/bridge';
 import type { Boss } from '../../domain/boss';
 import type { Enemy } from '../../domain/enemies';
@@ -8,12 +8,14 @@ import type { GameEvent } from '../../domain/events';
 import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
-import { BOSS_FRAME_INFO, ENEMY_FRAME, type Pose } from '../visual/placeholders';
+import { BOSS_FRAME_INFO, type Pose } from '../visual/placeholders';
 import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
 import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
+import { PhaserCavalryView } from '../enemies/cavalry/PhaserCavalryView';
+import { CAVALRY_ART_HEIGHT, cavalrySnapshot } from '../visual/cavalry';
 import { drawSpawnWarning, spawnWarningProgress } from '../visual/spawnWarning';
 import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from '../visual/enemyHpBar';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
@@ -65,7 +67,7 @@ export class PlayScene extends Phaser.Scene {
   private spawnMarks!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
   private bossGlow!: Phaser.GameObjects.Ellipse;
-  private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Graphics; barState: EnemyBarState; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView }>();
+  private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Graphics; barState: EnemyBarState; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView; cavalryView?: PhaserCavalryView }>();
   private bossSprite: Phaser.GameObjects.Sprite | null = null;
   private bossFlashUntil = 0;
   private bossLastHp = 0;
@@ -425,35 +427,24 @@ export class PlayScene extends Phaser.Scene {
     pool.forEach((o, i) => o.setVisible(i < n));
   }
 
-  private enemyPose(e: Enemy, t: number): Pose {
-    switch (e.state) {
-      case 'move': return Math.floor(t / 160) % 2 ? 'walkA' : 'walkB';
-      case 'windup': return 'windup';
-      case 'active': return 'attack';
-      case 'recover': return t - e.stateT < 200 ? 'attack' : 'idle';
-      case 'stunned':
-      case 'guardBroken': return 'hurt';
-      case 'dead': return 'dead';
-      default: return 'idle';
-    }
-  }
-
   private renderEnemy(e: Enemy, t: number): void {
     let v = this.enemySprites.get(e.id);
     if (!v) {
       // Shieldman: the package view (192×192, feet 96,160, SHIELDMAN_SCALE) owns its sprite; we keep tint/fade/HP bar.
       const shieldView = e.kind === 'shieldman' ? new PhaserShieldEnemyView(this, e.body.x, e.body.y, SHIELDMAN_SCALE) : undefined;
+      // Cavalry: package view (320×224, feet 160,192, scale 1, flipX for left) on the existing cavalry AI.
+      const cavalryView = e.kind === 'cavalry' ? new PhaserCavalryView(this, 12) : undefined;
       const s = shieldView
         ? (shieldView.sprite as unknown as Phaser.GameObjects.Sprite).setDepth(12)
+        : cavalryView
+        ? (cavalryView.sprite as unknown as Phaser.GameObjects.Sprite)
         : e.kind === 'infantry'
         ? this.add.sprite(e.body.x, e.body.y, INFANTRY_KEY, 'khitan_infantry_idle_01.png').setDepth(12)
         : e.kind === 'spearman'
         ? this.add.sprite(e.body.x, e.body.y, SPEARMAN_KEY, 'khitan_spearman_idle_01.png').setDepth(12)
-        : e.kind === 'archer'
-        ? this.add.sprite(e.body.x, e.body.y, ARCHER_KEY, 'khitan_archer_idle_01.png').setOrigin(ARCHER_ORIGIN.x, ARCHER_ORIGIN.y).setScale(ARCHER_SCALE).setDepth(12)
-        : this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
+        : this.add.sprite(e.body.x, e.body.y, ARCHER_KEY, 'khitan_archer_idle_01.png').setOrigin(ARCHER_ORIGIN.x, ARCHER_ORIGIN.y).setScale(ARCHER_SCALE).setDepth(12);
       const bar = this.add.graphics().setDepth(13);
-      v = { s, bar, barState: newEnemyBarState(e.hp, t), lastHp: e.hp, flashUntil: 0, shieldView };
+      v = { s, bar, barState: newEnemyBarState(e.hp, t), lastHp: e.hp, flashUntil: 0, shieldView, cavalryView };
       this.enemySprites.set(e.id, v);
     }
     if (e.hp < v.lastHp) v.flashUntil = t + 80;
@@ -469,10 +460,10 @@ export class PlayScene extends Phaser.Scene {
       v.s.setFrame(pose.frame).setScale(pose.scale).setOrigin(pose.originX, pose.originY);
     } else if (v.shieldView) {
       v.shieldView.sync(shieldmanSnapshot(e, t));
-    } else if (e.kind === 'archer') {
-      v.s.setFrame(archerFrame(e, t, ENEMY_PATTERNS.archer.startupMs));
+    } else if (v.cavalryView) {
+      v.cavalryView.sync(cavalrySnapshot(e, t));
     } else {
-      v.s.setFrame(this.enemyPose(e, t));
+      v.s.setFrame(archerFrame(e, t, ENEMY_PATTERNS.archer.startupMs));
     }
     v.s.setVisible(!hidden).setPosition(Math.round(e.body.x), Math.round(e.body.y)).setFlipX(e.facing < 0);
     if (t < v.flashUntil) v.s.setTintFill(0xffffff);
@@ -484,7 +475,8 @@ export class PlayScene extends Phaser.Scene {
     stepEnemyBar(v.barState, e.hp, e.maxHp, t);
     const showBar = e.alive && !hidden && e.hp < e.maxHp;
     v.bar.setVisible(showBar);
-    if (showBar) drawEnemyBar(v.bar, e.body.x, e.body.y - e.body.h - 10, e.hp, e.maxHp, v.barState);
+    const barY = e.kind === 'cavalry' ? e.body.y - CAVALRY_ART_HEIGHT - 4 : e.body.y - e.body.h - 10;
+    if (showBar) drawEnemyBar(v.bar, e.body.x, barY, e.hp, e.maxHp, v.barState);
   }
 
   private renderBoss(b: Boss | null, r: RoundSim, t: number): void {
