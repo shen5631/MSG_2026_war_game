@@ -50,13 +50,12 @@ export function HUD() {
         <div className="small">{h.arenaLabel}{h.waveLabel ? ` · ${h.waveLabel}` : ''}</div>
       </div>
       {h.boss && (
-        // Boss plate in the menu style: name between gold ornaments, phase badge, framed bar with the 50% phase notch.
+        // Boss plate in the menu style: name between gold ornaments, framed bar with the 50% phase notch (phase 2 = red frame).
         <div className={`hud-boss ${h.boss.phase === 2 ? 'p2' : ''}`} data-testid="hud-boss">
           <div className="boss-plate">
             <i className="orn" aria-hidden="true" />
             <span className="name">{h.boss.name}</span>
             <i className="orn" aria-hidden="true" />
-            <span className="phase" data-testid="hud-boss-phase">{h.boss.phase === 2 ? STORY.ui.phase2 : '1페이즈'}</span>
           </div>
           <div className="bossbar">
             <div className="lag" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} />
