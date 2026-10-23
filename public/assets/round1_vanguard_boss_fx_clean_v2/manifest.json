@@ -1,0 +1,127 @@
+{
+  "asset": "vanguard_boss_vfx_v2",
+  "version": 2,
+  "role": "round1_boss_visual_effects_only",
+  "frame": {
+    "width": 384,
+    "height": 256
+  },
+  "source": "procedurally redrawn as independent pixel-art frames (not cropped from overlapping V1)",
+  "effects": {
+    "slash_arc": {
+      "frames": [
+        "vanguard_slash_arc_01.png",
+        "vanguard_slash_arc_02.png",
+        "vanguard_slash_arc_03.png",
+        "vanguard_slash_arc_04.png",
+        "vanguard_slash_arc_05.png",
+        "vanguard_slash_arc_06.png"
+      ],
+      "count": 6,
+      "fps": 16,
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "repeat": 0,
+      "description": "검 베기 흰 심광·붉은 검격",
+      "strip": "strips/slash_arc_spaced.png",
+      "strip_gap_px": 64
+    },
+    "dash_trail": {
+      "frames": [
+        "vanguard_dash_trail_01.png",
+        "vanguard_dash_trail_02.png",
+        "vanguard_dash_trail_03.png",
+        "vanguard_dash_trail_04.png",
+        "vanguard_dash_trail_05.png",
+        "vanguard_dash_trail_06.png"
+      ],
+      "count": 6,
+      "fps": 14,
+      "origin": {
+        "x": 0.5,
+        "y": 0.82
+      },
+      "repeat": 0,
+      "description": "전방 돌진 먼지와 잔상",
+      "strip": "strips/dash_trail_spaced.png",
+      "strip_gap_px": 64
+    },
+    "summon_pillar": {
+      "frames": [
+        "vanguard_summon_pillar_01.png",
+        "vanguard_summon_pillar_02.png",
+        "vanguard_summon_pillar_03.png",
+        "vanguard_summon_pillar_04.png"
+      ],
+      "count": 4,
+      "fps": 11,
+      "origin": {
+        "x": 0.5,
+        "y": 0.82
+      },
+      "repeat": 0,
+      "description": "2페이즈 진입 붉은 기운 (추가 피해 없음)",
+      "strip": "strips/summon_pillar_spaced.png",
+      "strip_gap_px": 64
+    },
+    "impact_burst": {
+      "frames": [
+        "vanguard_impact_burst_01.png",
+        "vanguard_impact_burst_02.png",
+        "vanguard_impact_burst_03.png",
+        "vanguard_impact_burst_04.png"
+      ],
+      "count": 4,
+      "fps": 18,
+      "origin": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "repeat": 0,
+      "description": "타격·패링 성공 충돌 섬광",
+      "strip": "strips/impact_burst_spaced.png",
+      "strip_gap_px": 64
+    },
+    "ground_flame_circle": {
+      "frames": [
+        "vanguard_ground_flame_circle_01.png",
+        "vanguard_ground_flame_circle_02.png",
+        "vanguard_ground_flame_circle_03.png",
+        "vanguard_ground_flame_circle_04.png",
+        "vanguard_ground_flame_circle_05.png"
+      ],
+      "count": 5,
+      "fps": 10,
+      "origin": {
+        "x": 0.5,
+        "y": 0.82
+      },
+      "repeat": 0,
+      "description": "붉은 내려찍기 위험 예고 (장판 피해 생성 금지)",
+      "strip": "strips/ground_flame_circle_spaced.png",
+      "strip_gap_px": 64
+    },
+    "ground_explosion": {
+      "frames": [
+        "vanguard_ground_explosion_01.png",
+        "vanguard_ground_explosion_02.png",
+        "vanguard_ground_explosion_03.png",
+        "vanguard_ground_explosion_04.png",
+        "vanguard_ground_explosion_05.png",
+        "vanguard_ground_explosion_06.png"
+      ],
+      "count": 6,
+      "fps": 13,
+      "origin": {
+        "x": 0.5,
+        "y": 0.82
+      },
+      "repeat": 0,
+      "description": "붉은 내려찍기 충격 연출 (별도 피해 없음)",
+      "strip": "strips/ground_explosion_spaced.png",
+      "strip_gap_px": 64
+    }
+  }
+}

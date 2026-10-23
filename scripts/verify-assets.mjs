@@ -33,6 +33,8 @@ const EXPECT = {
   // Round-2 boss elite_spearman_v2: 320×192 native-scale frames (feet anchor 160,176).
   elite_spearman_v2: { cellW: 320, cellH: 192, count: 50 },
   'khitan-vanguard-v2': { cell: 192, count: 51 },
+  // Round-1 boss combat effects V2: 384×256 frames.
+  'round1-vanguard-fx-clean-v2': { cellW: 384, cellH: 256, count: 31 },
   // Round-3 boss 소배압 V2: 448×256 native-scale frames (feet anchor 224,220).
   'sobaeap-final-v2': { cellW: 448, cellH: 256, count: 40 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },

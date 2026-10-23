@@ -64,6 +64,13 @@
     },
     {
       "type": "atlas",
+      "key": "round1-vanguard-fx-clean-v2",
+      "texture": "assets/round1_vanguard_boss_fx_clean_v2/atlas/vanguard_fx_atlas.png",
+      "atlas": "assets/round1_vanguard_boss_fx_clean_v2/atlas/vanguard_fx_atlas.json",
+      "note": "1라운드 보스 거란군 선봉대장 전투 이펙트 V2(새로 그린 31프레임 384x256): slash_arc6/dash_trail6/summon_pillar4/impact_burst4/ground_flame_circle5/ground_explosion6. 시각효과만(피해·판정 없음)"
+    },
+    {
+      "type": "atlas",
       "key": "elite_spearman_v2",
       "texture": "assets/elite_spearman_v2/atlas/elite_spearman.png",
       "atlas": "assets/elite_spearman_v2/atlas/elite_spearman.json",
