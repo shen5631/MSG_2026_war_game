@@ -14,6 +14,7 @@ import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrow
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
 import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
+import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from '../visual/enemyHpBar';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
@@ -62,7 +63,7 @@ export class PlayScene extends Phaser.Scene {
   private walls!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
   private bossGlow!: Phaser.GameObjects.Ellipse;
-  private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Rectangle; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView }>();
+  private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Graphics; barState: EnemyBarState; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView }>();
   private bossSprite: Phaser.GameObjects.Sprite | null = null;
   private bossFlashUntil = 0;
   private bossLastHp = 0;
@@ -448,8 +449,8 @@ export class PlayScene extends Phaser.Scene {
         : e.kind === 'archer'
         ? this.add.sprite(e.body.x, e.body.y, ARCHER_KEY, 'khitan_archer_idle_01.png').setOrigin(ARCHER_ORIGIN.x, ARCHER_ORIGIN.y).setScale(ARCHER_SCALE).setDepth(12)
         : this.add.sprite(e.body.x, e.body.y, `generated_enemy_${e.kind as EnemyKind}`, 'idle').setOrigin(0.5, ENEMY_FRAME.footY / ENEMY_FRAME.h).setDepth(12);
-      const bar = this.add.rectangle(0, 0, 24, 2, 0xd04030).setOrigin(0, 0.5).setDepth(13);
-      v = { s, bar, lastHp: e.hp, flashUntil: 0, shieldView };
+      const bar = this.add.graphics().setDepth(13);
+      v = { s, bar, barState: newEnemyBarState(e.hp, t), lastHp: e.hp, flashUntil: 0, shieldView };
       this.enemySprites.set(e.id, v);
     }
     if (e.hp < v.lastHp) v.flashUntil = t + 80;
@@ -477,9 +478,10 @@ export class PlayScene extends Phaser.Scene {
     if (e.state === 'dead') alpha = Math.max(0, 1 - (t - e.deadAt) / 900);
     else if (t < e.graceUntil) alpha = 0.55 + 0.45 * Math.min(1, 1 - (e.graceUntil - t) / 650);
     v.s.setAlpha(alpha);
+    stepEnemyBar(v.barState, e.hp, e.maxHp, t);
     const showBar = e.alive && !hidden && e.hp < e.maxHp;
     v.bar.setVisible(showBar);
-    if (showBar) v.bar.setPosition(e.body.x - 12, e.body.y - e.body.h - 12).setSize(Math.max(1, 24 * (e.hp / e.maxHp)), 2);
+    if (showBar) drawEnemyBar(v.bar, e.body.x, e.body.y - e.body.h - 10, e.hp, e.maxHp, v.barState);
   }
 
   private renderBoss(b: Boss | null, r: RoundSim, t: number): void {
