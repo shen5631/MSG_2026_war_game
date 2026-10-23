@@ -26,7 +26,7 @@ function run(playerX: number, ms: number, startX = 400, maxX = 2000) {
 const uniq = (xs: string[]) => [...new Set(xs)].sort();
 const f = (a: string, i: number) => `khitan_cavalry_${a}_0${i}.png`;
 
-describe('khitan cavalry v1 art on the existing cavalry AI', () => {
+describe('khitan cavalry V6 art on the existing cavalry AI', () => {
   it('keeps HP 70, damage 18, 260 px/s, trigger 160–320, 850 / ≤600 / 1000 ms (same as the package constants)', () => {
     expect(ENEMY_HP.cavalry).toBe(70);
     expect(DEFAULTS.enemy.damage.cavalry).toBe(18);
@@ -35,10 +35,10 @@ describe('khitan cavalry v1 art on the existing cavalry AI', () => {
     expect(CAVALRY).toMatchObject({ maxHp: 70, damage: 18, chargeSpeed: 260, attackMinRange: 160, attackMaxRange: 320, windupMs: 850, chargeMaxMs: 600, recoveryMs: 1000 });
   });
 
-  it('lists all 34 atlas frames; feet origin (160,192) of 320×224', () => {
+  it('lists all 34 atlas frames; V6 feet origin (224,220) of 448×256', () => {
     expect(REQUIRED_CAVALRY_FRAMES).toHaveLength(34);
     expect(new Set(REQUIRED_CAVALRY_FRAMES).size).toBe(34);
-    expect(CAVALRY_ORIGIN).toEqual({ x: 0.5, y: 192 / 224 });
+    expect(CAVALRY_ORIGIN).toEqual({ x: 0.5, y: 220 / 256 });
   });
 
   it('windup attack_01–03, charge_01/02 only while the lance is live, recovery attack_04–06', () => {
