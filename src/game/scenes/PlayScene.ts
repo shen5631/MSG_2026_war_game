@@ -9,7 +9,7 @@ import type { RoundSim } from '../../domain/round';
 import type { MusicTheme } from '../../audio/AudioSystem';
 import { ATLAS_KEY, PLAYER_ORIGIN, playerFrame } from '../visual/AnimationBindings';
 import { BOSS_FRAME_INFO, type Pose } from '../visual/placeholders';
-import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
+import { BG_ROUND1_KEY, GROUND_STRIP_KEY, ROUND_BG_KEYS, GROUND_STRIP_TOP, INFANTRY_KEY, infantryPose, makeDecor, makeSolidImage } from '../visual/environment';
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
@@ -53,7 +53,7 @@ export class PlayScene extends Phaser.Scene {
   private mid!: Phaser.GameObjects.TileSprite;
   private near!: Phaser.GameObjects.TileSprite;
   private ground!: Phaser.GameObjects.TileSprite;
-  private bgRound1!: Phaser.GameObjects.Image;
+  private bgImage!: Phaser.GameObjects.Image;
   private decor: Phaser.GameObjects.Image[] = [];
   private player!: Phaser.GameObjects.Sprite;
   private shadow!: Phaser.GameObjects.Ellipse;
@@ -86,11 +86,11 @@ export class PlayScene extends Phaser.Scene {
   private get services(): Services { return this.game.registry.get('services') as Services; }
 
   create(): void {
-    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
-    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
-    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
-    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r2_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
-    this.bgRound1 = this.add.image(0, 0, BG_ROUND1_KEY).setOrigin(0).setScrollFactor(0).setDepth(-45).setScale(BG_SCALE).setCrop(0, 0, 1672, BG_CROP_H);
+    this.sky = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_sky').setOrigin(0).setScrollFactor(0).setDepth(-50);
+    this.far = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_far').setOrigin(0).setScrollFactor(0).setDepth(-40);
+    this.mid = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_mid').setOrigin(0).setScrollFactor(0).setDepth(-30);
+    this.near = this.add.tileSprite(0, 0, VIEW_W, VIEW_H, 'generated_bg_r3_near').setOrigin(0).setScrollFactor(0).setDepth(-20);
+    this.bgImage = this.add.image(0, 0, BG_ROUND1_KEY).setOrigin(0).setScrollFactor(0).setDepth(-45).setScale(BG_SCALE).setCrop(0, 0, 1672, BG_CROP_H);
     const strip = this.textures.get(GROUND_STRIP_KEY).getSourceImage();
     this.ground = this.add.tileSprite(0, GROUND_STRIP_TOP, VIEW_W, strip.height, GROUND_STRIP_KEY).setOrigin(0).setScrollFactor(0).setDepth(-10);
     this.roundTheme = 0;
@@ -231,12 +231,14 @@ export class PlayScene extends Phaser.Scene {
     }
   }
 
-  /** Round 1 uses the supplied illustration; rounds 2/3 still use generated parallax layers. */
+  /** Rounds 1/2 use the supplied illustrations (same 1672×941 layout and crop); round 3 still uses generated parallax layers. */
   private setTheme(round: number): void {
     if (this.roundTheme === round) return;
     this.roundTheme = round;
-    const real = round === 1;
-    this.bgRound1.setVisible(real);
+    const bgKey = ROUND_BG_KEYS[round];
+    const real = bgKey !== undefined;
+    this.bgImage.setVisible(real);
+    if (bgKey) this.bgImage.setTexture(bgKey).setCrop(0, 0, 1672, BG_CROP_H);
     for (const l of [this.sky, this.far, this.mid, this.near]) l.setVisible(!real);
     if (!real) {
       this.sky.setTexture(`generated_bg_r${round}_sky`);
@@ -278,7 +280,7 @@ export class PlayScene extends Phaser.Scene {
   private parallax(camX: number): void {
     this.cameras.main.setScroll(Math.round(camX), 0);
     const k = Math.max(0, Math.min(1, camX / Math.max(1, this.worldW - VIEW_W)));
-    this.bgRound1.x = -Math.round(k * (BG_DISPLAY_W - VIEW_W));
+    this.bgImage.x = -Math.round(k * (BG_DISPLAY_W - VIEW_W));
     this.far.tilePositionX = Math.round(camX * 0.2);
     this.mid.tilePositionX = Math.round(camX * 0.45);
     this.near.tilePositionX = Math.round(camX * 0.8);

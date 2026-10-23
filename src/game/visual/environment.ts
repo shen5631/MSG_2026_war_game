@@ -7,6 +7,9 @@ import type { Solid, SolidKind } from '../../domain/physics';
 export const ENV_KEY = 'round1_env';
 export const INFANTRY_KEY = 'khitan_infantry';
 export const BG_ROUND1_KEY = 'bg_round1_fortress';
+export const BG_ROUND2_KEY = 'bg_round2_war_camp';
+/** Supplied full-scene illustrations (1672×941) per round; rounds without one use generated parallax layers. */
+export const ROUND_BG_KEYS: Partial<Record<number, string>> = { 1: BG_ROUND1_KEY, 2: BG_ROUND2_KEY };
 export const GROUND_STRIP_KEY = 'terrain_ground_strip';
 
 /** Visible (alpha) content rect of each used environment frame, measured from the supplied atlas. */

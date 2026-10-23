@@ -18,7 +18,7 @@ export const TEMPORARY_ASSETS = [
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
   'generated_pickups', 'spawn marker (code-drawn, src/game/visual/spawnWarning.ts)',
-  'generated_bg_r2_*', 'generated_bg_r3_*',
+  'generated_bg_r3_*',
   'synth_bgm_*', 'synth_sfx_*',
 ] as const;
 
@@ -144,13 +144,12 @@ export function generatePropTextures(scene: Phaser.Scene): void {
 }
 
 const BG: Record<number, { skyTop: string; skyBottom: string; far: string; mid: string; near: string }> = {
-  2: { skyTop: '#5f9fb0', skyBottom: '#cfe3d2', far: '#4f6e78', mid: '#2b4d63', near: '#3d5a2c' },
   3: { skyTop: '#3b2a4a', skyBottom: '#e08a4a', far: '#4a3a52', mid: '#2a2230', near: '#3a2c20' },
 };
 
-/** Parallax layers for rounds 2/3 (round 1 uses the supplied fortress-village illustration). */
+/** Parallax layers for round 3 (rounds 1/2 use supplied illustrations). */
 export function generateBackgrounds(scene: Phaser.Scene): void {
-  for (const r of [2, 3]) {
+  for (const r of [3]) {
     const pal = BG[r];
     const sky = `generated_bg_r${r}_sky`;
     if (!scene.textures.exists(sky)) {
