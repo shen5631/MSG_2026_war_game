@@ -22,6 +22,10 @@ import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
 import { SOBAEAP_ORIGIN, SOBAEAP_SCALE, sobaeapFrame, sobaeapTextureFor } from '../visual/sobaeap';
 import { VanguardFxView } from '../visual/vanguardFx';
+
+/** Recovery item art (user supplied 주먹밥 / 약초 주머니). */
+const PICKUP_TEXTURE = { riceball: 'pickup_riceball', herb: 'pickup_herb_pouch' } as const;
+const PICKUP_SCALE = 0.45;
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -367,7 +371,8 @@ export class PlayScene extends Phaser.Scene {
       pseen.add(it.id);
       let img = this.pickupSprites.get(it.id);
       if (!img) {
-        img = this.add.image(it.x, it.y, 'generated_pickups', it.kind).setOrigin(0.5, 1).setDepth(8);
+        // Supplied pixel-art pickups (48 px sheets), shown at ~20–22 px like the other props.
+        img = this.add.image(it.x, it.y, PICKUP_TEXTURE[it.kind], undefined).setOrigin(0.5, 1).setScale(PICKUP_SCALE).setDepth(8);
         this.pickupSprites.set(it.id, img);
       }
       img.setPosition(it.x, it.y - 2 + Math.round(Math.sin(r.presentationT / 200) * 2));
