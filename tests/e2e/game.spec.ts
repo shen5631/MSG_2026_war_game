@@ -192,7 +192,7 @@ test('T061/T103/T104 full run: 3 rounds, real waves in round 1, 2 rewards, endin
   await hook(page, 'toBoss');
   await defeatBoss(page);
   await waitPhase(page, 'ending');
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 6; i++) {
     await expect(page.getByTestId(`ending-${i}`)).toBeVisible();
     await page.waitForTimeout(250);
     await page.keyboard.press('Enter');

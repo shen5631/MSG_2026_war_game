@@ -50,8 +50,7 @@ describe('game flow', () => {
     expect(c.phase).toBe('ending');
     c.chooseUpgrade('parry'); // no third reward
     expect(c.upgrades.parry).toBe(0);
-    c.advanceEnding();
-    c.advanceEnding();
+    for (let i = 0; i < 5; i++) c.advanceEnding(); // 6 ending scenes
     expect(c.phase).toBe('ending');
     c.advanceEnding();
     expect(c.phase).toBe('results');
