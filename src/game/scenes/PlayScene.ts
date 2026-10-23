@@ -496,8 +496,8 @@ export class PlayScene extends Phaser.Scene {
     this.bossLastHp = b.hp;
     const view = { t, transitionProgress: r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 };
     const frame = art.frame(b, view);
-    // Round-1 boss combat effects (visual only, sim-time frames).
-    this.vanguardFx.draw(b.bossId === 'vanguard' ? this.vanguardFx.planner.update(b, t, r.groundY, r.player.body.x, view.transitionProgress) : []);
+    // Round-1 boss phase-2 red slam effects (visual only, sim-time frames).
+    this.vanguardFx.draw(b.bossId === 'vanguard' ? this.vanguardFx.planner.update(b, t, r.groundY) : []);
     const s = this.bossSprite.setVisible(true).setFrame(frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
     s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
     const red = b.redTelegraph;
