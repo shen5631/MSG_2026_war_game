@@ -22,23 +22,44 @@ describe('enemy spawn warnings show only the real spawn points', () => {
     expect(sim.spawnWarnings).toHaveLength(0);
   });
 
-  it('a marker the player walks onto moves at once (others stay), and the enemy spawns at the moved marker', () => {
+  it('markers never move during the warning, even if the player walks onto one; the enemy appears right there', () => {
     const { sim, driver: d } = makeSim(1);
     sim.debugTeleport(sim.arenas[0].spec.lockAtPlayerX + 5);
     d.run(5);
     const before = sim.spawnWarnings.map((w) => w.x);
-    const target = before[0];
-    sim.player.body.x = target;
-    d.run(1);
-    const after = sim.spawnWarnings.map((w) => w.x);
-    expect(after).toHaveLength(before.length);
-    expect(after).not.toContain(target);
-    for (const x of after) expect(Math.abs(x - sim.player.body.x)).toBeGreaterThanOrEqual(96);
-    // points that stayed safe did not move
-    before.forEach((x, i) => { if (Math.abs(x - target) >= 96) expect(after[i]).toBe(x); });
-    let last = after;
-    while (!sim.enemies.some((e) => e.alive)) { last = sim.spawnWarnings.map((w) => w.x); d.run(1); }
+    sim.player.body.x = before[0];
+    let last = before;
+    while (!sim.enemies.some((e) => e.alive)) {
+      expect(sim.spawnWarnings.map((w) => w.x)).toEqual(before);
+      last = sim.spawnWarnings.map((w) => w.x);
+      d.run(1);
+    }
     expectAtMarkers(sim.enemies.filter((e) => e.alive).map((e) => e.body.x), last);
+    // the enemy that appeared next to the player cannot attack during its spawn grace
+    const near = sim.enemies.find((e) => e.alive && Math.abs(e.body.x - before[0]) < 1)!;
+    expect(near.graceUntil - sim.t).toBeGreaterThan(600);
+  });
+
+  it('points are chosen with room to spare: a player running at full speed for the whole warning stays clear', () => {
+    for (const round of [1, 2, 3]) {
+      const { sim, driver: d } = makeSim(round);
+      for (const a of sim.arenas) {
+        sim.debugTeleport(a.spec.lockAtPlayerX + 5);
+        d.run(2);
+        const px = sim.player.body.x;
+        for (const w of sim.spawnWarnings) expect(Math.abs(w.x - px), `r${round} ${a.spec.id}`).toBeGreaterThanOrEqual(96 + 117);
+        // every later wave warning of this arena must also keep its distance
+        for (let w = 0; w < a.totalWaves; w++) {
+          sim.debugKillWave();
+          for (let n = 0; n < 2100 && sim.spawnWarnings.length === 0 && a.state !== 'cleared'; n++) d.run(1);
+          const qx = sim.player.body.x;
+          for (const m of sim.spawnWarnings) expect(Math.abs(m.x - qx), `r${round} ${a.spec.id} wave ${w + 2}`).toBeGreaterThanOrEqual(96 + 117);
+          d.run(700);
+        }
+        sim.debugTeleport(a.spec.right + 20);
+        d.run(2);
+      }
+    }
   });
 
   it('marker ring closes in over the warning time (sim time)', () => {

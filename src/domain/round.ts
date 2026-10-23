@@ -14,6 +14,9 @@ import { SPAWN_WARNING_MS, WaveDirector, type WaveEvent } from './waves';
 import { buildSolids } from './world';
 
 export interface Pickup { id: string; kind: 'riceball' | 'herb'; x: number; y: number; areaId: string; alive: boolean }
+/** [구현 기본값] Run speed × warning time (180 px/s × 0.65 s ≈ 117 px): how far the player can close in while a marker shows. */
+const SPAWN_LEAD_MARGIN = Math.ceil((DEFAULTS.movement.runSpeed * SPAWN_WARNING_MS) / 1000);
+
 export interface SpawnWarning { x: number; start: number; until: number; kind: EnemyKind }
 export interface AllyVisual { id: string; kind: 'spear'; x: number; y: number; facing: 1 | -1; until: number }
 export type RoundOutcome = 'victory' | 'defeat' | null;
@@ -214,9 +217,7 @@ export class RoundSim {
 
   private updateWaves(): void {
     this.arenas.forEach((d, i) => this.handleWaveEvents(i, d.update(this.t)));
-    // A planned point that became unsafe (player walked up to it) moves now, so the marker follows it and the
-    // enemy later appears exactly where the last marker stood.
-    for (const [i, p] of this.plannedSpawns) p.plan = this.repairPlan(this.arenas[i], p.plan);
+    // Planned points never move during the warning: each marker is exactly where its enemy will appear.
     this.summonWarnings = this.summonWarnings.filter((w) => w.until > this.t);
     this.spawnWarnings = [
       ...[...this.plannedSpawns.values()].flatMap((p) => p.plan.map((s) => ({ x: s.x, start: p.start, until: p.until, kind: s.kind }))),
@@ -232,8 +233,9 @@ export class RoundSim {
         const kinds = d.spec.waves[e.waveIndex].spawnOrder;
         this.plannedSpawns.set(i, { plan: this.chooseSpawnSlots(d, kinds), start: this.t, until: this.t + SPAWN_WARNING_MS });
       } else if (e.type === 'spawn') {
-        const planned = this.plannedSpawns.get(i)?.plan;
-        const plan = planned ? this.repairPlan(d, planned) : this.chooseSpawnSlots(d, d.spec.waves[e.waveIndex].spawnOrder);
+        // Spawn exactly at the announced points (even if the player walked up to one: the 650 ms spawn attack grace
+        // keeps that fair). Without a warning (should not happen) the slots are chosen now.
+        const plan = this.plannedSpawns.get(i)?.plan ?? this.chooseSpawnSlots(d, d.spec.waves[e.waveIndex].spawnOrder);
         const ids = plan.map((p) => {
           const en = new Enemy(this.newId('e'), ++this.serial, p.kind, p.x, this.groundY, this.t, { minX: d.spec.left, maxX: d.spec.right }, false, d.spec.id);
           this.enemies.push(en);
@@ -258,45 +260,31 @@ export class RoundSim {
     }
   }
 
-  private spawnSafe(x: number, d: WaveDirector): boolean {
-    if (Math.abs(x - this.player.body.x) < DEFAULTS.enemy.minSpawnPlayerDistance) return false;
+  private spawnSafe(x: number, d: WaveDirector, margin = 0): boolean {
+    if (Math.abs(x - this.player.body.x) < DEFAULTS.enemy.minSpawnPlayerDistance + margin) return false;
     if (x < d.spec.left + 16 || x > d.spec.right - 16) return false;
     const box: Rect = { x: x - 20, y: this.groundY - 70, w: 40, h: 70 };
     return !this.solids.some((s) => s.alive && rectsOverlap(s, box));
   }
 
   /**
-   * Keeps every still-safe planned point and moves only the unsafe ones to a free safe slot (or, if none, the free
-   * slot farthest from the player). Kinds/count never change.
+   * Deterministic slot choice, made once when the warning appears: nominal slot i, otherwise the next unused slot
+   * that stays safe even if the player runs toward it for the whole warning (+SPAWN_LEAD_MARGIN), then any safe
+   * slot, then the farthest. Kinds/count never change.
    */
-  private repairPlan(d: WaveDirector, plan: { kind: EnemyKind; x: number }[]): { kind: EnemyKind; x: number }[] {
-    if (plan.every((p) => this.spawnSafe(p.x, d))) return plan;
-    const free = d.spec.nominalSpawnSlotsX.map((sx) => d.spec.left + sx).filter((x) => !plan.some((p) => p.x === x));
-    return plan.map((p) => {
-      if (this.spawnSafe(p.x, d)) return p;
-      let k = free.findIndex((x) => this.spawnSafe(x, d));
-      if (k < 0 && free.length) {
-        k = 0;
-        free.forEach((x, j) => { if (Math.abs(x - this.player.body.x) > Math.abs(free[k] - this.player.body.x)) k = j; });
-      }
-      if (k < 0) return p;
-      const [x] = free.splice(k, 1);
-      return { kind: p.kind, x };
-    });
-  }
-
-  /** Deterministic slot choice: nominal slot i, otherwise the next safe unused slot. Kinds/count never change. */
   chooseSpawnSlots(d: WaveDirector, kinds: EnemyKind[]): { kind: EnemyKind; x: number }[] {
     const slots = d.spec.nominalSpawnSlotsX;
     const used = new Set<number>();
     return kinds.map((kind, i) => {
-      for (let k = 0; k < slots.length; k++) {
-        const idx = (i + k) % slots.length;
-        if (used.has(idx)) continue;
-        const x = d.spec.left + slots[idx];
-        if (this.spawnSafe(x, d)) {
-          used.add(idx);
-          return { kind, x };
+      for (const margin of [SPAWN_LEAD_MARGIN, 0]) {
+        for (let k = 0; k < slots.length; k++) {
+          const idx = (i + k) % slots.length;
+          if (used.has(idx)) continue;
+          const x = d.spec.left + slots[idx];
+          if (this.spawnSafe(x, d, margin)) {
+            used.add(idx);
+            return { kind, x };
+          }
         }
       }
       let best = -1;
