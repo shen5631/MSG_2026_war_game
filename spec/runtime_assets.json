@@ -111,6 +111,12 @@
     },
     {
       "type": "image",
+      "key": "bg_round3_burning_fortress",
+      "texture": "assets/backgrounds/round3_burning_fortress_night.png",
+      "note": "3라운드 불타는 밤의 폐허 요새 배경 1672x941 (사용자 제공 「불타는 밤의 폐허 요새 전장.png」), 1·2라운드 배경과 같은 자르기·배율. 엔딩·결과 화면 배경도 이 그림"
+    },
+    {
+      "type": "image",
       "key": "ui_title_logo",
       "texture": "assets/ui/title_logo.png",
       "note": "타이틀 로고(사용자 제공 2056x765를 1028x383으로 축소, 투명 배경). React 타이틀 화면에서 표시"
@@ -153,7 +159,6 @@
   ],
   "missingProductionAssets": [
     "bosses: so_bae_ap (선봉대장 V2·정예 창병장 elite_spearman_v2 사용)",
-    "round3-background",
     "round3-dedicated-terrain",
     "story-art",
     "bgm: ending (로비는 「준비 yourselves」, 전투 구간은 「전투의 기수」 사용)",
