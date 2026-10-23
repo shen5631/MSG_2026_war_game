@@ -187,4 +187,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: boss 3 (so_bae_ap), round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
+console.log('verify:assets OK — still missing final art: boss 3 (so_bae_ap), round 3 background, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
