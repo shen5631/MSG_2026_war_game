@@ -35,6 +35,7 @@ const EXPECT = {
   'khitan-vanguard-v2': { cell: 192, count: 51 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
+  'round2-environment-v2': { cell: null, count: 70 },
 };
 // Fixed-size single images (projectiles, UI).
 const IMAGE_SIZE = {

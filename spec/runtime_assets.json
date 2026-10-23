@@ -91,6 +91,13 @@
       "note": "1라운드 지형·발판·소품 67개, 크기 제각각(등분 금지)"
     },
     {
+      "type": "atlas",
+      "key": "round2-environment-v2",
+      "texture": "assets/round2_environment_v2/atlas/round2_environment_atlas.png",
+      "atlas": "assets/round2_environment_v2/atlas/round2_environment_atlas.json",
+      "note": "2라운드 지형·발판·전쟁 캠프 소품 70개(round2_environment_game_ready_v2), 크기 제각각(등분 금지). 일부 칸에 옆 조각 잔재가 있어 코드에서 주 물체만 잘라 표시"
+    },
+    {
       "type": "image",
       "key": "bg_round1_fortress",
       "texture": "assets/backgrounds/round1_fortress_village.png",
@@ -147,7 +154,7 @@
   "missingProductionAssets": [
     "bosses: so_bae_ap (선봉대장 V2·정예 창병장 elite_spearman_v2 사용)",
     "round3-background",
-    "round2-round3-dedicated-terrain",
+    "round3-dedicated-terrain",
     "story-art",
     "bgm: ending (로비는 「준비 yourselves」, 전투 구간은 「전투의 기수」 사용)",
     "sfx",

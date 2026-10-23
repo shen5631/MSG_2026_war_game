@@ -1,0 +1,1133 @@
+{
+  "name": "round2_environment_game_ready_v2",
+  "source_sheets": {
+    "terrain": "public/assets/round2_environment_v2/source_sheets/round2_terrain_source.png",
+    "props": "public/assets/round2_environment_v2/source_sheets/round2_props_source.png"
+  },
+  "assets": [
+    {
+      "id": "ground_top_01",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_01.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 15,
+        "y": 30,
+        "w": 170,
+        "h": 160
+      },
+      "size": {
+        "w": 170,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_02",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_02.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 185,
+        "y": 30,
+        "w": 170,
+        "h": 160
+      },
+      "size": {
+        "w": 170,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_03",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_03.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 355,
+        "y": 30,
+        "w": 175,
+        "h": 160
+      },
+      "size": {
+        "w": 175,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_04",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_04.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 530,
+        "y": 30,
+        "w": 170,
+        "h": 160
+      },
+      "size": {
+        "w": 170,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_05",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_05.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 700,
+        "y": 30,
+        "w": 175,
+        "h": 160
+      },
+      "size": {
+        "w": 175,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_06",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_06.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 875,
+        "y": 30,
+        "w": 180,
+        "h": 160
+      },
+      "size": {
+        "w": 180,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_07",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_07.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1055,
+        "y": 30,
+        "w": 190,
+        "h": 160
+      },
+      "size": {
+        "w": 190,
+        "h": 160
+      }
+    },
+    {
+      "id": "ground_top_08",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_top_08.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1245,
+        "y": 30,
+        "w": 190,
+        "h": 160
+      },
+      "size": {
+        "w": 190,
+        "h": 160
+      }
+    },
+    {
+      "id": "cliff_left_01",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_left_01.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 10,
+        "y": 205,
+        "w": 135,
+        "h": 175
+      },
+      "size": {
+        "w": 135,
+        "h": 175
+      }
+    },
+    {
+      "id": "cliff_mid_01",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_mid_01.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 145,
+        "y": 205,
+        "w": 160,
+        "h": 175
+      },
+      "size": {
+        "w": 160,
+        "h": 175
+      }
+    },
+    {
+      "id": "cliff_mid_02",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_mid_02.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 305,
+        "y": 205,
+        "w": 155,
+        "h": 175
+      },
+      "size": {
+        "w": 155,
+        "h": 175
+      }
+    },
+    {
+      "id": "cliff_mid_03",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_mid_03.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 460,
+        "y": 205,
+        "w": 165,
+        "h": 175
+      },
+      "size": {
+        "w": 165,
+        "h": 175
+      }
+    },
+    {
+      "id": "slope_up_01",
+      "file": "public/assets/round2_environment_v2/terrain/slopes/slope_up_01.png",
+      "category": "terrain/slopes",
+      "source": "terrain",
+      "source_rect": {
+        "x": 625,
+        "y": 205,
+        "w": 245,
+        "h": 180
+      },
+      "size": {
+        "w": 245,
+        "h": 180
+      }
+    },
+    {
+      "id": "cliff_mid_04",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_mid_04.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 865,
+        "y": 205,
+        "w": 135,
+        "h": 180
+      },
+      "size": {
+        "w": 135,
+        "h": 180
+      }
+    },
+    {
+      "id": "slope_down_01",
+      "file": "public/assets/round2_environment_v2/terrain/slopes/slope_down_01.png",
+      "category": "terrain/slopes",
+      "source": "terrain",
+      "source_rect": {
+        "x": 995,
+        "y": 205,
+        "w": 250,
+        "h": 180
+      },
+      "size": {
+        "w": 250,
+        "h": 180
+      }
+    },
+    {
+      "id": "cliff_right_01",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/cliff_right_01.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1235,
+        "y": 205,
+        "w": 200,
+        "h": 180
+      },
+      "size": {
+        "w": 200,
+        "h": 180
+      }
+    },
+    {
+      "id": "float_small_01",
+      "file": "public/assets/round2_environment_v2/platforms/float_small_01.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 20,
+        "y": 395,
+        "w": 170,
+        "h": 135
+      },
+      "size": {
+        "w": 166,
+        "h": 134
+      }
+    },
+    {
+      "id": "float_small_02",
+      "file": "public/assets/round2_environment_v2/platforms/float_small_02.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 190,
+        "y": 395,
+        "w": 175,
+        "h": 135
+      },
+      "size": {
+        "w": 175,
+        "h": 135
+      }
+    },
+    {
+      "id": "float_small_03",
+      "file": "public/assets/round2_environment_v2/platforms/float_small_03.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 365,
+        "y": 395,
+        "w": 105,
+        "h": 135
+      },
+      "size": {
+        "w": 105,
+        "h": 118
+      }
+    },
+    {
+      "id": "float_mid_01",
+      "file": "public/assets/round2_environment_v2/platforms/float_mid_01.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 470,
+        "y": 395,
+        "w": 200,
+        "h": 135
+      },
+      "size": {
+        "w": 200,
+        "h": 135
+      }
+    },
+    {
+      "id": "float_mid_02",
+      "file": "public/assets/round2_environment_v2/platforms/float_mid_02.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 670,
+        "y": 395,
+        "w": 210,
+        "h": 135
+      },
+      "size": {
+        "w": 210,
+        "h": 135
+      }
+    },
+    {
+      "id": "wood_bridge_01",
+      "file": "public/assets/round2_environment_v2/platforms/wood_bridge_01.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 865,
+        "y": 395,
+        "w": 290,
+        "h": 135
+      },
+      "size": {
+        "w": 290,
+        "h": 135
+      }
+    },
+    {
+      "id": "wood_bridge_02",
+      "file": "public/assets/round2_environment_v2/platforms/wood_bridge_02.png",
+      "category": "platforms",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1145,
+        "y": 395,
+        "w": 290,
+        "h": 135
+      },
+      "size": {
+        "w": 290,
+        "h": 135
+      }
+    },
+    {
+      "id": "ground_slope_left_01",
+      "file": "public/assets/round2_environment_v2/terrain/slopes/ground_slope_left_01.png",
+      "category": "terrain/slopes",
+      "source": "terrain",
+      "source_rect": {
+        "x": 10,
+        "y": 535,
+        "w": 225,
+        "h": 145
+      },
+      "size": {
+        "w": 225,
+        "h": 145
+      }
+    },
+    {
+      "id": "raised_cliff_01",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/raised_cliff_01.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 225,
+        "y": 535,
+        "w": 180,
+        "h": 145
+      },
+      "size": {
+        "w": 180,
+        "h": 145
+      }
+    },
+    {
+      "id": "raised_cliff_02",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/raised_cliff_02.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 435,
+        "y": 535,
+        "w": 155,
+        "h": 145
+      },
+      "size": {
+        "w": 155,
+        "h": 145
+      }
+    },
+    {
+      "id": "ground_long_01",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_long_01.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 580,
+        "y": 535,
+        "w": 430,
+        "h": 145
+      },
+      "size": {
+        "w": 430,
+        "h": 145
+      }
+    },
+    {
+      "id": "ground_long_02",
+      "file": "public/assets/round2_environment_v2/terrain/ground/ground_long_02.png",
+      "category": "terrain/ground",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1000,
+        "y": 535,
+        "w": 235,
+        "h": 145
+      },
+      "size": {
+        "w": 235,
+        "h": 145
+      }
+    },
+    {
+      "id": "raised_cliff_03",
+      "file": "public/assets/round2_environment_v2/terrain/cliffs/raised_cliff_03.png",
+      "category": "terrain/cliffs",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1220,
+        "y": 535,
+        "w": 215,
+        "h": 145
+      },
+      "size": {
+        "w": 215,
+        "h": 145
+      }
+    },
+    {
+      "id": "palisade_broken_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_broken_01.png",
+      "category": "props/defenses",
+      "source": "terrain",
+      "source_rect": {
+        "x": 0,
+        "y": 690,
+        "w": 320,
+        "h": 155
+      },
+      "size": {
+        "w": 320,
+        "h": 153
+      }
+    },
+    {
+      "id": "red_flag_01",
+      "file": "public/assets/round2_environment_v2/props/decor/red_flag_01.png",
+      "category": "props/decor",
+      "source": "terrain",
+      "source_rect": {
+        "x": 300,
+        "y": 680,
+        "w": 210,
+        "h": 170
+      },
+      "size": {
+        "w": 210,
+        "h": 170
+      }
+    },
+    {
+      "id": "palisade_broken_02",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_broken_02.png",
+      "category": "props/defenses",
+      "source": "terrain",
+      "source_rect": {
+        "x": 500,
+        "y": 690,
+        "w": 260,
+        "h": 160
+      },
+      "size": {
+        "w": 260,
+        "h": 158
+      }
+    },
+    {
+      "id": "barrel_cart_01",
+      "file": "public/assets/round2_environment_v2/props/camp/barrel_cart_01.png",
+      "category": "props/camp",
+      "source": "terrain",
+      "source_rect": {
+        "x": 750,
+        "y": 690,
+        "w": 260,
+        "h": 165
+      },
+      "size": {
+        "w": 260,
+        "h": 163
+      }
+    },
+    {
+      "id": "spike_barricade_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/spike_barricade_01.png",
+      "category": "props/defenses",
+      "source": "terrain",
+      "source_rect": {
+        "x": 990,
+        "y": 690,
+        "w": 205,
+        "h": 165
+      },
+      "size": {
+        "w": 205,
+        "h": 149
+      }
+    },
+    {
+      "id": "red_flag_02",
+      "file": "public/assets/round2_environment_v2/props/decor/red_flag_02.png",
+      "category": "props/decor",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1180,
+        "y": 680,
+        "w": 255,
+        "h": 175
+      },
+      "size": {
+        "w": 255,
+        "h": 175
+      }
+    },
+    {
+      "id": "rocks_grass_01",
+      "file": "public/assets/round2_environment_v2/props/decor/rocks_grass_01.png",
+      "category": "props/decor",
+      "source": "terrain",
+      "source_rect": {
+        "x": 0,
+        "y": 850,
+        "w": 300,
+        "h": 220
+      },
+      "size": {
+        "w": 300,
+        "h": 214
+      }
+    },
+    {
+      "id": "barrels_01",
+      "file": "public/assets/round2_environment_v2/props/camp/barrels_01.png",
+      "category": "props/camp",
+      "source": "terrain",
+      "source_rect": {
+        "x": 290,
+        "y": 850,
+        "w": 310,
+        "h": 220
+      },
+      "size": {
+        "w": 310,
+        "h": 219
+      }
+    },
+    {
+      "id": "spikes_small_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/spikes_small_01.png",
+      "category": "props/defenses",
+      "source": "terrain",
+      "source_rect": {
+        "x": 590,
+        "y": 850,
+        "w": 310,
+        "h": 220
+      },
+      "size": {
+        "w": 310,
+        "h": 220
+      }
+    },
+    {
+      "id": "barrels_02",
+      "file": "public/assets/round2_environment_v2/props/camp/barrels_02.png",
+      "category": "props/camp",
+      "source": "terrain",
+      "source_rect": {
+        "x": 880,
+        "y": 850,
+        "w": 270,
+        "h": 220
+      },
+      "size": {
+        "w": 270,
+        "h": 214
+      }
+    },
+    {
+      "id": "rocks_grass_02",
+      "file": "public/assets/round2_environment_v2/props/decor/rocks_grass_02.png",
+      "category": "props/decor",
+      "source": "terrain",
+      "source_rect": {
+        "x": 1130,
+        "y": 850,
+        "w": 305,
+        "h": 220
+      },
+      "size": {
+        "w": 305,
+        "h": 218
+      }
+    },
+    {
+      "id": "palisade_tall_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_tall_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 20,
+        "y": 0,
+        "w": 290,
+        "h": 220
+      },
+      "size": {
+        "w": 290,
+        "h": 220
+      }
+    },
+    {
+      "id": "palisade_cross_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_cross_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 300,
+        "y": 0,
+        "w": 300,
+        "h": 220
+      },
+      "size": {
+        "w": 300,
+        "h": 212
+      }
+    },
+    {
+      "id": "palisade_broken_03",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_broken_03.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 590,
+        "y": 0,
+        "w": 285,
+        "h": 220
+      },
+      "size": {
+        "w": 285,
+        "h": 193
+      }
+    },
+    {
+      "id": "palisade_tall_02",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_tall_02.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 860,
+        "y": 0,
+        "w": 250,
+        "h": 220
+      },
+      "size": {
+        "w": 250,
+        "h": 220
+      }
+    },
+    {
+      "id": "palisade_broken_04",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_broken_04.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 1095,
+        "y": 0,
+        "w": 195,
+        "h": 220
+      },
+      "size": {
+        "w": 195,
+        "h": 207
+      }
+    },
+    {
+      "id": "palisade_small_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_small_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 1275,
+        "y": 0,
+        "w": 170,
+        "h": 220
+      },
+      "size": {
+        "w": 170,
+        "h": 189
+      }
+    },
+    {
+      "id": "spike_row_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/spike_row_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 0,
+        "y": 215,
+        "w": 440,
+        "h": 280
+      },
+      "size": {
+        "w": 440,
+        "h": 280
+      }
+    },
+    {
+      "id": "cheval_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/cheval_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 435,
+        "y": 215,
+        "w": 175,
+        "h": 280
+      },
+      "size": {
+        "w": 175,
+        "h": 280
+      }
+    },
+    {
+      "id": "cheval_02",
+      "file": "public/assets/round2_environment_v2/props/defenses/cheval_02.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 600,
+        "y": 215,
+        "w": 170,
+        "h": 280
+      },
+      "size": {
+        "w": 170,
+        "h": 280
+      }
+    },
+    {
+      "id": "cheval_03",
+      "file": "public/assets/round2_environment_v2/props/defenses/cheval_03.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 760,
+        "y": 215,
+        "w": 160,
+        "h": 280
+      },
+      "size": {
+        "w": 160,
+        "h": 280
+      }
+    },
+    {
+      "id": "battle_flag_01",
+      "file": "public/assets/round2_environment_v2/props/decor/battle_flag_01.png",
+      "category": "props/decor",
+      "source": "props",
+      "source_rect": {
+        "x": 910,
+        "y": 215,
+        "w": 270,
+        "h": 285
+      },
+      "size": {
+        "w": 270,
+        "h": 285
+      }
+    },
+    {
+      "id": "battle_banner_01",
+      "file": "public/assets/round2_environment_v2/props/decor/battle_banner_01.png",
+      "category": "props/decor",
+      "source": "props",
+      "source_rect": {
+        "x": 1170,
+        "y": 215,
+        "w": 275,
+        "h": 285
+      },
+      "size": {
+        "w": 275,
+        "h": 285
+      }
+    },
+    {
+      "id": "wagon_wreck_01",
+      "file": "public/assets/round2_environment_v2/props/camp/wagon_wreck_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 0,
+        "y": 500,
+        "w": 335,
+        "h": 175
+      },
+      "size": {
+        "w": 335,
+        "h": 175
+      }
+    },
+    {
+      "id": "crate_stack_01",
+      "file": "public/assets/round2_environment_v2/props/camp/crate_stack_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 330,
+        "y": 500,
+        "w": 340,
+        "h": 175
+      },
+      "size": {
+        "w": 340,
+        "h": 175
+      }
+    },
+    {
+      "id": "sacks_01",
+      "file": "public/assets/round2_environment_v2/props/camp/sacks_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 655,
+        "y": 500,
+        "w": 245,
+        "h": 175
+      },
+      "size": {
+        "w": 245,
+        "h": 175
+      }
+    },
+    {
+      "id": "brazier_large_01",
+      "file": "public/assets/round2_environment_v2/props/camp/brazier_large_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 885,
+        "y": 500,
+        "w": 190,
+        "h": 175
+      },
+      "size": {
+        "w": 190,
+        "h": 175
+      }
+    },
+    {
+      "id": "brazier_small_01",
+      "file": "public/assets/round2_environment_v2/props/camp/brazier_small_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 1060,
+        "y": 500,
+        "w": 140,
+        "h": 175
+      },
+      "size": {
+        "w": 140,
+        "h": 175
+      }
+    },
+    {
+      "id": "torch_01",
+      "file": "public/assets/round2_environment_v2/props/camp/torch_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 1190,
+        "y": 500,
+        "w": 125,
+        "h": 175
+      },
+      "size": {
+        "w": 125,
+        "h": 175
+      }
+    },
+    {
+      "id": "lantern_01",
+      "file": "public/assets/round2_environment_v2/props/camp/lantern_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 1300,
+        "y": 500,
+        "w": 145,
+        "h": 175
+      },
+      "size": {
+        "w": 145,
+        "h": 175
+      }
+    },
+    {
+      "id": "watchtower_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/watchtower_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 0,
+        "y": 665,
+        "w": 220,
+        "h": 265
+      },
+      "size": {
+        "w": 220,
+        "h": 265
+      }
+    },
+    {
+      "id": "watchtower_02",
+      "file": "public/assets/round2_environment_v2/props/defenses/watchtower_02.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 200,
+        "y": 665,
+        "w": 180,
+        "h": 265
+      },
+      "size": {
+        "w": 180,
+        "h": 265
+      }
+    },
+    {
+      "id": "wood_gate_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/wood_gate_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 365,
+        "y": 665,
+        "w": 355,
+        "h": 265
+      },
+      "size": {
+        "w": 355,
+        "h": 265
+      }
+    },
+    {
+      "id": "palisade_section_01",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_section_01.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 700,
+        "y": 665,
+        "w": 220,
+        "h": 265
+      },
+      "size": {
+        "w": 220,
+        "h": 265
+      }
+    },
+    {
+      "id": "palisade_section_02",
+      "file": "public/assets/round2_environment_v2/props/defenses/palisade_section_02.png",
+      "category": "props/defenses",
+      "source": "props",
+      "source_rect": {
+        "x": 905,
+        "y": 665,
+        "w": 195,
+        "h": 265
+      },
+      "size": {
+        "w": 195,
+        "h": 265
+      }
+    },
+    {
+      "id": "cloth_gate_01",
+      "file": "public/assets/round2_environment_v2/props/decor/cloth_gate_01.png",
+      "category": "props/decor",
+      "source": "props",
+      "source_rect": {
+        "x": 1085,
+        "y": 665,
+        "w": 195,
+        "h": 265
+      },
+      "size": {
+        "w": 195,
+        "h": 265
+      }
+    },
+    {
+      "id": "cloth_gate_02",
+      "file": "public/assets/round2_environment_v2/props/decor/cloth_gate_02.png",
+      "category": "props/decor",
+      "source": "props",
+      "source_rect": {
+        "x": 1260,
+        "y": 665,
+        "w": 185,
+        "h": 265
+      },
+      "size": {
+        "w": 180,
+        "h": 265
+      }
+    },
+    {
+      "id": "rocks_01",
+      "file": "public/assets/round2_environment_v2/props/decor/rocks_01.png",
+      "category": "props/decor",
+      "source": "props",
+      "source_rect": {
+        "x": 0,
+        "y": 920,
+        "w": 400,
+        "h": 165
+      },
+      "size": {
+        "w": 400,
+        "h": 161
+      }
+    },
+    {
+      "id": "camp_debris_01",
+      "file": "public/assets/round2_environment_v2/props/camp/camp_debris_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 390,
+        "y": 920,
+        "w": 370,
+        "h": 165
+      },
+      "size": {
+        "w": 370,
+        "h": 165
+      }
+    },
+    {
+      "id": "tent_red_01",
+      "file": "public/assets/round2_environment_v2/props/camp/tent_red_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 750,
+        "y": 920,
+        "w": 370,
+        "h": 165
+      },
+      "size": {
+        "w": 370,
+        "h": 162
+      }
+    },
+    {
+      "id": "tent_beige_01",
+      "file": "public/assets/round2_environment_v2/props/camp/tent_beige_01.png",
+      "category": "props/camp",
+      "source": "props",
+      "source_rect": {
+        "x": 1100,
+        "y": 920,
+        "w": 345,
+        "h": 165
+      },
+      "size": {
+        "w": 345,
+        "h": 162
+      }
+    }
+  ],
+  "notes": [
+    "All assets are transparent PNGs cropped from the two approved Round 2 environment source sheets.",
+    "Terrain and collision should be configured separately in Phaser; transparent PNG bounds are not collision bounds."
+  ]
+}
