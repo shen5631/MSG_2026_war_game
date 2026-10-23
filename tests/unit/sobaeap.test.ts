@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { BOSS_HP, BOSS_PATTERNS, LOCKED } from '../../src/config/spec';
 import { Boss, type BossCtx } from '../../src/domain/boss';
 import { AttackSlots } from '../../src/domain/enemies';
-import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_ORIGIN, SOBAEAP_PATTERN_ACTION, SOBAEAP_STRIKE_FRAMES, sobaeapFrame } from '../../src/game/visual/sobaeap';
+import { REQUIRED_SOBAEAP_FRAMES, SOBAEAP_ORIGIN, SOBAEAP_PATTERN_ACTION, SOBAEAP_SCALE, SOBAEAP_STRIKE_FRAMES, sobaeapFrame, sobaeapTextureFor } from '../../src/game/visual/sobaeap';
 
 const GROUND = 304;
 
@@ -24,13 +24,16 @@ function run(playerX: number, ms: number, phase: 1 | 2, summons: string[] = []) 
 const uniq = (xs: string[]) => [...new Set(xs)].sort();
 const fr = (a: string, n: number) => `sobaeap_${a}_0${n}.png`;
 
-describe('소배압 V3 art on the existing boss AI', () => {
-  it('keeps HP 700, phase 2 at 350, at most 3 summons; 35 atlas frames, feet origin (256,282) of 512×320', () => {
+describe('소배압 V5 art on the existing boss AI', () => {
+  it('keeps HP 700, phase 2 at 350, at most 3 summons; 42 frames in 8 atlases, feet origin (352,416) of 704×480 at scale 0.5', () => {
     expect(BOSS_HP.so_bae_ap).toBe(700);
     expect(700 * LOCKED.bosses.phase2HpRatio).toBe(350);
     expect(LOCKED.bosses.so_bae_ap.maxLivingSummons).toBe(3);
-    expect(REQUIRED_SOBAEAP_FRAMES).toHaveLength(35);
-    expect(SOBAEAP_ORIGIN).toEqual({ x: 0.5, y: 282 / 320 });
+    expect(REQUIRED_SOBAEAP_FRAMES).toHaveLength(8);
+    expect(REQUIRED_SOBAEAP_FRAMES.flatMap(([, fs]) => fs)).toHaveLength(42);
+    for (const [key, frames] of REQUIRED_SOBAEAP_FRAMES) for (const fr0 of frames) expect(sobaeapTextureFor(fr0)).toBe(key);
+    expect(SOBAEAP_ORIGIN).toEqual({ x: 0.5, y: 416 / 480 });
+    expect(SOBAEAP_SCALE).toBe(0.5);
     for (const p of BOSS_PATTERNS.so_bae_ap) expect(SOBAEAP_PATTERN_ACTION[p.id], p.id).toBeDefined();
   });
 
@@ -47,19 +50,19 @@ describe('소배압 V3 art on the existing boss AI', () => {
     for (const p of ['double_sword', 'rush', 'heavy_cut', 'fast_triple', 'red_ground_wave']) expect(seen.has(p), p).toBe(true);
   });
 
-  it('combo hits alternate combo_03 / combo_04 with the spear drawn back (combo_02) between hits; rush shows charge_02', () => {
+  it('combo hits step combo_03 → 05 → 07 with the spear set again (04 / 06) between hits; rush plays charge_02→04', () => {
     const { log } = run(340, 25000, 2);
     const tri = log.filter((l) => l.pattern === 'fast_triple' && l.hit).map((l) => l.frame);
-    expect(uniq(tri)).toEqual([fr('combo', 3), fr('combo', 4)]);
+    expect(uniq(tri)).toEqual([fr('combo', 3), fr('combo', 5), fr('combo', 7)]);
     const dbl = log.filter((l) => l.pattern === 'double_sword' && l.state === 'hits' && !l.hit).map((l) => l.frame);
-    expect(uniq(dbl)).toEqual([fr('combo', 2)]);
+    expect(uniq(dbl)).toEqual([fr('combo', 4)]);
     const rush = run(150, 25000, 1).log.filter((l) => l.pattern === 'rush' && l.hit).map((l) => l.frame);
-    expect(uniq(rush)).toEqual([fr('charge', 2)]);
+    expect(uniq(rush)).toEqual([fr('charge', 2), fr('charge', 3), fr('charge', 4)]);
   });
 
   it('summon, parry stun, phase-2 transition and death use their own frames', () => {
     const { log } = run(340, 30000, 2);
-    expect(uniq(log.filter((l) => l.pattern === 'summon').map((l) => l.frame))).toEqual([fr('attack', 1), fr('attack', 2), fr('attack', 5)]);
+    expect(uniq(log.filter((l) => l.pattern === 'summon').map((l) => l.frame))).toEqual([fr('attack', 1), fr('attack', 2)]);
     const b = new Boss('b4', 'so_bae_ap', 400, GROUND, 0, { minX: 0, maxX: 800 });
     b.startFight(0);
     const slots = new AttackSlots(2);
