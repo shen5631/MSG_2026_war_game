@@ -21,6 +21,7 @@ import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
 import { SOBAEAP_KEY, SOBAEAP_ORIGIN, sobaeapFrame } from '../visual/sobaeap';
+import { VanguardFxView } from '../visual/vanguardFx';
 import { drawChargeGauge } from '../visual/chargeGauge';
 import { shadowScale, shadowSurfaceY } from '../visual/shadow';
 import { PhaserShieldView } from '../skills/shield/PhaserShieldView';
@@ -59,6 +60,7 @@ export class PlayScene extends Phaser.Scene {
   private healTexts: { text: Phaser.GameObjects.Text; start: number; active: boolean }[] = [];
   /** 방패병 막기 soldiers (goryeo_shield_skill_v1): a view of the player's shield, never an actor. */
   private shieldView!: PhaserShieldView;
+  private vanguardFx!: VanguardFxView;
   private walls!: Phaser.GameObjects.Graphics;
   private spawnMarks!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
@@ -97,6 +99,7 @@ export class PlayScene extends Phaser.Scene {
     this.player = this.add.sprite(200, 304, ATLAS_KEY, 'ganggamchan_idle_01').setOrigin(PLAYER_ORIGIN[0], PLAYER_ORIGIN[1]).setDepth(20);
     // No barrier ellipse around the soldiers (user preference): the soldiers alone show the shield.
     this.shieldView = new PhaserShieldView(this, { showBarrier: false });
+    this.vanguardFx = new VanguardFxView(this);
     if (import.meta.env.DEV) {
       window.__GGC_SCENE__ = this;
       if (new URLSearchParams(window.location.search).has('debug')) this.debugGfx = this.add.graphics().setDepth(100);
@@ -249,6 +252,7 @@ export class PlayScene extends Phaser.Scene {
     for (const f of this.fx) { f.active = false; f.sprite.setVisible(false); }
     for (const h of this.healTexts) { h.active = false; h.text.setVisible(false); }
     this.shieldView.clear();
+    this.vanguardFx.clear();
   }
 
   private rebuildWorld(r: RoundSim): void {
@@ -287,6 +291,7 @@ export class PlayScene extends Phaser.Scene {
     this.shadow.setPosition(p.x, 305).setScale(1).setAlpha(1);
     for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.bossGlow]) o.setVisible(false);
     this.shieldView.clear();
+    this.vanguardFx.clear();
     this.walls.clear();
     this.debugGfx?.clear();
     for (const a of this.pools.arrows) a.setVisible(false);
@@ -469,6 +474,7 @@ export class PlayScene extends Phaser.Scene {
     if (!b || r.bossStage === 'pending') {
       this.bossSprite?.setVisible(false);
       this.bossGlow.setVisible(false);
+      this.vanguardFx.draw([]);
       return;
     }
     // Every boss has supplied art: vanguard V2 (round 1), elite spear captain V2 (round 2), 소배압 V2 (round 3).
@@ -490,6 +496,8 @@ export class PlayScene extends Phaser.Scene {
     this.bossLastHp = b.hp;
     const view = { t, transitionProgress: r.freeze?.kind === 'transition' ? 1 - r.freeze.remaining / DEFAULTS.boss.phaseTransitionMs : 0, deadMs: r.outcome === 'victory' ? r.outcomeElapsed : 0 };
     const frame = art.frame(b, view);
+    // Round-1 boss combat effects (visual only, sim-time frames).
+    this.vanguardFx.draw(b.bossId === 'vanguard' ? this.vanguardFx.planner.update(b, t, r.groundY, r.player.body.x, view.transitionProgress) : []);
     const s = this.bossSprite.setVisible(true).setFrame(frame).setPosition(Math.round(b.body.x), Math.round(b.body.y)).setFlipX(b.facing < 0);
     s.setAlpha(r.bossStage === 'intro' ? Math.min(1, 0.3 + r.presentationT % 1000 / 1000) : 1);
     const red = b.redTelegraph;
