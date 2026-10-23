@@ -98,7 +98,7 @@ for (const a of runtime.assets) {
 }
 
 // Registered BGM tracks must exist, be real MP3 data and cover only known music themes.
-const THEMES = new Set(['title', 'round1', 'round2', 'round3', 'boss', 'ending']);
+const THEMES = new Set(['title', 'story', 'round1', 'round2', 'round3', 'boss', 'ending']);
 for (const t of runtime.audio ?? []) {
   const p = join(pub, t.file);
   if (/previews\/|review\//.test(t.file)) errors.push(`audio points into previews/review: ${t.file}`);

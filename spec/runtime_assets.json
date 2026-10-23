@@ -266,6 +266,15 @@
       "note": "사용자 제공 「준비 yourselves.mp3」(개발착수패키지). 로비(타이틀·조작 방법·설정) 배경음악"
     },
     {
+      "key": "bgm_story_star",
+      "file": "assets/audio/성宵의 별.mp3",
+      "themes": [
+        "story"
+      ],
+      "loop": true,
+      "note": "사용자 제공 「성宵의 별.mp3」. 시작 스토리(낙성대)와 이어지는 조작 안내 동안 배경음악. 1라운드 시작 시 「전투의 기수」로 전환"
+    },
+    {
       "key": "bgm_battle_standard_bearer",
       "file": "assets/audio/battle_standard_bearer.mp3",
       "themes": [
