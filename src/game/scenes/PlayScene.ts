@@ -15,7 +15,7 @@ import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
 import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
 import { PhaserCavalryView } from '../enemies/cavalry/PhaserCavalryView';
-import { CAVALRY_ART_HEIGHT, CAVALRY_SCALE, cavalrySnapshot } from '../visual/cavalry';
+import { CAVALRY_ART_HEIGHT, CAVALRY_SCALE, cavalryScale, cavalrySnapshot } from '../visual/cavalry';
 import { drawSpawnWarning, spawnWarningProgress } from '../visual/spawnWarning';
 import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from '../visual/enemyHpBar';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
@@ -444,6 +444,7 @@ export class PlayScene extends Phaser.Scene {
       v.shieldView.sync(shieldmanSnapshot(e, t));
     } else if (v.cavalryView) {
       v.cavalryView.sync(cavalrySnapshot(e, t));
+      v.s.setScale(cavalryScale(e));
     } else {
       v.s.setFrame(archerFrame(e, t, ENEMY_PATTERNS.archer.startupMs));
     }

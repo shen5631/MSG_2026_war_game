@@ -3,7 +3,7 @@ import { DEFAULTS, ENEMY_HP, ENEMY_PATTERNS } from '../../src/config/spec';
 import { AttackSlots, Enemy, type EnemyCtx } from '../../src/domain/enemies';
 import { EventQueue } from '../../src/domain/events';
 import { CAVALRY } from '../../src/game/enemies/cavalry/core';
-import { CAVALRY_ORIGIN, REQUIRED_CAVALRY_FRAMES, cavalryFrame, cavalrySnapshot } from '../../src/game/visual/cavalry';
+import { CAVALRY_ORIGIN, CAVALRY_SCALE, REQUIRED_CAVALRY_FRAMES, cavalryFrame, cavalryScale, cavalrySnapshot } from '../../src/game/visual/cavalry';
 import { makeSim } from './helpers';
 
 const GROUND = 304;
@@ -62,6 +62,14 @@ describe('khitan cavalry V6 art on the existing cavalry AI', () => {
     expect(act.length).toBeLessThan(600);
     expect(Math.max(...walled.map((l) => l.x))).toBeLessThanOrEqual(520 - 32);
     expect(walled.some((l) => l.state === 'recover')).toBe(true);
+  });
+
+  it('the charge frames (drawn ~1.25× larger) are shown smaller so the horse keeps one size', () => {
+    const { log, e } = run(400 - 240, 3000);
+    expect(log.some((l) => l.state === 'active')).toBe(true);
+    e.state = 'active';
+    expect(cavalryScale(e)).toBeCloseTo(CAVALRY_SCALE * 0.8);
+    for (const s of ['idle', 'move', 'windup', 'recover', 'stunned', 'dead'] as const) { e.state = s; expect(cavalryScale(e)).toBe(CAVALRY_SCALE); }
   });
 
   it('faces the player on either side (flipX from facing)', () => {

@@ -15,6 +15,16 @@ export const CAVALRY_ORIGIN = { x: CAVALRY.anchorX / CAVALRY.frameWidth, y: CAVA
  * it ~100 px, a little taller than the infantry (rider on horseback). Display only, the body/hitboxes are unchanged.
  */
 export const CAVALRY_SCALE = 0.7;
+/**
+ * The V6 charge_01/02 frames are drawn ~1.25× larger than idle/walk/attack/hurt (rider and horse head compared side by
+ * side), so the horse grew when it started charging; the charge is shown 0.8× to keep one body size.
+ */
+const CHARGE_SCALE_FACTOR = 0.8;
+
+/** Display scale for the current state (rendering only). */
+export function cavalryScale(e: Enemy): number {
+  return e.state === 'active' ? CAVALRY_SCALE * CHARGE_SCALE_FACTOR : CAVALRY_SCALE;
+}
 /** Top of the horse+rider above the feet (V6 native: ~144 px idle/attack_01, 147 px charge_02), for the HP bar. */
 export const CAVALRY_ART_HEIGHT = Math.round(146 * CAVALRY_SCALE);
 
