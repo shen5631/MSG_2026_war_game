@@ -78,10 +78,10 @@
     },
     {
       "type": "atlas",
-      "key": "sobaeap-final-v2",
-      "texture": "assets/sobaeap_final_v2/atlas/sobaeap_atlas.png",
-      "atlas": "assets/sobaeap_final_v2/atlas/sobaeap_atlas.json",
-      "note": "3라운드 최종 보스 소배압 V2(sobaeap_final_boss_v2): idle4/walk6/attack5/charge5/combo6/phase2 4/hurt4/death6 = 40프레임(원본 겹침 때문에 재사용 포즈 10장, manifest source_pose·PROVENANCE_KO.md), 448x256, 발 기준점 (224,220), scale 1, 오른쪽 기본·왼쪽 flipX. V1은 잘림 문제로 사용 안 함"
+      "key": "sobaeap-final-v3",
+      "texture": "assets/sobaeap_final_v3/atlas/sobaeap_atlas.png",
+      "atlas": "assets/sobaeap_final_v3/atlas/sobaeap_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V3(sobaeap_final_boss_v3): idle4/walk6/attack5/charge2/combo4/phase2 4/hurt4/death6 = 35프레임(death_06은 death_05 반복), 512x320, 발 기준점 (256,282), scale 1, 오른쪽 기본·왼쪽 flipX. V1·V2 사용 안 함"
     },
     {
       "type": "atlas",

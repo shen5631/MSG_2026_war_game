@@ -2,811 +2,713 @@
   "frames": {
     "sobaeap_idle_01.png": {
       "frame": {
-        "x": 16,
-        "y": 16,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 4,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_idle_02.png": {
       "frame": {
-        "x": 480,
-        "y": 16,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 4,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_idle_03.png": {
       "frame": {
-        "x": 944,
-        "y": 16,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 4,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_idle_04.png": {
       "frame": {
-        "x": 1408,
-        "y": 16,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 4,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_01.png": {
       "frame": {
-        "x": 16,
-        "y": 288,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 328,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_02.png": {
       "frame": {
-        "x": 480,
-        "y": 288,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 328,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_03.png": {
       "frame": {
-        "x": 944,
-        "y": 288,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 328,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_04.png": {
       "frame": {
-        "x": 1408,
-        "y": 288,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 328,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_05.png": {
       "frame": {
-        "x": 16,
-        "y": 560,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 652,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_walk_06.png": {
       "frame": {
-        "x": 480,
-        "y": 560,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 652,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_attack_01.png": {
       "frame": {
-        "x": 944,
-        "y": 560,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 652,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_attack_02.png": {
       "frame": {
-        "x": 1408,
-        "y": 560,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 652,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_attack_03.png": {
       "frame": {
-        "x": 16,
-        "y": 832,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 976,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_attack_04.png": {
       "frame": {
-        "x": 480,
-        "y": 832,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 976,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_attack_05.png": {
       "frame": {
-        "x": 944,
-        "y": 832,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 976,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_charge_01.png": {
       "frame": {
-        "x": 1408,
-        "y": 832,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 976,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_charge_02.png": {
       "frame": {
-        "x": 16,
-        "y": 1104,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 1300,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
-      }
-    },
-    "sobaeap_charge_03.png": {
-      "frame": {
-        "x": 480,
-        "y": 1104,
-        "w": 448,
-        "h": 256
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 448,
-        "h": 256
-      },
-      "sourceSize": {
-        "w": 448,
-        "h": 256
-      }
-    },
-    "sobaeap_charge_04.png": {
-      "frame": {
-        "x": 944,
-        "y": 1104,
-        "w": 448,
-        "h": 256
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 448,
-        "h": 256
-      },
-      "sourceSize": {
-        "w": 448,
-        "h": 256
-      }
-    },
-    "sobaeap_charge_05.png": {
-      "frame": {
-        "x": 1408,
-        "y": 1104,
-        "w": 448,
-        "h": 256
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 448,
-        "h": 256
-      },
-      "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_combo_01.png": {
       "frame": {
-        "x": 16,
-        "y": 1376,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 1300,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_combo_02.png": {
       "frame": {
-        "x": 480,
-        "y": 1376,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 1300,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_combo_03.png": {
       "frame": {
-        "x": 944,
-        "y": 1376,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 1300,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_combo_04.png": {
       "frame": {
-        "x": 1408,
-        "y": 1376,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 1624,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
-      }
-    },
-    "sobaeap_combo_05.png": {
-      "frame": {
-        "x": 16,
-        "y": 1648,
-        "w": 448,
-        "h": 256
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 448,
-        "h": 256
-      },
-      "sourceSize": {
-        "w": 448,
-        "h": 256
-      }
-    },
-    "sobaeap_combo_06.png": {
-      "frame": {
-        "x": 480,
-        "y": 1648,
-        "w": 448,
-        "h": 256
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 448,
-        "h": 256
-      },
-      "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_phase2_01.png": {
       "frame": {
-        "x": 944,
-        "y": 1648,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 1624,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_phase2_02.png": {
       "frame": {
-        "x": 1408,
-        "y": 1648,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 1624,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_phase2_03.png": {
       "frame": {
-        "x": 16,
-        "y": 1920,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 1624,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_phase2_04.png": {
       "frame": {
-        "x": 480,
-        "y": 1920,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 1948,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_hurt_01.png": {
       "frame": {
-        "x": 944,
-        "y": 1920,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 1948,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_hurt_02.png": {
       "frame": {
-        "x": 1408,
-        "y": 1920,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 1948,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_hurt_03.png": {
       "frame": {
-        "x": 16,
-        "y": 2192,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 1948,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_hurt_04.png": {
       "frame": {
-        "x": 480,
-        "y": 2192,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 2272,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_01.png": {
       "frame": {
-        "x": 944,
-        "y": 2192,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 2272,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_02.png": {
       "frame": {
-        "x": 1408,
-        "y": 2192,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 2272,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_03.png": {
       "frame": {
-        "x": 16,
-        "y": 2464,
-        "w": 448,
-        "h": 256
+        "x": 1552,
+        "y": 2272,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_04.png": {
       "frame": {
-        "x": 480,
-        "y": 2464,
-        "w": 448,
-        "h": 256
+        "x": 4,
+        "y": 2596,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_05.png": {
       "frame": {
-        "x": 944,
-        "y": 2464,
-        "w": 448,
-        "h": 256
+        "x": 520,
+        "y": 2596,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     },
     "sobaeap_death_06.png": {
       "frame": {
-        "x": 1408,
-        "y": 2464,
-        "w": 448,
-        "h": 256
+        "x": 1036,
+        "y": 2596,
+        "w": 512,
+        "h": 320
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       },
       "sourceSize": {
-        "w": 448,
-        "h": 256
+        "w": 512,
+        "h": 320
       }
     }
   },
   "meta": {
+    "app": "ChatGPT game asset packaging",
+    "version": "1.0",
     "image": "sobaeap_atlas.png",
     "format": "RGBA8888",
     "size": {
-      "w": 1872,
-      "h": 2736
+      "w": 2068,
+      "h": 2920
     },
     "scale": "1"
   }
