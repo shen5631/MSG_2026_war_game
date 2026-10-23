@@ -4,6 +4,9 @@
 import type { Enemy } from '../../domain/enemies';
 import { SHIELD_ENEMY, type ShieldSnapshot, type ShieldState } from '../enemies/shield/core';
 
+/** The pack's native-size soldier is ~97px tall; 0.8 puts him at the ~78px of the other Khitan infantry. */
+export const SHIELDMAN_SCALE = 0.8;
+
 const WINDUP = SHIELD_ENEMY.windupMs;
 const ACTIVE = SHIELD_ENEMY.activeMs;
 

@@ -13,7 +13,7 @@ import { BG_ROUND1_KEY, GROUND_STRIP_KEY, GROUND_STRIP_TOP, INFANTRY_KEY, infant
 import { ARCHER_KEY, ARCHER_ORIGIN, ARCHER_SCALE, ARROW_KEYS, archerFrame, arrowPlacement, arrowTextureFor } from '../visual/archer';
 import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
-import { shieldmanSnapshot } from '../visual/shieldman';
+import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
 import { VANGUARD_KEY, VANGUARD_ORIGIN, vanguardFrame } from '../visual/vanguard';
 import { SPEAR_CAPTAIN_KEY, SPEAR_CAPTAIN_ORIGIN, spearCaptainFrame } from '../visual/spearCaptain';
@@ -442,8 +442,8 @@ export class PlayScene extends Phaser.Scene {
   private renderEnemy(e: Enemy, t: number): void {
     let v = this.enemySprites.get(e.id);
     if (!v) {
-      // Shieldman: the package view (192×192, feet 96,160, scale 1) owns its sprite; we keep tint/fade/HP bar.
-      const shieldView = e.kind === 'shieldman' ? new PhaserShieldEnemyView(this, e.body.x, e.body.y) : undefined;
+      // Shieldman: the package view (192×192, feet 96,160, SHIELDMAN_SCALE) owns its sprite; we keep tint/fade/HP bar.
+      const shieldView = e.kind === 'shieldman' ? new PhaserShieldEnemyView(this, e.body.x, e.body.y, SHIELDMAN_SCALE) : undefined;
       const s = shieldView
         ? (shieldView.sprite as unknown as Phaser.GameObjects.Sprite).setDepth(12)
         : e.kind === 'infantry'
