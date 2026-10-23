@@ -93,6 +93,8 @@ export class Player {
   cooldownTotal: number = LOCKED.skills.baseSharedCooldownMs;
   buffRemaining = 0;
   spearReserved = false;
+  /** DEV-only (DevPanel "무적"): every incoming hit is ignored. Never set by the shipped game. */
+  debugInvincible = false;
   lastSafe: { x: number; y: number };
   deathT = 0;
 
@@ -518,7 +520,7 @@ export class Player {
       this.setMode('free', t);
       return 'parried';
     }
-    if (t < this.invulnUntil) return 'invulnerable';
+    if (t < this.invulnUntil || this.debugInvincible) return 'invulnerable';
     const res = applyIncomingDamage({ hp: this.hp, shield: this.shield.value, damage: hit.damage, hpInvulnerable: false });
     const hadShield = this.shield.value > 0;
     this.shield = res.shield > 0 ? { value: res.shield, remainingMs: this.shield.remainingMs } : { value: 0, remainingMs: 0 };

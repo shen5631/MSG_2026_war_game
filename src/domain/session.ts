@@ -200,6 +200,43 @@ export class GameController {
     this.returnToMenu();
   }
 
+  // ---- DEV-only shortcuts (src/debug/DevPanel, dev server only; the shipped UI never calls these) ----
+  debugInvincible = false;
+
+  /** Jump straight to the start of round n, keeping the current upgrades and stats. */
+  debugStartRound(n: number): void {
+    if (n < 1 || n > 3) return;
+    this.runtimeError = null;
+    this.endingIndex = 0;
+    this.roundIndex = n;
+    this.beginRound();
+  }
+
+  debugShowEnding(): void {
+    this.round = null;
+    this.pause.clear();
+    this.endingIndex = 0;
+    this.setPhase('ending');
+  }
+
+  debugShowResults(): void {
+    this.round = null;
+    this.pause.clear();
+    this.setPhase('results');
+  }
+
+  /** Upgrades apply from the next round start (the running round keeps the stacks it was built with). */
+  debugSetUpgrades(u: UpgradeStacks): void {
+    this.upgrades = { ...u };
+    this.notify();
+  }
+
+  debugSetInvincible(on: boolean): void {
+    this.debugInvincible = on;
+    if (this.round) this.round.player.debugInvincible = on;
+    this.notify();
+  }
+
   private resetSession(): void {
     this.upgrades = emptyUpgrades();
     this.recorder.reset();
@@ -213,6 +250,7 @@ export class GameController {
   private beginRound(): void {
     this.attempt += 1;
     this.round = new RoundSim(this.roundIndex, this.attempt, this.upgrades, this.recorder, this.rng);
+    this.round.player.debugInvincible = this.debugInvincible;
     this.pause.clear();
     this.pauseNote = null;
     this.stepper.reset();
