@@ -26,6 +26,7 @@ const EXPECT = {
   khitan_infantry: { cell: 128, count: 25 },
   khitan_archer: { cell: 128, count: 25 },
   khitan_spearman: { cell: 192, count: 25 },
+  'khitan-shield-enemy-v2': { cell: 192, count: 33 },
   goryeo_spearman_skill: { cell: 192, count: 18 },
   // Round-2 boss elite_spearman_v2: 320×192 native-scale frames (feet anchor 160,176).
   elite_spearman_v2: { cellW: 320, cellH: 192, count: 50 },
@@ -184,4 +185,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('verify:assets OK — still missing final art: shieldman/cavalry, boss 3 (so_bae_ap), round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');
+console.log('verify:assets OK — still missing final art: cavalry, boss 3 (so_bae_ap), round 2/3 backgrounds, ending BGM and all SFX (generated placeholders are used); ally spearman skill v1 frames need replacement.');

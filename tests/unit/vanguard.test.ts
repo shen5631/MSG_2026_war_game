@@ -93,7 +93,7 @@ describe('vanguard V2 art bound to the existing boss AI', () => {
   it('package boss controllers (vanguard, elite spearman) are never instantiated (one AI per boss)', () => {
     const sources = import.meta.glob('../../src/**/*.{ts,tsx}', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
     expect(Object.keys(sources).length).toBeGreaterThan(20);
-    const offenders = Object.entries(sources).filter(([, text]) => /new\s+(VanguardBossController|PhaserVanguard|EliteSpearmanController|PhaserEliteSpearmanView)\b/.test(text)).map(([file]) => file);
+    const offenders = Object.entries(sources).filter(([, text]) => /new\s+(VanguardBossController|PhaserVanguard|EliteSpearmanController|PhaserEliteSpearmanView|ShieldEnemyController)\b/.test(text)).map(([file]) => file);
     expect(offenders).toEqual([]);
   });
 });
