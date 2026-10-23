@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 2,
+  "assetId": "khitan_shield_enemy_v2",
+  "nameKo": "거란군 적 방패병",
+  "role": "enemy_regular",
+  "faction": "khitan",
+  "enemyId": "shieldman",
+  "notAllySkill": true,
+  "notBoss": true,
+  "frameSize": {
+    "w": 192,
+    "h": 192
+  },
+  "anchor": {
+    "x": 96,
+    "y": 160
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.8333333333333334
+  },
+  "defaultScale": 1,
+  "defaultFacing": "right",
+  "physicalBodySuggestion": {
+    "width": 32,
+    "height": 70,
+    "offsetX": 80,
+    "offsetY": 90
+  },
+  "pngFileCount": 33,
+  "uniquePixelPoseCount": 29,
+  "artworkType": "existing extracted artwork, color and edge treatment; not newly redrawn",
+  "animations": {
+    "idle": {
+      "frames": [
+        "idle/idle_01.png",
+        "idle/idle_02.png",
+        "idle/idle_03.png",
+        "idle/idle_04.png"
+      ],
+      "previewFps": 6,
+      "loop": true,
+      "sourceReuse": null
+    },
+    "walk": {
+      "frames": [
+        "walk/walk_01.png",
+        "walk/walk_02.png",
+        "walk/walk_03.png",
+        "walk/walk_04.png",
+        "walk/walk_05.png",
+        "walk/walk_06.png"
+      ],
+      "previewFps": 8,
+      "loop": true,
+      "sourceReuse": null
+    },
+    "guard": {
+      "frames": [
+        "guard/guard_01.png",
+        "guard/guard_02.png",
+        "guard/guard_03.png",
+        "guard/guard_04.png"
+      ],
+      "previewFps": 6,
+      "loop": true,
+      "sourceReuse": null
+    },
+    "attack": {
+      "frames": [
+        "attack/attack_01.png",
+        "attack/attack_02.png",
+        "attack/attack_03.png",
+        "attack/attack_04.png",
+        "attack/attack_05.png",
+        "attack/attack_06.png"
+      ],
+      "previewFps": 10,
+      "loop": false,
+      "sourceReuse": null
+    },
+    "guard_break": {
+      "frames": [
+        "guard_break/guard_break_01.png",
+        "guard_break/guard_break_02.png",
+        "guard_break/guard_break_03.png",
+        "guard_break/guard_break_04.png"
+      ],
+      "previewFps": 5,
+      "loop": false,
+      "sourceReuse": null
+    },
+    "hurt": {
+      "frames": [
+        "hurt/hurt_01.png",
+        "hurt/hurt_02.png",
+        "hurt/hurt_03.png",
+        "hurt/hurt_04.png"
+      ],
+      "previewFps": 20,
+      "loop": false,
+      "sourceReuse": "guard_break poses"
+    },
+    "death": {
+      "frames": [
+        "death/death_01.png",
+        "death/death_02.png",
+        "death/death_03.png",
+        "death/death_04.png",
+        "death/death_05.png"
+      ],
+      "previewFps": 6.25,
+      "loop": false,
+      "sourceReuse": null
+    }
+  },
+  "frames": {
+    "idle/idle_01.png": {
+      "file": "frames/idle/idle_01.png",
+      "bounds": [
+        56,
+        63,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "idle/idle_01.png"
+    },
+    "idle/idle_02.png": {
+      "file": "frames/idle/idle_02.png",
+      "bounds": [
+        54,
+        63,
+        128,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "idle/idle_02.png"
+    },
+    "idle/idle_03.png": {
+      "file": "frames/idle/idle_03.png",
+      "bounds": [
+        54,
+        63,
+        128,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "idle/idle_03.png"
+    },
+    "idle/idle_04.png": {
+      "file": "frames/idle/idle_04.png",
+      "bounds": [
+        55,
+        63,
+        128,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "idle/idle_04.png"
+    },
+    "walk/walk_01.png": {
+      "file": "frames/walk/walk_01.png",
+      "bounds": [
+        61,
+        63,
+        130,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_01.png"
+    },
+    "walk/walk_02.png": {
+      "file": "frames/walk/walk_02.png",
+      "bounds": [
+        60,
+        62,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_02.png"
+    },
+    "walk/walk_03.png": {
+      "file": "frames/walk/walk_03.png",
+      "bounds": [
+        61,
+        63,
+        131,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_03.png"
+    },
+    "walk/walk_04.png": {
+      "file": "frames/walk/walk_04.png",
+      "bounds": [
+        60,
+        62,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_04.png"
+    },
+    "walk/walk_05.png": {
+      "file": "frames/walk/walk_05.png",
+      "bounds": [
+        60,
+        63,
+        126,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_05.png"
+    },
+    "walk/walk_06.png": {
+      "file": "frames/walk/walk_06.png",
+      "bounds": [
+        59,
+        63,
+        123,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "walk/walk_06.png"
+    },
+    "guard/guard_01.png": {
+      "file": "frames/guard/guard_01.png",
+      "bounds": [
+        57,
+        71,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard/guard_01.png"
+    },
+    "guard/guard_02.png": {
+      "file": "frames/guard/guard_02.png",
+      "bounds": [
+        55,
+        71,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard/guard_02.png"
+    },
+    "guard/guard_03.png": {
+      "file": "frames/guard/guard_03.png",
+      "bounds": [
+        55,
+        71,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard/guard_03.png"
+    },
+    "guard/guard_04.png": {
+      "file": "frames/guard/guard_04.png",
+      "bounds": [
+        55,
+        71,
+        130,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard/guard_04.png"
+    },
+    "attack/attack_01.png": {
+      "file": "frames/attack/attack_01.png",
+      "bounds": [
+        56,
+        63,
+        122,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_01.png"
+    },
+    "attack/attack_02.png": {
+      "file": "frames/attack/attack_02.png",
+      "bounds": [
+        57,
+        80,
+        134,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_02.png"
+    },
+    "attack/attack_03.png": {
+      "file": "frames/attack/attack_03.png",
+      "bounds": [
+        57,
+        79,
+        134,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_03.png"
+    },
+    "attack/attack_04.png": {
+      "file": "frames/attack/attack_04.png",
+      "bounds": [
+        64,
+        73,
+        141,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_04.png"
+    },
+    "attack/attack_05.png": {
+      "file": "frames/attack/attack_05.png",
+      "bounds": [
+        56,
+        70,
+        159,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_05.png"
+    },
+    "attack/attack_06.png": {
+      "file": "frames/attack/attack_06.png",
+      "bounds": [
+        73,
+        70,
+        142,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "attack/attack_06.png"
+    },
+    "guard_break/guard_break_01.png": {
+      "file": "frames/guard_break/guard_break_01.png",
+      "bounds": [
+        68,
+        71,
+        131,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard_break/guard_break_01.png"
+    },
+    "guard_break/guard_break_02.png": {
+      "file": "frames/guard_break/guard_break_02.png",
+      "bounds": [
+        67,
+        72,
+        122,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard_break/guard_break_02.png"
+    },
+    "guard_break/guard_break_03.png": {
+      "file": "frames/guard_break/guard_break_03.png",
+      "bounds": [
+        64,
+        71,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard_break/guard_break_03.png"
+    },
+    "guard_break/guard_break_04.png": {
+      "file": "frames/guard_break/guard_break_04.png",
+      "bounds": [
+        68,
+        74,
+        126,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "guard_break/guard_break_04.png"
+    },
+    "hurt/hurt_01.png": {
+      "file": "frames/hurt/hurt_01.png",
+      "bounds": [
+        68,
+        71,
+        131,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "hurt/hurt_01.png"
+    },
+    "hurt/hurt_02.png": {
+      "file": "frames/hurt/hurt_02.png",
+      "bounds": [
+        67,
+        72,
+        122,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "hurt/hurt_02.png"
+    },
+    "hurt/hurt_03.png": {
+      "file": "frames/hurt/hurt_03.png",
+      "bounds": [
+        64,
+        71,
+        127,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "hurt/hurt_03.png"
+    },
+    "hurt/hurt_04.png": {
+      "file": "frames/hurt/hurt_04.png",
+      "bounds": [
+        68,
+        74,
+        126,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "hurt/hurt_04.png"
+    },
+    "death/death_01.png": {
+      "file": "frames/death/death_01.png",
+      "bounds": [
+        62,
+        76,
+        121,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "death/death_01.png"
+    },
+    "death/death_02.png": {
+      "file": "frames/death/death_02.png",
+      "bounds": [
+        61,
+        84,
+        119,
+        159
+      ],
+      "margin": 33,
+      "atlasFrame": "death/death_02.png"
+    },
+    "death/death_03.png": {
+      "file": "frames/death/death_03.png",
+      "bounds": [
+        59,
+        102,
+        126,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "death/death_03.png"
+    },
+    "death/death_04.png": {
+      "file": "frames/death/death_04.png",
+      "bounds": [
+        59,
+        125,
+        128,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "death/death_04.png"
+    },
+    "death/death_05.png": {
+      "file": "frames/death/death_05.png",
+      "bounds": [
+        59,
+        120,
+        131,
+        160
+      ],
+      "margin": 32,
+      "atlasFrame": "death/death_05.png"
+    }
+  },
+  "balance": {
+    "maxHp": 80,
+    "damage": 10,
+    "moveSpeed": 42,
+    "attackRange": 62,
+    "windupMs": 650,
+    "activeMs": 120,
+    "recoveryMs": 900,
+    "guardBreakMs": 800
+  },
+  "notes": [
+    "hurt files reuse guard_break poses",
+    "attack is one ordinary shield strike, not an extra dash skill",
+    "atlas metadata, not equal-cropping, is authoritative"
+  ]
+}
