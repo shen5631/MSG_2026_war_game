@@ -9,6 +9,8 @@ export type PauseReason =
   | 'viewport-small'
   | 'runtime-error'
   | 'stall'
+  /** Opening story (낙성대 prologue) shown after 시작하기, before the control guide. */
+  | 'story'
   /** Control guide shown once after 시작하기 (title → new game), before round 1 runs. */
   | 'tutorial';
 

@@ -133,14 +133,23 @@ export class GameController {
     if (this.phase !== 'title') return;
     this.resetSession();
     this.beginRound();
-    // The control guide holds round 1 at its first frame (retries and later rounds never show it).
+    // The opening story, then the control guide, hold round 1 at its first frame (retries and later rounds never
+    // show them).
+    this.pause.add('story');
     this.pause.add('tutorial');
+    this.notify();
+  }
+
+  /** Story finished or skipped: the control guide follows (round 1 stays held). */
+  finishStory(): void {
+    if (this.phase !== 'playing' || !this.pause.has('story')) return;
+    this.pause.remove('story');
     this.notify();
   }
 
   /** Guide finished or skipped: round 1 starts from where it was held. */
   finishTutorial(): void {
-    if (this.phase !== 'playing' || !this.pause.has('tutorial')) return;
+    if (this.phase !== 'playing' || !this.pause.has('tutorial') || this.pause.has('story')) return;
     this.pause.remove('tutorial');
     this.stepper.reset();
     this.stallGraceFrames = GameController.STALL_GRACE_FRAMES;

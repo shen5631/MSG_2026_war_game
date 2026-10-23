@@ -26,6 +26,7 @@ export function createServices(): Services {
 
 export type UiCommand =
   | { type: 'startGame' }
+  | { type: 'finishStory' }
   | { type: 'finishTutorial' }
   | { type: 'retryRound' }
   | { type: 'chooseUpgrade'; id: 'sword' | 'parry' | 'command_cooldown' }
@@ -41,6 +42,7 @@ export function sendCommand(s: Services, cmd: UiCommand): void {
   const c = s.controller;
   switch (cmd.type) {
     case 'startGame': c.startGame(); break;
+    case 'finishStory': c.finishStory(); break;
     case 'finishTutorial': c.finishTutorial(); break;
     case 'retryRound': c.retryRound(); break;
     case 'chooseUpgrade': c.chooseUpgrade(cmd.id); break;
