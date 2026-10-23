@@ -1,0 +1,694 @@
+{
+  "version": 2,
+  "bossId": "spear_captain",
+  "bossName": "정예 창병장",
+  "maxHp": 500,
+  "phase2ThresholdHp": 250,
+  "frameSize": {
+    "w": 320,
+    "h": 192
+  },
+  "anchor": {
+    "x": 160,
+    "y": 176
+  },
+  "origin": {
+    "x": 0.5,
+    "y": 0.9166666666666666
+  },
+  "nativeDisplayScale": 1,
+  "visualHeightApproxPx": 105,
+  "direction": "right",
+  "notes": [
+    "Native frames are 320×192 with weapon clearance; DO NOT shrink to 128×128 or auto-fit the alpha bounds.",
+    "World position means foot midpoint. Pure visual frames contain no collision.",
+    "Left facing uses flipX about the centered anchor.",
+    "jump_slam uses reused crouch/raised-spear/kneel poses; airborne displacement is supplied by simulation.",
+    "Ordinary boss hits do not cause parry_stagger.",
+    "Source-only rush and combo sheet are excluded from default AI."
+  ],
+  "repairs": [
+    {
+      "action": "idle",
+      "frame": 4,
+      "repair": "source-edge spear blade replaced with intact blade from same action",
+      "donorFrame": 2
+    },
+    {
+      "action": "walk",
+      "frame": 6,
+      "repair": "source-edge spear blade replaced with intact blade from same action",
+      "donorFrame": 5
+    }
+  ],
+  "animations": {
+    "idle": {
+      "frameNames": [
+        "idle_01",
+        "idle_02",
+        "idle_03",
+        "idle_04"
+      ],
+      "loop": true,
+      "previewFps": 6,
+      "strip": "strips/idle.png"
+    },
+    "walk": {
+      "frameNames": [
+        "walk_01",
+        "walk_02",
+        "walk_03",
+        "walk_04",
+        "walk_05",
+        "walk_06"
+      ],
+      "loop": true,
+      "previewFps": 8,
+      "strip": "strips/walk.png"
+    },
+    "long_thrust": {
+      "frameNames": [
+        "long_thrust_01",
+        "long_thrust_02",
+        "long_thrust_03",
+        "long_thrust_04",
+        "long_thrust_05",
+        "long_thrust_06"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/long_thrust.png"
+    },
+    "sweep": {
+      "frameNames": [
+        "sweep_01",
+        "sweep_02",
+        "sweep_03",
+        "sweep_04",
+        "sweep_05",
+        "sweep_06"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/sweep.png"
+    },
+    "double_thrust": {
+      "frameNames": [
+        "double_thrust_01",
+        "double_thrust_02",
+        "double_thrust_03",
+        "double_thrust_04",
+        "double_thrust_05",
+        "double_thrust_06",
+        "double_thrust_07",
+        "double_thrust_08"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/double_thrust.png"
+    },
+    "jump_slam": {
+      "frameNames": [
+        "jump_slam_01",
+        "jump_slam_02",
+        "jump_slam_03",
+        "jump_slam_04",
+        "jump_slam_05",
+        "jump_slam_06"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/jump_slam.png"
+    },
+    "phase2": {
+      "frameNames": [
+        "phase2_01",
+        "phase2_02",
+        "phase2_03",
+        "phase2_04"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/phase2.png"
+    },
+    "parry_stagger": {
+      "frameNames": [
+        "parry_stagger_01",
+        "parry_stagger_02",
+        "parry_stagger_03",
+        "parry_stagger_04"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/parry_stagger.png"
+    },
+    "death": {
+      "frameNames": [
+        "death_01",
+        "death_02",
+        "death_03",
+        "death_04",
+        "death_05",
+        "death_06"
+      ],
+      "loop": false,
+      "previewFps": 8,
+      "strip": "strips/death.png"
+    }
+  },
+  "frames": {
+    "idle_01": {
+      "path": "frames/idle/idle_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        104,
+        72,
+        249,
+        176
+      ]
+    },
+    "idle_02": {
+      "path": "frames/idle/idle_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        107,
+        73,
+        246,
+        176
+      ]
+    },
+    "idle_03": {
+      "path": "frames/idle/idle_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        107,
+        71,
+        248,
+        176
+      ]
+    },
+    "idle_04": {
+      "path": "frames/idle/idle_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        106,
+        74,
+        245,
+        176
+      ]
+    },
+    "walk_01": {
+      "path": "frames/walk/walk_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        104,
+        73,
+        241,
+        176
+      ]
+    },
+    "walk_02": {
+      "path": "frames/walk/walk_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        105,
+        73,
+        237,
+        176
+      ]
+    },
+    "walk_03": {
+      "path": "frames/walk/walk_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        104,
+        71,
+        237,
+        176
+      ]
+    },
+    "walk_04": {
+      "path": "frames/walk/walk_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        104,
+        72,
+        240,
+        176
+      ]
+    },
+    "walk_05": {
+      "path": "frames/walk/walk_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        101,
+        72,
+        233,
+        176
+      ]
+    },
+    "walk_06": {
+      "path": "frames/walk/walk_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        109,
+        71,
+        229,
+        176
+      ]
+    },
+    "long_thrust_01": {
+      "path": "frames/long_thrust/long_thrust_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        98,
+        71,
+        245,
+        176
+      ]
+    },
+    "long_thrust_02": {
+      "path": "frames/long_thrust/long_thrust_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        81,
+        48,
+        224,
+        176
+      ]
+    },
+    "long_thrust_03": {
+      "path": "frames/long_thrust/long_thrust_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        106,
+        77,
+        289,
+        176
+      ]
+    },
+    "long_thrust_04": {
+      "path": "frames/long_thrust/long_thrust_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        109,
+        79,
+        276,
+        176
+      ]
+    },
+    "long_thrust_05": {
+      "path": "frames/long_thrust/long_thrust_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        109,
+        77,
+        264,
+        176
+      ]
+    },
+    "long_thrust_06": {
+      "path": "frames/long_thrust/long_thrust_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        97,
+        72,
+        233,
+        176
+      ]
+    },
+    "sweep_01": {
+      "path": "frames/sweep/sweep_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        104,
+        72,
+        249,
+        176
+      ]
+    },
+    "sweep_02": {
+      "path": "frames/sweep/sweep_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        105,
+        71,
+        229,
+        176
+      ]
+    },
+    "sweep_03": {
+      "path": "frames/sweep/sweep_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        102,
+        77,
+        263,
+        176
+      ]
+    },
+    "sweep_04": {
+      "path": "frames/sweep/sweep_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        104,
+        74,
+        267,
+        176
+      ]
+    },
+    "sweep_05": {
+      "path": "frames/sweep/sweep_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        107,
+        71,
+        220,
+        176
+      ]
+    },
+    "sweep_06": {
+      "path": "frames/sweep/sweep_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        107,
+        73,
+        246,
+        176
+      ]
+    },
+    "double_thrust_01": {
+      "path": "frames/double_thrust/double_thrust_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        98,
+        71,
+        245,
+        176
+      ]
+    },
+    "double_thrust_02": {
+      "path": "frames/double_thrust/double_thrust_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        81,
+        48,
+        224,
+        176
+      ]
+    },
+    "double_thrust_03": {
+      "path": "frames/double_thrust/double_thrust_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        106,
+        77,
+        289,
+        176
+      ]
+    },
+    "double_thrust_04": {
+      "path": "frames/double_thrust/double_thrust_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        109,
+        77,
+        264,
+        176
+      ]
+    },
+    "double_thrust_05": {
+      "path": "frames/double_thrust/double_thrust_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        81,
+        48,
+        224,
+        176
+      ]
+    },
+    "double_thrust_06": {
+      "path": "frames/double_thrust/double_thrust_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        106,
+        77,
+        289,
+        176
+      ]
+    },
+    "double_thrust_07": {
+      "path": "frames/double_thrust/double_thrust_07.png",
+      "index": 6,
+      "opaqueBounds": [
+        109,
+        77,
+        264,
+        176
+      ]
+    },
+    "double_thrust_08": {
+      "path": "frames/double_thrust/double_thrust_08.png",
+      "index": 7,
+      "opaqueBounds": [
+        97,
+        72,
+        233,
+        176
+      ]
+    },
+    "jump_slam_01": {
+      "path": "frames/jump_slam/jump_slam_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        101,
+        81,
+        259,
+        176
+      ]
+    },
+    "jump_slam_02": {
+      "path": "frames/jump_slam/jump_slam_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        104,
+        30,
+        214,
+        176
+      ]
+    },
+    "jump_slam_03": {
+      "path": "frames/jump_slam/jump_slam_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        104,
+        30,
+        214,
+        176
+      ]
+    },
+    "jump_slam_04": {
+      "path": "frames/jump_slam/jump_slam_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        107,
+        97,
+        237,
+        176
+      ]
+    },
+    "jump_slam_05": {
+      "path": "frames/jump_slam/jump_slam_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        110,
+        97,
+        246,
+        176
+      ]
+    },
+    "jump_slam_06": {
+      "path": "frames/jump_slam/jump_slam_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        98,
+        71,
+        245,
+        176
+      ]
+    },
+    "phase2_01": {
+      "path": "frames/phase2/phase2_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        91,
+        72,
+        265,
+        176
+      ]
+    },
+    "phase2_02": {
+      "path": "frames/phase2/phase2_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        86,
+        64,
+        252,
+        176
+      ]
+    },
+    "phase2_03": {
+      "path": "frames/phase2/phase2_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        78,
+        37,
+        258,
+        176
+      ]
+    },
+    "phase2_04": {
+      "path": "frames/phase2/phase2_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        74,
+        67,
+        270,
+        176
+      ]
+    },
+    "parry_stagger_01": {
+      "path": "frames/parry_stagger/parry_stagger_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        106,
+        84,
+        248,
+        176
+      ]
+    },
+    "parry_stagger_02": {
+      "path": "frames/parry_stagger/parry_stagger_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        114,
+        81,
+        252,
+        176
+      ]
+    },
+    "parry_stagger_03": {
+      "path": "frames/parry_stagger/parry_stagger_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        110,
+        97,
+        246,
+        176
+      ]
+    },
+    "parry_stagger_04": {
+      "path": "frames/parry_stagger/parry_stagger_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        102,
+        71,
+        242,
+        176
+      ]
+    },
+    "death_01": {
+      "path": "frames/death/death_01.png",
+      "index": 0,
+      "opaqueBounds": [
+        101,
+        49,
+        221,
+        176
+      ]
+    },
+    "death_02": {
+      "path": "frames/death/death_02.png",
+      "index": 1,
+      "opaqueBounds": [
+        106,
+        79,
+        230,
+        176
+      ]
+    },
+    "death_03": {
+      "path": "frames/death/death_03.png",
+      "index": 2,
+      "opaqueBounds": [
+        107,
+        97,
+        237,
+        176
+      ]
+    },
+    "death_04": {
+      "path": "frames/death/death_04.png",
+      "index": 3,
+      "opaqueBounds": [
+        109,
+        118,
+        231,
+        180
+      ]
+    },
+    "death_05": {
+      "path": "frames/death/death_05.png",
+      "index": 4,
+      "opaqueBounds": [
+        120,
+        127,
+        246,
+        184
+      ]
+    },
+    "death_06": {
+      "path": "frames/death/death_06.png",
+      "index": 5,
+      "opaqueBounds": [
+        118,
+        148,
+        265,
+        184
+      ]
+    }
+  },
+  "frameReuse": {
+    "sweep": [
+      "idle/1",
+      "combo/3",
+      "combo/5",
+      "combo/4",
+      "combo/8",
+      "idle/2"
+    ],
+    "double_thrust": [
+      "thrust/1",
+      "thrust/2",
+      "thrust/3",
+      "thrust/5",
+      "thrust/2",
+      "thrust/3",
+      "thrust/5",
+      "thrust/6"
+    ],
+    "jump_slam": [
+      "charge/1",
+      "combo/6",
+      "combo/6",
+      "death/3",
+      "stagger/3",
+      "thrust/1"
+    ]
+  },
+  "atlas": {
+    "image": "atlas/elite_spearman.png",
+    "json": "atlas/elite_spearman.json",
+    "textureKey": "elite_spearman_v2"
+  }
+}

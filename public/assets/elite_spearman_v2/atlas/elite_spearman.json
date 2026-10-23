@@ -1,10 +1,10 @@
 {
   "frames": {
-    "elite_spearman_commander_idle_01.png": {
+    "idle_01": {
       "frame": {
         "x": 2,
         "y": 2,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -12,19 +12,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_idle_02.png": {
+    "idle_02": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 2,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -32,19 +32,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_idle_03.png": {
+    "idle_03": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 2,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -52,19 +52,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_idle_04.png": {
+    "idle_04": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 2,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -72,19 +72,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_01.png": {
+    "walk_01": {
+      "frame": {
+        "x": 1298,
+        "y": 2,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "walk_02": {
       "frame": {
         "x": 2,
         "y": 198,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -92,19 +112,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_02.png": {
+    "walk_03": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 198,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -112,19 +132,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_03.png": {
+    "walk_04": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 198,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -132,19 +152,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_04.png": {
+    "walk_05": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 198,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -152,19 +172,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_05.png": {
+    "walk_06": {
+      "frame": {
+        "x": 1298,
+        "y": 198,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "long_thrust_01": {
       "frame": {
         "x": 2,
         "y": 394,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -172,19 +212,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_walk_06.png": {
+    "long_thrust_02": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 394,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -192,19 +232,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_01.png": {
+    "long_thrust_03": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 394,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -212,19 +252,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_02.png": {
+    "long_thrust_04": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 394,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -232,19 +272,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_03.png": {
+    "long_thrust_05": {
+      "frame": {
+        "x": 1298,
+        "y": 394,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "long_thrust_06": {
       "frame": {
         "x": 2,
         "y": 590,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -252,19 +312,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_04.png": {
+    "sweep_01": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 590,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -272,19 +332,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_05.png": {
+    "sweep_02": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 590,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -292,19 +352,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_attack_06.png": {
+    "sweep_03": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 590,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -312,19 +372,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_01.png": {
+    "sweep_04": {
+      "frame": {
+        "x": 1298,
+        "y": 590,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "sweep_05": {
       "frame": {
         "x": 2,
         "y": 786,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -332,19 +412,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_02.png": {
+    "sweep_06": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 786,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -352,19 +432,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_03.png": {
+    "double_thrust_01": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 786,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -372,19 +452,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_04.png": {
+    "double_thrust_02": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 786,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -392,19 +472,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_05.png": {
+    "double_thrust_03": {
+      "frame": {
+        "x": 1298,
+        "y": 786,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "double_thrust_04": {
       "frame": {
         "x": 2,
         "y": 982,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -412,19 +512,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_charge_06.png": {
+    "double_thrust_05": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 982,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -432,19 +532,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_01.png": {
+    "double_thrust_06": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 982,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -452,19 +552,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_02.png": {
+    "double_thrust_07": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 982,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -472,19 +572,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_03.png": {
+    "double_thrust_08": {
+      "frame": {
+        "x": 1298,
+        "y": 982,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "jump_slam_01": {
       "frame": {
         "x": 2,
         "y": 1178,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -492,19 +612,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_04.png": {
+    "jump_slam_02": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 1178,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -512,19 +632,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_05.png": {
+    "jump_slam_03": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 1178,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -532,19 +652,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_06.png": {
+    "jump_slam_04": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 1178,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -552,19 +672,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_07.png": {
+    "jump_slam_05": {
+      "frame": {
+        "x": 1298,
+        "y": 1178,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "jump_slam_06": {
       "frame": {
         "x": 2,
         "y": 1374,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -572,19 +712,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_combo_08.png": {
+    "phase2_01": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 1374,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -592,19 +732,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_phase2_01.png": {
+    "phase2_02": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 1374,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -612,19 +752,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_phase2_02.png": {
+    "phase2_03": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 1374,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -632,19 +772,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_phase2_03.png": {
+    "phase2_04": {
+      "frame": {
+        "x": 1298,
+        "y": 1374,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "parry_stagger_01": {
       "frame": {
         "x": 2,
         "y": 1570,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -652,19 +812,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_phase2_04.png": {
+    "parry_stagger_02": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 1570,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -672,19 +832,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_hurt_01.png": {
+    "parry_stagger_03": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 1570,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -692,19 +852,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_hurt_02.png": {
+    "parry_stagger_04": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 1570,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -712,19 +872,39 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_hurt_03.png": {
+    "death_01": {
+      "frame": {
+        "x": 1298,
+        "y": 1570,
+        "w": 320,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 320,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 192
+      }
+    },
+    "death_02": {
       "frame": {
         "x": 2,
         "y": 1766,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -732,19 +912,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_hurt_04.png": {
+    "death_03": {
       "frame": {
-        "x": 198,
+        "x": 326,
         "y": 1766,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -752,19 +932,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_death_01.png": {
+    "death_04": {
       "frame": {
-        "x": 394,
+        "x": 650,
         "y": 1766,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -772,19 +952,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_death_02.png": {
+    "death_05": {
       "frame": {
-        "x": 590,
+        "x": 974,
         "y": 1766,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -792,19 +972,19 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     },
-    "elite_spearman_commander_death_03.png": {
+    "death_06": {
       "frame": {
-        "x": 2,
-        "y": 1962,
-        "w": 192,
+        "x": 1298,
+        "y": 1766,
+        "w": 320,
         "h": 192
       },
       "rotated": false,
@@ -812,88 +992,24 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 192,
+        "w": 320,
         "h": 192
       },
       "sourceSize": {
-        "w": 192,
-        "h": 192
-      }
-    },
-    "elite_spearman_commander_death_04.png": {
-      "frame": {
-        "x": 198,
-        "y": 1962,
-        "w": 192,
-        "h": 192
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 192,
-        "h": 192
-      },
-      "sourceSize": {
-        "w": 192,
-        "h": 192
-      }
-    },
-    "elite_spearman_commander_death_05.png": {
-      "frame": {
-        "x": 394,
-        "y": 1962,
-        "w": 192,
-        "h": 192
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 192,
-        "h": 192
-      },
-      "sourceSize": {
-        "w": 192,
-        "h": 192
-      }
-    },
-    "elite_spearman_commander_death_06.png": {
-      "frame": {
-        "x": 590,
-        "y": 1962,
-        "w": 192,
-        "h": 192
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 192,
-        "h": 192
-      },
-      "sourceSize": {
-        "w": 192,
+        "w": 320,
         "h": 192
       }
     }
   },
   "meta": {
-    "image": "elite_spearman_commander_display.png",
+    "app": "OpenAI sprite repair pipeline",
+    "version": "2",
+    "image": "elite_spearman.png",
+    "format": "RGBA8888",
     "size": {
-      "w": 784,
-      "h": 2156
+      "w": 1620,
+      "h": 1960
     },
-    "scale": "0.3",
-    "frame_size": {
-      "w": 192,
-      "h": 192
-    },
-    "columns": 4,
-    "padding": 2,
-    "source": "elite_spearman_commander_all_atlas.png"
+    "scale": "1"
   }
 }
