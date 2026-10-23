@@ -19,7 +19,7 @@ const SKY_STARS = (() => {
 })();
 
 /** Night sky over 낙성대: stars, far ridges and a village whose house lights up when the star lands (scene 1). */
-function NightSky({ falling }: { falling: boolean }) {
+export function NightSky({ falling }: { falling: boolean }) {
   return (
     <div className={`pro-sky ${falling ? 'falling' : ''}`} aria-hidden="true">
       <span className="pro-moon" />

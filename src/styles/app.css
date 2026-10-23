@@ -233,9 +233,11 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 .card h3 { margin: 0 0 4px; font-size: 13px; color: var(--m-gold-light); }
 
 .ending { background: radial-gradient(ellipse at center, rgba(10, 14, 30, 0.55), rgba(0, 0, 0, 0.85)); cursor: pointer; }
-.ending-card { max-width: 460px; text-align: center; padding: 16px; }
+.ending-card { position: relative; max-width: 440px; margin-top: -30px; text-align: center; padding: 16px; animation: pro-in 700ms ease-out both; }
+.ending.night { background: #01030a; }
 .ending-card h2 { font-size: 20px; color: var(--gold-2); letter-spacing: 3px; margin: 0 0 10px; }
-.ending-card p { font-size: 12px; }
+.ending-card p { font-size: 12px; line-height: 1.85; word-break: keep-all; text-shadow: 0 1px 0 #000; }
+.ending-card .pro-eyebrow { font-size: 9px; }
 .blink { animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0.2; } }
 

@@ -6,6 +6,7 @@ import { UPGRADE_INFO, type UpgradeStacks } from '../../domain/upgrades';
 import { sendCommand } from '../bridge';
 import { useMenu, useServices } from '../useMenu';
 import { Frame, MenuGlyph } from './Frame';
+import { NightSky } from './Prologue';
 
 export function Rewards({ upgrades, round }: { upgrades: UpgradeStacks; round: number }) {
   const s = useServices();
@@ -49,13 +50,22 @@ export function Ending({ index }: { index: number }) {
     sendCommand(s, { type: 'advanceEnding' });
   };
   useMenu({ count: 1, onConfirm: advance });
-  const scene = STORY.ending[Math.min(index, STORY.ending.length - 1)];
+  const scenes = STORY.ending as { eyebrow?: string; title: string; body: string; sky?: boolean; star?: boolean }[];
+  const scene = scenes[Math.min(index, scenes.length - 1)];
+  const last = index >= scenes.length - 1;
+  // Battle scenes over the burning-fortress backdrop; the 낙성대 epilogue (and the closing note) return to the opening
+  // night sky, the epilogue with its falling star.
   return (
-    <div className="screen center ending" data-testid="ending" onClick={advance}>
-      <div className="ending-card" data-testid={`ending-${index}`}>
+    <div className={`screen center ending ${scene.sky ? 'night' : ''}`} data-testid="ending" onClick={advance}>
+      {scene.sky && <NightSky falling={!!scene.star} />}
+      <div className="ending-card" key={index} data-testid={`ending-${index}`}>
+        {scene.eyebrow && <p className="pro-eyebrow">{scene.eyebrow}</p>}
         <h2>{scene.title}</h2>
         <p>{scene.body}</p>
-        <p className="small blink">A / Enter : 계속</p>
+      </div>
+      <div className="pro-foot">
+        <span className="tut-dots" aria-hidden="true">{scenes.map((_, n) => <i key={n} className={n === index ? 'on' : ''} />)}</span>
+        <span className="small blink">{last ? 'A / Enter : 결과 보기' : 'A / Enter : 계속'}</span>
       </div>
     </div>
   );
