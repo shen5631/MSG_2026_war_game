@@ -78,10 +78,59 @@
     },
     {
       "type": "atlas",
-      "key": "sobaeap-final-v3",
-      "texture": "assets/sobaeap_final_v3/atlas/sobaeap_atlas.png",
-      "atlas": "assets/sobaeap_final_v3/atlas/sobaeap_atlas.json",
-      "note": "3라운드 최종 보스 소배압 V3(sobaeap_final_boss_v3): idle4/walk6/attack5/charge2/combo4/phase2 4/hurt4/death6 = 35프레임(death_06은 death_05 반복), 512x320, 발 기준점 (256,282), scale 1, 오른쪽 기본·왼쪽 flipX. V1·V2 사용 안 함"
+      "key": "sobaeap-v5-idle",
+      "texture": "assets/sobaeap_v5/atlas/idle_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/idle_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) idle 4프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-walk",
+      "texture": "assets/sobaeap_v5/atlas/walk_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/walk_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) walk 6프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX (walk_06은 walk_05 재사용). V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-attack",
+      "texture": "assets/sobaeap_v5/atlas/attack_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/attack_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) attack 6프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX (attack_06은 attack_05 재사용). V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-charge",
+      "texture": "assets/sobaeap_v5/atlas/charge_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/charge_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) charge 4프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-combo",
+      "texture": "assets/sobaeap_v5/atlas/combo_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/combo_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) combo 8프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-phase2",
+      "texture": "assets/sobaeap_v5/atlas/phase2_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/phase2_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) phase2 4프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-hurt",
+      "texture": "assets/sobaeap_v5/atlas/hurt_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/hurt_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) hurt 4프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
+    },
+    {
+      "type": "atlas",
+      "key": "sobaeap-v5-death",
+      "texture": "assets/sobaeap_v5/atlas/death_atlas.png",
+      "atlas": "assets/sobaeap_v5/atlas/death_atlas.json",
+      "note": "3라운드 최종 보스 소배압 V5(sobaeap_no_clipping_v5) death 6프레임, 704x480, 발 기준점 (352,416), 표시 scale 0.5, 오른쪽 기본·왼쪽 flipX. V1~V4 사용 안 함"
     },
     {
       "type": "atlas",

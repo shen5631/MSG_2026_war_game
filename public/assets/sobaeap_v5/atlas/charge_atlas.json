@@ -1,0 +1,92 @@
+{
+  "frames": {
+    "sobaeap_charge_01.png": {
+      "frame": {
+        "x": 8,
+        "y": 8,
+        "w": 704,
+        "h": 480
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 704,
+        "h": 480
+      },
+      "sourceSize": {
+        "w": 704,
+        "h": 480
+      }
+    },
+    "sobaeap_charge_02.png": {
+      "frame": {
+        "x": 720,
+        "y": 8,
+        "w": 704,
+        "h": 480
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 704,
+        "h": 480
+      },
+      "sourceSize": {
+        "w": 704,
+        "h": 480
+      }
+    },
+    "sobaeap_charge_03.png": {
+      "frame": {
+        "x": 1432,
+        "y": 8,
+        "w": 704,
+        "h": 480
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 704,
+        "h": 480
+      },
+      "sourceSize": {
+        "w": 704,
+        "h": 480
+      }
+    },
+    "sobaeap_charge_04.png": {
+      "frame": {
+        "x": 2144,
+        "y": 8,
+        "w": 704,
+        "h": 480
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 704,
+        "h": 480
+      },
+      "sourceSize": {
+        "w": 704,
+        "h": 480
+      }
+    }
+  },
+  "meta": {
+    "image": "charge_atlas.png",
+    "size": {
+      "w": 2856,
+      "h": 496
+    },
+    "scale": "1"
+  }
+}

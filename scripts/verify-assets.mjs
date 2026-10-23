@@ -35,8 +35,9 @@ const EXPECT = {
   'khitan-vanguard-v2': { cell: 192, count: 51 },
   // Round-1 boss combat effects V2: 384×256 frames.
   'round1-vanguard-fx-clean-v2': { cellW: 384, cellH: 256, count: 31 },
-  // Round-3 boss 소배압 V3: 512×320 native-scale frames (feet anchor 256,282).
-  'sobaeap-final-v3': { cellW: 512, cellH: 320, count: 35 },
+  // Round-3 boss 소배압 V5: one atlas per action, 704×480 frames (feet anchor 352,416), shown at scale 0.5.
+  ...Object.fromEntries(Object.entries({ idle: 4, walk: 6, attack: 6, charge: 4, combo: 8, phase2: 4, hurt: 4, death: 6 })
+    .map(([a, n]) => [`sobaeap-v5-${a}`, { cellW: 704, cellH: 480, count: n }])),
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
   'round2-environment-v2': { cell: null, count: 70 },
