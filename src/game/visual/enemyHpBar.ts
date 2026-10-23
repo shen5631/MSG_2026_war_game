@@ -1,13 +1,13 @@
 // Small HP bar over regular enemies, in the same language as the player's HUD bar: dark frame, red fill and an
-// orange "lag" segment that holds briefly after a hit and then drains down to the new HP. Display only — HP comes
-// from the simulation and the lag runs on sim time (it freezes with the game on pause).
+// orange "lag" segment that holds a moment after a hit and then quickly drains down to the new HP. Display only —
+// HP comes from the simulation and the lag runs on sim time (it freezes with the game on pause).
 import type Phaser from 'phaser';
 
 export const ENEMY_BAR_W = 22;
 export const ENEMY_BAR_H = 3;
-const LAG_HOLD_MS = 350;
-/** Lag drain speed as a fraction of max HP per millisecond (a full bar drains in ~1.25 s). */
-const LAG_DRAIN_PER_MS = 0.0008;
+const LAG_HOLD_MS = 120;
+/** Lag drain speed as a fraction of max HP per millisecond (a full bar drains in 0.4 s). */
+const LAG_DRAIN_PER_MS = 0.0025;
 
 export interface EnemyBarState { lagHp: number; lastHp: number; holdUntil: number; lastT: number }
 
@@ -16,12 +16,13 @@ export function newEnemyBarState(hp: number, t: number): EnemyBarState {
 }
 
 export function stepEnemyBar(s: EnemyBarState, hp: number, maxHp: number, t: number): void {
-  const dt = Math.max(0, t - s.lastT);
-  s.lastT = t;
   if (hp < s.lastHp) s.holdUntil = t + LAG_HOLD_MS;
+  // drain only for the part of this step that lies after the hold
+  const drainMs = Math.max(0, t - Math.max(s.lastT, s.holdUntil));
+  s.lastT = t;
   s.lastHp = hp;
   if (hp >= s.lagHp) s.lagHp = hp;
-  else if (t >= s.holdUntil) s.lagHp = Math.max(hp, s.lagHp - maxHp * LAG_DRAIN_PER_MS * dt);
+  else s.lagHp = Math.max(hp, s.lagHp - maxHp * LAG_DRAIN_PER_MS * drainMs);
 }
 
 /** Whole-pixel widths of the red fill and of the orange lag (lag drawn under the fill). */
