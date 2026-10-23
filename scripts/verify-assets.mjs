@@ -27,8 +27,8 @@ const EXPECT = {
   khitan_archer: { cell: 128, count: 25 },
   khitan_spearman: { cell: 192, count: 25 },
   goryeo_spearman_skill: { cell: 192, count: 18 },
-  // 0.3× display copy of the 640×640 round-2 boss v2 cells (scripts/downscale-atlas.mjs), 2px gutter.
-  elite_spearman_commander: { cellW: 192, cellH: 192, count: 44 },
+  // Round-2 boss elite_spearman_v2: 320×192 native-scale frames (feet anchor 160,176).
+  elite_spearman_v2: { cellW: 320, cellH: 192, count: 50 },
   'khitan-vanguard-v2': { cell: 192, count: 51 },
   'goryeo-shield-skill-v1': { cell: 128, count: 12 },
   round1_env: { cell: null, count: 67 },
