@@ -36,7 +36,7 @@ describe('game flow', () => {
     const c = new GameController(1);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     expect(c.phase).toBe('playing');
     clearRound(c);
     expect(c.phase).toBe('reward');
@@ -67,7 +67,7 @@ describe('game flow', () => {
     const c = new GameController(2);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     clearRound(c);
     c.chooseUpgrade('command_cooldown');
     const sim = c.round!;
@@ -96,7 +96,7 @@ describe('game flow', () => {
     const c = new GameController(3);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     const p = c.round!.player;
     p.cooldownRemaining = 10000;
     p.buffRemaining = 5000;
@@ -111,7 +111,7 @@ describe('game flow', () => {
     const c = new GameController(4);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     c.addAutoPause('hidden');
     c.clearAutoPause('hidden');
     expect(c.pause.paused).toBe(true);
@@ -123,7 +123,7 @@ describe('game flow', () => {
     const c = new GameController(5);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     clearRound(c);
     c.chooseUpgrade('parry');
     c.returnToMenu();
@@ -136,7 +136,7 @@ describe('game flow', () => {
     const c = new GameController(6);
     c.setLoaded();
     c.startGame();
-    c.finishTutorial(); // skip the control guide (tested separately)
+    c.finishStory(); c.finishTutorial(); // skip the story and control guide (tested separately)
     // A long frame right after the start is dropped without pausing (texture upload grace)…
     c.frame(5000, idle);
     expect(c.pause.paused).toBe(false);
@@ -149,17 +149,22 @@ describe('game flow', () => {
   });
 });
 
-describe('control guide after 시작하기', () => {
+describe('opening story and control guide after 시작하기', () => {
   it('holds round 1 on its first frame until finished; START/pause cannot stack on top', () => {
     const c = new GameController(1);
     c.setLoaded();
     c.startGame();
     expect(c.phase).toBe('playing');
-    expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
+    expect(c.snapshot().pauseReasons).toEqual(['story', 'tutorial']);
     frames(c, 120);
     expect(c.round!.t).toBe(0);
     c.pauseManual();
+    c.finishTutorial(); // the guide cannot be closed while the story is still showing
+    expect(c.snapshot().pauseReasons).toEqual(['story', 'tutorial']);
+    c.finishStory();
     expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
+    frames(c, 60);
+    expect(c.round!.t).toBe(0); // still held by the guide
     c.finishTutorial();
     expect(c.snapshot().paused).toBe(false);
     frames(c, 60);
@@ -172,17 +177,18 @@ describe('control guide after 시작하기', () => {
     const c = new GameController(1);
     c.setLoaded();
     c.startGame();
+    c.finishStory();
     c.finishTutorial();
     c.round!.player.hp = 0;
     frames(c, 120);
     expect(c.phase).toBe('game-over');
     c.retryRound();
     expect(c.phase).toBe('playing');
-    expect(c.snapshot().pauseReasons).not.toContain('tutorial');
+    expect(c.snapshot().pauseReasons).toEqual([]);
     c.debugStartRound(2);
-    expect(c.snapshot().pauseReasons).not.toContain('tutorial');
+    expect(c.snapshot().pauseReasons).toEqual([]);
     c.returnToMenu();
     c.startGame();
-    expect(c.snapshot().pauseReasons).toEqual(['tutorial']);
+    expect(c.snapshot().pauseReasons).toEqual(['story', 'tutorial']);
   });
 });

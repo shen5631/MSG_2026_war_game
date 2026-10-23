@@ -22,11 +22,13 @@ async function boot(page: Page) {
   return errors;
 }
 
-/** 시작하기, then skips the control guide with Esc (menu cancel) so round 1 runs. */
+/** 시작하기, then skips the opening story and the control guide with Esc (menu cancel) so round 1 runs. */
 async function startGame(page: Page) {
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('hud')).toBeVisible();
   await expect.poll(async () => (await state(page)).phase).toBe('playing');
+  await expect(page.getByTestId('prologue')).toBeVisible();
+  await page.keyboard.press('Escape');
   await expect(page.getByTestId('tutorial')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(page.getByTestId('tutorial')).toBeHidden();
@@ -206,9 +208,24 @@ test('T061/T103/T104 full run: 3 rounds, real waves in round 1, 2 rewards, endin
   expect(errors).toEqual([]);
 });
 
-test('control guide after 시작하기: held round, spotlight steps, skip button top-right', async ({ page }) => {
+test('opening story then control guide after 시작하기: held round, story pages, spotlight steps, skip buttons', async ({ page }) => {
   await boot(page);
   await page.keyboard.press('Enter');
+  const story = page.getByTestId('prologue');
+  await expect(story).toBeVisible();
+  await expect(story).toContainText('낙성대');
+  await expect.poll(async () => (await state(page)).pauseReasons).toEqual(['story', 'tutorial']);
+  await page.waitForTimeout(300);
+  await page.keyboard.press('Enter');
+  await expect(story).toHaveAttribute('data-step', '1');
+  await page.waitForTimeout(300);
+  await page.keyboard.press('ArrowLeft');
+  await expect(story).toHaveAttribute('data-step', '0');
+  const skipS = (await page.getByTestId('prologue-skip').boundingBox())!;
+  const stageS = (await page.getByTestId('stage').boundingBox())!;
+  expect(stageS.x + stageS.width - (skipS.x + skipS.width)).toBeLessThan(40);
+  await page.getByTestId('prologue-skip').click();
+  await expect(story).toBeHidden();
   const guide = page.getByTestId('tutorial');
   await expect(guide).toBeVisible();
   await expect.poll(async () => (await state(page)).pauseReasons).toEqual(['tutorial']);
