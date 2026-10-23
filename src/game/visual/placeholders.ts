@@ -1,127 +1,15 @@
 // TEMPORARY generated pixel art (generated_* textures). Every key here is listed in TEMPORARY_ASSETS
 // and in IMPLEMENTATION_NOTES.md. Replacing them means swapping texture keys, not gameplay numbers.
 import Phaser from 'phaser';
-import type { BossId } from '../../config/spec';
-
-export const POSES = ['idle', 'walkA', 'walkB', 'windup', 'attack', 'hurt', 'dead'] as const;
-export type Pose = (typeof POSES)[number];
-
-type Weapon = 'sword' | 'lance' | 'bigsword';
-interface Palette { armor: string; armorDark: string; trim: string; skin: string; helmet: string; plume: string; cloth: string; metal: string; wood: string; outline: string }
-
-const ENEMY_PAL: Palette = { armor: '#8a3b2a', armorDark: '#5a2418', trim: '#c27a3a', skin: '#d9a066', helmet: '#4e2a1e', plume: '#b8452e', cloth: '#6e3324', metal: '#c8c8c8', wood: '#6b4a2b', outline: '#1b0d08' };
-
-const BOSS_FRAME = { w: 160, h: 160, footY: 152 };
 
 export const TEMPORARY_ASSETS = [
-  'generated_boss_so_bae_ap',
   // Supplied but NOT final: goryeo_spearman_skill v1 frames need replacement (see IMPLEMENTATION_NOTES).
   'goryeo_spearman_skill (v1, replacement needed)',
   'generated_pickups', 'spawn marker (code-drawn, src/game/visual/spawnWarning.ts)',
   'synth_bgm_*', 'synth_sfx_*',
 ] as const;
 
-interface Part { x: number; y: number; w: number; h: number; c: string }
-
-class Painter {
-  parts: Part[] = [];
-  constructor(private ox: number, private oy: number, private s: number) {}
-  r(x: number, y: number, w: number, h: number, c: string): void {
-    const s = this.s;
-    this.parts.push({ x: Math.round(this.ox + x * s), y: Math.round(this.oy + y * s), w: Math.max(1, Math.round(w * s)), h: Math.max(1, Math.round(h * s)), c });
-  }
-  flush(ctx: CanvasRenderingContext2D, outline: string): void {
-    ctx.fillStyle = outline;
-    for (const p of this.parts) ctx.fillRect(p.x - 1, p.y - 1, p.w + 2, p.h + 2);
-    for (const p of this.parts) {
-      ctx.fillStyle = p.c;
-      ctx.fillRect(p.x, p.y, p.w, p.h);
-    }
-    this.parts = [];
-  }
-}
-
-/** Humanoid facing right; (0,0) = feet center; y grows downward (negative = up). */
-function drawHumanoid(ctx: CanvasRenderingContext2D, fx: number, fy: number, scale: number, pal: Palette, pose: Pose, weapon: Weapon, opts: { cape?: boolean; crest?: boolean } = {}): void {
-  const p = new Painter(fx, fy, scale);
-  if (pose === 'dead') {
-    p.r(-26, -10, 40, 9, pal.armor);
-    p.r(14, -12, 10, 10, pal.skin);
-    p.r(14, -14, 11, 4, pal.helmet);
-    p.r(-34, -6, 10, 4, pal.cloth);
-    p.flush(ctx, pal.outline);
-    return;
-  }
-  const lean = pose === 'attack' ? 3 : pose === 'windup' ? -2 : pose === 'hurt' ? -4 : 0;
-  const stepA = pose === 'walkA' ? 4 : pose === 'walkB' ? -4 : pose === 'attack' ? 5 : 0;
-  if (opts.cape) p.r(-14 + lean, -50, 8, 40, pal.plume);
-  // legs
-  p.r(-8 - stepA * 0.5, -24, 7, 24, pal.cloth);
-  p.r(2 + stepA * 0.5, -24, 7, 24, pal.cloth);
-  p.r(-9 - stepA * 0.5, -4, 9, 4, pal.armorDark);
-  p.r(2 + stepA * 0.5, -4, 9, 4, pal.armorDark);
-  // torso
-  p.r(-10 + lean, -52, 20, 30, pal.armor);
-  p.r(-10 + lean, -30, 20, 5, pal.armorDark);
-  p.r(-10 + lean, -52, 20, 3, pal.trim);
-  p.r(-12 + lean, -26, 24, 6, pal.cloth);
-  // head
-  p.r(-6 + lean, -64, 12, 12, pal.skin);
-  p.r(2 + lean, -60, 3, 2, pal.outline);
-  p.r(-8 + lean, -68, 16, 7, pal.helmet);
-  p.r(-1 + lean, -73, 3, 5, opts.crest ? pal.trim : pal.helmet);
-  if (opts.crest) p.r(-5 + lean, -78, 10, 5, pal.plume);
-  // weapon + front arm
-  const ax = 6 + lean;
-  switch (weapon) {
-    case 'sword':
-    case 'bigsword': {
-      const len = weapon === 'bigsword' ? 34 : 24;
-      const wid = weapon === 'bigsword' ? 5 : 3;
-      if (pose === 'windup') { p.r(ax - 14, -58, 6, 16, pal.armor); p.r(ax - 18, -60 - len, wid, len, pal.metal); p.r(ax - 21, -60, wid + 6, 3, pal.trim); }
-      else if (pose === 'attack') { p.r(ax, -46, 16, 6, pal.armor); p.r(ax + 16, -46, len + 6, wid, pal.metal); p.r(ax + 13, -49, 3, wid + 6, pal.trim); }
-      else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 6, -54 - len + 20, wid, len, pal.metal); p.r(ax + 3, -36, wid + 6, 3, pal.trim); }
-      break;
-    }
-    case 'lance': {
-      const len = 64;
-      if (pose === 'windup') { p.r(ax - 10, -50, 8, 6, pal.armor); p.r(ax - 40, -48, len, 2, pal.wood); p.r(ax - 40 + len, -50, 8, 6, pal.metal); }
-      else if (pose === 'attack') { p.r(ax, -48, 18, 6, pal.armor); p.r(ax, -47, len + 10, 2, pal.wood); p.r(ax + len + 10, -49, 10, 6, pal.metal); }
-      else { p.r(ax, -50, 6, 20, pal.armor); p.r(ax + 7, -86, 2, 84, pal.wood); p.r(ax + 5, -94, 6, 9, pal.metal); }
-      break;
-    }
-  }
-  p.flush(ctx, pal.outline);
-}
-
-function makeSheet(scene: Phaser.Scene, key: string, fw: number, fh: number, draw: (ctx: CanvasRenderingContext2D, pose: Pose, ox: number) => void): void {
-  if (scene.textures.exists(key)) return;
-  const tex = scene.textures.createCanvas(key, fw * POSES.length, fh)!;
-  const ctx = tex.getContext();
-  ctx.imageSmoothingEnabled = false;
-  POSES.forEach((pose, i) => draw(ctx, pose, i * fw));
-  tex.refresh();
-  POSES.forEach((pose, i) => tex.add(pose, 0, i * fw, 0, fw, fh));
-}
-
-// Vanguard (V2) and 정예 창병장 (v1) use supplied atlases; only 소배압 is still generated.
-const BOSS_STYLE: Record<Exclude<BossId, 'vanguard' | 'spear_captain'>, { pal: Palette; weapon: Weapon; scale: number; cape: boolean }> = {
-  so_bae_ap: { pal: { ...ENEMY_PAL, armor: '#5a1e1a', armorDark: '#33100d', trim: '#d4a72c', helmet: '#2a1410', plume: '#9c1c1c' }, weapon: 'bigsword', scale: 1.38, cape: true },
-};
-
-export const BOSS_FRAME_INFO = BOSS_FRAME;
-
-export function generateCharacterTextures(scene: Phaser.Scene): void {
-  // All five regular enemy kinds use supplied atlases (cavalry: khitan_cavalry_v6).
-  (Object.keys(BOSS_STYLE) as (keyof typeof BOSS_STYLE)[]).forEach((id) => {
-    const st = BOSS_STYLE[id];
-    makeSheet(scene, `generated_boss_${id}`, BOSS_FRAME.w, BOSS_FRAME.h, (ctx, pose, ox) =>
-      drawHumanoid(ctx, ox + BOSS_FRAME.w / 2, BOSS_FRAME.footY, st.scale, st.pal, pose, st.weapon, { cape: st.cape, crest: true }),
-    );
-  });
-  // 창병 공격 soldiers use the supplied goryeo_spearman_skill_v1 atlas (visual/allySpearman.ts).
-  // 방패병 막기 soldiers use the supplied goryeo_shield_skill_v1 atlas (game/skills/shield).
-}
+// Characters: every player/enemy/boss sprite now comes from a supplied atlas (no generated character art).
 
 export function generatePropTextures(scene: Phaser.Scene): void {
   if (!scene.textures.exists('generated_pickups')) {
