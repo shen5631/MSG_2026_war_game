@@ -266,3 +266,17 @@ table.results td:last-child { text-align: right; color: var(--m-gold-light); fon
 
 /* Titles, menus and headings in the brush-style face (Song Myung has one weight; font-synthesis stays off). */
 h1, h2, h3, .menu-item, .tab, .btn, .back-button, .boss-plate .name, .phase-banner, .toast, .hud-round > :first-child, .skill .nm, .skill-status .value, .tut-skip, .exit-hint, .audio-unlock { font-family: var(--font-title); }
+
+/* Opening story (낙성대 prologue) after 시작하기, over the held round-1 screen. */
+.prologue { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(ellipse at 50% 45%, rgba(10, 16, 34, 0.82), rgba(2, 3, 8, 0.97) 75%); cursor: pointer; pointer-events: auto; overflow: hidden; }
+.pro-card { max-width: 430px; padding: 0 20px; text-align: center; animation: pro-in 700ms ease-out both; }
+.pro-eyebrow { margin: 0 0 4px; color: var(--m-gold); font-size: 9px; letter-spacing: 3px; }
+.pro-card h2 { margin: 0 0 12px; color: var(--m-gold-light); font-size: 24px; letter-spacing: 4px; text-shadow: 0 0 12px #f2d98e55, 0 2px 0 #000; }
+.pro-body { margin: 0; color: var(--m-text); font-size: 11.5px; line-height: 1.9; text-shadow: 0 1px 0 #000; word-break: keep-all; }
+.pro-foot { position: absolute; bottom: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--m-muted); }
+@keyframes pro-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+/* The falling star of 낙성대: a bright head with a gold tail streaking down to the right, then fading. */
+.pro-star { position: absolute; left: 18%; top: -10px; width: 3px; height: 3px; border-radius: 50%; background: #fff8dc; box-shadow: 0 0 6px 2px #ffe9a8, 0 0 14px 4px #f2d98e88; animation: pro-star 2.6s ease-in 0.3s infinite; }
+.pro-star::after { content: ""; position: absolute; right: 1px; bottom: 1px; width: 70px; height: 1px; background: linear-gradient(90deg, transparent, #f2d98e); transform-origin: 100% 50%; transform: rotate(35deg); }
+@keyframes pro-star { 0% { transform: translate(0, 0); opacity: 0; } 10% { opacity: 1; } 55% { transform: translate(230px, 160px); opacity: 1; } 70%, 100% { transform: translate(260px, 180px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .pro-card { animation: none; } .pro-star { animation: none; opacity: 0; } }
