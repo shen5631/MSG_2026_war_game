@@ -14,7 +14,7 @@ import { SPAWN_WARNING_MS, WaveDirector, type WaveEvent } from './waves';
 import { buildSolids } from './world';
 
 export interface Pickup { id: string; kind: 'riceball' | 'herb'; x: number; y: number; areaId: string; alive: boolean }
-export interface SpawnWarning { x: number; until: number; kind: EnemyKind }
+export interface SpawnWarning { x: number; start: number; until: number; kind: EnemyKind }
 export interface AllyVisual { id: string; kind: 'spear'; x: number; y: number; facing: 1 | -1; until: number }
 export type RoundOutcome = 'victory' | 'defeat' | null;
 export type FreezeKind = 'hitstop' | 'transition' | 'intro';
@@ -70,7 +70,9 @@ export class RoundSim {
   cameraX = 0;
   technicalRemovals = 0;
   playerRecoveries = 0;
-  private plannedSpawns = new Map<number, { kind: EnemyKind; x: number }[]>();
+  /** Wave spawns announced but not yet made, per arena. Their warnings always show these exact positions. */
+  private plannedSpawns = new Map<number, { plan: { kind: EnemyKind; x: number }[]; start: number; until: number }>();
+  private summonWarnings: SpawnWarning[] = [];
   private reportedGone = new Set<string>();
   private serial = 0;
   private idSerial = 0;
@@ -212,7 +214,14 @@ export class RoundSim {
 
   private updateWaves(): void {
     this.arenas.forEach((d, i) => this.handleWaveEvents(i, d.update(this.t)));
-    this.spawnWarnings = this.spawnWarnings.filter((w) => w.until > this.t);
+    // A planned point that became unsafe (player walked up to it) moves now, so the marker follows it and the
+    // enemy later appears exactly where the last marker stood.
+    for (const [i, p] of this.plannedSpawns) p.plan = this.repairPlan(this.arenas[i], p.plan);
+    this.summonWarnings = this.summonWarnings.filter((w) => w.until > this.t);
+    this.spawnWarnings = [
+      ...[...this.plannedSpawns.values()].flatMap((p) => p.plan.map((s) => ({ x: s.x, start: p.start, until: p.until, kind: s.kind }))),
+      ...this.summonWarnings,
+    ];
     this.allyVisuals = this.allyVisuals.filter((a) => a.until > this.t);
   }
 
@@ -221,13 +230,10 @@ export class RoundSim {
     for (const e of evs) {
       if (e.type === 'warn') {
         const kinds = d.spec.waves[e.waveIndex].spawnOrder;
-        const plan = this.chooseSpawnSlots(d, kinds);
-        this.plannedSpawns.set(i, plan);
-        const until = this.t + SPAWN_WARNING_MS;
-        plan.forEach((p) => this.spawnWarnings.push({ x: p.x, until, kind: p.kind }));
+        this.plannedSpawns.set(i, { plan: this.chooseSpawnSlots(d, kinds), start: this.t, until: this.t + SPAWN_WARNING_MS });
       } else if (e.type === 'spawn') {
-        let plan = this.plannedSpawns.get(i) ?? this.chooseSpawnSlots(d, d.spec.waves[e.waveIndex].spawnOrder);
-        if (plan.some((p) => !this.spawnSafe(p.x, d))) plan = this.chooseSpawnSlots(d, plan.map((p) => p.kind));
+        const planned = this.plannedSpawns.get(i)?.plan;
+        const plan = planned ? this.repairPlan(d, planned) : this.chooseSpawnSlots(d, d.spec.waves[e.waveIndex].spawnOrder);
         const ids = plan.map((p) => {
           const en = new Enemy(this.newId('e'), ++this.serial, p.kind, p.x, this.groundY, this.t, { minX: d.spec.left, maxX: d.spec.right }, false, d.spec.id);
           this.enemies.push(en);
@@ -257,6 +263,26 @@ export class RoundSim {
     if (x < d.spec.left + 16 || x > d.spec.right - 16) return false;
     const box: Rect = { x: x - 20, y: this.groundY - 70, w: 40, h: 70 };
     return !this.solids.some((s) => s.alive && rectsOverlap(s, box));
+  }
+
+  /**
+   * Keeps every still-safe planned point and moves only the unsafe ones to a free safe slot (or, if none, the free
+   * slot farthest from the player). Kinds/count never change.
+   */
+  private repairPlan(d: WaveDirector, plan: { kind: EnemyKind; x: number }[]): { kind: EnemyKind; x: number }[] {
+    if (plan.every((p) => this.spawnSafe(p.x, d))) return plan;
+    const free = d.spec.nominalSpawnSlotsX.map((sx) => d.spec.left + sx).filter((x) => !plan.some((p) => p.x === x));
+    return plan.map((p) => {
+      if (this.spawnSafe(p.x, d)) return p;
+      let k = free.findIndex((x) => this.spawnSafe(x, d));
+      if (k < 0 && free.length) {
+        k = 0;
+        free.forEach((x, j) => { if (Math.abs(x - this.player.body.x) > Math.abs(free[k] - this.player.body.x)) k = j; });
+      }
+      if (k < 0) return p;
+      const [x] = free.splice(k, 1);
+      return { kind: p.kind, x };
+    });
   }
 
   /** Deterministic slot choice: nominal slot i, otherwise the next safe unused slot. Kinds/count never change. */
@@ -343,7 +369,7 @@ export class RoundSim {
       if (Math.abs(x - px) < DEFAULTS.enemy.minSpawnPlayerDistance) x = x === left ? right : left;
       const en = new Enemy(this.newId('s'), ++this.serial, kind, x, this.groundY, this.t, bounds, true, 'boss');
       this.enemies.push(en);
-      this.spawnWarnings.push({ x, until: this.t + 400, kind });
+      this.summonWarnings.push({ x, start: this.t, until: this.t + 400, kind });
     }
     this.events.push({ type: 'sfx', id: 'waveStart' });
   }
@@ -603,6 +629,7 @@ export class RoundSim {
     for (const e of this.enemies) if (e.alive) e.removeSilently(this.slots);
     this.projectiles = [];
     this.spawnWarnings = [];
+    this.summonWarnings = [];
     this.bossStage = 'done';
     this.outcome = 'victory';
     this.outcomeElapsed = 0;
@@ -696,6 +723,7 @@ export class RoundSim {
     this.activeArena = -1;
     this.lockedBounds = null;
     this.spawnWarnings = [];
+    this.plannedSpawns.clear();
     this.minX = this.arenas.length ? this.arenas[this.arenas.length - 1].spec.right : 0;
     this.debugTeleport(this.spec.bossArena.left - 40);
   }
