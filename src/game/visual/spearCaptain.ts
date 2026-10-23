@@ -1,34 +1,42 @@
-// Round-2 boss '정예 창병장' (elite_spearman_commander_round2_boss_v1) driven by the EXISTING domain Boss AI
+// Round-2 boss '정예 창병장' (elite_spearman_commander_round2_boss_game_ready_v2) driven by the EXISTING domain Boss AI
 // (src/domain/boss.ts 'spear_captain': HP 500, phase 2 at 250, distance/phase pattern choice, red telegraph).
-// Only frame choice and alignment live here. Frames come from a 1/3-resolution display copy of the supplied
-// atlas (scripts/downscale-atlas.mjs: same scenes/names, never re-split) — the original 567×737 cells would be
-// shown at ~0.15× and alias badly.
+// Only frame choice and alignment live here. Frames come from a 0.3× display copy of the supplied v2 atlas
+// (scripts/downscale-atlas.mjs: same scenes/names, never re-split) — the original 640×640 cells would be shown
+// at ~0.2× and alias badly.
 import { DEFAULTS } from '../../config/spec';
 import type { Boss } from '../../domain/boss';
 import type { VanguardView } from './vanguard';
 
 export const SPEAR_CAPTAIN_KEY = 'elite_spearman_commander';
-const CELL_W = 189;
-const CELL_H = 246;
+const CELL_W = 192;
+const CELL_H = 192;
 
 const COUNTS = { idle: 4, walk: 6, attack: 6, charge: 6, combo: 8, phase2: 4, hurt: 4, death: 6 } as const;
 type Action = keyof typeof COUNTS;
 const name = (a: Action, i: number) => `elite_spearman_commander_${a}_0${i + 1}.png`;
 export const REQUIRED_SPEAR_CAPTAIN_FRAMES = (Object.keys(COUNTS) as Action[]).flatMap((a) => Array.from({ length: COUNTS[a] }, (_, i) => name(a, i)));
 
-/** Bottom row of the drawn feet per frame (display atlas, measured). */
-const FOOT: Record<Action, number[]> = {
-  idle: [200, 199, 200, 198], walk: [196, 193, 192, 193, 189, 191], attack: [191, 193, 192, 194, 194, 194],
-  charge: [177, 177, 177, 177, 187, 176], combo: [182, 185, 189, 185, 185, 176, 184, 188],
-  phase2: [236, 236, 236, 230], hurt: [204, 199, 195, 199], death: [201, 198, 189, 197, 205, 201],
-};
-/** Feet centre per action: the figure is not centred in its cell and flipX mirrors around the cell. */
-const FEET_X: Record<Action, number> = { idle: 77, walk: 96, attack: 90, charge: 88, combo: 92, phase2: 80, hurt: 80, death: 95 };
 /**
- * The source sheets were drawn at different sizes (idle/hurt large, combo ~0.68× the attack sheet):
- * per-action scale so the standing commander is ~105px tall (body 40×88, a little larger than the vanguard).
+ * Bottom row of the boots per frame (display atlas, measured on dark opaque pixels). The pack says every frame is
+ * aligned to y=622 (186.6 here); the drawings actually end between 151 and 185.
  */
-const SCALE: Record<Action, number> = { idle: 0.77, walk: 1.02, attack: 0.98, charge: 1.04, combo: 1.44, phase2: 0.77, hurt: 0.8, death: 0.9 };
+const FOOT: Record<Action, number[]> = {
+  idle: [176, 176, 174, 174], walk: [178, 178, 178, 165, 165, 165], attack: [178, 178, 178, 161, 161, 161],
+  charge: [170, 169, 170, 153, 153, 151], combo: [183, 182, 182, 183, 160, 161, 160, 161],
+  phase2: [185, 184, 154, 166], hurt: [178, 180, 166, 169], death: [185, 185, 185, 158, 166, 169],
+};
+/**
+ * Boots centre per frame (the figure is not centred on the cell; flipX mirrors around the cell). Lunge frames keep
+ * their own value so the body visibly drives forward over the planted feet; hurt/phase2 use one value because their
+ * spear tips / flames hide the boots.
+ */
+const FEET_X: Record<Action, number[]> = {
+  idle: [124, 124, 125, 126], walk: [95, 105, 102, 104, 103, 102], attack: [106, 101, 69, 93, 97, 86],
+  charge: [93, 62, 54, 53, 50, 74], combo: [90, 101, 85, 102, 93, 99, 68, 106],
+  phase2: [95, 95, 95, 95], hurt: [110, 110, 110, 110], death: [112, 101, 107, 103, 122, 122],
+};
+/** The v2 sheets are still drawn at different sizes (idle/phase2/hurt/death large): standing commander ≈105px. */
+const SCALE: Record<Action, number> = { idle: 0.77, walk: 1, attack: 1, charge: 1, combo: 1, phase2: 0.8, hurt: 0.8, death: 0.8 };
 
 const pick = (frames: readonly number[], u: number) => frames[Math.min(frames.length - 1, Math.max(0, Math.floor(u * frames.length)))];
 
@@ -84,7 +92,7 @@ export function spearCaptainPose(b: Boss, v: VanguardView): SpearCaptainPose {
     case 'dead': action = 'death'; index = Math.min(5, Math.floor((v.deadMs / 900) * 6)); break;
     default: break;
   }
-  const fx = FEET_X[action] / CELL_W;
+  const fx = FEET_X[action][index] / CELL_W;
   return {
     frame: name(action, index),
     scale: SCALE[action],

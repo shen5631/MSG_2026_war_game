@@ -51,9 +51,9 @@
     {
       "type": "atlas",
       "key": "elite_spearman_commander",
-      "texture": "assets/elite_spearman_commander_round2_boss_v1/atlas/elite_spearman_commander_display.png",
-      "atlas": "assets/elite_spearman_commander_round2_boss_v1/atlas/elite_spearman_commander_display.json",
-      "note": "2라운드 보스 정예 창병장: 원본 아틀라스(567x737 칸 44장, 2268x8107)의 1/3 해상도 표시용 사본(189x246, 장면·이름 동일, 재분할 없음). 원본은 패키지에 보관"
+      "texture": "assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_display.png",
+      "atlas": "assets/elite_spearman_commander_round2_boss_game_ready_v2/atlas/elite_spearman_commander_display.json",
+      "note": "2라운드 보스 정예 창병장 v2(game_ready): 원본 640x640 칸 44장(2560x7040)의 0.3배 표시용 사본(192x192, 장면·이름 동일, 재분할 없음). 원본은 패키지에 보관. v1 대체"
     },
     {
       "type": "atlas",
@@ -126,14 +126,14 @@
   ],
   "missingProductionAssets": [
     "enemy-types: shieldman, cavalry",
-    "bosses: so_bae_ap (선봉대장 V2·정예 창병장 v1 사용)",
+    "bosses: so_bae_ap (선봉대장 V2·정예 창병장 v2 사용)",
     "round2-round3-backgrounds",
     "round2-round3-dedicated-terrain",
     "story-art",
     "bgm: ending (로비는 「준비 yourselves」, 전투 구간은 「전투의 기수」 사용)",
     "sfx",
     "ally-spearman-skill v1 replacement: strike_01~06 (60% size, spear/body cut at cell x51/x140, neighbour fragments), summon_02~04/despawn_02~04/ready_02~04 (stray spear tip at left x≈28), summon_01/despawn_01/ready_01 (spear tip cut at right edge)",
-    "elite-spearman-commander v1 replacement: walk/attack/charge/death frames cut at cell edges (spear tips), combo_01~08 cut and drawn ~0.68x the attack sheet, sheets drawn at different scales"
+    "elite-spearman-commander v2: neighbour-cell fragments in attack/combo frames, idle spear tip touching the canvas top, feet not on the stated y=622 baseline, sheets drawn at different scales"
   ],
   "missingAssetPolicy": "explicit-generated-development-placeholder-and-status-report-not-silent-final-substitution"
 }
