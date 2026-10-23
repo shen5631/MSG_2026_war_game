@@ -50,9 +50,21 @@ export function HUD() {
         <div className="small">{h.arenaLabel}{h.waveLabel ? ` · ${h.waveLabel}` : ''}</div>
       </div>
       {h.boss && (
-        <div className="hud-boss" data-testid="hud-boss">
-          <div className="name">{h.boss.name} {h.boss.phase === 2 && <span className="phase">{STORY.ui.phase2}</span>}</div>
-          <div className="bossbar"><div className="lag" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} /><div className="fill" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} /><div className="half" /></div>
+        // Boss plate in the menu style: name between gold ornaments, phase badge, framed bar with the 50% phase notch.
+        <div className={`hud-boss ${h.boss.phase === 2 ? 'p2' : ''}`} data-testid="hud-boss">
+          <div className="boss-plate">
+            <i className="orn" aria-hidden="true" />
+            <span className="name">{h.boss.name}</span>
+            <i className="orn" aria-hidden="true" />
+            <span className="phase" data-testid="hud-boss-phase">{h.boss.phase === 2 ? STORY.ui.phase2 : '1페이즈'}</span>
+          </div>
+          <div className="bossbar">
+            <div className="lag" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} />
+            <div className="fill" style={{ width: `${(h.boss.hp / h.boss.maxHp) * 100}%` }} />
+            <div className="sheen" aria-hidden="true" />
+            <div className="half" aria-hidden="true" />
+          </div>
+          <div className="boss-hp-num">{Math.ceil(h.boss.hp)} / {h.boss.maxHp}</div>
         </div>
       )}
       {phaseBanner && <div className="phase-banner">{STORY.ui.phase2}</div>}
