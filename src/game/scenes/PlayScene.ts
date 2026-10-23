@@ -61,7 +61,6 @@ export class PlayScene extends Phaser.Scene {
   private shieldView!: PhaserShieldView;
   private walls!: Phaser.GameObjects.Graphics;
   private debugGfx: Phaser.GameObjects.Graphics | null = null;
-  private exitArrow!: Phaser.GameObjects.Image;
   private bossGlow!: Phaser.GameObjects.Ellipse;
   private enemySprites = new Map<string, { s: Phaser.GameObjects.Sprite; bar: Phaser.GameObjects.Rectangle; lastHp: number; flashUntil: number; shieldView?: PhaserShieldEnemyView }>();
   private bossSprite: Phaser.GameObjects.Sprite | null = null;
@@ -91,7 +90,6 @@ export class PlayScene extends Phaser.Scene {
     this.ground = this.add.tileSprite(0, GROUND_STRIP_TOP, VIEW_W, strip.height, GROUND_STRIP_KEY).setOrigin(0).setScrollFactor(0).setDepth(-10);
     this.roundTheme = 0;
     this.walls = this.add.graphics().setDepth(40);
-    this.exitArrow = this.add.image(0, 0, 'generated_ui_markers', 'exit').setDepth(45).setVisible(false);
     this.bossGlow = this.add.ellipse(0, 0, 90, 22, 0xff2020, 0.45).setDepth(4).setVisible(false);
     // Above terrain art (depth 6) so it shows on platforms and crates, below the hero (20).
     this.shadow = this.add.ellipse(0, 0, 34, 8, 0x000000, 0.35).setDepth(7);
@@ -296,7 +294,7 @@ export class PlayScene extends Phaser.Scene {
     p.setPosition(Math.round(this.camX + 110), 304).setFlipX(false).setAlpha(1).clearTint();
     p.setFrame(`ganggamchan_idle_0${1 + (Math.floor(t / 166) % 4)}`);
     this.shadow.setPosition(p.x, 305).setScale(1).setAlpha(1);
-    for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.exitArrow, this.bossGlow]) o.setVisible(false);
+    for (const o of [this.buffAura, this.chargeAura, this.chargeGauge, this.bossGlow]) o.setVisible(false);
     this.shieldView.clear();
     this.walls.clear();
     this.debugGfx?.clear();
@@ -390,16 +388,13 @@ export class PlayScene extends Phaser.Scene {
       this.pools.allies[i].setFrame(pose.frame).setScale(pose.scale).setOrigin(pose.originX, pose.originY).setFlipX(pose.flipX).setPosition(Math.round(a.x), Math.round(a.y));
     });
 
-    // arena walls / exit marker
+    // arena walls (the open exit is announced by the HUD text only)
     this.walls.clear();
     if (r.lockedBounds) {
       this.walls.fillStyle(0xc8402a, 0.35);
       this.walls.fillRect(r.lockedBounds.minX, 0, 4, 304);
       this.walls.fillRect(r.lockedBounds.maxX - 4, 0, 4, 304);
     }
-    const ex = r.activeArena >= 0 && r.arenas[r.activeArena].state === 'cleared';
-    this.exitArrow.setVisible(ex);
-    if (ex) this.exitArrow.setPosition(r.arenas[r.activeArena].spec.right - 20, 230 + Math.sin(r.presentationT / 150) * 4);
 
     // effects
     for (const f of this.fx) {
