@@ -10,8 +10,13 @@ import { CAVALRY, frameForState, type CavalryState } from '../enemies/cavalry/co
 export const CAVALRY_KEY = CAVALRY.atlasKey;
 /** Feet anchor (224,220) of the 448×256 frames. */
 export const CAVALRY_ORIGIN = { x: CAVALRY.anchorX / CAVALRY.frameWidth, y: CAVALRY.anchorY / CAVALRY.frameHeight };
-/** Top of the horse+rider above the feet (V6: ~144 px idle/attack_01, 147 px charge_02), for the HP bar. */
-export const CAVALRY_ART_HEIGHT = 146;
+/**
+ * Display scale: the V6 horse+rider is ~143 px tall at native size, almost twice the ~78–80 px foot soldiers; 0.7 makes
+ * it ~100 px, a little taller than the infantry (rider on horseback). Display only, the body/hitboxes are unchanged.
+ */
+export const CAVALRY_SCALE = 0.7;
+/** Top of the horse+rider above the feet (V6 native: ~144 px idle/attack_01, 147 px charge_02), for the HP bar. */
+export const CAVALRY_ART_HEIGHT = Math.round(146 * CAVALRY_SCALE);
 
 const ACTIONS = { idle: 4, walk: 6, run: 6, attack: 6, charge: 2, hurt: 4, death: 6 } as const;
 export const REQUIRED_CAVALRY_FRAMES = Object.entries(ACTIONS).flatMap(([a, n]) =>

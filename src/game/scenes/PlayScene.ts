@@ -15,7 +15,7 @@ import { SPEARMAN_KEY, spearmanPose } from '../visual/spearman';
 import { PhaserShieldEnemyView } from '../enemies/shield/PhaserShieldEnemyView';
 import { SHIELDMAN_SCALE, shieldmanSnapshot } from '../visual/shieldman';
 import { PhaserCavalryView } from '../enemies/cavalry/PhaserCavalryView';
-import { CAVALRY_ART_HEIGHT, cavalrySnapshot } from '../visual/cavalry';
+import { CAVALRY_ART_HEIGHT, CAVALRY_SCALE, cavalrySnapshot } from '../visual/cavalry';
 import { drawSpawnWarning, spawnWarningProgress } from '../visual/spawnWarning';
 import { drawEnemyBar, newEnemyBarState, stepEnemyBar, type EnemyBarState } from '../visual/enemyHpBar';
 import { ALLY_SPEAR_KEY, allySpearPose } from '../visual/allySpearman';
@@ -414,12 +414,12 @@ export class PlayScene extends Phaser.Scene {
     if (!v) {
       // Shieldman: the package view (192×192, feet 96,160, SHIELDMAN_SCALE) owns its sprite; we keep tint/fade/HP bar.
       const shieldView = e.kind === 'shieldman' ? new PhaserShieldEnemyView(this, e.body.x, e.body.y, SHIELDMAN_SCALE) : undefined;
-      // Cavalry: package V6 view (448×256, feet 224,220, flipX for left) on the existing cavalry AI.
+      // Cavalry: package V6 view (448×256, feet 224,220, flipX for left) on the existing cavalry AI; shown at CAVALRY_SCALE.
       const cavalryView = e.kind === 'cavalry' ? new PhaserCavalryView(this, 12) : undefined;
       const s = shieldView
         ? (shieldView.sprite as unknown as Phaser.GameObjects.Sprite).setDepth(12)
         : cavalryView
-        ? (cavalryView.sprite as unknown as Phaser.GameObjects.Sprite)
+        ? (cavalryView.sprite as unknown as Phaser.GameObjects.Sprite).setScale(CAVALRY_SCALE)
         : e.kind === 'infantry'
         ? this.add.sprite(e.body.x, e.body.y, INFANTRY_KEY, 'khitan_infantry_idle_01.png').setDepth(12)
         : e.kind === 'spearman'
