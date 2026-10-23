@@ -485,6 +485,17 @@ E2E 범위: 실제 아틀라스 표시·캔버스 1개(StrictMode), 정수 배�
 - 시작 시 `document.fonts.load`로 두 글꼴을 미리 불러와 캔버스 글자가 대체 글꼴로 그려지지 않게 함(실패해도 대체 글꼴로 표시).
 - 검증: Chrome 타이틀·조작 안내·2라운드 보스전 HUD·일시정지 화면 확인, 계산된 글꼴(본문 Gowun Batang, 제목 Song Myung)과 로드 상태 확인, 단위·브라우저·빌드.
 
+## 작업 기록 — 2026-10-23 (41) 거란군 기병 V1 → V6 교체 (`khitan_cavalry_production_v6`)
+- 프로젝트에 연결돼 있던 기병 그림은 V1뿐(V2~V5는 받은 적 없음). V1 아틀라스·manifest·README(`public/assets/khitan_cavalry_enemy_v1/`)를 프로젝트에서 제거(원본은 다운로드 폴더에 그대로)하고 `public/assets/khitan_cavalry_v6/` 전체를 같은 경로로 복사(atlas·frames·strips·manifest·source_sheets, README 추가). 런타임은 아틀라스(1792×2304, 34프레임 448×256, trim/회전 없음)만 로딩, 키 `khitan-cavalry-v6`.
+- 코드: 패키지 `src/enemy/{core,PhaserCavalryView}.ts`(V6 원본)로 `src/game/enemies/cavalry/`의 V1 원본을 교체. 표시 어댑터 `src/game/visual/cavalry.ts`는 V6 형식(`CavalryViewState`, `stateDurationMs`)에 맞춤. 기존 도메인 기병 AI·수치·웨이브·판정·package.json 변경 없음, 패키지 제어기 없음(V6에는 제어기 자체가 없음). 로딩은 기존 runtime_assets 등록 방식(패키지의 `preloadCavalryV6`와 같은 아틀라스 경로).
+- 표시: origin (0.5, 220/256), scale 1, 좌향 flipX, 마스크·setDisplaySize 없음. 상태 연결은 V1과 같음(idle/walk/windup→attack_01~03/active→charge/recover→attack_04~06/stunned→hurt/dead→death). run은 기존 AI에 질주 상태가 없어 미사용. `source_replacements`의 재사용 4장(walk_01=walk_02, walk_06=walk_05, run_06=run_05, attack_01=idle_04)은 새 그림이 아님. 체력바 위치는 V6 그림 높이(발 위 약 144~147px)에 맞춤.
+- 측정: 34프레임 모두 캔버스 가장자리에 닿는 불투명 픽셀 없음(창끝·꼬리·발굽 잘림 없음), 발 아래끝 217~218행(기준 220). V6는 V1보다 큼(대기 높이 143px vs 122px, 플레이어 약 80px).
+- **미결정(사용자 확인 필요, (33)과 같은 문제가 커짐)**: V6 돌진 그림의 창끝은 발 기준 전방 최대 약 187px인데 기존 판정은 전방 68px까지. 지시대로 전투 판정은 변경하지 않음.
+- 검증 결과:
+  - 통과: Chrome 3라운드(무적 ON, 다른 적 AI 정지 디버그) 대기 idle_02 → 예고 attack_02 → 왼쪽 돌진 charge_01(flipX) → 복귀 attack_04, 반대편에서 오른쪽 돌진(flipX 해제), 피격 hurt_02, 사망 death_03, 표시 448×256·scale 1·origin 0.859375, 창끝·말꼬리·발굽 화면 표시 정상, 콘솔 오류 0. 지형 충돌: 돌진 경로에 장애물(디버그로 추가한 52×46 고체)을 두니 400ms 만에 장애물 앞(x 1348 = 장애물 왼쪽 1380 − 몸 절반 32)에서 돌진 종료 후 복귀, 구역 벽(x 1600)에서도 1568에서 멈춤. 단위 7개(수치·프레임·예고/돌진/복귀 프레임·600ms 이하·벽 조기 종료·좌우·1회 피해 18·패링 취소·사망 1회), 봇 3라운드 1회 클리어(경고 0), 자산 검사 34프레임.
+  - 실패: 없음.
+  - 미검증: 실물 게임패드, 60FPS 성능 측정, 실제 패링 입력으로 기병 돌진 취소(단위·봇 시험만), 리소스 로딩 실패 화면(기존 부팅 프레임 검사 경로를 그대로 사용, 이번에 일부러 실패시켜 보지 않음).
+
 ## 단계 체크리스트
 - [x] P0 실행뼈대와실제자산표시
 - [x] P1 도메인·입력·시간
