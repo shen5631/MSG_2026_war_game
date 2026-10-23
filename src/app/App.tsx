@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { STORY } from '../config/spec';
 import type { ControllerState } from '../domain/session';
 import type { Services } from './bridge';
@@ -7,6 +7,9 @@ import { ServicesContext } from './useMenu';
 import { Ending, Results, Rewards } from './ui/Flow';
 import { HUD, Toasts } from './ui/HUD';
 import { GameOver, Loading, LoadError, Pause, PadDisconnected, RuntimeError, Title } from './ui/Panels';
+
+// Dev server only: the test panel (` key) is dropped from production builds with this constant branch.
+const DevPanel = import.meta.env.DEV ? lazy(() => import('../debug/DevPanel')) : null;
 
 function Overlay({ st, padActive, padNotice }: { st: ControllerState; padActive: boolean; padNotice: string | null }) {
   switch (st.phase) {
@@ -64,6 +67,7 @@ export function App({ services }: { services: Services }) {
       <div className="app-root">
         <GameHost>
           <Overlay st={st} padActive={padActive} padNotice={padNotice} />
+          {DevPanel && <Suspense fallback={null}><DevPanel /></Suspense>}
           {audioLocked && st.phase === 'playing' && (
             <button className="audio-unlock" data-testid="audio-unlock" onClick={() => services.audio.unlock()}>{STORY.ui.audioUnlock}</button>
           )}

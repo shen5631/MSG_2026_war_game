@@ -137,6 +137,19 @@ table.controls kbd { display: inline-block; padding: 1px 5px; border: 1px solid 
 @media (prefers-reduced-motion: reduce) { .menu-item, .setting-row, .card { transition: none; } }
 table.results td:last-child { text-align: right; color: var(--m-gold-light); font-weight: 700; }
 
+/* DEV-only test panel (src/debug/DevPanel.tsx) */
+.dev-hint { position: absolute; right: 4px; bottom: 2px; font-size: 6px; color: #8899aa88; pointer-events: none; z-index: 30; }
+.dev-panel { position: absolute; right: 6px; top: 62px; width: 236px; padding: 6px 8px; z-index: 30; pointer-events: auto; font-size: 8px; color: #dce4ee; background: rgba(8, 14, 26, 0.94); border: 1px solid #e0a040; box-shadow: 0 4px 12px #000a; }
+.dev-panel header { font-size: 9px; font-weight: 700; color: #ffcf8a; margin-bottom: 4px; }
+.dev-panel small { font-weight: 400; color: #8f9eb4; font-size: 7px; }
+.dev-panel h4 { margin: 4px 0 2px; font-size: 7px; color: #b5a273; font-weight: 700; letter-spacing: 1px; }
+.dev-panel .row { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 3px; align-items: center; }
+.dev-btn { padding: 2px 5px; font-size: 7px; color: #dce4ee; background: #172337; border: 1px solid #34435a; cursor: pointer; }
+.dev-btn:hover { border-color: #e0a040; color: #ffcf8a; }
+.dev-btn.on { background: #3b2a12; border-color: #e0a040; color: #ffcf8a; }
+.dev-panel .upg { display: inline-flex; align-items: center; gap: 2px; margin-right: 4px; }
+.dev-state { margin: 4px 0 0; font-size: 7px; color: #8f9eb4; }
+
 /* HUD — internal coordinates (spec §17.1) */
 /* Red screen-edge flash when the hero loses HP (shield-absorbed hits do not trigger it). */
 .damage-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(160, 0, 0, 0) 45%, rgba(190, 10, 10, 0.32) 78%, rgba(220, 20, 20, 0.62) 100%); animation: damage-flash 450ms ease-out forwards; }
