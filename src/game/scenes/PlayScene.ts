@@ -125,7 +125,9 @@ export class PlayScene extends Phaser.Scene {
     router.setMode(controller.phase === 'playing' && !controller.pause.paused ? 'combat' : 'menu');
     router.update(now);
     controller.frame(dt, router);
-    audio.setGamePaused(controller.phase === 'playing' && controller.pause.paused);
+    // The opening story and control guide hold the round but keep their music playing; every other reason mutes.
+    const intro = (r: string) => r === 'story' || r === 'tutorial';
+    audio.setGamePaused(controller.phase === 'playing' && controller.pause.list().some((r) => !intro(r)));
     audio.setMusic(this.musicTheme());
     audio.update();
     this.renderFrame(dt);
@@ -138,6 +140,7 @@ export class PlayScene extends Phaser.Scene {
       case 'playing':
       case 'game-over':
       case 'reward': {
+        if (c.phase === 'playing' && (c.pause.has('story') || c.pause.has('tutorial'))) return 'story';
         const r = c.round;
         if (r && r.bossStage !== 'pending') return 'boss';
         return `round${c.roundIndex}` as MusicTheme;

@@ -3,7 +3,7 @@
 import { DEFAULTS, RUNTIME_ASSETS } from '../config/spec';
 import type { SfxId } from '../domain/events';
 
-export type MusicTheme = 'title' | 'round1' | 'round2' | 'round3' | 'boss' | 'ending' | null;
+export type MusicTheme = 'title' | 'story' | 'round1' | 'round2' | 'round3' | 'boss' | 'ending' | null;
 
 interface TrackDef { key: string; file: string; themes: string[]; loop: boolean }
 const TRACKS = (RUNTIME_ASSETS as { audio?: TrackDef[] }).audio ?? [];
@@ -16,6 +16,7 @@ interface ThemeDef { bpm: number; root: number; scale: number[]; melody: number[
 
 // 평조-like pentatonic degrees; melodies index into the scale (−1 = rest).
 const THEMES: Record<Exclude<MusicTheme, null>, ThemeDef> = {
+  story: { bpm: 70, root: 196, scale: [0, 2, 5, 7, 9, 12, 14], melody: [4, -1, 3, 2, 3, -1, 1, 0, 2, -1, 3, 4, 5, -1, 4, -1], drum: '................', wave: 'triangle' },
   title: { bpm: 76, root: 220, scale: [0, 2, 5, 7, 9, 12, 14], melody: [4, -1, 3, 2, 3, -1, 1, 0, 2, -1, 3, 4, 5, -1, 4, -1], drum: 'x..x..x...x.x...', wave: 'triangle' },
   round1: { bpm: 112, root: 196, scale: [0, 2, 5, 7, 9, 12, 14], melody: [0, 2, 3, 4, 3, 2, 3, -1, 4, 5, 4, 3, 2, 1, 2, -1], drum: 'x.x.x..xx.x.x..x', wave: 'square' },
   round2: { bpm: 120, root: 174.6, scale: [0, 3, 5, 7, 10, 12, 15], melody: [2, 3, 4, -1, 4, 3, 2, 0, 1, 2, 3, -1, 5, 4, 3, 2], drum: 'x..xx.x.x..xx.x.', wave: 'square' },
