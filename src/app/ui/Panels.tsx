@@ -228,7 +228,6 @@ export function Title({ padNotice, padActive }: { padNotice: string | null; padA
         </footer>
       </Frame>
       {padNotice && <p className="pad-notice">{padNotice}</p>}
-      <p className="temp-tag">개발 빌드 · 엔딩 음악·효과음은 임시 자료</p>
       {sub === 'settings' && <Settings onClose={() => setSub(null)} />}
       {sub === 'controls' && <Controls onClose={() => setSub(null)} />}
     </div>
